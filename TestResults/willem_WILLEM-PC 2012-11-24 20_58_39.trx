@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="869241b1-28f8-4391-aece-7d868bf9d9e7" name="willem@WILLEM-PC 2012-11-24 20:58:39" runUser="willem-PC\willem" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="bb5cc414-7621-42b4-ad8c-3b60df5803d2">
+    <Deployment runDeploymentRoot="willem_WILLEM-PC 2012-11-24 20_58_39">
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.Providers.Core.1.0\lib\net40\System.Web.Providers.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Deployment.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.Deployment.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.Core.4.0.20505.0\lib\net40\System.Web.Http.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\WebGrease.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Library\bin\Debug\MonackFr.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\EntityFramework.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\WebGrease.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.Mvc.4.0.20505.0\lib\net40\System.Web.Mvc.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.Razor.2.0.20505.0\lib\net40\System.Web.Razor.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.Razor.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\Antlr3.Runtime.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\System.Web.Optimization.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Razor.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\bin\System.Web.Providers.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.WebHost.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.Helpers.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20505.0\lib\net40\System.Web.Http.WebHost.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.Razor.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\Microsoft.Web.Infrastructure.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\bin\MonackFr.Mvc.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\Newtonsoft.Json.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\bin\TaskList.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.Helpers.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\EntityFramework.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\Antlr3.Runtime.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.Client.4.0.20505.0\lib\net40\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\System.Web.Optimization.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\bin\UserManagement.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\packages\Newtonsoft.Json.4.5.1\lib\net40\Newtonsoft.Json.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-11-24T20:58:39.0476183+01:00" queuing="2012-11-24T20:58:42.1346291+01:00" start="2012-11-24T20:58:42.1846292+01:00" finish="2012-11-24T20:58:43.1646306+01:00" />
+  <ResultSummary outcome="Warning">
+    <Counters total="9" executed="9" passed="9" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.0446290+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.Deployment.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll cannot be deployed to 'System.Web.WebPages.Deployment.dll' because otherwise the file 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.Deployment.dll' would overwrite deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Deployment.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.0746291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll cannot be deployed to 'System.Web.Http.dll' because otherwise the file 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll' would overwrite deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.Core.4.0.20505.0\lib\net40\System.Web.Http.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.0746291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.Razor.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll cannot be deployed to 'System.Web.Razor.dll' because otherwise the file 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.Razor.dll' would overwrite deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.Razor.2.0.20505.0\lib\net40\System.Web.Razor.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1046291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20505.0\lib\net40\System.Web.Http.WebHost.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll cannot be deployed to 'System.Web.Http.WebHost.dll' because otherwise the file 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20505.0\lib\net40\System.Web.Http.WebHost.dll' would overwrite deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.WebHost.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1046291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.Razor.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll cannot be deployed to 'System.Web.WebPages.Razor.dll' because otherwise the file 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.Razor.dll' would overwrite deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Razor.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1046291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\Microsoft.Web.Infrastructure.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll cannot be deployed to 'Microsoft.Web.Infrastructure.dll' because otherwise the file 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\Microsoft.Web.Infrastructure.dll' would overwrite deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1046291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll cannot be deployed to 'System.Web.Mvc.dll' because otherwise the file 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll' would overwrite deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.Mvc.4.0.20505.0\lib\net40\System.Web.Mvc.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1046291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll cannot be deployed to 'System.Web.WebPages.dll' because otherwise the file 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.dll' would overwrite deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1246291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.Helpers.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll cannot be deployed to 'System.Web.Helpers.dll' because otherwise the file 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.Helpers.dll' would overwrite deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.Helpers.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1246291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.Client.4.0.20505.0\lib\net40\System.Net.Http.Formatting.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll cannot be deployed to 'System.Net.Http.Formatting.dll' because otherwise the file 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.Client.4.0.20505.0\lib\net40\System.Net.Http.Formatting.dll' would overwrite deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1246291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll cannot be deployed to 'System.Net.Http.WebRequest.dll' because otherwise the file 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll' would overwrite deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1246291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll cannot be deployed to 'System.Net.Http.dll' because otherwise the file 'D:\code\MonackFr\MonackFr\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll' would overwrite deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1246291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\System.Web.Http.dll' directly or indirectly referenced by the test container 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll' cannot be deployed to 'System.Web.Http.dll' because otherwise the file 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\System.Web.Http.dll' would overwrite deployment item 'D:\code\MonackFr\MonackFr\packages\Microsoft.AspNet.WebApi.Core.4.0.20505.0\lib\net40\System.Web.Http.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\TaskList.Tests\bin\Debug\TaskList.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1246291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\System.Net.Http.Formatting.dll' directly or indirectly referenced by the test container 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\tasklist.tests.dll' cannot be deployed to 'System.Net.Http.Formatting.dll' because otherwise the file 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\System.Net.Http.Formatting.dll' would overwrite deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1246291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\System.Net.Http.dll' directly or indirectly referenced by the test container 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\tasklist.tests.dll' cannot be deployed to 'System.Net.Http.dll' because otherwise the file 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\System.Net.Http.dll' would overwrite deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll.</Text>
+      </RunInfo>
+      <RunInfo computerName="WILLEM-PC" outcome="Warning" timestamp="2012-11-24T20:58:42.1246291+01:00">
+        <Text>Warning: conflict during test run deployment: deployment item 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\System.Web.Http.WebHost.dll' directly or indirectly referenced by the test container 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\tasklist.tests.dll' cannot be deployed to 'System.Web.Http.WebHost.dll' because otherwise the file 'd:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\System.Web.Http.WebHost.dll' would overwrite deployment item 'C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.WebHost.dll' directly or indirectly referenced by D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\UserManagement.Tests.dll.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="DeleteTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="4bb346d0-fecd-45be-06d6-bfa882cdd341">
+      <Execution id="9bb376e0-5584-47a4-a5c1-3b718a74d079" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeleteTest" />
+    </UnitTest>
+    <UnitTest name="DetailsTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="fa99c4be-8c51-acef-7159-316bcb10e211">
+      <Execution id="dd329f5e-ea81-4905-9fb2-452554b78492" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DetailsTest" />
+    </UnitTest>
+    <UnitTest name="EditTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="ea00d908-566b-2ad6-a5c3-6d84421bf1cf">
+      <Execution id="9b7d07b4-10ce-40c5-96b7-7d2a7fdbc316" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="EditTest" />
+    </UnitTest>
+    <UnitTest name="ViewEditTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="98e6d09e-5d45-31b4-f4ad-a051185f934e">
+      <Execution id="8a3ef3c8-1be1-4ba8-88e1-c5d4031f2a38" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ViewEditTest" />
+    </UnitTest>
+    <UnitTest name="CreateTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="0ffe3f3f-460b-b06b-3a2a-c384149f3ccf">
+      <Execution id="3c6c62f2-2379-42aa-9b84-1810f3186f1f" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CreateTest" />
+    </UnitTest>
+    <UnitTest name="LoginTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="28718a37-9df0-dd77-b04b-db02af780181">
+      <Execution id="3e45f51e-3f90-4aa5-a868-34df152f5888" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="LoginTest" />
+    </UnitTest>
+    <UnitTest name="Index_RedersView" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\tasklist.tests\bin\debug\tasklist.tests.dll" id="bdb83531-a45d-904a-deba-61116d9f90f1">
+      <Execution id="d8ae9ad3-8966-4798-9fd7-9aa5a83fd5db" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/TaskList.Tests/bin/Debug/TaskList.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.TaskList.Tests.TaskControllerTest, TaskList.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Index_RedersView" />
+    </UnitTest>
+    <UnitTest name="ViewCreateTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="75bb7c3f-3909-c856-0e2b-78fc66ea1b7d">
+      <Execution id="a950c622-783d-457d-8a91-f6626395de9a" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ViewCreateTest" />
+    </UnitTest>
+    <UnitTest name="IndexTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="e746f793-e3b4-3d22-7668-20409ab89219">
+      <Execution id="d3439042-81c5-47fa-9e05-455179542299" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="IndexTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="0ffe3f3f-460b-b06b-3a2a-c384149f3ccf" executionId="3c6c62f2-2379-42aa-9b84-1810f3186f1f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="28718a37-9df0-dd77-b04b-db02af780181" executionId="3e45f51e-3f90-4aa5-a868-34df152f5888" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4bb346d0-fecd-45be-06d6-bfa882cdd341" executionId="9bb376e0-5584-47a4-a5c1-3b718a74d079" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="75bb7c3f-3909-c856-0e2b-78fc66ea1b7d" executionId="a950c622-783d-457d-8a91-f6626395de9a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="98e6d09e-5d45-31b4-f4ad-a051185f934e" executionId="8a3ef3c8-1be1-4ba8-88e1-c5d4031f2a38" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bdb83531-a45d-904a-deba-61116d9f90f1" executionId="d8ae9ad3-8966-4798-9fd7-9aa5a83fd5db" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e746f793-e3b4-3d22-7668-20409ab89219" executionId="d3439042-81c5-47fa-9e05-455179542299" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ea00d908-566b-2ad6-a5c3-6d84421bf1cf" executionId="9b7d07b4-10ce-40c5-96b7-7d2a7fdbc316" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fa99c4be-8c51-acef-7159-316bcb10e211" executionId="dd329f5e-ea81-4905-9fb2-452554b78492" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="3c6c62f2-2379-42aa-9b84-1810f3186f1f" testId="0ffe3f3f-460b-b06b-3a2a-c384149f3ccf" testName="CreateTest" computerName="WILLEM-PC" duration="00:00:00.0495363" startTime="2012-11-24T20:58:42.2146292+01:00" endTime="2012-11-24T20:58:42.7046299+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3c6c62f2-2379-42aa-9b84-1810f3186f1f">
+    </UnitTestResult>
+    <UnitTestResult executionId="3e45f51e-3f90-4aa5-a868-34df152f5888" testId="28718a37-9df0-dd77-b04b-db02af780181" testName="LoginTest" computerName="WILLEM-PC" duration="00:00:00.1834016" startTime="2012-11-24T20:58:42.7146299+01:00" endTime="2012-11-24T20:58:42.8946302+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3e45f51e-3f90-4aa5-a868-34df152f5888">
+    </UnitTestResult>
+    <UnitTestResult executionId="9bb376e0-5584-47a4-a5c1-3b718a74d079" testId="4bb346d0-fecd-45be-06d6-bfa882cdd341" testName="DeleteTest" computerName="WILLEM-PC" duration="00:00:00.0042673" startTime="2012-11-24T20:58:42.8946302+01:00" endTime="2012-11-24T20:58:42.9046302+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9bb376e0-5584-47a4-a5c1-3b718a74d079">
+    </UnitTestResult>
+    <UnitTestResult executionId="a950c622-783d-457d-8a91-f6626395de9a" testId="75bb7c3f-3909-c856-0e2b-78fc66ea1b7d" testName="ViewCreateTest" computerName="WILLEM-PC" duration="00:00:00.0002817" startTime="2012-11-24T20:58:42.9046302+01:00" endTime="2012-11-24T20:58:42.9146302+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a950c622-783d-457d-8a91-f6626395de9a">
+    </UnitTestResult>
+    <UnitTestResult executionId="8a3ef3c8-1be1-4ba8-88e1-c5d4031f2a38" testId="98e6d09e-5d45-31b4-f4ad-a051185f934e" testName="ViewEditTest" computerName="WILLEM-PC" duration="00:00:00.0021911" startTime="2012-11-24T20:58:42.9146302+01:00" endTime="2012-11-24T20:58:42.9146302+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a3ef3c8-1be1-4ba8-88e1-c5d4031f2a38">
+    </UnitTestResult>
+    <UnitTestResult executionId="d8ae9ad3-8966-4798-9fd7-9aa5a83fd5db" testId="bdb83531-a45d-904a-deba-61116d9f90f1" testName="Index_RedersView" computerName="WILLEM-PC" duration="00:00:00.0248785" startTime="2012-11-24T20:58:42.9246302+01:00" endTime="2012-11-24T20:58:43.1146305+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d8ae9ad3-8966-4798-9fd7-9aa5a83fd5db">
+    </UnitTestResult>
+    <UnitTestResult executionId="d3439042-81c5-47fa-9e05-455179542299" testId="e746f793-e3b4-3d22-7668-20409ab89219" testName="IndexTest" computerName="WILLEM-PC" duration="00:00:00.0004525" startTime="2012-11-24T20:58:43.1246305+01:00" endTime="2012-11-24T20:58:43.1246305+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d3439042-81c5-47fa-9e05-455179542299">
+    </UnitTestResult>
+    <UnitTestResult executionId="9b7d07b4-10ce-40c5-96b7-7d2a7fdbc316" testId="ea00d908-566b-2ad6-a5c3-6d84421bf1cf" testName="EditTest" computerName="WILLEM-PC" duration="00:00:00.0029793" startTime="2012-11-24T20:58:43.1246305+01:00" endTime="2012-11-24T20:58:43.1346305+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9b7d07b4-10ce-40c5-96b7-7d2a7fdbc316">
+    </UnitTestResult>
+    <UnitTestResult executionId="dd329f5e-ea81-4905-9fb2-452554b78492" testId="fa99c4be-8c51-acef-7159-316bcb10e211" testName="DetailsTest" computerName="WILLEM-PC" duration="00:00:00.0020079" startTime="2012-11-24T20:58:43.1346305+01:00" endTime="2012-11-24T20:58:43.1346305+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd329f5e-ea81-4905-9fb2-452554b78492">
+    </UnitTestResult>
+  </Results>
+</TestRun>

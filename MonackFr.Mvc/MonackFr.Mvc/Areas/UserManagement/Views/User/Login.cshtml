@@ -1,0 +1,35 @@
+﻿@model MonackFr.Mvc.Areas.UserManagement.ViewModels.LoginUser
+
+@{
+	ViewBag.Title = "Login";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "User",
+  new { model = this.Model, returnUrl = ViewContext.HttpContext.Request.QueryString["ReturnUrl"]}))
+{
+   
+    <fieldset>
+        <legend>Login</legend>
+		
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.UserName)            
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+        </div>
+
+        <p>
+            <input type="submit" value="Login" />
+        </p>
+    </fieldset>
+}

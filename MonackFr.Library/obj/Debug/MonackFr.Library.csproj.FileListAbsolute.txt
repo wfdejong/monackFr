@@ -1,0 +1,6 @@
+D:\code\MonackFr\MonackFr\MonackFr.Library\bin\Debug\MonackFr.dll
+D:\code\MonackFr\MonackFr\MonackFr.Library\bin\Debug\MonackFr.pdb
+D:\code\MonackFr\MonackFr\MonackFr.Library\bin\Debug\EntityFramework.xml
+D:\code\MonackFr\MonackFr\MonackFr.Library\obj\Debug\MonackFr.dll
+D:\code\MonackFr\MonackFr\MonackFr.Library\obj\Debug\MonackFr.pdb
+D:\code\MonackFr\MonackFr\MonackFr.Library\obj\Debug\MonackFr.Library.csprojResolveAssemblyReference.cache

@@ -1,0 +1,20 @@
+﻿@using MonackFr.Mvc.Areas.TaskList.Models
+@model IEnumerable<Task>
+@{
+    ViewBag.Title = "Home Page";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Tasks</h3>
+@Html.ActionLink("New", "Create")
+<ol class="tasklist">
+@foreach (var item in Model)
+{
+    <li class="task">
+		@item.Id
+		@item.InsertDate
+		@Html.ActionLink("Edit", "Edit", new { id = item.Id })		
+		@Html.ActionLink("Delete", "Delete", new { id = item.Id})
+	</li>
+}
+</ol>

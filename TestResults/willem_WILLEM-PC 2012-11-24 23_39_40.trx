@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="a4295263-df5a-49e0-b47f-d9d569c21c2b" name="willem@WILLEM-PC 2012-11-24 23:39:40" runUser="willem-PC\willem" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="428b4696-4212-4a18-a5b4-dcf095641fc6">
+    <Deployment runDeploymentRoot="willem_WILLEM-PC 2012-11-24 23_39_40">
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\System.Web.Optimization.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.Deployment.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.Helpers.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\WebGrease.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\Microsoft.Web.Infrastructure.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.Formatting.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\Antlr3.Runtime.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.Razor.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Library\bin\Debug\MonackFr.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\bin\UserManagement.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\EntityFramework.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v2.0\Assemblies\System.Web.WebPages.Razor.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Mvc.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\bin\System.Web.Providers.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\Areas\UserManagement.Tests\bin\Debug\Newtonsoft.Json.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Web.Http.WebHost.dll" />
+      <DeploymentItem filename="D:\code\MonackFr\MonackFr\MonackFr.Mvc\MonackFr.Mvc\bin\MonackFr.Mvc.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Assemblies\System.Net.Http.WebRequest.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-11-24T23:39:40.5935397+01:00" queuing="2012-11-24T23:39:41.9125465+01:00" start="2012-11-24T23:39:42.0525467+01:00" finish="2012-11-24T23:39:44.5565621+01:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="9" executed="9" passed="9" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="UserDeleteTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="8e11e5c2-6ee6-6c7f-ab88-445603b773f0">
+      <Execution id="09c9d3d4-2d72-4caf-b280-12592f715865" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserDeleteTest" />
+    </UnitTest>
+    <UnitTest name="UserIndexTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="f30632f4-ac48-c657-e69a-c38e1ba5f63d">
+      <Execution id="0507d052-0bd5-4718-91a2-c83e3988f757" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserIndexTest" />
+    </UnitTest>
+    <UnitTest name="UserLoginTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="070a1889-8ea7-06cd-2ab2-65373eb035fd">
+      <Execution id="2e883089-9313-4a98-8a8f-e77f9ef8faeb" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserLoginTest" />
+    </UnitTest>
+    <UnitTest name="RoleViewCreateTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="bf368af5-d12a-81f9-7565-bf4d441723be">
+      <Execution id="6f491347-d4f7-44f5-847d-ea8e85ef5421" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.RoleControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RoleViewCreateTest" />
+    </UnitTest>
+    <UnitTest name="UserViewCreateTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="ef9fba92-e647-2b8b-0276-4069d00074e7">
+      <Execution id="ab8622bf-f182-4e10-9056-2bbe21e68b01" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserViewCreateTest" />
+    </UnitTest>
+    <UnitTest name="UserDetailsTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="e08ad432-739d-1b2e-f91a-caa9f450f7cb">
+      <Execution id="36950fd2-e3f9-468a-b9df-4f804ea6674b" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserDetailsTest" />
+    </UnitTest>
+    <UnitTest name="UserEditTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="00267992-6885-a3ac-6132-31d3cbee82bf">
+      <Execution id="8e102b3a-9f7c-4bfa-a69d-58823d386668" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserEditTest" />
+    </UnitTest>
+    <UnitTest name="UserCreateTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="8f8eb222-85c9-f7ac-03ad-ca3aed0f0a41">
+      <Execution id="1c9c361e-45b6-4160-8509-47465c6bf2b7" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserCreateTest" />
+    </UnitTest>
+    <UnitTest name="UserViewEditTest" storage="d:\code\monackfr\monackfr\monackfr.mvc\monackfr.mvc\areas\usermanagement.tests\bin\debug\usermanagement.tests.dll" id="e256cfce-9c5e-23cc-40a6-afd755f033ce">
+      <Execution id="cd55655a-2beb-4c62-b931-4c9604374133" />
+      <TestMethod codeBase="D:/code/MonackFr/MonackFr/MonackFr.Mvc/MonackFr.Mvc/Areas/UserManagement.Tests/bin/Debug/UserManagement.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="MonackFr.Mvc.Areas.UserManagement.Tests.UserControllerTest, UserManagement.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="UserViewEditTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="bf368af5-d12a-81f9-7565-bf4d441723be" executionId="6f491347-d4f7-44f5-847d-ea8e85ef5421" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ef9fba92-e647-2b8b-0276-4069d00074e7" executionId="ab8622bf-f182-4e10-9056-2bbe21e68b01" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8f8eb222-85c9-f7ac-03ad-ca3aed0f0a41" executionId="1c9c361e-45b6-4160-8509-47465c6bf2b7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f30632f4-ac48-c657-e69a-c38e1ba5f63d" executionId="0507d052-0bd5-4718-91a2-c83e3988f757" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e256cfce-9c5e-23cc-40a6-afd755f033ce" executionId="cd55655a-2beb-4c62-b931-4c9604374133" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="00267992-6885-a3ac-6132-31d3cbee82bf" executionId="8e102b3a-9f7c-4bfa-a69d-58823d386668" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e08ad432-739d-1b2e-f91a-caa9f450f7cb" executionId="36950fd2-e3f9-468a-b9df-4f804ea6674b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8e11e5c2-6ee6-6c7f-ab88-445603b773f0" executionId="09c9d3d4-2d72-4caf-b280-12592f715865" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="070a1889-8ea7-06cd-2ab2-65373eb035fd" executionId="2e883089-9313-4a98-8a8f-e77f9ef8faeb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="6f491347-d4f7-44f5-847d-ea8e85ef5421" testId="bf368af5-d12a-81f9-7565-bf4d441723be" testName="RoleViewCreateTest" computerName="WILLEM-PC" duration="00:00:00.1111635" startTime="2012-11-24T23:39:42.2425470+01:00" endTime="2012-11-24T23:39:44.0825495+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6f491347-d4f7-44f5-847d-ea8e85ef5421">
+    </UnitTestResult>
+    <UnitTestResult executionId="ab8622bf-f182-4e10-9056-2bbe21e68b01" testId="ef9fba92-e647-2b8b-0276-4069d00074e7" testName="UserViewCreateTest" computerName="WILLEM-PC" duration="00:00:00.0016302" startTime="2012-11-24T23:39:44.0925495+01:00" endTime="2012-11-24T23:39:44.1025496+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab8622bf-f182-4e10-9056-2bbe21e68b01">
+    </UnitTestResult>
+    <UnitTestResult executionId="1c9c361e-45b6-4160-8509-47465c6bf2b7" testId="8f8eb222-85c9-f7ac-03ad-ca3aed0f0a41" testName="UserCreateTest" computerName="WILLEM-PC" duration="00:00:00.0139858" startTime="2012-11-24T23:39:44.1025496+01:00" endTime="2012-11-24T23:39:44.1225496+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1c9c361e-45b6-4160-8509-47465c6bf2b7">
+    </UnitTestResult>
+    <UnitTestResult executionId="0507d052-0bd5-4718-91a2-c83e3988f757" testId="f30632f4-ac48-c657-e69a-c38e1ba5f63d" testName="UserIndexTest" computerName="WILLEM-PC" duration="00:00:00.0006537" startTime="2012-11-24T23:39:44.1325496+01:00" endTime="2012-11-24T23:39:44.1425496+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0507d052-0bd5-4718-91a2-c83e3988f757">
+    </UnitTestResult>
+    <UnitTestResult executionId="cd55655a-2beb-4c62-b931-4c9604374133" testId="e256cfce-9c5e-23cc-40a6-afd755f033ce" testName="UserViewEditTest" computerName="WILLEM-PC" duration="00:00:00.0028546" startTime="2012-11-24T23:39:44.1625496+01:00" endTime="2012-11-24T23:39:44.1725497+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cd55655a-2beb-4c62-b931-4c9604374133">
+    </UnitTestResult>
+    <UnitTestResult executionId="8e102b3a-9f7c-4bfa-a69d-58823d386668" testId="00267992-6885-a3ac-6132-31d3cbee82bf" testName="UserEditTest" computerName="WILLEM-PC" duration="00:00:00.0030003" startTime="2012-11-24T23:39:44.1825497+01:00" endTime="2012-11-24T23:39:44.1925497+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e102b3a-9f7c-4bfa-a69d-58823d386668">
+    </UnitTestResult>
+    <UnitTestResult executionId="36950fd2-e3f9-468a-b9df-4f804ea6674b" testId="e08ad432-739d-1b2e-f91a-caa9f450f7cb" testName="UserDetailsTest" computerName="WILLEM-PC" duration="00:00:00.0020803" startTime="2012-11-24T23:39:44.2025497+01:00" endTime="2012-11-24T23:39:44.2025497+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="36950fd2-e3f9-468a-b9df-4f804ea6674b">
+    </UnitTestResult>
+    <UnitTestResult executionId="09c9d3d4-2d72-4caf-b280-12592f715865" testId="8e11e5c2-6ee6-6c7f-ab88-445603b773f0" testName="UserDeleteTest" computerName="WILLEM-PC" duration="00:00:00.0033955" startTime="2012-11-24T23:39:44.2125497+01:00" endTime="2012-11-24T23:39:44.2225497+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="09c9d3d4-2d72-4caf-b280-12592f715865">
+    </UnitTestResult>
+    <UnitTestResult executionId="2e883089-9313-4a98-8a8f-e77f9ef8faeb" testId="070a1889-8ea7-06cd-2ab2-65373eb035fd" testName="UserLoginTest" computerName="WILLEM-PC" duration="00:00:00.2379330" startTime="2012-11-24T23:39:44.2225497+01:00" endTime="2012-11-24T23:39:44.4735574+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e883089-9313-4a98-8a8f-e77f9ef8faeb">
+    </UnitTestResult>
+  </Results>
+</TestRun>

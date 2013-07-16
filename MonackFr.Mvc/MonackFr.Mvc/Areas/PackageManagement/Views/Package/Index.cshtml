@@ -1,0 +1,43 @@
+﻿@using MonackFr.Mvc
+@model IEnumerable<Package>
+
+@{
+    ViewBag.Title = "AvailableModules";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AvailableModules</h2>
+
+@foreach (Package package in Model)
+{
+	<div>
+		<strong>@package.Path</strong>		
+	@foreach (IModule module in package.Modules)
+	{
+		<div>
+		@module
+		@foreach(KeyValuePair<string, string> meta in module.MetaData) 
+		{
+    
+				<span>@meta.Key</span>
+				<span>@meta.Value</span>				
+		}
+		</div>
+		
+    
+	}
+		@if(!package.Installed) 
+		{
+			using (Html.BeginForm("InstallPackage", "Package", new { path = @package.Path})) {
+				<input type="submit" value="Install" />
+			}
+		}
+		else 
+		{
+			using (Html.BeginForm("RemovePackage", "Package", new { path = @package.Path})) {			
+				<input type="submit" value="Remove" />
+			}			
+		}	
+		</div>
+	<br>
+}

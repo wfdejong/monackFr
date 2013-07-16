@@ -1,0 +1,45 @@
+﻿@model MonackFr.Mvc.Areas.UserManagement.ViewModels.DetailsUser
+@using MonackFr.Mvc.Areas.UserManagement.ViewModels
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Details</h2>
+
+<fieldset>
+	<legend>Username: @Html.DisplayFor(model => model.UserName)</legend>
+	<div class="display-label">
+		@Html.DisplayNameFor(model => model.CreationDate)
+	</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.CreationDate)
+	</div>
+	<div class="display-label">
+		@Html.DisplayNameFor(model => model.LastUpdate)
+	</div>
+	<div class="display-field">
+		@Html.DisplayFor(model => model.LastUpdate)
+	</div>
+	Roles:
+	@foreach (CheckBoxListRole userRole in Model.UserRoles)
+	{
+		<div>
+			@userRole.Name
+			@Html.HiddenFor(x => userRole.Id)
+			@Html.CheckBoxFor(x => userRole.Checked)
+		</div>
+	}
+	Groups:
+	@foreach (CheckBoxListGroup userGroup in Model.UserGroups)
+	{
+		<div>
+			@userGroup.Name
+			@Html.HiddenFor(x => userGroup.Id)
+			@Html.CheckBoxFor(x => userGroup.Checked)
+		</div>
+	}
+</fieldset>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+	@Html.ActionLink("Back to List", "Index")
+</p>
