@@ -1,9 +1,0 @@
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\obj\Debug\MonackFr.Library.Tests.csprojResolveAssemblyReference.cache
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\bin\Debug\MonackFr.Library.Tests.dll
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\bin\Debug\MonackFr.Library.Tests.pdb
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\bin\Debug\MonackFr.dll
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\bin\Debug\EntityFramework.dll
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\bin\Debug\MonackFr.pdb
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\bin\Debug\EntityFramework.xml
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\obj\Debug\MonackFr.Library.Tests.dll
-D:\code\MonackFr\MonackFr\MonackFr.Library.Tests\obj\Debug\MonackFr.Library.Tests.pdb
