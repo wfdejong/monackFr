@@ -231,12 +231,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\MonackFr.Library\MonackFr.Library.csproj">
-      <Project>{DE92726D-E872-4E26-8E20-2C125EC3E6F8}</Project>
-      <Name>MonackFr.Library</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\PackageManagement\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +247,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Install\Views\Install\Install.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonackFr.Library\MonackFr.Library.csproj">
+      <Project>{de92726d-e872-4e26-8e20-2c125ec3e6f8}</Project>
+      <Name>MonackFr.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
