@@ -1,3 +1,4 @@
 aspnet_client
-Bin/*
-bin/*
+Bin/
+bin/
+obj/
