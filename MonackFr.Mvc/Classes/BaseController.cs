@@ -41,7 +41,7 @@ namespace MonackFr.Mvc
 		/// </summary>
 		private void LoadInstalledModules()
 		{
-			if (PluginLoader.Instance.Plugins.Count() == 0)
+			if (PluginLoader.Instance.Plugins.Count() == 0 || true)
 			{
 				PackageRepository packageRepository = new PackageRepository();
 				

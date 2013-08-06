@@ -8,7 +8,7 @@ namespace MonackFr
 	/// <summary>
 	/// Contains application information
 	/// </summary>
-	public static class Application
+	public static class MonackFr
 	{
 		/// <summary>
 		/// Application name

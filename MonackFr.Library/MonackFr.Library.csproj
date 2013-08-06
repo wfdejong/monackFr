@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
+    <Compile Include="MonackFr.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Security\Hash.cs" />

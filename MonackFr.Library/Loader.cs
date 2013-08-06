@@ -17,7 +17,7 @@ namespace MonackFr
 		/// List with plugins
 		/// </summary>
 		[ImportMany]
-		private List<T> _available;
+		private List<T> _available = null;
 
 		/// <summary>
 		/// Loaded plugins
@@ -36,24 +36,23 @@ namespace MonackFr
 		/// <param name="path">path to file that containes interface T</param>
 		public Loader(string path)
 		{
-			this.Load(path);
-		}
-
-		/// <summary>
-		/// Load the plugings from the file
-		/// </summary>
-		/// <param name="path"></param>
-		private void Load(string path)
-		{
 			if (System.IO.File.Exists(path))
 			{
-				var container = new CompositionContainer(new AssemblyCatalog(path));
-				container.ComposeParts(this);
+				this.Load(new CompositionContainer(new AssemblyCatalog(path)));
 			}
 			else
 			{
 				throw new System.IO.FileNotFoundException();
 			}
+		}
+		
+		/// <summary>
+		/// Load the plugings from the file
+		/// </summary>
+		/// <param name="path"></param>
+		private void Load(CompositionContainer container)
+		{			
+			container.ComposeParts(this);			
 		}
 	}
 }

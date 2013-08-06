@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskList", "MonackFr.Mvc\Ar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement", "MonackFr.Mvc\Areas\UserManagement\UserManagement.csproj", "{F750E3E8-4E42-43FF-99D7-5C974B6E2CBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Library.Tests", "MonackFr.Library.Tests\MonackFr.Library.Tests.csproj", "{72794D5C-6887-4F18-9ABC-204124D481A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{F750E3E8-4E42-43FF-99D7-5C974B6E2CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F750E3E8-4E42-43FF-99D7-5C974B6E2CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F750E3E8-4E42-43FF-99D7-5C974B6E2CBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72794D5C-6887-4F18-9ABC-204124D481A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72794D5C-6887-4F18-9ABC-204124D481A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72794D5C-6887-4F18-9ABC-204124D481A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72794D5C-6887-4F18-9ABC-204124D481A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
