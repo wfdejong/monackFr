@@ -63,7 +63,7 @@
     <Compile Include="PluginLoader.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LoaderTest.cs" />
-    <Compile Include="Security\UnitTest1.cs" />
+    <Compile Include="Security\HashTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MonackFr.Library\MonackFr.Library.csproj">
