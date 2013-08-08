@@ -9,7 +9,7 @@ namespace MonackFr.Library.Tests
 	public class PluginLoaderTests
 	{
 		[TestMethod]
-		public void TestAdd()
+		public void add_object_to_plugin_loader()
 		{
 			PluginLoader.Instance.Add(new Object());
 			Assert.IsTrue(PluginLoader.Instance.Plugins.ToArray().Count() > 0, "PluginLoader.Add(), Plugin is not added");
@@ -17,7 +17,7 @@ namespace MonackFr.Library.Tests
 		}
 
 		[TestMethod]
-		public void TestAddRange()
+		public void add_range_of_object_to_plugin_loader()
 		{
 			List<Object> range = new List<object>();
 			range.Add(new Object());
@@ -27,7 +27,7 @@ namespace MonackFr.Library.Tests
 		}
 
 		[TestMethod]
-		public void TestDispose()
+		public void dispose_objects_of_plugin_loader()
 		{
 			PluginLoader.Instance.Add(new Object());
 			Assert.IsTrue(PluginLoader.Instance.Plugins.ToArray().Count() > 0, "PluginLoader.Add(), Plugin is not added");
