@@ -9,27 +9,12 @@ namespace MonackFr.Library.Tests.Security
 	public class HashTest
 	{
 		[TestMethod]
-		public void create_a_hashed_password()
+		public void create_a_hashed_password_and_validate_it()
 		{
-			string password = "this is fun";
+			string password = "admin";
+            string testHash = Hash.Create(password);
 
-			// Generate a random salt
-			RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
-			byte[] salt = new byte[24];
-			csprng.GetBytes(salt);
-
-			// Hash the password and encode the parameters
-			Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, salt);
-			pbkdf2.IterationCount = 1000;
-			byte[] hash = pbkdf2.GetBytes(24);
-			
-			string compareHash = 1000 + ":" +
-				Convert.ToBase64String(salt) + ":" +
-				Convert.ToBase64String(hash);
-			string testHash = Hash.Create(password);
-
-			Assert.AreEqual(compareHash, testHash);
-
-		}
+            Assert.IsTrue(Hash.ValidatePassword(password, testHash));
+        }
 	}
 }
