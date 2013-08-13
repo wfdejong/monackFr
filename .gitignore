@@ -2,3 +2,7 @@ aspnet_client
 Bin/
 bin/
 obj/
+*.suo
+*.vspscc
+*.user
+*.vssscc
