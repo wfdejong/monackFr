@@ -33,6 +33,14 @@ namespace MonackFr.Security
 
 		public Description(String content)
 		{
+			if (content == string.Empty)
+			{
+				throw new EmptyStringException();
+			}
+			if (content == null)
+			{
+				throw new ArgumentNullException();
+			}
 			_content = content;
 		}
 
