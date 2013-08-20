@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography;
 using MonackFr.Security;
 
-namespace MonackFr.Library.Tests.Security
+namespace MonackFr.Library.Tests.SecurityTests
 {
 	[TestClass]
 	public class HashTest

@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MonackFr.Security;
 using Moq;
 
-namespace MonackFr.Library.Tests.Security
+namespace MonackFr.Library.Tests.SecurityTest
 {
 	enum TestAttibutes
 	{
@@ -55,6 +55,33 @@ namespace MonackFr.Library.Tests.Security
 		{
 			string testedValue = null;
 			Description description = new Description(testedValue);
+		}
+	}
+
+	[TestClass]
+	public class EnumExtensionsTest
+	{
+		enum testenum
+		{
+			[Security.Description("testdescription")]
+			first,
+			second
+		}
+
+		[TestMethod]
+		public void returns_description()
+		{
+			testenum test = testenum.first;
+			Assert.AreEqual(test.ToDescription(), "testdescription");
+		}
+
+		[TestMethod]
+		public void returns_enum_value()
+		{
+			testenum test = testenum.second;
+			Assert.AreEqual(test.ToDescription(), "second");
+			Assert.AreEqual(test.ToDescription(), test.ToString());
+
 		}
 	}
 }

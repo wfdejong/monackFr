@@ -54,9 +54,9 @@ namespace MonackFr.Security
 	}
 
 	/// <summary>
-	/// Reflection class for enums
+	/// Extension class for enums
 	/// </summary>
-	public static class Reflection
+	public static class EnumExtensions
 	{
 		/// <summary>
 		/// Convert enum description attribute to string
