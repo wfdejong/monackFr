@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using MonackFr.Repository;
 
-namespace MonackFr.Repository
+namespace MonackFr
 {
 	/// <summary>
 	/// Base context, contains list with subcontexts of all packages

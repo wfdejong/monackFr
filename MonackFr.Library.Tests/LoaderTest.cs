@@ -22,7 +22,7 @@ namespace MonackFr.Library.Tests
 		[TestMethod]
 		public void compose_parts_is_hit()
 		{
-			var path = System.Reflection.Assembly.GetAssembly(typeof(LoaderTest)).Location;
+			string path = System.Reflection.Assembly.GetAssembly(typeof(LoaderTest)).Location;
 			Loader<Classes.ILoaderTest> loader = new Loader<Classes.ILoaderTest>(path);
 			Assert.AreEqual(loader.LoadedItems.Count(), 1);
 		}

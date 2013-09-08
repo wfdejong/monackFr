@@ -223,7 +223,6 @@
     <Folder Include="Areas\Install\Models\" />
     <Folder Include="Areas\Install\Views\Shared\" />
     <Folder Include="Areas\PackageManagement\Views\Shared\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Css\" />
     <Folder Include="Models\" />
   </ItemGroup>

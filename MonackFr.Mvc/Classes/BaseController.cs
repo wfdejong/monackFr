@@ -41,7 +41,8 @@ namespace MonackFr.Mvc
 		/// </summary>
 		private void LoadInstalledModules()
 		{
-			if (PluginLoader.Instance.Plugins.Count() == 0 || true)
+			//only load plugins the first time. Since pluginloader is singleton, the plugins are present if loaded once.
+			if (PluginLoader.Instance.Plugins.Count() == 0)
 			{
 				PackageRepository packageRepository = new PackageRepository();
 				

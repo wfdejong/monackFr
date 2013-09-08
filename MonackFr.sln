@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement", "MonackFr.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Library.Tests", "MonackFr.Library.Tests\MonackFr.Library.Tests.csproj", "{72794D5C-6887-4F18-9ABC-204124D481A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Mvc.Tests", "MonackFr.Mvc.Tests\MonackFr.Mvc.Tests.csproj", "{119AA5D4-80E7-404B-8537-D469FAFEF41C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{72794D5C-6887-4F18-9ABC-204124D481A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72794D5C-6887-4F18-9ABC-204124D481A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72794D5C-6887-4F18-9ABC-204124D481A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

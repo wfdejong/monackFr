@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace MonackFr.Library.Tests
 {
 	[TestClass]
-	public class PluginLoaderTests
+	public class PluginLoaderTest
 	{
 		[TestMethod]
 		public void add_object_to_plugin_loader()

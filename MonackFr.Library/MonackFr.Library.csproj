@@ -62,6 +62,7 @@
     <Compile Include="MonackFr.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="PluginLoader.cs" />
+    <Compile Include="Security\Authentication.cs" />
     <Compile Include="Security\Hash.cs" />
     <Compile Include="Security\IAuthentication.cs" />
     <Compile Include="Security\IAuthorization.cs" />

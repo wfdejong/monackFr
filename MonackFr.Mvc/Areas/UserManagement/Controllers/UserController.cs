@@ -8,7 +8,6 @@ using MonackFr.Mvc.Areas.UserManagement.Models;
 using MonackFr.Mvc.Areas.UserManagement.Providers;
 using MonackFr.Mvc.Areas.UserManagement.Repositories;
 using MonackFr.Mvc.Areas.UserManagement.ViewModels;
-using MonackFr.Mvc.Authorization;
 using MonackFr.Security;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Controllers
