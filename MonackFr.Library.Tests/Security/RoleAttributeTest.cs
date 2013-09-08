@@ -63,7 +63,7 @@ namespace MonackFr.Library.Tests.SecurityTest
 	{
 		enum testenum
 		{
-			[Security.Description("testdescription")]
+			[@Description("testdescription")]
 			first,
 			second
 		}
