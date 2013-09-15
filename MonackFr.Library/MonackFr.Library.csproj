@@ -59,6 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\EmptyStringException.cs" />
+    <Compile Include="Interfaces\CompositionContainer.cs" />
+    <Compile Include="Interfaces\ICompositionContainer.cs" />
+    <Compile Include="Interfaces\File.cs" />
+    <Compile Include="Interfaces\IFile.cs" />
     <Compile Include="MonackFr.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="PluginLoader.cs" />

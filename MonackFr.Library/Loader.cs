@@ -19,6 +19,13 @@ namespace MonackFr
 		[ImportMany]
 		private List<T> _available = null;
 
+		#region test stubs
+
+		private Interfaces.IFile _file = new Interfaces.File();
+		private Interfaces.ICompositionContainer _compositionconatiner;
+
+		#endregion
+
 		/// <summary>
 		/// Loaded plugins
 		/// </summary>
@@ -36,23 +43,35 @@ namespace MonackFr
 		/// <param name="path">path to file that containes interface T</param>
 		public Loader(string path)
 		{
-			if (System.IO.File.Exists(path))
-			{
-				this.Load(new CompositionContainer(new AssemblyCatalog(path)));
-			}
-			else
-			{
-				throw new System.IO.FileNotFoundException();
-			}
+			this.Load(path);
+		}
+
+		public Loader(string path, Interfaces.IFile file, Interfaces.ICompositionContainer container)
+		{
+			_file = file;
+			_compositionconatiner = container;
+			this.Load(path);
 		}
 		
 		/// <summary>
 		/// Load the plugings from the file
 		/// </summary>
 		/// <param name="path"></param>
-		private void Load(CompositionContainer container)
-		{			
-			container.ComposeParts(this);			
+		private void Load(string path)
+		{
+			if (_file.Exists(path))
+			{
+				if (_compositionconatiner == null)
+				{
+					_compositionconatiner = new Interfaces.CompositionContainer(path);
+				}
+
+				_compositionconatiner.ComposeParts(this);
+			}
+			else
+			{
+				throw new System.IO.FileNotFoundException();
+			}			
 		}
 	}
 }
