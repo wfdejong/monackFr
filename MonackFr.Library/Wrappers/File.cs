@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace MonackFr.Interfaces
+namespace MonackFr.Wrappers
 {
 	public class File : IFile
 	{

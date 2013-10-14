@@ -16,9 +16,9 @@ namespace MonackFr.Library.Tests.SecurityTest
 	{
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentException))]
-		public void test_if_role_attribute_throws_argument_exeption()
+		public void Constructor_WithNonEnum_ThrowsArgumentException()
 		{
-			RoleAttribute roleAttribute = new RoleAttribute("Role1", "Role2");
+			RoleAttribute roleAttribute = new RoleAttribute("Role2");
 		}
 
 		[TestMethod]
@@ -34,7 +34,7 @@ namespace MonackFr.Library.Tests.SecurityTest
 	{
 
 		[TestMethod]
-		public void description_is_set_in_constructor()
+		public void Constructor_WithDescription_DescriptionIsSet()
 		{
 			string testedValue = "DescriptionContent";
 			Description description = new Description(testedValue);
@@ -43,7 +43,7 @@ namespace MonackFr.Library.Tests.SecurityTest
 
 		[TestMethod]
 		[ExpectedException(typeof(EmptyStringException))]
-		public void throws_exception_on_empty_string()
+		public void Constructor_WithEmptyString_ThrowsEmptyStringException()
 		{
 			string testedValue = string.Empty;
 			Description description = new Description(testedValue);			
@@ -51,7 +51,7 @@ namespace MonackFr.Library.Tests.SecurityTest
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
-		public void throws_exception_on_null()
+		public void Constructor_WithNull_ThrowsArgumentNullException()
 		{
 			string testedValue = null;
 			Description description = new Description(testedValue);
@@ -69,19 +69,18 @@ namespace MonackFr.Library.Tests.SecurityTest
 		}
 
 		[TestMethod]
-		public void returns_description()
+		public void ToDescription_ReturnsDescritionAnnotation()
 		{
 			testenum test = testenum.first;
 			Assert.AreEqual(test.ToDescription(), "testdescription");
 		}
 
 		[TestMethod]
-		public void returns_enum_value()
+		public void ToDescription_ReturnsEnumToString()
 		{
 			testenum test = testenum.second;
 			Assert.AreEqual(test.ToDescription(), "second");
 			Assert.AreEqual(test.ToDescription(), test.ToString());
-
 		}
 	}
 }

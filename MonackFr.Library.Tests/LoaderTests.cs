@@ -5,25 +5,26 @@ using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
 using MonackFr;
 using System.Linq;
-using MonackFr.Interfaces;
+using MonackFr.Wrappers;
 
 namespace MonackFr.Library.Tests
 {
 	[TestClass]
-	public class LoaderTest
+	public class LoaderTests
 	{
 		[TestMethod]
 		[ExpectedException(typeof(System.IO.FileNotFoundException))]
-		public void file_not_found_exeption()
+		public void Constructor_WithNonExistingFile_ThrowsFileNotFoundException()
 		{
 			Mock<IFile> fileMock = new Mock<IFile>();
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
 			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
+			
 			Loader<object> loader = new Loader<object>("testfile", fileMock.Object, compositionMock.Object);
 		}
 
 		[TestMethod]
-		public void compose_parts_is_hit()
+		public void Constructor_WithExistingFile_ComposesFile()
 		{
 			Mock<IFile> fileMock = new Mock<IFile>();
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
@@ -33,7 +34,7 @@ namespace MonackFr.Library.Tests
 		}
 
 		[TestMethod]
-		public void file_exists_hit()
+		public void Constructor_WithAnyFile_TestsIfFileExists()
 		{
 			Mock<IFile> fileMock = new Mock<IFile>();
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();

@@ -27,7 +27,7 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 			get
 			{
 				string baseDir = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
-				string moduleDir = string.Format("{0}{1}\\", baseDir, MonackFr.PackageDir);
+				string moduleDir = string.Format("{0}{1}\\", baseDir, ApplicationSettings.PackageDir);
 
 				string[] files = Directory.GetFiles(moduleDir, "*.dll", SearchOption.AllDirectories);
 

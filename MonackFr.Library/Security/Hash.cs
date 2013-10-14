@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Security.Cryptography;
+using MonackFr.Wrappers;
 
 namespace MonackFr.Security
 {
-	public class Hash
+	public class Hash : IHash
 	{
+		#region private fields
+
 		// The following constants may be changed without breaking existing hashes.
 		/// <summary>
 		/// Length of salt in bytes.
@@ -31,7 +33,7 @@ namespace MonackFr.Security
 		private const int iterationIndex = 0;
 
 		/// <summary>
-		/// location of saltindex in final string
+		/// location of salt index in final string
 		/// </summary>
 		private const int saltIndex = 1;
 
@@ -41,17 +43,55 @@ namespace MonackFr.Security
 		private const int hashIndex = 2;
 
 		/// <summary>
+		/// provider to generate salt
+		/// </summary>
+		private IRNGCryptoServiceProvider _cryptoProvider;
+
+		/// <summary>
+		/// Implements password-based key derivation functionality, PBKDF2, by using
+		//   a pseudo-random number generator based on System.Security.Cryptography.HMACSHA1.
+		/// </summary>
+		private IRfc2898DeriveBytes _deriveBytes;
+
+		#endregion private properties
+
+		#region constructors
+
+		/// <summary>
+		/// Constructs with new RNGCryptoServiceProvider and new Rfc2898DeriveBytes
+		/// </summary>
+		public Hash()
+		{
+			_cryptoProvider = new Wrappers.RNGCryptoServiceProvider();
+			_deriveBytes = new MonackFr.Wrappers.Rfc2898DeriveBytes();
+		}
+
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="cryptoProvider"></param>
+		/// <param name="deriveBytes"></param>
+		public Hash(IRNGCryptoServiceProvider cryptoProvider, IRfc2898DeriveBytes deriveBytes)
+		{
+			_cryptoProvider = cryptoProvider;
+			_deriveBytes = deriveBytes;
+		}
+
+		#endregion
+
+		#region IHash
+		
+		/// <summary>
 		/// Creates a salted PBKDF2 hash of the password and combines this in a 
-		/// colon seperated string with iterations and the salt
+		/// colon separated string with iterations and the salt
 		/// </summary>
 		/// <param name="password">The password to hash.</param>
 		/// <returns>The hash, iterations and salt of the password in format "[iterations]:[salt]:[hash]</returns>
-		public static string Create(string password)
+		string IHash.Create(string password)
 		{
 			// Generate a random salt
-			RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
 			byte[] salt = new byte[saltLength];
-			csprng.GetBytes(salt);
+			_cryptoProvider.GetBytes(salt);
 
 			// Hash the password and encode the parameters
 			byte[] hash = PBKDF2(password, salt, iterations, hashLength);
@@ -66,7 +106,7 @@ namespace MonackFr.Security
 		/// <param name="password">The password to check.</param>
 		/// <param name="hashCombo">The hash, iterations and salt of the password in format "[iterations]:[salt]:[hash]</param>
 		/// <returns>True if the password is correct. False otherwise.</returns>
-		public static bool ValidatePassword(string password, string hashCombo)
+		bool IHash.ValidatePassword(string password, string hashCombo)
 		{
 			// Extract the parameters from the hash
 			char[] delimiter = { ':' };
@@ -75,10 +115,14 @@ namespace MonackFr.Security
 			byte[] salt = Convert.FromBase64String(split[saltIndex]);
 			byte[] hash = Convert.FromBase64String(split[hashIndex]);
 
-			byte[] testHash = PBKDF2(password, salt, iterations, hash.Length);
+			byte[] testHash = this.PBKDF2(password, salt, iterations, hash.Length);
 			return SlowEquals(hash, testHash);
 		}
 
+		#endregion //IHash
+
+		#region private methods
+		
 		/// <summary>
 		/// Compares two byte arrays in length-constant time.
 		/// </summary>
@@ -101,12 +145,15 @@ namespace MonackFr.Security
 		/// <param name="iterations">The iteration count.</param>
 		/// <param name="length">The length of the hash to generate, in bytes.</param>
 		/// <returns>A hash of the password.</returns>
-		private static byte[] PBKDF2(string password, byte[] salt, int iterations, int length)
-		{
-			Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, salt);
-			pbkdf2.IterationCount = iterations;
-			return pbkdf2.GetBytes(length);
+		private byte[] PBKDF2(string password, byte[] salt, int iterations, int length)
+		{			
+			_deriveBytes.Salt = salt;
+			_deriveBytes.Password = password;
+			_deriveBytes.IterationCount = iterations;
+			return _deriveBytes.GetBytes(length);			
 		}
+
+		#endregion
 	}
 
 }

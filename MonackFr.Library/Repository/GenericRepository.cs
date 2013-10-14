@@ -27,7 +27,6 @@ namespace MonackFr.Repository
 		/// </summary>
 		public C Entities
 		{
-
 			get { return _entities; }
 			set { _entities = value; }
 		}

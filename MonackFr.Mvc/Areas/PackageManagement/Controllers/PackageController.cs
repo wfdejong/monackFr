@@ -29,7 +29,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		{
 			//get the folder that's in
 			string dir = AppDomain.CurrentDomain.BaseDirectory;
-			string[] files = Directory.GetFiles(string.Format("{0}{1}\\", dir, MonackFr.PackageDir), "*.dll", SearchOption.AllDirectories);
+			string[] files = Directory.GetFiles(string.Format("{0}{1}\\", dir, ApplicationSettings.PackageDir), "*.dll", SearchOption.AllDirectories);
 			List<Package> packages = new List<Package>();
 
 			foreach (string file in files)

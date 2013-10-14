@@ -62,9 +62,9 @@
   <ItemGroup>
     <Compile Include="Classes\ILoaderTest.cs" />
     <Compile Include="Classes\LoaderTest.cs" />
-    <Compile Include="PluginLoaderTest.cs" />
+    <Compile Include="PluginLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="LoaderTest.cs" />
+    <Compile Include="LoaderTests.cs" />
     <Compile Include="Security\HashTest.cs" />
     <Compile Include="Security\RoleAttributeTest.cs" />
   </ItemGroup>

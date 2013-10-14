@@ -13,6 +13,11 @@ namespace MonackFr.Security
 	[AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
 	public class RoleAttribute : AuthorizeAttribute
 	{
+		/// <summary>
+		/// Constructs with roles
+		/// </summary>
+		/// <exception cref="Sytem.ArgumentException"></exception>
+		/// <param name="roles"></param>
 		public RoleAttribute(params Object[] roles)
 		{
 			if (roles.Any(r => r.GetType().BaseType != typeof(Enum)))

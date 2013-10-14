@@ -68,7 +68,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Providers
 			User user = new User()
 			{
 				UserName = username,
-				Password = Hash.Create(password),
+				Password = Security.SecurityWrapper.Hash().Create(password),
 				Email = email
 			};
 
@@ -195,7 +195,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Providers
 
 			if (user != null)
 			{
-				return Hash.ValidatePassword(password, user.Password);
+				return SecurityWrapper.Hash().ValidatePassword(password, user.Password);
 			}
 
 			return false;

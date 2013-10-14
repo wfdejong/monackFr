@@ -21,8 +21,8 @@ namespace MonackFr
 
 		#region test stubs
 
-		private Interfaces.IFile _file = new Interfaces.File();
-		private Interfaces.ICompositionContainer _compositionconatiner;
+		private Wrappers.IFile _file = new Wrappers.File();
+		private Wrappers.ICompositionContainer _compositionconatiner;
 
 		#endregion
 
@@ -46,7 +46,7 @@ namespace MonackFr
 			this.Load(path);
 		}
 
-		public Loader(string path, Interfaces.IFile file, Interfaces.ICompositionContainer container)
+		public Loader(string path, Wrappers.IFile file, Wrappers.ICompositionContainer container)
 		{
 			_file = file;
 			_compositionconatiner = container;
@@ -63,7 +63,7 @@ namespace MonackFr
 			{
 				if (_compositionconatiner == null)
 				{
-					_compositionconatiner = new Interfaces.CompositionContainer(path);
+					_compositionconatiner = new Wrappers.CompositionContainer(path);
 				}
 
 				_compositionconatiner.ComposeParts(this);

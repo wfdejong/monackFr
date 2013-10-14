@@ -59,10 +59,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\EmptyStringException.cs" />
-    <Compile Include="Interfaces\CompositionContainer.cs" />
-    <Compile Include="Interfaces\ICompositionContainer.cs" />
-    <Compile Include="Interfaces\File.cs" />
-    <Compile Include="Interfaces\IFile.cs" />
+    <Compile Include="Security\IHash.cs" />
+    <Compile Include="Security\Security.cs" />
+    <Compile Include="Wrappers\CompositionContainer.cs" />
+    <Compile Include="Wrappers\ICompositionContainer.cs" />
+    <Compile Include="Wrappers\File.cs" />
+    <Compile Include="Wrappers\IFile.cs" />
+    <Compile Include="Wrappers\IRfc2898DeriveBytes.cs" />
+    <Compile Include="Wrappers\IRNGCryptoServiceProvider.cs" />
+    <Compile Include="Wrappers\Rfc2898DeriveBytes.cs" />
+    <Compile Include="Wrappers\RNGCryptoServiceProvider.cs" />
     <Compile Include="MonackFr.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="PluginLoader.cs" />
