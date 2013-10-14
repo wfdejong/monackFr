@@ -7,12 +7,5 @@ namespace MonackFr
 {
 	public class EmptyStringException : Exception
 	{
-		public override string Message
-		{
-			get
-			{
-				return "String is empty";
-			}
-		}
 	}
 }
