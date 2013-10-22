@@ -17,50 +17,81 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 	/// This controller is used for installing the framework. It creates the database and
 	/// the necesary tables.
 	/// </summary>
-    public class InstallController : Controller
-    {
+	public class InstallController : Controller
+	{
 		/// <summary>
-		/// Returns dll files from the plugin directory
+		/// Wrapper for System.IO.Directory
 		/// </summary>
-		private string[] _pluginFiles
-		{
-			get
-			{
-				string baseDir = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
-				string moduleDir = string.Format("{0}{1}\\", baseDir, ApplicationSettings.PackageDir);
+		private MonackFr.Wrappers.IDirectory _directory = null;
 
-				string[] files = Directory.GetFiles(moduleDir, "*.dll", SearchOption.AllDirectories);
+		/// <summary>
+		/// Path to module directory
+		/// </summary>
+		string _moduleDirectory;
 
-				for (int i = 0; i < files.Count(); i++)
-				{
-					files[i] = files[i].Substring(baseDir.Count());
-				}
+		/// <summary>
+		/// Path to root of application
+		/// </summary>
+		string _baseDirectory = null;
 
-				return files;
-			}
-		}
-		
+		/// <summary>
+		/// Packages to install
+		/// </summary>
+		private IList<Package> _packages = null;
+
+		#region private methods
+				
 		/// <summary>
 		/// Scans the plugin directory for packages and returns them.
 		/// </summary>
 		/// <returns></returns>
-		private IEnumerable<Package> _getPackages()
+		private Package[] _getPackages()
 		{
-			List<Package> packages = new List<Package>();
+			string[] files = _directory.GetFiles(_moduleDirectory, "*.dll", SearchOption.AllDirectories);
 
-			foreach (string file in _pluginFiles)
+			foreach (string file in files)
 			{
-				Package package = new Package(file);
+				string relativePath = file.Substring(_baseDirectory.Count());
+				Package package = new Package(relativePath);
 				package.LoadContexts();
 				package.LoadModules();
 				if (package.Contexts.Count() > 0 && package.Modules.Count() > 0)
 				{
-					packages.Add(package);
+					_packages.Add(package);
 				}
 			}
 
-			return packages;
+			return _packages.ToArray();
 		}
+
+		#endregion //private methods
+
+		#region constructors
+
+		/// <summary>
+		/// Default constructor
+		/// </summary>
+		public InstallController()
+		{
+			_directory = new MonackFr.Wrappers.Directory();
+			_packages = new List<Package>();
+			_baseDirectory = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
+			_moduleDirectory = string.Format("{0}{1}\\", _baseDirectory, ApplicationSettings.PackageDir);
+		}
+
+		/// <summary>
+		/// Constructor for testing purposes
+		/// </summary>
+		/// <param name="directory"></param>
+		public InstallController(MonackFr.Wrappers.IDirectory directory, string baseDirectory, string moduleDirectory, IList<Package> packages)
+		{
+			_directory = directory;
+			_packages = packages;
+			_baseDirectory = baseDirectory;
+			_moduleDirectory = moduleDirectory;
+		}
+
+		#endregion
 
 		/// <summary>
 		/// Show install page
@@ -120,11 +151,11 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 			
 			List<IAuthorization> authorizations = new List<IAuthorization>();
 
-            foreach (string file in _pluginFiles)
-            {
-                Loader<IAuthorization> loader = new Loader<IAuthorization>(baseDir + file);
-                authorizations.AddRange(loader.LoadedItems);
-            }
+			foreach (Package package in _getPackages())
+			{
+				Loader<IAuthorization> loader = new Loader<IAuthorization>(baseDir + package.Path);
+				authorizations.AddRange(loader.LoadedItems);
+			}
 			foreach (IAuthorization authorization in authorizations)
 			{
 				IEnumerable<MfrRole> roles = authorization.GetRoles();
@@ -162,5 +193,5 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 			packageRepository.Save();
 			packageRepository.Dispose();
 		}
-    }
+	}
 }

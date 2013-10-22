@@ -62,8 +62,10 @@
     <Compile Include="Security\IHash.cs" />
     <Compile Include="Security\Security.cs" />
     <Compile Include="Wrappers\CompositionContainer.cs" />
+    <Compile Include="Wrappers\Directory.cs" />
     <Compile Include="Wrappers\ICompositionContainer.cs" />
     <Compile Include="Wrappers\File.cs" />
+    <Compile Include="Wrappers\IDirectory.cs" />
     <Compile Include="Wrappers\IFile.cs" />
     <Compile Include="Wrappers\IRfc2898DeriveBytes.cs" />
     <Compile Include="Wrappers\IRNGCryptoServiceProvider.cs" />
