@@ -29,14 +29,18 @@ namespace MonackFr.Mvc.Tests.Areas.Install.Controllers
         public void Install_LoadsPackages()
         {
             Mock<IPackageManager> packageManager = new Mock<IPackageManager>();
-            InstallController installController = new InstallController(new Wrappers.Directory(), "", "", packageManager.Object);
+            InstallController installController = new InstallController(packageManager.Object);
             installController.Install();
-            packageManager.Verify(p => p.LoadPackages(It.IsAny<string>(), It.IsAny<string>()));
+            packageManager.Verify(p => p.LoadPackages());
         }
 
         [TestMethod]
         public void Install_GetsPackages()
         {
+            Mock<IPackageManager> packageManager = new Mock<IPackageManager>();
+            InstallController installController = new InstallController(packageManager.Object);
+            installController.Install();
+            packageManager.Verify(p => p.Packages);
         }
 	}
 }

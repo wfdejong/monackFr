@@ -9,9 +9,12 @@ namespace MonackFr.Mvc
     {
         bool AddPackage(IPackage package);
 
-        void LoadPackages(string path, string basePath);
+        void LoadPackages();
 
-        IPackage[] Packages
-        { get; }        
+        IPackage[] Packages { get; }
+
+        string PackageDirectory { get; set; }
+
+        string BaseDirectory { get; set; }
     }
 }

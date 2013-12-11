@@ -20,46 +20,9 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 	public class InstallController : Controller
 	{
 		/// <summary>
-		/// Wrapper for System.IO.Directory
-		/// </summary>
-		private MonackFr.Wrappers.IDirectory _directory = null;
-
-		/// <summary>
-		/// Path to module directory
-		/// </summary>
-		string _moduleDirectory;
-
-		/// <summary>
-		/// Path to root of application
-		/// </summary>
-		string _baseDirectory = null;
-
-		/// <summary>
 		/// Packages to install
 		/// </summary>
-		private IPackageManager _pakageManager = null;
-
-		#region private methods
-				
-		/// <summary>
-		/// Scans the plugin directory for packages and returns them.
-		/// </summary>
-		/// <returns></returns>
-		private IPackage[] _getPackages()
-		{
-			string[] files = _directory.GetFiles(_moduleDirectory, "*.dll", SearchOption.AllDirectories);
-
-			foreach (string file in files)
-			{
-				string relativePath = file.Substring(_baseDirectory.Count());
-				Package package = new Package(relativePath);
-				_pakageManager.AddPackage(package);				
-			}
-
-            return _pakageManager.Packages;
-		}
-
-		#endregion //private methods
+		private IPackageManager _packageManager = null;
 
 		#region constructors
 
@@ -68,21 +31,18 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 		/// </summary>
 		public InstallController()
 		{			
-            _pakageManager = new PackageManager();
-			_baseDirectory = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
-			_moduleDirectory = string.Format("{0}{1}\\", _baseDirectory, ApplicationSettings.PackageDir);
+            _packageManager = new PackageManager();
+            _packageManager.BaseDirectory = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
+            _packageManager.PackageDirectory = string.Format("{0}{1}\\", _packageManager.BaseDirectory, ApplicationSettings.PackageDir);			
 		}
 
 		/// <summary>
 		/// Constructor for testing purposes
 		/// </summary>
 		/// <param name="directory"></param>
-		public InstallController(MonackFr.Wrappers.IDirectory directory, string baseDirectory, string moduleDirectory, IPackageManager packageManager)
+		public InstallController(IPackageManager packageManager)
 		{
-			_directory = directory;
-			_pakageManager = packageManager;
-			_baseDirectory = baseDirectory;
-			_moduleDirectory = moduleDirectory;
+			_packageManager = packageManager;
 		}
 
 		#endregion
@@ -94,9 +54,9 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 		public ActionResult Install()
 		{
 			PackageList packageList = new PackageList();
-            _pakageManager.LoadPackages(_moduleDirectory, _baseDirectory);
+            _packageManager.LoadPackages();
 
-            packageList.Packages = _pakageManager.Packages;
+            packageList.Packages = _packageManager.Packages;
 
 			return View(packageList);
 		}
@@ -115,8 +75,9 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 				//TODO: make this more efficient by using one foreach loop
 				context.Contexts = new List<IContext>();
 				
-				IPackage[] packages = _getPackages();
-				foreach (IPackage package in packages)
+				_packageManager.LoadPackages();
+                
+				foreach (IPackage package in _packageManager.Packages)
 				{
 					context.Contexts.AddRange(package.Contexts);
 				}
@@ -125,7 +86,7 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 				context.Database.Initialize(true);
 
 				InstallRoles();
-				InstallPackages(packages);
+                InstallPackages(_packageManager.Packages);
 
 				context.SaveChanges();
 
@@ -147,7 +108,9 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 			
 			List<IAuthorization> authorizations = new List<IAuthorization>();
 
-			foreach (Package package in _getPackages())
+            _packageManager.LoadPackages();
+
+			foreach (IPackage package in _packageManager.Packages)
 			{
 				Loader<IAuthorization> loader = new Loader<IAuthorization>(baseDir + package.Path);
 				authorizations.AddRange(loader.LoadedItems);

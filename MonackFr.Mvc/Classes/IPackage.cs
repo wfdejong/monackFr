@@ -9,13 +9,13 @@ namespace MonackFr.Mvc
     public interface IPackage
     {
         void LoadContexts();
-        
-        void LoadModules();
-        
-        IEnumerable<IContext> Contexts
-        { get; }
 
-        IEnumerable<IModule> Modules
-        { get; }
+        void LoadModules();
+
+        IEnumerable<IContext> Contexts { get; }
+
+        IEnumerable<IModule> Modules { get; }
+
+        string Path { get; set; }
     }
 }

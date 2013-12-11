@@ -52,20 +52,23 @@ namespace MonackFr.Mvc
         /// </summary>
         /// <param name="path">path to directory</param>
         /// <param name="basePath">base path to make relative path</param>
-        void IPackageManager.LoadPackages(string path, string basePath)
+        void IPackageManager.LoadPackages()
         {
-            string[] files = _directory.GetFiles(path, "*.dll", SearchOption.AllDirectories);
+            IPackageManager packageManager = this as IPackageManager;
+
+            string[] files = _directory.GetFiles(packageManager.PackageDirectory, "*.dll", SearchOption.AllDirectories);
 
             foreach (string file in files)
             {
-                string relativePath = file.Substring(basePath.Count());
+                string relativePath = file.Substring(packageManager.BaseDirectory.Count());
                 IPackage package = new Package(relativePath);
-
-                IPackageManager packageManager = (IPackageManager)this;
                 packageManager.AddPackage(package);
             }
         }
 
+        /// <summary>
+        /// Loaded packages
+        /// </summary>
         IPackage[] IPackageManager.Packages
         {
             get
@@ -73,6 +76,16 @@ namespace MonackFr.Mvc
                 return _packages.ToArray();
             }
         }
+
+        /// <summary>
+        /// Package directory
+        /// </summary>
+        string IPackageManager.PackageDirectory { get; set; }
+
+        /// <summary>
+        /// Base directory to create relative path
+        /// </summary>
+        string IPackageManager.BaseDirectory { get; set; }
 
         #endregion //IPackageManager
     }
