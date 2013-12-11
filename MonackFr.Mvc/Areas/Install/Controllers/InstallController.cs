@@ -37,7 +37,7 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 		/// <summary>
 		/// Packages to install
 		/// </summary>
-		private IList<Package> _packages = null;
+		private IPackageManager _pakageManager = null;
 
 		#region private methods
 				
@@ -45,7 +45,7 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 		/// Scans the plugin directory for packages and returns them.
 		/// </summary>
 		/// <returns></returns>
-		private Package[] _getPackages()
+		private IPackage[] _getPackages()
 		{
 			string[] files = _directory.GetFiles(_moduleDirectory, "*.dll", SearchOption.AllDirectories);
 
@@ -53,15 +53,10 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 			{
 				string relativePath = file.Substring(_baseDirectory.Count());
 				Package package = new Package(relativePath);
-				package.LoadContexts();
-				package.LoadModules();
-				if (package.Contexts.Count() > 0 && package.Modules.Count() > 0)
-				{
-					_packages.Add(package);
-				}
+				_pakageManager.AddPackage(package);				
 			}
 
-			return _packages.ToArray();
+            return _pakageManager.Packages;
 		}
 
 		#endregion //private methods
@@ -72,9 +67,8 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 		/// Default constructor
 		/// </summary>
 		public InstallController()
-		{
-			_directory = new MonackFr.Wrappers.Directory();
-			_packages = new List<Package>();
+		{			
+            _pakageManager = new PackageManager();
 			_baseDirectory = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
 			_moduleDirectory = string.Format("{0}{1}\\", _baseDirectory, ApplicationSettings.PackageDir);
 		}
@@ -83,10 +77,10 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 		/// Constructor for testing purposes
 		/// </summary>
 		/// <param name="directory"></param>
-		public InstallController(MonackFr.Wrappers.IDirectory directory, string baseDirectory, string moduleDirectory, IList<Package> packages)
+		public InstallController(MonackFr.Wrappers.IDirectory directory, string baseDirectory, string moduleDirectory, IPackageManager packageManager)
 		{
 			_directory = directory;
-			_packages = packages;
+			_pakageManager = packageManager;
 			_baseDirectory = baseDirectory;
 			_moduleDirectory = moduleDirectory;
 		}
@@ -100,7 +94,9 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 		public ActionResult Install()
 		{
 			PackageList packageList = new PackageList();
-			packageList.Packages = _getPackages();
+            _pakageManager.LoadPackages(_moduleDirectory, _baseDirectory);
+
+            packageList.Packages = _pakageManager.Packages;
 
 			return View(packageList);
 		}
@@ -119,8 +115,8 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 				//TODO: make this more efficient by using one foreach loop
 				context.Contexts = new List<IContext>();
 				
-				IEnumerable<Package> packages = _getPackages();
-				foreach (Package package in packages)
+				IPackage[] packages = _getPackages();
+				foreach (IPackage package in packages)
 				{
 					context.Contexts.AddRange(package.Contexts);
 				}
@@ -183,7 +179,7 @@ namespace MonackFr.Mvc.Areas.Install.Controllers
 		/// Installs the packages in the database.
 		/// </summary>
 		/// <param name="packages"></param>
-		private void InstallPackages(IEnumerable<Package> packages)
+		private void InstallPackages(IPackage[] packages)
 		{
 			PackageRepository packageRepository = new PackageRepository();
 			foreach (Package package in packages)

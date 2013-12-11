@@ -8,7 +8,7 @@ using System.Web;
 
 namespace MonackFr.Mvc
 {
-	public class Package
+	public class Package : IPackage
 	{
 		private IEnumerable<IModule> _modules;
 		private IEnumerable<IContext> _contexts;

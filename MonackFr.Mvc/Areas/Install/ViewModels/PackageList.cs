@@ -7,6 +7,6 @@ namespace MonackFr.Mvc.Areas.Install.ViewModels
 {
 	public class PackageList
 	{
-		public IEnumerable<Package> Packages;
+		public IPackage[] Packages;
 	}
 }

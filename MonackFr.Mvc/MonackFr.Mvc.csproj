@@ -15,7 +15,7 @@
     <AssemblyName>MonackFr.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -136,7 +136,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Install\Controllers\InstallController.cs" />
     <Compile Include="Areas\Install\InstallAreaRegistration.cs" />
-    <Compile Include="Areas\Install\ViewModels\ContextList.cs" />
+    <Compile Include="Areas\Install\ViewModels\PackageList.cs" />
     <Compile Include="Areas\PackageManagement\Contexts\PackageContext.cs" />
     <Compile Include="Areas\PackageManagement\Controllers\PackageController.cs" />
     <Compile Include="Areas\PackageManagement\ModuleAreaAreaRegistration.cs" />
@@ -146,8 +146,11 @@
     <Compile Include="Classes\BaseController.cs" />
     <Compile Include="Classes\DataController.cs" />
     <Compile Include="Classes\IModule.cs" />
+    <Compile Include="Classes\IPackage.cs" />
+    <Compile Include="Classes\IPackageManager.cs" />
     <Compile Include="Classes\MenuItem.cs" />
-    <Compile Include="Areas\PackageManagement\Models\Package.cs" />
+    <Compile Include="Classes\Package.cs" />
+    <Compile Include="Classes\PackageManager.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -222,6 +225,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Install\Models\" />
     <Folder Include="Areas\Install\Views\Shared\" />
+    <Folder Include="Areas\PackageManagement\Models\" />
     <Folder Include="Areas\PackageManagement\Views\Shared\" />
     <Folder Include="Css\" />
     <Folder Include="Models\" />
@@ -267,11 +271,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60710</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://mvc/</IISUrl>
+          <IISUrl>http://monackfr/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
