@@ -1,11 +1,11 @@
-﻿using System;
+﻿using MonackFr.Mvc.Areas.UserManagement.Models;
+using MonackFr.Mvc.Areas.UserManagement.Repositories;
+using MonackFr.Mvc.Areas.UserManagement.ViewModels;
+using MonackFr.Mvc.Module;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using MonackFr.Mvc.Areas.UserManagement.ViewModels;
-using MonackFr.Mvc.Areas.UserManagement.Models;
-using MonackFr.Mvc.Areas.UserManagement.Repositories;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 {

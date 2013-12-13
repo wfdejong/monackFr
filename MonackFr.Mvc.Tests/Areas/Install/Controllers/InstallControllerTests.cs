@@ -1,12 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MonackFr.Mvc.Areas.PackageManagement;
+using MonackFr.Mvc.Areas.PackageManagement.Controllers;
 using Moq;
-using MonackFr.Wrappers;
-using MonackFr.Mvc.Areas.Install.Controllers;
-using System.IO;
-using System.Collections.Generic;
 
-namespace MonackFr.Mvc.Tests.Areas.Install.Controllers
+namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 {
 	[TestClass]
 	public class InstallControllerTests

@@ -8,9 +8,9 @@ using System.ComponentModel.Composition.Hosting;
 namespace MonackFr
 {
 	/// <summary>
-	/// Generic loader
+	/// Generic loader. Autmotically loads libraries of interface T of given file.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
+	/// <typeparam name="T">Interface to load</typeparam>
 	public class Loader<T>
 	{
 		/// <summary>
@@ -38,7 +38,7 @@ namespace MonackFr
 		}
 
 		/// <summary>
-		/// Constructor
+		/// Loads all libraries of type T in file.
 		/// </summary>
 		/// <param name="path">path to file that containes interface T</param>
 		public Loader(string path)
@@ -46,6 +46,10 @@ namespace MonackFr
 			this.Load(path);
 		}
 
+        /// <summary>
+        /// Loads all libraries of type T in file.
+        /// </summary>
+        /// <param name="path">path to file that containes interface T</param>
 		public Loader(string path, Wrappers.IFile file, Wrappers.ICompositionContainer container)
 		{
 			_file = file;

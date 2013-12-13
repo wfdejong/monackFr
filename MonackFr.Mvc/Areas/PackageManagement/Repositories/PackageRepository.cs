@@ -1,4 +1,5 @@
 ﻿using MonackFr.Mvc.Areas.PackageManagement.Contexts;
+using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using MonackFr.Repository;
 using System;
 using System.Collections.Generic;

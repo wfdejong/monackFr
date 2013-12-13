@@ -1,16 +1,13 @@
-﻿using MonackFr.Mvc.Areas.PackageManagement.Contexts;
-using MonackFr.Mvc.Areas.PackageManagement.Repositories;
-using MonackFr.Repository;
+﻿using MonackFr.Mvc.Areas.PackageManagement.Repositories;
+using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using MonackFr.Security;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Data.Entity;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Web.Mvc;
-using System.Web.Security;
+using MonackFr.Mvc.Module;
 
 namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 {

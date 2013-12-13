@@ -71,7 +71,7 @@
     <Compile Include="Wrappers\IRNGCryptoServiceProvider.cs" />
     <Compile Include="Wrappers\Rfc2898DeriveBytes.cs" />
     <Compile Include="Wrappers\RNGCryptoServiceProvider.cs" />
-    <Compile Include="MonackFr.cs" />
+    <Compile Include="ApplicationSettings.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Security\Authentication.cs" />
