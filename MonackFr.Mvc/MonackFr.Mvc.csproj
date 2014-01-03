@@ -134,7 +134,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\DatabaseManager.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\IDatabaseManager.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\IUserManager.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\UserManager.cs" />
     <Compile Include="Areas\PackageManagement\Controllers\InstallController.cs" />
+    <Compile Include="Areas\PackageManagement\Entities\PackageNullReferenceException.cs" />
     <Compile Include="Areas\PackageManagement\ViewModels\PackageList.cs" />
     <Compile Include="Areas\PackageManagement\Contexts\PackageContext.cs" />
     <Compile Include="Areas\PackageManagement\Controllers\PackageController.cs" />

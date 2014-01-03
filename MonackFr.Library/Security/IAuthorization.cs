@@ -8,6 +8,6 @@ namespace MonackFr.Security
 		/// Returns roles
 		/// </summary>
 		/// <returns></returns>
-		List<MfrRole> GetRoles();		
+		List<IMfrRole> GetRoles();		
 	}
 }

@@ -305,9 +305,9 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 		#region of IAuthorization
 
-		public List<MfrRole> GetRoles()
+		public List<IMfrRole> GetRoles()
 		{
-			List<MfrRole> roles = new List<MfrRole>();
+			List<IMfrRole> roles = new List<IMfrRole>();
 
 			foreach (UserControllerRoles role in Enum.GetValues(typeof(UserControllerRoles)))
 			{

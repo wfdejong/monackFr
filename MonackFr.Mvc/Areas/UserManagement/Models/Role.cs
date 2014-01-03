@@ -22,7 +22,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Models
 			LastUpdate = DateTime.Now;
 		}
 
-		public Role(MfrRole mfrRole)
+		public Role(IMfrRole mfrRole)
 		{
 			if (mfrRole.Id != 0)
 			{

@@ -111,9 +111,9 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 
 		#region of IAuthorization
 
-		public List<MfrRole> GetRoles()
+		public List<IMfrRole> GetRoles()
 		{
-			List<MfrRole> roles = new List<MfrRole>();
+			List<IMfrRole> roles = new List<IMfrRole>();
 
 			foreach (PackageControllerRoles role in Enum.GetValues(typeof(PackageControllerRoles)))
 			{

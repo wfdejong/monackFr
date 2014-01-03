@@ -98,7 +98,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Providers
 			return (_repository.GetSingle(r => r.Name == roleName) != null);
 		}
 
-		void IMfrRoleProvider.CreateMfrRole(MfrRole mfrRole)
+		void IMfrRoleProvider.CreateMfrRole(IMfrRole mfrRole)
 		{
 			if (!RoleExists(mfrRole.Name))
 			{

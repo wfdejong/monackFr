@@ -1,0 +1,40 @@
+﻿@model MonackFr.Mvc.Areas.PackageManagement.ViewModels.PackageList
+@using MonackFr.Mvc.Areas.UserManagement.ViewModels
+@{
+	ViewBag.Title = "Install";
+}
+
+<h2>Select modules to install</h2>
+
+@using (Html.BeginForm())
+{
+	@Html.ValidationSummary(true)
+
+    
+	foreach (MonackFr.Mvc.Areas.PackageManagement.Entities.Package package in Model.Packages)
+	{
+		<fieldset>
+			<legend>Package</legend>
+			<div>
+				<span>@package.Path</span>
+				<br />
+				@foreach (MonackFr.Mvc.Module.IModule module in package.Modules)
+				{
+					<fieldset>
+						<legend>@module.MetaData["Name"]</legend>
+						<span>
+							@foreach (KeyValuePair<string, string> metadata in module.MetaData)
+							{
+								@metadata.Key <span>-</span> @metadata.Value
+								<span>,</span>
+							}
+						</span>
+					</fieldset>
+				}
+			</div>
+		</fieldset>
+	}
+	 <p>
+		<input type="submit" value="Reinstall" />
+     </p>
+}

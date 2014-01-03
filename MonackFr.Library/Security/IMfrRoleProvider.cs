@@ -12,6 +12,6 @@ namespace MonackFr.Security
 		/// Creates a monack framework role
 		/// </summary>
 		/// <param name="mfrRole"></param>
-		void CreateMfrRole(MfrRole mfrRole);
+		void CreateMfrRole(IMfrRole mfrRole);
 	}
 }

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MonackFr.Security
 {
-	public class MfrRole
+	public class MfrRole : IMfrRole
 	{
 		/// <summary>
 		/// Id

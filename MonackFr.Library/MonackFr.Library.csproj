@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
@@ -60,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Exceptions\EmptyStringException.cs" />
     <Compile Include="Security\IHash.cs" />
+    <Compile Include="Security\IMfrRole.cs" />
     <Compile Include="Security\Security.cs" />
     <Compile Include="Wrappers\CompositionContainer.cs" />
     <Compile Include="Wrappers\Directory.cs" />
@@ -69,6 +71,7 @@
     <Compile Include="Wrappers\IFile.cs" />
     <Compile Include="Wrappers\IRfc2898DeriveBytes.cs" />
     <Compile Include="Wrappers\IRNGCryptoServiceProvider.cs" />
+    <Compile Include="Wrappers\IRoles.cs" />
     <Compile Include="Wrappers\Rfc2898DeriveBytes.cs" />
     <Compile Include="Wrappers\RNGCryptoServiceProvider.cs" />
     <Compile Include="ApplicationSettings.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IContext.cs" />
     <Compile Include="Repository\IGenericRepository.cs" />
+    <Compile Include="Wrappers\Roles.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
