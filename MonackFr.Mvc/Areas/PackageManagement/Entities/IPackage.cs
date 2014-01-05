@@ -23,5 +23,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Entities
         IEnumerable<IAuthorization> Authorizations { get; }
 
         string Path { get; set; }
+
+		bool Installed { get; set; }
     }
 }

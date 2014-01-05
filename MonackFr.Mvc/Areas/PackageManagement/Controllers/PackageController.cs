@@ -12,6 +12,7 @@ using MonackFr.Mvc.Module;
 namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 {
 	[Export(typeof(IModule))]
+	[Export(typeof(IAuthorization))]
 	public class PackageController : DisposeController, IModule, IAuthorization
 	{
 		private enum PackageControllerRoles
@@ -21,44 +22,40 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		}
 
 		private IPackageRepository _packageRepository;
-				
-		private List<Package> _getPackages()
-		{
-			//get the folder that's in
-			string dir = AppDomain.CurrentDomain.BaseDirectory;
-			string[] files = Directory.GetFiles(string.Format("{0}{1}\\", dir, ApplicationSettings.PackageDir), "*.dll", SearchOption.AllDirectories);
-			List<Package> packages = new List<Package>();
-
-			foreach (string file in files)
-			{
-				Package package = new Package(file);
-				package.LoadModules();
-				if (package.Modules != null && package.Modules.Count() > 0)
-				{
-					package.Installed = (_packageRepository.GetSingle(x => x.Path == package.Path) != null);
-					packages.Add(package);
-				}
-			}
-			
-			return packages;
-		}
+		private IPackageManager _packageManager;
 
 		public PackageController()
 			: base()
 		{
 			_packageRepository = new PackageRepository();
 			this.AddDisposable((IDisposable)_packageRepository);
+
+			_packageManager = new PackageManager();
 		}
 
-		public PackageController(IPackageRepository repository)			
+		public PackageController(IPackageRepository repository, IPackageManager packageManager)			
 			: base((IDisposable)repository)
 		{
+			_packageManager = packageManager;
 		}	
 
 		[Role(PackageControllerRoles.InstallPackage)]
 		public ActionResult Index()
 		{
-			List<Package> modules = _getPackages();
+			_packageManager.BaseDirectory = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
+			_packageManager.PackageDirectory = string.Format("{0}{1}\\", _packageManager.BaseDirectory, ApplicationSettings.PackageDir);
+            
+			_packageManager.LoadPackages();
+			IEnumerable<IPackage> modules = _packageManager.Packages;
+
+			IEnumerable<Package> installedPackages = _packageRepository.GetAll();
+			IEnumerable<string> installedPackagesPaths = from p in installedPackages select p.Path;
+
+			(from m in modules select m).ToList().ForEach((module) =>
+			{
+				module.Installed = installedPackagesPaths.Contains(module.Path);					
+			});
+
 			return View(modules);
 		}
 
