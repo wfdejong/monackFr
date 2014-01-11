@@ -39,8 +39,9 @@ namespace MonackFr.Mvc.Module
 		/// Constructor
 		/// </summary>
 		/// <param name="disposables"></param>
-		public DisposeController(params IDisposable[] disposables)
-		{
+		public DisposeController(params IDisposable[] disposables) 
+            : this()
+		{            
 			//TODO: check if parameterless constructor is hit, so _disposables is not null
 			foreach (IDisposable disposable in disposables)
 			{

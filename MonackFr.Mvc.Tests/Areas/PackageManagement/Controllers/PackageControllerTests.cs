@@ -1,16 +1,41 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
+using MonackFr.Mvc.Areas.PackageManagement.Controllers;
+using MonackFr.Mvc.Areas.PackageManagement;
+using MonackFr.Mvc.Areas.PackageManagement.Repositories;
+using Moq;
+using System.Collections;
+using MonackFr.Mvc.Areas.PackageManagement.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 {
 	[TestClass]
 	public class PackageControllerTests
 	{
+        private Mock<IPackageManager> _packageManager = null;
+        private Mock<IPackageRepository> _packageRepository = null;
+
+        private PackageController _packageController = null;
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            _packageManager = new Mock<IPackageManager>();
+            _packageRepository = new Mock<IPackageRepository>();
+            _packageRepository.As<IDisposable>();
+            _packageController = new PackageController(_packageRepository.Object, _packageManager.Object);
+        }
+
 		[TestMethod]
 		public void Index_LoadsPackages()
-		{
-			throw new NotImplementedException();
+        {
+            _packageRepository.Setup(p => p.GetAll()).Returns(new List<Package>() { }.AsQueryable());
+
+            _packageController.Index();
+            _packageManager.Verify(p => p.LoadPackages());
 		}
 
 		[TestMethod]		

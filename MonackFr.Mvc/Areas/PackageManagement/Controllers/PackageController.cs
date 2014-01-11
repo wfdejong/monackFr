@@ -31,20 +31,22 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 			this.AddDisposable((IDisposable)_packageRepository);
 
 			_packageManager = new PackageManager();
+
+            _packageManager.BaseDirectory = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
+            _packageManager.PackageDirectory = string.Format("{0}{1}\\", _packageManager.BaseDirectory, ApplicationSettings.PackageDir);            
 		}
 
-		public PackageController(IPackageRepository repository, IPackageManager packageManager)			
-			: base((IDisposable)repository)
+		public PackageController(IPackageRepository packageRepository, IPackageManager packageManager)			
+			: base((IDisposable)packageRepository)
 		{
-			_packageManager = packageManager;
+            _packageRepository = packageRepository;
+            _packageManager = packageManager;
 		}	
 
 		[Role(PackageControllerRoles.InstallPackage)]
 		public ActionResult Index()
 		{
-			_packageManager.BaseDirectory = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
-			_packageManager.PackageDirectory = string.Format("{0}{1}\\", _packageManager.BaseDirectory, ApplicationSettings.PackageDir);
-            
+			
 			_packageManager.LoadPackages();
 			IEnumerable<IPackage> modules = _packageManager.Packages;
 
