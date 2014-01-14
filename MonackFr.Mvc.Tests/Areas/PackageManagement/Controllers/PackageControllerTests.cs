@@ -9,6 +9,8 @@ using System.Collections;
 using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using MonackFr.Wrappers;
+using System.Web.Mvc;
 
 namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 {
@@ -17,6 +19,7 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 	{
         private Mock<IPackageManager> _packageManager = null;
         private Mock<IPackageRepository> _packageRepository = null;
+        private Mock<IFile> _file = null;
 
         private PackageController _packageController = null;
 
@@ -26,7 +29,8 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
             _packageManager = new Mock<IPackageManager>();
             _packageRepository = new Mock<IPackageRepository>();
             _packageRepository.As<IDisposable>();
-            _packageController = new PackageController(_packageRepository.Object, _packageManager.Object);
+            _file = new Mock<IFile>();
+            _packageController = new PackageController(_packageRepository.Object, _packageManager.Object, _file.Object);
         }
 
 		[TestMethod]
@@ -71,27 +75,37 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 		
 		[TestMethod]
 		[ExpectedException(typeof(FileNotFoundException))]
-		public void RemovePackage_WithoutPath_ThrowsException()
+		public void DeletePackage_WithoutPath_ThrowsException()
 		{
-			throw new NotImplementedException();
+            _file.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
+            _packageController.DeletePackage(null);            
 		}
 
 		[TestMethod]
-		public void RemovePackage_WithPath_DeletesPackage()
+		public void DeletePackage_WithPath_DeletesPackage()
 		{
-			throw new NotImplementedException();
+            _file.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+            _packageController.DeletePackage("");
+            _packageRepository.Verify(p => p.Delete(It.IsAny<Package>()));
 		}
 
 		[TestMethod]
-		public void RemovePackage_WithPath_SavesDeletion()
+		public void DeletePackage_WithPath_SavesDeletion()
 		{
-			throw new NotImplementedException();
+            _file.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+            _packageController.DeletePackage("");
+            _packageRepository.Verify(p => p.Save());
 		}
 
 		[TestMethod]
-		public void RemovePackage_WithPath_Redirects()
+		public void DeletePackage_WithPath_Redirects()
 		{
-			throw new NotImplementedException();
+
+            _file.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+            RedirectToRouteResult result = (RedirectToRouteResult)_packageController.DeletePackage("");
+
+            Assert.IsNotNull(result);
+            Assert.AreEqual("index", result.RouteValues["action"]);
 		}
 
 	}

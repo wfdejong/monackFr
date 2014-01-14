@@ -85,7 +85,6 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
             RedirectToRouteResult result = _installController.Install(new FormCollection()) as RedirectToRouteResult;
             Assert.IsNotNull(result);
             Assert.AreEqual("Install", result.RouteValues["action"]);
-
         }
 	}
 }

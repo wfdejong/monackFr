@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 using MonackFr.Mvc.Module;
+using MonackFr.Wrappers;
 
 namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 {
@@ -23,6 +24,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 
 		private IPackageRepository _packageRepository;
 		private IPackageManager _packageManager;
+        private IFile _file;
 
 		public PackageController()
 			: base()
@@ -31,16 +33,18 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 			this.AddDisposable((IDisposable)_packageRepository);
 
 			_packageManager = new PackageManager();
+            _file = new Wrappers.File();
 
             _packageManager.BaseDirectory = string.Format("{0}", AppDomain.CurrentDomain.BaseDirectory);
             _packageManager.PackageDirectory = string.Format("{0}{1}\\", _packageManager.BaseDirectory, ApplicationSettings.PackageDir);            
 		}
 
-		public PackageController(IPackageRepository packageRepository, IPackageManager packageManager)			
+		public PackageController(IPackageRepository packageRepository, IPackageManager packageManager, IFile file)			
 			: base((IDisposable)packageRepository)
 		{
             _packageRepository = packageRepository;
             _packageManager = packageManager;
+            _file = file;
 		}	
 
 		[Role(PackageControllerRoles.InstallPackage)]
@@ -73,12 +77,17 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 
 		[HttpPost]
 		[Role(PackageControllerRoles.InstallPackage)]
-		public ActionResult RemovePackage(string path)
+		public ActionResult DeletePackage(string path)
 		{
+            if (!_file.Exists(path))
+            {
+                throw new FileNotFoundException(path);
+            }
+
 			Package package = _packageRepository.GetSingle(x => x.Path == path);
 			_packageRepository.Delete(package);
 			_packageRepository.Save();
-			return RedirectToAction("index");
+            return RedirectToAction("index");
 		}
 
 		#region implementation of IModule
