@@ -9,6 +9,7 @@ using System.Collections;
 using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 {
@@ -41,7 +42,9 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 		[TestMethod]		
 		public void Index_ReturnsView()
 		{
-			throw new NotImplementedException();
+			_packageRepository.Setup(p => p.GetAll()).Returns(new List<Package>() { }.AsQueryable());
+
+			ViewResult view = (ViewResult)_packageController.Index();
 		}
 
 		[TestMethod]

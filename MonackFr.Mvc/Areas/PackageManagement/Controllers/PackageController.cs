@@ -45,8 +45,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 
 		[Role(PackageControllerRoles.InstallPackage)]
 		public ActionResult Index()
-		{
-			
+		{			
 			_packageManager.LoadPackages();
 			IEnumerable<IPackage> modules = _packageManager.Packages;
 
