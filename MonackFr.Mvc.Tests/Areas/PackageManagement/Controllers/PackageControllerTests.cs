@@ -54,25 +54,35 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 		[ExpectedException(typeof(FileNotFoundException))]
 		public void InstallPackage_WithoutPath_ThrowsException()
 		{
-			throw new NotImplementedException();
+			_file.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
+			_packageController.InstallPackage(null);
 		}		
 
 		[TestMethod]
 		public void InstallPackage_WithPath_CreatesPackage()
 		{
-			throw new NotImplementedException();
+			_file.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+			_packageController.InstallPackage("");
+			_packageRepository.Verify(p => p.Create(It.IsAny<Package>()));
 		}
 
 		[TestMethod]
 		public void InstallPackage_WithPath_SavesPackage()
 		{
-			throw new NotImplementedException();
+			_file.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+			_packageController.InstallPackage("");
+			_packageRepository.Verify(p => p.Save());
 		}
 
 		[TestMethod]
 		public void InstallPackage_WithPath_Redirects()
 		{
-			throw new NotImplementedException();
+			_file.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+
+			RedirectToRouteResult result = (RedirectToRouteResult)_packageController.InstallPackage("");
+
+			Assert.IsNotNull(result);
+			Assert.AreEqual("index", result.RouteValues["action"]);
 		}
 		
 		[TestMethod]
@@ -80,7 +90,7 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 		public void DeletePackage_WithoutPath_ThrowsException()
 		{
             _file.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
-            _packageController.DeletePackage(null);            
+            _packageController.DeletePackage(null);
 		}
 
 		[TestMethod]

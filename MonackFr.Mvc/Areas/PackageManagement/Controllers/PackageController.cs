@@ -68,9 +68,14 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		[Role(PackageControllerRoles.InstallPackage)]
 		public ActionResult InstallPackage(string path)
 		{
+			if (!_file.Exists(path))
+			{
+				throw new FileNotFoundException(path);
+			}
+
 			Package package = new Package(path);
 			_packageRepository.Create(package);
-			_packageRepository.Save();			
+			_packageRepository.Save();
 			return RedirectToAction("index");
 		}
 
