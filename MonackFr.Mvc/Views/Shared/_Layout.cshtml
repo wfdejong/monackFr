@@ -1,29 +1,5 @@
 ﻿@using MonackFr.Mvc.Module
 
-@helper MenuList(List<MenuItem> menuItems) {
-	<ul>				
-		@foreach(MenuItem menuItem in menuItems) {
-			if (menuItem.Authorized(ViewBag.LoggedInUser)) {
-				<li>
-					@if (menuItem.ActionName != null) {
-						@Html.ActionLink(menuItem.Text, menuItem.ActionName, menuItem.Controller, new { area = menuItem.Area }, null)
-					}
-					else {
-						<a>@menuItem.Text</a>
-					}
-
-					@if (menuItem.MenuItems != null && menuItem.MenuItems.Count > 0) {
-						@MenuList(menuItem.MenuItems);
-					}
-				</li>
-			}
-		}
-	</ul>
-	
-}
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,47 +7,19 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/themes/base/css")
-    @Scripts.Render("~/bundles/modernizr")
-	@Scripts.Render("~/bundles/jquery")
-	@Scripts.Render("~/bundles/jqueryui")
-	@Scripts.Render("~/bundles/jMenu")
-   
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$("#jMenu").jMenu({
-				openClick: true,
-				ulWidth: 'auto',
-				effects: {
-					effectSpeedOpen: 100,
-					effectSpeedClose: 100,
-					effectTypeOpen: 'slide',
-					effectTypeClose: 'slide',
-					effectOpen: 'linear',
-					effectClose: 'linear'
-				},
-				TimeBeforeOpening: 50,
-				TimeBeforeClosing: 100,
-				animatedText: false,
-				paddingLeft: 1
-			});
-		});
-	</script>
+    @Styles.Render("~/Css/Tiles.css")
 
- @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)
+
 </head>
 <body>
 	<h1>The Monack Framework</h1>
 	
-	<ul id="jMenu">				
+	@*<ul>				
 		@foreach (MenuItem menuItem in ViewBag.MenuItems)
 		{
 			<li>
-				@Html.ActionLink(menuItem.Text, menuItem.ActionName, menuItem.Controller, new { area = menuItem.Area }, new { @class = "fNiv" })
-
-				@if (menuItem.MenuItems != null && menuItem.MenuItems.Count > 0)
-				{
-					@MenuList(menuItem.MenuItems);
-				}
+				@Html.ActionLink(menuItem.Text, menuItem.ActionName, menuItem.Controller, new { area = menuItem.Area }, new { @class = "tile" })
 			</li>
 		}
 	</ul>
@@ -80,10 +28,12 @@
 		@ViewBag.LoggedInUser.UserName
 	}
 
-	<br />
+	<br />*@
 	@RenderBody()
 
     
-	
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
 </body>
 </html>

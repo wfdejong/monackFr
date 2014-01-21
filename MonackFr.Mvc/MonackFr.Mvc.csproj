@@ -152,6 +152,7 @@
     <Compile Include="Areas\PackageManagement\Entities\Package.cs" />
     <Compile Include="Areas\PackageManagement\Classes\PackageManager.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Controllers\TilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -192,6 +193,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Css\Tiles.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jMenu.jquery.js" />
@@ -228,7 +230,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\PackageManagement\Views\Shared\" />
-    <Folder Include="Css\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +255,9 @@
       <Project>{de92726d-e872-4e26-8e20-2c125ec3e6f8}</Project>
       <Name>MonackFr.Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Tiles\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
