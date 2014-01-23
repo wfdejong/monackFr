@@ -1,0 +1,44 @@
+﻿body {
+}
+
+ul.tiles li
+{
+    list-style-type: none;  
+    list-style: none;
+    display: block;
+    height: 100px;
+    width: 100px;
+    padding:10px;
+    margin:5px;
+    font-family: 'Segoe UI Semibold';
+    color: white;
+}
+
+.cyan {
+    background-color: cyan;
+}
+
+.magenta {
+    background-color:magenta;
+}
+
+.blue {
+    background-color: blue;
+}
+
+
+ul.tiles li.small {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+}
+
+ul.tiles li.medium {
+    height: 100px;
+    width: 235px;
+}
+
+ul.tiles li.big {
+    height: 200px;
+    width: 235px;
+}
