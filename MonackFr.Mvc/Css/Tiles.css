@@ -1,4 +1,11 @@
 ﻿body {
+    overflow-x:scroll;
+    overflow-y:visible;
+    height: 50%;
+}
+
+ul.tiles {
+    
 }
 
 ul.tiles li
@@ -6,8 +13,6 @@ ul.tiles li
     list-style-type: none;  
     list-style: none;
     display: block;
-    height: 100px;
-    width: 100px;
     padding:10px;
     margin:5px;
     font-family: 'Segoe UI Semibold';
@@ -30,7 +35,6 @@ ul.tiles li
 ul.tiles li.small {
     height: 100px;
     width: 100px;
-    display: inline-block;
 }
 
 ul.tiles li.medium {
