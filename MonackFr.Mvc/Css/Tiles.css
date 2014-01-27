@@ -1,11 +1,15 @@
-﻿body {
+﻿.container {
     overflow-x:scroll;
-    overflow-y:visible;
+    overflow-y:hidden;
     height: 50%;
+    width: 100%;
+    border:1px solid red;
+    
 }
 
 ul.tiles {
-    
+    display: table-cell;    
+    padding:0;
 }
 
 ul.tiles li
@@ -13,7 +17,7 @@ ul.tiles li
     list-style-type: none;  
     list-style: none;
     display: block;
-    padding:10px;
+    padding:5px;
     margin:5px;
     font-family: 'Segoe UI Semibold';
     color: white;
@@ -23,23 +27,16 @@ ul.tiles li
     background-color: cyan;
 }
 
+.fdd {
+    background-color: #2b4c75;
+}
+
 .magenta {
     background-color:magenta;
 }
 
 .blue {
     background-color: blue;
-}
-
-
-ul.tiles li.small {
-    height: 100px;
-    width: 100px;
-}
-
-ul.tiles li.medium {
-    height: 100px;
-    width: 235px;
 }
 
 ul.tiles li.big {
