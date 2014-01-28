@@ -1,4 +1,4 @@
-﻿.container {
+﻿/*.container {
     overflow-x:scroll;
     overflow-y:hidden;
     height: 50%;
@@ -11,16 +11,30 @@ ul.tiles {
     display: table-cell;    
     padding:0;
 }
-
+    */
 ul.tiles li
 {
-    list-style-type: none;  
-    list-style: none;
-    display: block;
     padding:5px;
-    margin:5px;
-    font-family: 'Segoe UI Semibold';
+    margin-top:2px;
+    margin-left: 2px;
     color: white;
+}
+
+div.tiles {
+    height:650px;
+    width:700px;
+    border:1px solid #000;
+    overflow-x:scroll;
+    overflow-y:hidden;
+}
+ul {
+    display:table-cell;  
+    padding:0;
+    border: 0;
+    margin: 0;
+}
+li {
+    list-style:none;
 }
 
 .cyan {
