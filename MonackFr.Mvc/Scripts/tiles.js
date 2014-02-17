@@ -23,3 +23,10 @@
     });
     $('div.tileExpander').append(ul);
 });
+
+(function ($) {
+    $.fn.tiles = function (options) {
+        console.log(this);
+        return this;
+    }
+})(jQuery);
