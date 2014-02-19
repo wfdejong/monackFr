@@ -4,9 +4,8 @@
 
 <h2>MonackFr</h2>
 <div class="tiles">
-    <div class="tileExpander">
         <ul class="tiles">
-            <li class="blue big">1</li>
+            <li class="blue big">any html <span>of dit</span><strong>en dit</strong></li>
             <li class="blue big">2</li>
             <li class="blue big">3</li>
             <li class="blue big">4</li>
@@ -15,13 +14,13 @@
             <li class="blue big">7</li>
             <li class="blue big">8</li>
         </ul>
-    </div>
+    
 </div>
 
 @section Scripts {
     <script type="text/javascript">
         $(document).ready(function () {
-            $("ul.tiles").tiles();
+            $("div.tiles").tiles({ option1: "1" });
         });
 </script>
 }
