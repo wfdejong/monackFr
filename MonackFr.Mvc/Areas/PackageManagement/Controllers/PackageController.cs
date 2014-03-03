@@ -107,6 +107,11 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 			return menuItem;			
 		}
 
+		Tile IModule.GetTile()
+		{
+			return new Tile();
+		}
+
 		Dictionary<string, string> IModule.MetaData
 		{
 			get

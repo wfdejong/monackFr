@@ -20,5 +20,11 @@ namespace MonackFr.Mvc.Module
 		/// Returns meta data of module
 		/// </summary>
 		Dictionary<string, string> MetaData { get; }
+
+		/// <summary>
+		/// Returns module's tile
+		/// </summary>
+		/// <returns></returns>
+		Tile GetTile();
 	}
 }

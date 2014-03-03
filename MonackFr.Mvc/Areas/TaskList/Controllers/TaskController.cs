@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace MonackFr.Mvc.Areas.TaskList.Controllers
 {
@@ -110,6 +111,21 @@ namespace MonackFr.Mvc.Areas.TaskList.Controllers
 			menuItem.MenuItems.Add(new MenuItem { Text = "Overview", ActionName = "Index", Controller = "Task", Area = "TaskList" });
 			
 			return menuItem;
+		}
+
+		public Tile GetTile()
+		{
+			string url = Url.Action("Index", "Task", new { area = "TaskList" });
+			Tile tile = new Tile();
+			tile.Title = "TaskList";
+			tile.PreviewItems = new string[] {
+					 "Pay bills today @ 21:23",
+					 "Watch T.V. @ 21-2-2014 13:45"
+				 };
+			tile.Copyright = "The Monack Framework";
+			tile.Url = Url.Action("Index", "Task", "TaskList");			
+
+			return tile;
 		}
 
     public Dictionary<string, string> MetaData

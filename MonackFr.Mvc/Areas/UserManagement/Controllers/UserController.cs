@@ -289,6 +289,11 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			return menuItem;
 		}
 
+		public Tile GetTile()
+		{
+			return new Tile();
+		}
+
         public Dictionary<string, string> MetaData
         {
             get

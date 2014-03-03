@@ -160,6 +160,7 @@
     <Compile Include="Module\DisposeController.cs" />
     <Compile Include="Module\IModule.cs" />
     <Compile Include="Module\MenuItem.cs" />
+    <Compile Include="Module\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +195,7 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Css\Tiles.css" />
+    <Content Include="Fonts\LICENSE.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jMenu.jquery.js" />
@@ -259,6 +261,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Tiles\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fonts\OpenSans-Bold.ttf" />
+    <Content Include="Fonts\OpenSans-BoldItalic.ttf" />
+    <Content Include="Fonts\OpenSans-ExtraBold.ttf" />
+    <Content Include="Fonts\OpenSans-ExtraBoldItalic.ttf" />
+    <Content Include="Fonts\OpenSans-Italic.ttf" />
+    <Content Include="Fonts\OpenSans-Light.ttf" />
+    <Content Include="Fonts\OpenSans-LightItalic.ttf" />
+    <Content Include="Fonts\OpenSans-Regular.ttf" />
+    <Content Include="Fonts\OpenSans-Semibold.ttf" />
+    <Content Include="Fonts\OpenSans-SemiboldItalic.ttf" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

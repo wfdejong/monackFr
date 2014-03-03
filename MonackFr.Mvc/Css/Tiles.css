@@ -12,12 +12,15 @@ ul.tiles {
     padding:0;
 }
     */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: local('Open Sans'), local('OpenSans'), url(../Fonts/OpenSans-Regular.ttf) format('truetype');
+}
+
 ul.tiles li
 {
-    padding:5px;
-    margin-top:2px;
-    margin-left: 2px;
-    color: white;
+    
 }
 
 div.tiles {
@@ -27,14 +30,47 @@ div.tiles {
     overflow-x:scroll;
     overflow-y:hidden;
 }
-ul {
+div.tiles ul {
     display:table-cell;  
     padding:0;
     border: 0;
     margin: 0;
 }
-li {
+
+div.tiles a {
+    margin:0;
+    color: white;
+    text-decoration:none;
+    display:block;
+    height: 200px;
+    width: 235px;
+}
+ul.tiles li {
     list-style:none;
+    font-family: 'Open Sans';    
+    padding:10px;
+    margin-top:4px;
+    margin-left: 4px;
+    
+}
+
+ul.tiles li h1 {
+    font-size: 25px;
+    font-weight:100;
+    margin-top:0;
+    margin-bottom:2px;
+}
+
+ul.tiles li h2 {
+    font-size: 15px;
+    font-weight:100;
+    margin:0;
+}
+
+ul.tiles li span {
+    font-size: 12px;
+    font-weight:100;
+    margin:0;
 }
 
 .cyan {
@@ -51,9 +87,4 @@ li {
 
 .blue {
     background-color: blue;
-}
-
-ul.tiles li.big {
-    height: 200px;
-    width: 235px;
 }
