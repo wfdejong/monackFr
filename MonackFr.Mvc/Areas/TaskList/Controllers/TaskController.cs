@@ -102,7 +102,7 @@ namespace MonackFr.Mvc.Areas.TaskList.Controllers
 
 		#region implementation of IModule
 				
-		public MenuItem GetMenu()
+		MenuItem IModule.GetMenu()
 		{
 			MenuItem menuItem = new MenuItem();
 			menuItem.Text = "Tasks";
@@ -113,18 +113,18 @@ namespace MonackFr.Mvc.Areas.TaskList.Controllers
 			return menuItem;
 		}
 
-		public Tile GetTile()
+		Tile IModule.GetTile(UrlHelper url)
 		{
-			string url = Url.Action("Index", "Task", new { area = "TaskList" });
 			Tile tile = new Tile();
 			tile.Title = "TaskList";
+			tile.Url = url.Action("Index", "Task", new { area = "TaskList" });
+			
 			tile.PreviewItems = new string[] {
 					 "Pay bills today @ 21:23",
 					 "Watch T.V. @ 21-2-2014 13:45"
 				 };
 			tile.Copyright = "The Monack Framework";
-			tile.Url = Url.Action("Index", "Task", "TaskList");			
-
+			
 			return tile;
 		}
 

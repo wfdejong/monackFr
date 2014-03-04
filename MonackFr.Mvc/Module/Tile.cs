@@ -11,7 +11,7 @@ namespace MonackFr.Mvc.Module
 		/// Title
 		/// </summary>
 		public string Title { get; set; }
-
+		
 		/// <summary>
 		/// Items shown in tile
 		/// </summary>

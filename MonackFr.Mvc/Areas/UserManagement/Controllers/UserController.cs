@@ -289,7 +289,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			return menuItem;
 		}
 
-		public Tile GetTile()
+		public Tile GetTile(UrlHelper url)
 		{
 			return new Tile();
 		}

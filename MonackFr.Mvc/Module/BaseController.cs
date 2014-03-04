@@ -77,7 +77,7 @@ namespace MonackFr.Mvc.Module
 
 			foreach (IModule module in PluginLoader.Instance.Plugins)
 			{
-				tiles.Add(module.GetTile());
+				tiles.Add(module.GetTile(Url));
 			}
 
 			return tiles;

@@ -107,7 +107,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 			return menuItem;			
 		}
 
-		Tile IModule.GetTile()
+		Tile IModule.GetTile(UrlHelper url)
 		{
 			return new Tile();
 		}

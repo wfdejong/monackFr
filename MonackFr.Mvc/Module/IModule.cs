@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MonackFr.Mvc.Module
 {
@@ -25,6 +26,6 @@ namespace MonackFr.Mvc.Module
 		/// Returns module's tile
 		/// </summary>
 		/// <returns></returns>
-		Tile GetTile();
+		Tile GetTile(UrlHelper url);
 	}
 }
