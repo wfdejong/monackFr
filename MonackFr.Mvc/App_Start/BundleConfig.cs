@@ -41,7 +41,10 @@ namespace MonackFr.Mvc
 						"~/Scripts/jMenu.jquery.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/tiles").Include(
-						"~/Scripts/tiles.js"));
+						"~/Scripts/tiles.jquery.js"));
+
+			bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+					"~/Scripts/knockout-2.0.0.js"));
 		}
 	}
 }

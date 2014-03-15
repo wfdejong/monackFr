@@ -109,7 +109,13 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 
 		Tile IModule.GetTile(UrlHelper url)
 		{
-			return new Tile();
+
+			Tile tile = new Tile();
+			tile.Title = "Package management";
+			tile.Url = url.Action("Index", "Package", new { area = "PackageManagement" });
+			tile.Copyright = "The Monack Framework";
+
+			return tile;
 		}
 
 		Dictionary<string, string> IModule.MetaData

@@ -152,6 +152,7 @@
     <Compile Include="Areas\PackageManagement\Entities\Package.cs" />
     <Compile Include="Areas\PackageManagement\Classes\PackageManager.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\TilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,7 +215,7 @@
     <Content Include="Scripts\knockout-2.0.0.debug.js" />
     <Content Include="Scripts\knockout-2.0.0.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
-    <Content Include="Scripts\tiles.js" />
+    <Content Include="Scripts\tiles.jquery.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -260,7 +261,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Tiles\Index.cshtml" />
+    <Content Include="Views\Main\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Fonts\OpenSans-Bold.ttf" />

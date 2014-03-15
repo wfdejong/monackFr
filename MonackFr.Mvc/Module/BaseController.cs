@@ -66,22 +66,6 @@ namespace MonackFr.Mvc.Module
 
 			return menuItems;
 		}
-
-		/// <summary>
-		/// returns tiles
-		/// </summary>
-		/// <returns></returns>
-		protected IEnumerable<Tile> GetTiles()
-		{
-			List<Tile> tiles = new List<Tile>();
-
-			foreach (IModule module in PluginLoader.Instance.Plugins)
-			{
-				tiles.Add(module.GetTile(Url));
-			}
-
-			return tiles;
-		}
 		
 		/// <summary>
 		/// overrides OnActionExecuting. 
@@ -93,8 +77,7 @@ namespace MonackFr.Mvc.Module
 			base.OnActionExecuting(filterContext);
 			LoadInstalledModules();			
 
-			ViewBag.menuItems = GetMenuItems();
-			ViewBag.Tiles = GetTiles();
+			ViewBag.menuItems = GetMenuItems();			
 			ViewBag.LoggedInUser = LoggedInUser;
 		}
 	}

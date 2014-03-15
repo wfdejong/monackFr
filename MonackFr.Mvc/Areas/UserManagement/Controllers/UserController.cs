@@ -263,7 +263,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 		#endregion //public methods
 
-		#region implementation of IPlugin
+		#region implementation of IModule
 
 		/// <summary>
 		/// Implementation of GetMenu
@@ -291,7 +291,12 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 		public Tile GetTile(UrlHelper url)
 		{
-			return new Tile();
+			Tile tile = new Tile();
+			tile.Title = "User management";
+			tile.Url = url.Action("Index", "User", new { area = "UserManagement" });
+			tile.Copyright = "The Monack Framework";
+
+			return tile;
 		}
 
         public Dictionary<string, string> MetaData
