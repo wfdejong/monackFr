@@ -60,6 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\EmptyStringException.cs" />
+    <Compile Include="Module\IModule.cs" />
+    <Compile Include="Module\MenuItem.cs" />
+    <Compile Include="Module\Tile.cs" />
     <Compile Include="Security\IHash.cs" />
     <Compile Include="Security\IMfrRole.cs" />
     <Compile Include="Security\Security.cs" />
@@ -88,7 +91,7 @@
     <Compile Include="Security\RoleAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
-    <Compile Include="Repository\IContext.cs" />
+    <Compile Include="Module\IContext.cs" />
     <Compile Include="Repository\IGenericRepository.cs" />
     <Compile Include="Wrappers\Roles.cs" />
   </ItemGroup>

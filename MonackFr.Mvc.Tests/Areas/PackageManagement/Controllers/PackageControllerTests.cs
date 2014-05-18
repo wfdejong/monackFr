@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using MonackFr.Mvc.Areas.PackageManagement.Controllers;
 using MonackFr.Mvc.Areas.PackageManagement;
-using MonackFr.Mvc.Areas.PackageManagement.Repositories;
+using MonackFr.Mvc.Repositories;
 using Moq;
 using System.Collections;
 using MonackFr.Mvc.Areas.PackageManagement.Entities;

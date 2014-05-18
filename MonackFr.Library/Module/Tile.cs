@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MonackFr.Mvc.Module
+namespace MonackFr.Module
 {
 	public class Tile
 	{

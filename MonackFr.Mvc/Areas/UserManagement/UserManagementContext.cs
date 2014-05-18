@@ -6,6 +6,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using MonackFr.Module;
 
 namespace MonackFr.Mvc.Areas.UserManagement
 {

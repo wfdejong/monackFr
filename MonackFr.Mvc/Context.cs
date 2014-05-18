@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using MonackFr.Repository;
+using MonackFr.Mvc.Areas.PackageManagement.Entities;
+using MonackFr.Module;
 
 namespace MonackFr
 {
@@ -26,7 +28,7 @@ namespace MonackFr
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-
+                        
 			if (Contexts != null)
 			{
 				foreach (IContext context in Contexts)

@@ -1,4 +1,5 @@
-﻿using MonackFr.Mvc.Areas.PackageManagement.Entities;
+﻿using MonackFr.Module;
+using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using MonackFr.Repository;
 using MonackFr.Security;
 using System;

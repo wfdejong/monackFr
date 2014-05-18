@@ -5,7 +5,7 @@ using System.Web;
 using MonackFr.Security;
 using System.Web.Security;
 
-namespace MonackFr.Mvc.Module
+namespace MonackFr.Module
 {
 	/// <summary>
 	/// Menu item

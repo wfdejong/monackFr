@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace MonackFr.Repository
+namespace MonackFr.Module
 {
 	/// <summary>
 	/// Interface for dbcontext. Used for installing the database table for the context.

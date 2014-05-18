@@ -1,14 +1,14 @@
-﻿using MonackFr.Mvc.Areas.PackageManagement.Entities;
+﻿using MonackFr.Mvc.Entities;
 using MonackFr.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MonackFr.Mvc.Areas.PackageManagement.Repositories
+namespace MonackFr.Mvc.Repositories
 {
 	public interface IPackageRepository : IGenericRepository<Package>
 	{
-        void InstallPackages(IPackage[] packages);
+        void InstallPackages(Package[] packages);
 	}
 }

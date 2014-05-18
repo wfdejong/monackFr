@@ -138,18 +138,22 @@
     <Compile Include="Areas\PackageManagement\Classes\IDatabaseManager.cs" />
     <Compile Include="Areas\PackageManagement\Classes\IUserManager.cs" />
     <Compile Include="Areas\PackageManagement\Classes\UserManager.cs" />
+    <Compile Include="Contexts\PackageContext.cs" />
     <Compile Include="Areas\PackageManagement\Controllers\InstallController.cs" />
-    <Compile Include="Areas\PackageManagement\Entities\PackageNullReferenceException.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\PackageNullReferenceException.cs" />
     <Compile Include="Areas\PackageManagement\ViewModels\PackageList.cs" />
-    <Compile Include="Areas\PackageManagement\Contexts\PackageContext.cs" />
     <Compile Include="Areas\PackageManagement\Controllers\PackageController.cs" />
     <Compile Include="Areas\PackageManagement\ModuleAreaAreaRegistration.cs" />
-    <Compile Include="Areas\PackageManagement\Repositories\IPackageRepository.cs" />
-    <Compile Include="Areas\PackageManagement\Repositories\PackageRepository.cs" />
+    <Compile Include="Entities\MenuItem.cs" />
+    <Compile Include="Entities\Module.cs" />
+    <Compile Include="Entities\Package.cs" />
+    <Compile Include="Entities\Tile.cs" />
+    <Compile Include="Repositories\IPackageRepository.cs" />
+    <Compile Include="Repositories\PackageRepository.cs" />
     <Compile Include="Classes\Authentication.cs" />
-    <Compile Include="Areas\PackageManagement\Entities\IPackage.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\IPackage.cs" />
     <Compile Include="Areas\PackageManagement\Classes\IPackageManager.cs" />
-    <Compile Include="Areas\PackageManagement\Entities\Package.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\Package.cs" />
     <Compile Include="Areas\PackageManagement\Classes\PackageManager.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Controllers\MainController.cs" />
@@ -159,9 +163,6 @@
     </Compile>
     <Compile Include="Module\BaseController.cs" />
     <Compile Include="Module\DisposeController.cs" />
-    <Compile Include="Module\IModule.cs" />
-    <Compile Include="Module\MenuItem.cs" />
-    <Compile Include="Module\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +234,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\PackageManagement\Entities\" />
     <Folder Include="Areas\PackageManagement\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>

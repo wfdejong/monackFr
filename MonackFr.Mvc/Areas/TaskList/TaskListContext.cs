@@ -6,6 +6,7 @@ using MonackFr.Repository;
 using MonackFr.Mvc.Areas.TaskList.Models;
 using System.Data.Entity;
 using System.ComponentModel.Composition;
+using MonackFr.Module;
 
 namespace MonackFr.Mvc.Areas.TaskList
 {

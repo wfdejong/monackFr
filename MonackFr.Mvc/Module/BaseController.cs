@@ -1,5 +1,6 @@
-﻿using MonackFr.Mvc.Areas.PackageManagement.Entities;
-using MonackFr.Mvc.Areas.PackageManagement.Repositories;
+﻿using MonackFr.Module;
+using MonackFr.Mvc.Entities;
+using MonackFr.Mvc.Repositories;
 using MonackFr.Security;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,11 +43,11 @@ namespace MonackFr.Mvc.Module
 				
 				foreach (Package package in packageRepository.GetAll())
 				{
-					package.LoadModules();
-					if (package.Modules != null && package.Modules.Count() > 0)
-					{
-						PluginLoader.Instance.AddRange(package.Modules);
-					}
+                    //package.LoadModules();
+                    //if (package.Modules != null && package.Modules.Count() > 0)
+                    //{
+                    //    PluginLoader.Instance.AddRange(package.Modules);
+                    //}
 				}
 			}
 		}
@@ -55,9 +56,9 @@ namespace MonackFr.Mvc.Module
 		/// returns menu items of all installed modules
 		/// </summary>
 		/// <returns></returns>
-		private IEnumerable<MenuItem> GetMenuItems()
+		private IEnumerable<MonackFr.Module.MenuItem> GetMenuItems()
 		{
-			List<MenuItem> menuItems = new List<MenuItem>();
+			List<MonackFr.Module.MenuItem> menuItems = new List<MonackFr.Module.MenuItem>();
 
 				foreach (IModule module in PluginLoader.Instance.Plugins)
 				{

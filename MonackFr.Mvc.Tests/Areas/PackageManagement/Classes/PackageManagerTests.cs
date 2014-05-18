@@ -7,7 +7,7 @@ using MonackFr.Repository;
 using MonackFr.Mvc.Module;
 using MonackFr.Wrappers;
 using MonackFr.Mvc.Areas.PackageManagement;
-using MonackFr.Mvc.Areas.PackageManagement.Contexts;
+using MonackFr.Mvc.Contexts;
 using MonackFr.Security;
 using System.Web.Security;
 

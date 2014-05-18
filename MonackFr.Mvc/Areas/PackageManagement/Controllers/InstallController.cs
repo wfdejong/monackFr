@@ -1,4 +1,4 @@
-﻿using MonackFr.Mvc.Areas.PackageManagement.Repositories;
+﻿using MonackFr.Mvc.Repositories;
 using MonackFr.Mvc.Areas.PackageManagement.ViewModels;
 using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using MonackFr.Repository;
@@ -88,7 +88,9 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
                 _databaseManager.InstallDatabase(_packageManager.Contexts);
                 
 				_packageManager.InstallRoles();
-                _packageRepository.InstallPackages(_packageManager.Packages);
+                IPackage[] ps = _packageManager.Packages;
+                //TODO Map ps to ientities.
+                //_packageRepository.InstallPackages(_packageManager.Packages);
                 _packageRepository.Dispose();
 				//context.SaveChanges();
 

@@ -1,4 +1,5 @@
-﻿using MonackFr.Mvc.Module;
+﻿using MonackFr.Module;
+using MonackFr.Mvc.Module;
 using MonackFr.Repository;
 using MonackFr.Security;
 using System;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MonackFr.Mvc.Areas.PackageManagement.Entities
+namespace MonackFr.Mvc.Areas.PackageManagement
 {
     public interface IPackage
     {

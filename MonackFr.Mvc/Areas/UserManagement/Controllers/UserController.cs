@@ -1,4 +1,5 @@
-﻿using MonackFr.Mvc.Areas.UserManagement.Models;
+﻿using MonackFr.Module;
+using MonackFr.Mvc.Areas.UserManagement.Models;
 using MonackFr.Mvc.Areas.UserManagement.Providers;
 using MonackFr.Mvc.Areas.UserManagement.Repositories;
 using MonackFr.Mvc.Areas.UserManagement.ViewModels;

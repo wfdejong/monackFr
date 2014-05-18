@@ -11,14 +11,14 @@
 	@Html.ValidationSummary(true)
 
     
-	foreach (MonackFr.Mvc.Areas.PackageManagement.Entities.Package package in Model.Packages)
+	foreach (MonackFr.Mvc.Areas.PackageManagement.Package package in Model.Packages)
 	{
 		<fieldset>
 			<legend>Package</legend>
 			<div>
 				<span>@package.Path</span>
 				<br />
-				@foreach (MonackFr.Mvc.Module.IModule module in package.Modules)
+				@foreach (MonackFr.Module.IModule module in package.Modules)
 				{
 					<fieldset>
 						<legend>@module.MetaData["Name"]</legend>

@@ -1,4 +1,4 @@
-﻿using MonackFr.Mvc.Areas.PackageManagement.Repositories;
+﻿using MonackFr.Mvc.Repositories;
 using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using MonackFr.Security;
 using System;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web.Mvc;
 using MonackFr.Mvc.Module;
 using MonackFr.Wrappers;
+using MonackFr.Module;
 
 namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 {
@@ -49,48 +50,50 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 
 		[Role(PackageControllerRoles.InstallPackage)]
 		public ActionResult Index()
-		{			
-			_packageManager.LoadPackages();
-			IEnumerable<IPackage> modules = _packageManager.Packages;
+        {
+            return null;		
+            //_packageManager.LoadPackages();
+            //IEnumerable<IPackage> modules = _packageManager.Packages;
 
-			IEnumerable<Package> installedPackages = _packageRepository.GetAll();
-			IEnumerable<string> installedPackagesPaths = from p in installedPackages select p.Path;
+            //IEnumerable<Package> installedPackages = _packageRepository.GetAll();
+            //IEnumerable<string> installedPackagesPaths = from p in installedPackages select p.Path;
 
-			(from m in modules select m).ToList().ForEach((module) =>
-			{
-				module.Installed = installedPackagesPaths.Contains(module.Path);					
-			});
+            //(from m in modules select m).ToList().ForEach((module) =>
+            //{
+            //    module.Installed = installedPackagesPaths.Contains(module.Path);					
+            //});
 
-			return View(modules);
+            //return View(modules);
 		}
 
 		[HttpPost]
 		[Role(PackageControllerRoles.InstallPackage)]
 		public ActionResult InstallPackage(string path)
 		{
-			if (!_file.Exists(path))
-			{
-				throw new FileNotFoundException(path);
-			}
+            //if (!_file.Exists(path))
+            //{
+            //    throw new FileNotFoundException(path);
+            //}
 
-			Package package = new Package(path);
-			_packageRepository.Create(package);
-			_packageRepository.Save();
-			return RedirectToAction("index");
+            //Package package = new Package(path);
+            //_packageRepository.Create(package);
+            //_packageRepository.Save();
+            //return RedirectToAction("index");
+            return null;
 		}
 
 		[HttpPost]
 		[Role(PackageControllerRoles.InstallPackage)]
 		public ActionResult DeletePackage(string path)
 		{
-            if (!_file.Exists(path))
-            {
-                throw new FileNotFoundException(path);
-            }
+            //if (!_file.exists(path))
+            //{
+            //    throw new filenotfoundexception(path);
+            //}
 
-			Package package = _packageRepository.GetSingle(x => x.Path == path);
-			_packageRepository.Delete(package);
-			_packageRepository.Save();
+            //package package = _packagerepository.getsingle(x => x.path == path);
+            //_packagerepository.delete(package);
+            //_packagerepository.save();
             return RedirectToAction("index");
 		}
 

@@ -2,7 +2,7 @@
 using MonackFr.Mvc.Areas.PackageManagement;
 using MonackFr.Mvc.Areas.PackageManagement.Controllers;
 using MonackFr.Mvc.Areas.PackageManagement.Entities;
-using MonackFr.Mvc.Areas.PackageManagement.Repositories;
+using MonackFr.Mvc.Repositories;
 using Moq;
 using System;
 using System.Web.Mvc;

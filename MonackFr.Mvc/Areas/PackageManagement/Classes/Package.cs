@@ -1,22 +1,18 @@
-﻿using MonackFr.Mvc.Module;
-using MonackFr.Repository;
+﻿using MonackFr.Module;
 using MonackFr.Security;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MonackFr.Mvc.Areas.PackageManagement.Entities
+namespace MonackFr.Mvc.Areas.PackageManagement
 {
 	public class Package : IPackage
 	{
 		private IEnumerable<IModule> _modules;
-		private IEnumerable<IContext> _contexts;
+        private IEnumerable<MonackFr.Module.IContext> _contexts;
         private IEnumerable<IAuthorization> _authorizations;
 		private readonly string baseDir = AppDomain.CurrentDomain.BaseDirectory;
 		private string _path;
 
-		[NotMapped]
 		public IEnumerable<IModule> Modules
 		{
 			get
@@ -24,11 +20,10 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Entities
 				return _modules;
 			}
 		}
-		[NotMapped]
-		public bool Installed { get; set; }
-
-		[NotMapped]
-		public IEnumerable<IContext> Contexts
+		
+        public bool Installed { get; set; }
+        		
+        public IEnumerable<IContext> Contexts
 		{
 			get
 			{
@@ -36,7 +31,6 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Entities
 			}
 		}
 		
-        [NotMapped]
         public IEnumerable<IAuthorization> Authorizations
         {
             get
@@ -45,14 +39,6 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Entities
             }
         }
 
-		[Key]
-		public int Id
-		{
-			get;
-			set;
-		}
-
-		[Required]
 		public string Path
 		{
 			get

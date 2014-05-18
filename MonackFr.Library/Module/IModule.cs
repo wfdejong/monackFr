@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MonackFr.Mvc.Module
+namespace MonackFr.Module
 {
 	/// <summary>
 	/// Interface to implement a module

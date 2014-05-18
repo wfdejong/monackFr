@@ -1,4 +1,5 @@
-﻿using MonackFr.Repository;
+﻿using MonackFr.Module;
+using MonackFr.Repository;
 using System.Data.Entity;
 
 namespace MonackFr.Mvc.Areas.PackageManagement
