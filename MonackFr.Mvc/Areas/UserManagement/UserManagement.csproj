@@ -135,25 +135,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Classes\IUserManager.cs" />
+    <Compile Include="Classes\UserManager.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Repositories\GroupRepository.cs" />
-    <Compile Include="Repositories\IGroupRepository.cs" />
-    <Compile Include="Repositories\IRoleRepository.cs" />
-    <Compile Include="Models\Group.cs" />
     <Compile Include="Providers\MfrRoleProvider.cs" />
-    <Compile Include="Repositories\RoleRepository.cs" />
-    <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="ViewModels\CheckBoxListUser.cs" />
     <Compile Include="ViewModels\DetailsGroup.cs" />
     <Compile Include="ViewModels\LoginUser.cs" />
-    <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\MfrMembershipProvider.cs" />
     <Compile Include="UserManagementAreaRegistration.cs" />
-    <Compile Include="UserManagementContext.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ViewModels\CreateUser.cs" />
     <Compile Include="ViewModels\DetailsUser.cs" />
     <Compile Include="ViewModels\CheckBoxListGroup.cs" />
@@ -221,6 +213,8 @@
     <Content Include="Views\Group\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Repositories\" />
     <Folder Include="Views\User\EditorTemplates\" />
   </ItemGroup>
   <PropertyGroup>
@@ -237,7 +231,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>false</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54889</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Security;
+using AutoMapper;
 
 namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 {
@@ -23,7 +24,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		private IPackageManager _packageManager = null;
         private IPackageRepository _packageRepository = null;
         private IDatabaseManager _databaseManager = null;
-        private IUserManager _userManager = null;
+        //private IUserManager _userManager = null;
 
 		#region constructors
 
@@ -38,19 +39,19 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
             
             _packageRepository = new PackageRepository();
             _databaseManager = new DatabaseManager();
-            _userManager = new UserManager();
+           // _userManager = new UserManager();
 		}
 
 		/// <summary>
 		/// Constructor for testing purposes
 		/// </summary>
 		/// <param name="directory"></param>
-		public InstallController(IPackageManager packageManager, IPackageRepository packageRepository, IDatabaseManager databaseManager, IUserManager userManager)
+		public InstallController(IPackageManager packageManager, IPackageRepository packageRepository, IDatabaseManager databaseManager/*, IUserManager userManager*/)
 		{
 			_packageManager = packageManager;
             _packageRepository = packageRepository;
             _databaseManager = databaseManager;
-            _userManager = userManager;
+            //_userManager = userManager;
 		}
 
 		#endregion
@@ -64,7 +65,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 			PackageList packageList = new PackageList();
             _packageManager.LoadPackages();
 
-            packageList.Packages = _packageManager.Packages;
+            packageList.Packages = Mapper.Map<IEnumerable<ViewModels.Package>>(_packageManager.Packages);
 
 			return View("install", packageList);
 		}
@@ -94,10 +95,10 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
                 _packageRepository.Dispose();
 				//context.SaveChanges();
 
-
+                /* This should be done with profider
 				_userManager.CreateUser("admin", "admin");
                 _userManager.AddUserToAllRoles("admin");
-				
+				*/
 
 				return RedirectToAction("Install");
 			}

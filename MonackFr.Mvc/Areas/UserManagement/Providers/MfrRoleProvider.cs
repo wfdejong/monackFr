@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
-using MonackFr.Mvc.Areas.UserManagement.Models;
 using MonackFr.Security;
 using MonackFr.Mvc;
-using MonackFr.Mvc.Areas.UserManagement.Repositories;
+using MonackFr.Mvc.Entities;
+using MonackFr.Mvc.Repositories;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Providers
 {

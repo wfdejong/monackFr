@@ -1,7 +1,6 @@
-﻿using MonackFr.Mvc.Areas.UserManagement.Models;
-using MonackFr.Mvc.Areas.UserManagement.Repositories;
-using MonackFr.Mvc.Areas.UserManagement.ViewModels;
-using MonackFr.Mvc.Module;
+﻿using MonackFr.Mvc.Areas.UserManagement.ViewModels;
+using MonackFr.Mvc.Entities;
+using MonackFr.Mvc.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

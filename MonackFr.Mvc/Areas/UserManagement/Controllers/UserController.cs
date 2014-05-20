@@ -1,9 +1,8 @@
 ﻿using MonackFr.Module;
-using MonackFr.Mvc.Areas.UserManagement.Models;
 using MonackFr.Mvc.Areas.UserManagement.Providers;
-using MonackFr.Mvc.Areas.UserManagement.Repositories;
 using MonackFr.Mvc.Areas.UserManagement.ViewModels;
-using MonackFr.Mvc.Module;
+using MonackFr.Mvc.Entities;
+using MonackFr.Mvc.Repositories;
 using MonackFr.Security;
 using System;
 using System.Collections.Generic;
@@ -270,13 +269,13 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		/// Implementation of GetMenu
 		/// </summary>
 		/// <returns></returns>
-		public MenuItem GetMenu()
+		public Module.MenuItem GetMenu()
 		{
-			MenuItem menuItem = new MenuItem();
+			Module.MenuItem menuItem = new Module.MenuItem();
 			menuItem.Text = "User Management";
 			
-			menuItem.MenuItems = new List<MenuItem>();
-			menuItem.MenuItems.Add(new MenuItem
+			menuItem.MenuItems = new List<Module.MenuItem>();
+			menuItem.MenuItems.Add(new Module.MenuItem
 			{
 				Text = "Users",
 				ActionName = "Index",
@@ -284,15 +283,15 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 				Area = "UserManagement",
 				UserRoles = new string[]{UserControllerRoles.ViewUser.ToString(), UserControllerRoles.CreateUser.ToString()}
 			});
-			menuItem.MenuItems.Add(new MenuItem { Text = "Groups", ActionName = "Index", Controller = "Group", Area = "UserManagement" });
-			menuItem.MenuItems.Add(new MenuItem { Text = "Logout", ActionName = "Logout", Controller = "User", Area = "UserManagement" });
+			menuItem.MenuItems.Add(new Module.MenuItem { Text = "Groups", ActionName = "Index", Controller = "Group", Area = "UserManagement" });
+			menuItem.MenuItems.Add(new Module.MenuItem { Text = "Logout", ActionName = "Logout", Controller = "User", Area = "UserManagement" });
 			
 			return menuItem;
 		}
 
-		public Tile GetTile(UrlHelper url)
+		public Module.Tile GetTile(UrlHelper url)
 		{
-			Tile tile = new Tile();
+            Module.Tile tile = new Module.Tile();
 			tile.Title = "User management";
 			tile.Url = url.Action("Index", "User", new { area = "UserManagement" });
 			tile.Copyright = "The Monack Framework";

@@ -14,6 +14,8 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 
 		public override void RegisterArea(AreaRegistrationContext context)
 		{
+            AutoMapperConfig.CreateMaps();
+
 			context.MapRoute(
 				"PackageManagement_default",
 				"PackageManagement/{controller}/{action}/{id}",

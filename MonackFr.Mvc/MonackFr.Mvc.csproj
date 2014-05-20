@@ -47,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -134,21 +140,32 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\PackageManagement\App_Start\AutoMapperConfig.cs" />
     <Compile Include="Areas\PackageManagement\Classes\DatabaseManager.cs" />
     <Compile Include="Areas\PackageManagement\Classes\IDatabaseManager.cs" />
-    <Compile Include="Areas\PackageManagement\Classes\IUserManager.cs" />
-    <Compile Include="Areas\PackageManagement\Classes\UserManager.cs" />
+    <Compile Include="Areas\PackageManagement\ViewModels\Module.cs" />
+    <Compile Include="Areas\PackageManagement\ViewModels\Package.cs" />
+    <Compile Include="Classes\BaseController.cs" />
+    <Compile Include="Classes\DisposeController.cs" />
     <Compile Include="Contexts\PackageContext.cs" />
     <Compile Include="Areas\PackageManagement\Controllers\InstallController.cs" />
     <Compile Include="Areas\PackageManagement\Classes\PackageNullReferenceException.cs" />
     <Compile Include="Areas\PackageManagement\ViewModels\PackageList.cs" />
     <Compile Include="Areas\PackageManagement\Controllers\PackageController.cs" />
     <Compile Include="Areas\PackageManagement\ModuleAreaAreaRegistration.cs" />
+    <Compile Include="Contexts\UserManagementContext.cs" />
+    <Compile Include="Entities\Group.cs" />
     <Compile Include="Entities\MenuItem.cs" />
     <Compile Include="Entities\Module.cs" />
     <Compile Include="Entities\Package.cs" />
+    <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\Tile.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Repositories\GroupRepository.cs" />
+    <Compile Include="Repositories\IGroupRepository.cs" />
     <Compile Include="Repositories\IPackageRepository.cs" />
+    <Compile Include="Repositories\IRoleRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\PackageRepository.cs" />
     <Compile Include="Classes\Authentication.cs" />
     <Compile Include="Areas\PackageManagement\Classes\IPackage.cs" />
@@ -161,9 +178,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Module\BaseController.cs" />
-    <Compile Include="Module\DisposeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\arrow_down.png" />
@@ -234,9 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\PackageManagement\Entities\" />
     <Folder Include="Areas\PackageManagement\Views\Shared\" />
     <Folder Include="Models\" />
+    <Folder Include="Module\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -305,6 +322,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

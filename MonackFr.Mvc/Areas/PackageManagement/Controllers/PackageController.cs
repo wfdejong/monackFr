@@ -7,7 +7,6 @@ using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
-using MonackFr.Mvc.Module;
 using MonackFr.Wrappers;
 using MonackFr.Module;
 

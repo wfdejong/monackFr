@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MonackFr.Mvc.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MonackFr.Mvc.Areas.UserManagement.Models;
 
 namespace MonackFr.Mvc.Areas.UserManagement.ViewModels
 {

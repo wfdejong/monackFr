@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
-using MonackFr.Mvc.Areas.UserManagement.Models;
 using System.Web.Mvc;
 using MonackFr.Security;
+using MonackFr.Mvc.Entities;
 
 namespace MonackFr.Mvc.Areas.UserManagement.ViewModels
 {

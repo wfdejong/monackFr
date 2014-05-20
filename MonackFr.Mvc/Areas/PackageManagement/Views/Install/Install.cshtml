@@ -1,5 +1,5 @@
-﻿@model MonackFr.Mvc.Areas.PackageManagement.ViewModels.PackageList
-@using MonackFr.Mvc.Areas.UserManagement.ViewModels
+﻿@using MonackFr.Mvc.Areas.PackageManagement.ViewModels
+@model PackageList
 @{
 	ViewBag.Title = "Install";
 }
@@ -11,24 +11,17 @@
 	@Html.ValidationSummary(true)
 
     
-	foreach (MonackFr.Mvc.Areas.PackageManagement.Package package in Model.Packages)
+	foreach (Package package in Model.Packages)
 	{
 		<fieldset>
 			<legend>Package</legend>
 			<div>
-				<span>@package.Path</span>
 				<br />
-				@foreach (MonackFr.Module.IModule module in package.Modules)
+				@foreach (Module module in package.Modules)
 				{
 					<fieldset>
-						<legend>@module.MetaData["Name"]</legend>
-						<span>
-							@foreach (KeyValuePair<string, string> metadata in module.MetaData)
-							{
-								@metadata.Key <span>-</span> @metadata.Value
-								<span>,</span>
-							}
-						</span>
+						<legend>@module.Name</legend>
+						<span>@module.Author</span>
 					</fieldset>
 				}
 			</div>
