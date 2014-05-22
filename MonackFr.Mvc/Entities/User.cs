@@ -9,38 +9,64 @@ using MonackFr.Security;
 
 namespace MonackFr.Mvc.Entities
 {
-	public class User : MfrUser
+	public class User
 	{
-		#region properties
+		/// <summary>
+		/// User Id
+		/// </summary>
+	    public int Id { get; set; }
+
+		/// <summary>
+		/// Username
+		/// </summary>
+		public string UserName { get; set; }
+
+		/// <summary>
+		/// Password
+		/// </summary>
+		public string Password { get; set; }
+
+		/// <summary>
+		/// Email
+		/// </summary>
+		public string Email { get; set; }
+
+		/// <summary>
+		/// Creation date
+		/// </summary>
+		public DateTime Creation { get; set; }
+
+		/// <summary>
+		/// Last update date
+		/// </summary>
+		public DateTime LastUpdate { get; set; }
+
+		/// <summary>
+		/// Last login date
+		/// </summary>
+		public DateTime? LastLogin { get; set; }
+
+		/// <summary>
+		/// Last activity date
+		/// </summary>
+		public DateTime? LastActivity { get; set; }
+
+		/// <summary>
+		/// last password change date
+		/// </summary>
+		public DateTime LastPaswordChange { get; set; }
 
 		[InverseProperty("Users")]
 		public virtual ICollection<Role> Roles { get; set; }
 
 		[InverseProperty("Users")]
 		public virtual ICollection<Group> Groups { get; set; }
-
-		#endregion //properties
-
-		#region constructors
-
+        		
 		public User()
 		{
 			LastUpdate = DateTime.Now;
 			Creation = DateTime.Now;
 			LastPaswordChange = DateTime.Now;
 		}
-
-		#endregion //constuctors
-
-		#region public functions
-
-		public MembershipUser GetMembershipuser()
-		{
-			DateTime lastLogin = LastLogin ?? DateTime.MinValue;
-			DateTime lastActivity = LastActivity ?? DateTime.MinValue;
-			return new MembershipUser(Membership.Provider.Name, UserName, null, Email, "", "", true, true, Creation, lastLogin, lastActivity, LastPaswordChange, DateTime.MinValue);			
-		}
-
-		#endregion //public functions
 	}
 }

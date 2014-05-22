@@ -6,6 +6,7 @@ using System.Web.Security;
 using MonackFr.Security;
 using MonackFr.Mvc.Entities;
 using MonackFr.Mvc.Repositories;
+using AutoMapper;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Providers
 {
@@ -121,7 +122,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Providers
 		public override MembershipUser GetUser(string username, bool userIsOnline)
 		{
 			User user = _repository.GetSingle(u => u.UserName == username);
-			return user.GetMembershipuser();
+            return this.GetMembershipUser(user);
 		}
 
 		public override MembershipUser GetUser(object providerUserKey, bool userIsOnline)
@@ -208,9 +209,17 @@ namespace MonackFr.Mvc.Areas.UserManagement.Providers
 		MfrUser IMfrMembershipProvider.GetMfrUser(string userName)
 		{
 			User user = _repository.GetSingle(u => u.UserName == userName);
-			return user;
+			
+            return Mapper.Map<MfrUser>(user);
 		}
 
 		#endregion //implementation IMfrMembershipProvider
+        
+        private MembershipUser GetMembershipUser(User user)
+        {
+            user.LastLogin = user.LastLogin ?? DateTime.MinValue;
+            user.LastActivity = user.LastActivity ?? DateTime.MinValue;
+            return new MembershipUser(Membership.Provider.Name, user.UserName, null, user.Email, "", "", true, false, user.Creation, user.LastLogin.Value, user.LastActivity.Value, user.LastPaswordChange, DateTime.MinValue);
+        }
 	}
 }

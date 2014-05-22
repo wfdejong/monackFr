@@ -8,8 +8,34 @@ using MonackFr.Security;
 
 namespace MonackFr.Mvc.Entities
 {
-	public class Role : MfrRole
+	public class Role
 	{
+        /// <summary>
+		/// Id
+		/// </summary>
+		public int Id { get; set; }
+		
+		/// <summary>
+		/// Role name
+		/// </summary>
+		[Required]
+		public string Name { get; set; }
+
+		/// <summary>
+		/// Role description
+		/// </summary>
+		public string Description { get; set; }
+
+		/// <summary>
+		/// Creation date
+		/// </summary>
+		public DateTime Creation { get; set; }
+
+		/// <summary>
+		/// Last update date
+		/// </summary>
+		public DateTime LastUpdate { get; set; }
+		
 		[InverseProperty("Roles")]
 		public virtual ICollection<User> Users { get; set; }
 
@@ -20,18 +46,6 @@ namespace MonackFr.Mvc.Entities
 		{
 			Creation = DateTime.Now;
 			LastUpdate = DateTime.Now;
-		}
-
-		public Role(IMfrRole mfrRole)
-		{
-			if (mfrRole.Id != 0)
-			{
-				Id = mfrRole.Id;
-			}
-			Name = mfrRole.Name;
-			Description = mfrRole.Description;
-			Creation = mfrRole.Creation;
-			LastUpdate = mfrRole.LastUpdate;
-		}
+		}		
 	}
 }

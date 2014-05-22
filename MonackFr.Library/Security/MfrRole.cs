@@ -34,14 +34,11 @@ namespace MonackFr.Security
 		/// Last update date
 		/// </summary>
 		public DateTime LastUpdate { get; set; }
-		
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		public MfrRole()
-		{
-			Creation = DateTime.Now;
-			LastUpdate = DateTime.Now;
-		}
+
+        public MfrRole()
+        {
+            Creation = DateTime.Now;
+            LastUpdate = DateTime.Now;
+        }
 	}
 }

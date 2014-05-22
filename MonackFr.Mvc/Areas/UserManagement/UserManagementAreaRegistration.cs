@@ -18,6 +18,8 @@ namespace MonackFr.Mvc.Areas.UserManagement
 
 		public override void RegisterArea(AreaRegistrationContext context)
 		{
+            AutoMapperConfig.CreateMaps();
+
 			context.MapRoute(
 				"UserManagement_default",
 				"users/{controller}/{action}/{id}",

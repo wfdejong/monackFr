@@ -9,12 +9,12 @@ namespace MonackFr.Mvc.Entities
 {
 	public class Group
 	{
-		public Int32 Id { get; set; }
+		public int Id { get; set; }
 
 		[Required]
-		public String Name { get; set; }
+		public string Name { get; set; }
 
-		public String Description { get; set; }
+		public string Description { get; set; }
 		
 		[Required]
 		public DateTime CreationDate { get; set; }

@@ -7,6 +7,7 @@ using MonackFr.Security;
 using MonackFr.Mvc;
 using MonackFr.Mvc.Entities;
 using MonackFr.Mvc.Repositories;
+using AutoMapper;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Providers
 {
@@ -102,7 +103,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Providers
 		{
 			if (!RoleExists(mfrRole.Name))
 			{
-				Role role = new Role(mfrRole);
+                Role role = Mapper.Map<Role>(mfrRole);
 				_repository.Create(role);
 				_repository.Save();
 			}
