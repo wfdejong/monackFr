@@ -61,7 +61,9 @@
   <ItemGroup>
     <Compile Include="Exceptions\EmptyStringException.cs" />
     <Compile Include="Module\IModule.cs" />
+    <Compile Include="Module\IPackage.cs" />
     <Compile Include="Module\MenuItem.cs" />
+    <Compile Include="Module\Package.cs" />
     <Compile Include="Module\Tile.cs" />
     <Compile Include="Security\IHash.cs" />
     <Compile Include="Security\IMfrRole.cs" />

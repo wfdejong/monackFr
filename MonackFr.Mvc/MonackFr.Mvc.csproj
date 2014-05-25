@@ -137,6 +137,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -168,9 +169,7 @@
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\PackageRepository.cs" />
     <Compile Include="Classes\Authentication.cs" />
-    <Compile Include="Areas\PackageManagement\Classes\IPackage.cs" />
     <Compile Include="Areas\PackageManagement\Classes\IPackageManager.cs" />
-    <Compile Include="Areas\PackageManagement\Classes\Package.cs" />
     <Compile Include="Areas\PackageManagement\Classes\PackageManager.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Controllers\MainController.cs" />

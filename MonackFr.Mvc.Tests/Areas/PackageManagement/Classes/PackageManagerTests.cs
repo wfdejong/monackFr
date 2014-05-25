@@ -4,7 +4,6 @@ using Moq;
 using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using System.Collections.Generic;
 using MonackFr.Repository;
-using MonackFr.Mvc.Module;
 using MonackFr.Wrappers;
 using MonackFr.Mvc.Areas.PackageManagement;
 using MonackFr.Mvc.Contexts;

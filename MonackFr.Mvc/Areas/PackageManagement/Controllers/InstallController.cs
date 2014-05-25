@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Security;
 using AutoMapper;
+using MonackFr.Module;
 
 namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 {
@@ -89,11 +90,11 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
                 _databaseManager.InstallDatabase(_packageManager.Contexts);
                 
 				_packageManager.InstallRoles();
-                IPackage[] ps = _packageManager.Packages;
-                //TODO Map ps to ientities.
-                //_packageRepository.InstallPackages(_packageManager.Packages);
+                IEnumerable<Mvc.Entities.Package> ps = Mapper.Map<IEnumerable<Mvc.Entities.Package>>(_packageManager.Packages);
+                
+                _packageRepository.InstallPackages(ps);
                 _packageRepository.Dispose();
-				//context.SaveChanges();
+				context2.SaveChanges();
 
                 /* This should be done with profider
 				_userManager.CreateUser("admin", "admin");

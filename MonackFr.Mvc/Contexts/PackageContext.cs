@@ -13,7 +13,7 @@ namespace MonackFr.Mvc.Contexts
 	[Export(typeof(IContext))]
 	public class PackageContext : Context, IContext
 	{
-        public DbSet<Package> Packages { get; set; }
+        public DbSet<Entities.Package> Packages { get; set; }
 
 		public PackageContext()
 		{

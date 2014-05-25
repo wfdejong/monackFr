@@ -3,7 +3,7 @@ using MonackFr.Security;
 using System;
 using System.Collections.Generic;
 
-namespace MonackFr.Mvc.Areas.PackageManagement
+namespace MonackFr.Module
 {
 	public class Package : IPackage
 	{

@@ -39,11 +39,10 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 
         #endregion //constructors
 
-
         #region IPackageManager
 
         /// <summary>
-        /// Add package to packages if it at lease one context and one module
+        /// Add package to packages if it has one or more modules
         /// </summary>
         /// <param name="package"></param>
         /// <returns></returns>
@@ -53,11 +52,13 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 			{
 				throw new PackageNullReferenceException("Package object reference is null");
 			}
-            package.LoadContexts();
-            package.LoadModules();
 
-            if (package.Contexts.Count() > 0 && package.Modules.Count() > 0)
+            //TODO: loading modules and context should be done somewhere else. Create and Use IsModule property or someting like that.
+            package.LoadModules();
+                        
+            if (package.Modules.Count() > 0)
             {
+                package.LoadContexts();
                 _packages.Add(package);
                 return true;
             }
@@ -85,11 +86,11 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         /// <summary>
         /// Loaded packages
         /// </summary>
-        IPackage[] IPackageManager.Packages
+        IEnumerable<IPackage> IPackageManager.Packages
         {
             get
             {
-                return _packages.ToArray();
+                return _packages;
             }
         }
 
@@ -103,7 +104,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         /// </summary>
         string IPackageManager.BaseDirectory { get; set; }
 
-        IContext[] IPackageManager.Contexts
+        IEnumerable<IContext> IPackageManager.Contexts
         {
             get
             {
@@ -117,11 +118,11 @@ namespace MonackFr.Mvc.Areas.PackageManagement
                     }
                 }
 
-                return contexts.ToArray();
+                return contexts;
             }
         }
 
-        IAuthorization[] IPackageManager.Authorizations
+        IEnumerable<IAuthorization> IPackageManager.Authorizations
         {
             get
             {
@@ -137,7 +138,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement
                     }
                 }
 
-				return authorizations.ToArray();
+				return authorizations;
             }
         }
 

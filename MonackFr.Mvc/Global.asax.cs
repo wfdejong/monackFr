@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Data.Entity;
 using MonackFr.Repository;
+using MonackFr.Mvc.App_Start;
 
 namespace MonackFr.Mvc
 {
@@ -18,11 +19,14 @@ namespace MonackFr.Mvc
 	{
 		protected void Application_Start()
 		{
+            AutoMapperConfig.CreateMaps();
 			AreaRegistration.RegisterAllAreas();
 
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
 		}
 	}
 }

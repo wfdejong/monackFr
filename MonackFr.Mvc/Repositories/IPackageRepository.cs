@@ -9,6 +9,6 @@ namespace MonackFr.Mvc.Repositories
 {
 	public interface IPackageRepository : IGenericRepository<Package>
 	{
-        void InstallPackages(Package[] packages);
+        void InstallPackages(IEnumerable<Package> packages);
 	}
 }

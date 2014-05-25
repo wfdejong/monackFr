@@ -1,5 +1,4 @@
 ﻿using MonackFr.Module;
-using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using MonackFr.Repository;
 using MonackFr.Security;
 using System;
@@ -17,14 +16,14 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 
         void InstallRoles();
         
-        IPackage[] Packages { get; }
+        IEnumerable<IPackage> Packages { get; }
 
         string PackageDirectory { get; set; }
 
         string BaseDirectory { get; set; }
 
-        IContext[] Contexts { get; }
+        IEnumerable<IContext> Contexts { get; }
 
-        IAuthorization[] Authorizations { get; }
+        IEnumerable<IAuthorization> Authorizations { get; }
     }
 }

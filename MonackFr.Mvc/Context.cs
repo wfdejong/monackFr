@@ -17,7 +17,7 @@ namespace MonackFr
 		/// <summary>
 		/// List with subcontexts
 		/// </summary>
-		public IContext[] Contexts { get; set; }
+		public IEnumerable<IContext> Contexts { get; set; }
 
 		public Context()
 			: base("Context")

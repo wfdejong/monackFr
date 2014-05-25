@@ -14,7 +14,7 @@ namespace MonackFr.Mvc.Repositories
         /// Installs the packages in the database.
         /// </summary>
         /// <param name="packages"></param>
-        void IPackageRepository.InstallPackages(Package[] packages)
+        void IPackageRepository.InstallPackages(IEnumerable<Package> packages)
         {
             foreach (Package package in packages)
             {

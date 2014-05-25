@@ -1,11 +1,12 @@
 ﻿using MonackFr.Module;
+using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace MonackFr.Mvc.Areas.PackageManagement
 {
     public class DatabaseManager : IDatabaseManager
     {
-        void IDatabaseManager.InstallDatabase(IContext[] contexts)
+        void IDatabaseManager.InstallDatabase(IEnumerable<IContext> contexts)
         {
             using (Context context = new Context())
             {

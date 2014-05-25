@@ -1,5 +1,5 @@
-﻿using MonackFr.Module;
-using MonackFr.Mvc.Entities;
+﻿using AutoMapper;
+using MonackFr.Module;
 using MonackFr.Mvc.Repositories;
 using MonackFr.Security;
 using System.Collections.Generic;
@@ -41,13 +41,15 @@ namespace MonackFr.Mvc
 			{
 				PackageRepository packageRepository = new PackageRepository();
 				
-				foreach (Package package in packageRepository.GetAll())
+				foreach (Entities.Package package in packageRepository.GetAll())
 				{
-                    //package.LoadModules();
-                    //if (package.Modules != null && package.Modules.Count() > 0)
-                    //{
-                    //    PluginLoader.Instance.AddRange(package.Modules);
-                    //}
+                    Package pack = Mapper.Map<Package>(package);
+                    pack.LoadModules();
+
+                    if (pack.Modules != null && pack.Modules.Count() > 0)
+                    {
+                        PluginLoader.Instance.AddRange(pack.Modules);
+                    }
 				}
 			}
 		}
