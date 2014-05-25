@@ -144,6 +144,8 @@
     <Compile Include="Areas\PackageManagement\App_Start\AutoMapperConfig.cs" />
     <Compile Include="Areas\PackageManagement\Classes\DatabaseManager.cs" />
     <Compile Include="Areas\PackageManagement\Classes\IDatabaseManager.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\IUserManager.cs" />
+    <Compile Include="Areas\PackageManagement\Classes\UserManager.cs" />
     <Compile Include="Areas\PackageManagement\ViewModels\Module.cs" />
     <Compile Include="Areas\PackageManagement\ViewModels\Package.cs" />
     <Compile Include="Classes\BaseController.cs" />

@@ -25,7 +25,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		private IPackageManager _packageManager = null;
         private IPackageRepository _packageRepository = null;
         private IDatabaseManager _databaseManager = null;
-        //private IUserManager _userManager = null;
+        private IUserManager _userManager = null;
 
 		#region constructors
 
@@ -40,7 +40,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
             
             _packageRepository = new PackageRepository();
             _databaseManager = new DatabaseManager();
-           // _userManager = new UserManager();
+           _userManager = new UserManager();
 		}
 
 		/// <summary>
@@ -96,11 +96,9 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
                 _packageRepository.Dispose();
 				context2.SaveChanges();
 
-                /* This should be done with profider
-				_userManager.CreateUser("admin", "admin");
+                _userManager.CreateUser("admin", "admin");
                 _userManager.AddUserToAllRoles("admin");
-				*/
-
+				
 				return RedirectToAction("Install");
 			}
 
