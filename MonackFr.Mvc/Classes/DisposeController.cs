@@ -8,7 +8,7 @@ using System.Web.Mvc;
 namespace MonackFr.Mvc
 {
 	/// <summary>
-	/// Disposes all added disposable items at OnActionExecturedEvent
+    /// Disposes all added disposable items at OnActionExecuted event    
 	/// </summary>
     public abstract class DisposeController 
 		: BaseController 		

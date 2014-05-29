@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using AutoMapper;
 using MonackFr.Module;
+using MonackFr.Mvc.Contexts;
 
 namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 {
@@ -64,9 +65,9 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		public ViewResult Install()
 		{
 			PackageList packageList = new PackageList();
-            _packageManager.LoadPackages();
+            IEnumerable<Package> packages = _packageManager.GetPackages();
 
-            packageList.Packages = Mapper.Map<IEnumerable<ViewModels.Package>>(_packageManager.Packages);
+            packageList.Packages = Mapper.Map<IEnumerable<ViewModels.Package>>(packages);
 
 			return View("install", packageList);
 		}
@@ -77,20 +78,36 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		/// <param name="modules"></param>
 		/// <returns></returns>
 		[HttpPost]
-		public ActionResult Install(FormCollection packages)
+		public ActionResult Install(FormCollection packages_)
 		{
 
-            //TODO: install only selected modules
+            //TODO: install only selected moduless
 
 			using (Context context2 = new Context())
 			{		
-				_packageManager.LoadPackages();
+				IEnumerable<Package> packages = _packageManager.GetPackages();
+                List<IContext> contexts = new List<IContext>();
+                //List<IAuthorization> authorizations = new List<IAuthorization>();
+
+                //Add system contexts
+                contexts.Add(new PackageContext());
+                contexts.Add(new UserManagementContext());
+
+                foreach (Package package in packages)
+                {
+                    contexts.AddRange(package.Contexts);                    
+                }
+
                 
                 //install database
-                _databaseManager.InstallDatabase(_packageManager.Contexts);
+                _databaseManager.InstallDatabase(contexts);
                 
-				_packageManager.InstallRoles();
-                IEnumerable<Mvc.Entities.Package> ps = Mapper.Map<IEnumerable<Mvc.Entities.Package>>(_packageManager.Packages);
+                //save roles to database
+                //TODO: should go with relation of package->module-roles. 
+				//_packageManager.InstallRoles(authorizations);
+
+                //save packages
+                IEnumerable<Mvc.Entities.Package> ps = Mapper.Map<IEnumerable<Mvc.Entities.Package>>(packages);
                 
                 _packageRepository.InstallPackages(ps);
                 _packageRepository.Dispose();

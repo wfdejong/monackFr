@@ -10,20 +10,14 @@ namespace MonackFr.Module
 {
     public interface IPackage
     {
-        void LoadContexts();
+        /// <summary>
+        /// Package name
+        /// </summary>
+        string Name { get; }
 
-        void LoadModules();
-
-        void LoadAuthorizations();
-
-        IEnumerable<IContext> Contexts { get; }
-
-        IEnumerable<IModule> Modules { get; }
-
-        IEnumerable<IAuthorization> Authorizations { get; }
-
-        string Path { get; set; }
-
-		bool Installed { get; set; }
+        /// <summary>
+        /// Package description
+        /// </summary>
+        string Description { get; }        
     }
 }

@@ -11,16 +11,21 @@ namespace MonackFr.Module
 	/// </summary>
 	public interface IModule
 	{
+        string Name { get; }
+
+        string Description { get; }
+
+        string Author { get; }
+        
+        /// <summary>
+        /// Returns meta data of module
+        /// </summary>
+        Dictionary<string, string> MetaData { get; }
 		/// <summary>
 		/// Returns menu items
 		/// </summary>
 		/// <returns></returns>
 		MenuItem GetMenu();
-
-		/// <summary>
-		/// Returns meta data of module
-		/// </summary>
-		Dictionary<string, string> MetaData { get; }
 
 		/// <summary>
 		/// Returns module's tile

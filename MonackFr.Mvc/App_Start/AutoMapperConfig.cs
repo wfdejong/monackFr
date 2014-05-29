@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MonackFr.Module;
+using MonackFr.Mvc.Areas.PackageManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,8 @@ namespace MonackFr.Mvc.App_Start
     {
         internal static void CreateMaps()
         {
-            Mapper.CreateMap<Entities.Package, Module.Package>();
+            //From entities
+            Mapper.CreateMap<Entities.Module, IModule>();
         }
     }
 }

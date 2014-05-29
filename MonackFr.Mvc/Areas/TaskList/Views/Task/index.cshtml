@@ -1,4 +1,4 @@
-﻿@using MonackFr.Mvc.Areas.TaskList.Models
+﻿@using MonackFr.Mvc.Areas.TaskList.ViewModels
 @model IEnumerable<Task>
 @{
     ViewBag.Title = "Home Page";
@@ -12,7 +12,7 @@
 {
     <li class="task">
 		@item.Id
-		@item.InsertDate
+		@item.Created
 		@Html.ActionLink("Edit", "Edit", new { id = item.Id })		
 		@Html.ActionLink("Delete", "Delete", new { id = item.Id})
 	</li>

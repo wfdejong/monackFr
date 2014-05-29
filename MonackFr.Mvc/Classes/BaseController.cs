@@ -2,6 +2,7 @@
 using MonackFr.Module;
 using MonackFr.Mvc.Repositories;
 using MonackFr.Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -39,18 +40,15 @@ namespace MonackFr.Mvc
 			//only load plugins the first time. Since pluginloader is singleton, the plugins are present if loaded once.
 			if (PluginLoader.Instance.Plugins.Count() == 0)
 			{
-				PackageRepository packageRepository = new PackageRepository();
-				
-				foreach (Entities.Package package in packageRepository.GetAll())
-				{
-                    Package pack = Mapper.Map<Package>(package);
-                    pack.LoadModules();
-
-                    if (pack.Modules != null && pack.Modules.Count() > 0)
-                    {
-                        PluginLoader.Instance.AddRange(pack.Modules);
-                    }
-				}
+                PackageRepository packageRepository = new PackageRepository();
+                IEnumerable<Entities.Package> packages = packageRepository.GetAll();
+                                
+                foreach(Entities.Package package in packages)
+                {
+                    string path = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, package.RelativePath);
+                    IEnumerable<IModule> loadedModules = new Loader<IModule>(path).LoadedItems;
+                    PluginLoader.Instance.AddRange(loadedModules);
+                }                
 			}
 		}
 

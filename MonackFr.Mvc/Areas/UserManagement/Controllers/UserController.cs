@@ -264,6 +264,21 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		#endregion //public methods
 
 		#region implementation of IModule
+        
+        string IModule.Name
+        {
+            get { return "User Controller"; }
+        }
+
+        string IModule.Author
+        {
+            get { return "Willem de Jong"; }
+        }
+
+        string IModule.Description
+        {
+            get { return "Description"; }
+        }
 
 		/// <summary>
 		/// Implementation of GetMenu

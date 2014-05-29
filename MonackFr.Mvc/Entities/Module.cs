@@ -13,5 +13,7 @@ namespace MonackFr.Mvc.Entities
         public IEnumerable<MenuItem> MenuItems { get; set; }
 
         public Dictionary<string, string> MetaData { get; set; }
+
+        public IEnumerable<Role> Roles { get; set; }
     }
 }

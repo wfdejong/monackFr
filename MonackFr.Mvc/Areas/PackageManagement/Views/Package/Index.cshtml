@@ -1,6 +1,5 @@
-﻿@using MonackFr.Mvc.Areas.PackageManagement
-@using MonackFr.Module
-@model IPackage[]
+﻿@using MonackFr.Mvc.Areas.PackageManagement.ViewModels
+@model IEnumerable<Package>
 
 @{
     ViewBag.Title = "AvailableModules";
@@ -12,30 +11,28 @@
 @foreach (Package package in Model)
 {
 	<div>
-		<strong>@package.Path</strong>		
-	@foreach (IModule module in package.Modules)
+		<strong>@package.RelativePath</strong>		
+	@foreach (Module module in package.Modules)
 	{
 		<div>
 		@module
-		@foreach(KeyValuePair<string, string> meta in module.MetaData) 
-		{
-    
-				<span>@meta.Key</span>
-				<span>@meta.Value</span>				
-		}
-		</div>
+	
+		    <span>@module.Name</span>
+		    <span>@module.Author</span>
+            <span>@module.Description</span>
+        </div>
 		
     
 	}
 		@if(!package.Installed) 
 		{
-			using (Html.BeginForm("InstallPackage", "Package", new { path = @package.Path})) {
+			using (Html.BeginForm("InstallPackage", "Package", new { path = @package.RelativePath})) {
 				<input type="submit" value="Install" />
 			}
 		}
 		else 
 		{
-			using (Html.BeginForm("RemovePackage", "Package", new { path = @package.Path})) {			
+			using (Html.BeginForm("RemovePackage", "Package", new { path = @package.RelativePath})) {			
 				<input type="submit" value="Remove" />
 			}			
 		}	

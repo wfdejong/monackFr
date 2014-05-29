@@ -1,4 +1,5 @@
-﻿using MonackFr.Module;
+﻿using AutoMapper;
+using MonackFr.Module;
 using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using MonackFr.Mvc.Repositories;
 using MonackFr.Repository;
@@ -14,22 +15,23 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 {
     public class PackageManager : IPackageManager
     {
-        private IList<IPackage> _packages = null;
+        private IList<Package> _packages = null;
         private MonackFr.Wrappers.IDirectory _directory = null;
         private IPackageManager _iPackageManager = null;
 		private IRoles _roles = null;
-
+        private readonly string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+        
         #region constructors
 
         public PackageManager()
         {
             _directory = new MonackFr.Wrappers.Directory();
-			_packages = new List<IPackage>();
+			_packages = new List<Package>();
             _iPackageManager = this as IPackageManager;
 			_roles = new Roles();
         }
 
-        public PackageManager(MonackFr.Wrappers.IDirectory directory, IList<IPackage> packages, IPackageManager packageManager, IRoles roles)
+        public PackageManager(MonackFr.Wrappers.IDirectory directory, IList<Package> packages, IPackageManager packageManager, IRoles roles)
         {
             _directory = directory;
 			_packages = packages;
@@ -45,25 +47,47 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         /// Add package to packages if it has one or more modules
         /// </summary>
         /// <param name="package"></param>
-        /// <returns></returns>
-		bool IPackageManager.AddPackage(IPackage package)
+        /// <returns>true if modules were found in the package</returns>
+		Package IPackageManager.GetPackage(string path)
         {
-			if (package == null)
-			{
-				throw new PackageNullReferenceException("Package object reference is null");
-			}
+            string relativePath = path.Substring(_iPackageManager.BaseDirectory.Count());
 
-            //TODO: loading modules and context should be done somewhere else. Create and Use IsModule property or someting like that.
-            package.LoadModules();
-                        
-            if (package.Modules.Count() > 0)
+            //Load IPackage interface of package
+            IPackage loadedPackage = new Loader<IPackage>(path).LoadedItems.FirstOrDefault();
+
+            //if it implements an IPackage interface, loads IModule interface and add to package
+            
+            if(loadedPackage != null)
             {
-                package.LoadContexts();
-                _packages.Add(package);
-                return true;
+                Package package = Mapper.Map<Package>(loadedPackage);
+
+                package.RelativePath = relativePath;
+                package.Contexts = new Loader<IContext>(path).LoadedItems;
+
+                IEnumerable<IModule> imodules = new Loader<IModule>(path).LoadedItems;
+                List<Module> packageModules = new List<Module>();
+
+                foreach (IModule imodule in imodules)
+                {
+                    Module module = Mapper.Map<Module>(imodule);
+
+                    if(imodule is IAuthorization)
+                    {
+                        IAuthorization authorization = imodule as IAuthorization;
+                        module.Roles = authorization.GetRoles();
+                    }
+
+                    packageModules.Add(module);
+                }
+
+                package.Modules = packageModules;
+                
+                //package.Authorizations = new Loader<IAuthorization>(path).LoadedItems;
+
+                return package;
             }
 
-            return false;
+            return null;
         }
 
         /// <summary>
@@ -71,27 +95,24 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         /// </summary>
         /// <param name="path">path to directory</param>
         /// <param name="basePath">base path to make relative path</param>
-        void IPackageManager.LoadPackages()
+        IEnumerable<Package> IPackageManager.GetPackages()
         {
+            List<Package> packages = new List<Package>();
+
             string[] files = _directory.GetFiles(_iPackageManager.PackageDirectory, "*.dll", SearchOption.AllDirectories);
 
             foreach (string file in files)
-            {
-                string relativePath = file.Substring(_iPackageManager.BaseDirectory.Count());
-                IPackage package = new Package(relativePath);
-				_iPackageManager.AddPackage(package);
-            }
-        }
+            {                
+                Package package = _iPackageManager.GetPackage(file);
 
-        /// <summary>
-        /// Loaded packages
-        /// </summary>
-        IEnumerable<IPackage> IPackageManager.Packages
-        {
-            get
-            {
-                return _packages;
+                //for each library, load and add package.                
+                if (package != null)
+                {
+                    packages.Add(package);
+                }
             }
+
+            return packages;
         }
 
         /// <summary>
@@ -104,50 +125,12 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         /// </summary>
         string IPackageManager.BaseDirectory { get; set; }
 
-        IEnumerable<IContext> IPackageManager.Contexts
-        {
-            get
-            {
-                List<IContext> contexts = new List<IContext>();
-
-                foreach (IPackage package in _iPackageManager.Packages)
-                {
-                    if (package.Contexts != null)
-                    {
-                        contexts.AddRange(package.Contexts);
-                    }
-                }
-
-                return contexts;
-            }
-        }
-
-        IEnumerable<IAuthorization> IPackageManager.Authorizations
-        {
-            get
-            {
-                List<IAuthorization> authorizations = new List<IAuthorization>();
-
-                foreach (IPackage package in _iPackageManager.Packages)
-                {
-                    package.LoadAuthorizations();
-
-                    if (package.Authorizations != null)
-                    {
-                        authorizations.AddRange(package.Authorizations);
-                    }
-                }
-
-				return authorizations;
-            }
-        }
-
         /// <summary>
         /// Install all roles defined in the packages
         /// </summary>
-        void IPackageManager.InstallRoles()
+        void IPackageManager.InstallRoles(IEnumerable<IAuthorization> authorizations)
         {
-			foreach (IAuthorization authorization in _iPackageManager.Authorizations)
+			foreach (IAuthorization authorization in authorizations)
 			{
 				IEnumerable<IMfrRole> roles = authorization.GetRoles();
 

@@ -1,5 +1,6 @@
 ﻿using MonackFr.Module;
-using MonackFr.Mvc.Areas.TaskList.Models;
+using MonackFr.Mvc.Areas.TaskList.Entities;
+using MonackFr.Mvc.Areas.TaskList.Repositories;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -101,7 +102,13 @@ namespace MonackFr.Mvc.Areas.TaskList.Controllers
 		#endregion //view functions
 
 		#region implementation of IModule
-				
+
+        string IModule.Name { get { return "TaskList"; } }
+
+        string IModule.Description { get { return "TaskList"; } }
+
+        string IModule.Author { get { return "Willem de Jong"; } }
+	    
 		MenuItem IModule.GetMenu()
 		{
 			MenuItem menuItem = new MenuItem();

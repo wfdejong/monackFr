@@ -10,20 +10,14 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 {
     public interface IPackageManager
     {
-        bool AddPackage(IPackage package);
+        Package GetPackage(string path);
 
-        void LoadPackages();
+        IEnumerable<Package> GetPackages();
 
-        void InstallRoles();
+        void InstallRoles(IEnumerable<IAuthorization> authorizations);
         
-        IEnumerable<IPackage> Packages { get; }
-
         string PackageDirectory { get; set; }
 
-        string BaseDirectory { get; set; }
-
-        IEnumerable<IContext> Contexts { get; }
-
-        IEnumerable<IAuthorization> Authorizations { get; }
+        string BaseDirectory { get; set; }        
     }
 }

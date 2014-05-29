@@ -14,6 +14,7 @@ namespace MonackFr.Mvc.Contexts
 	public class PackageContext : Context, IContext
 	{
         public DbSet<Entities.Package> Packages { get; set; }
+        public DbSet<Entities.Module> Modules { get; set; }
 
 		public PackageContext()
 		{
@@ -23,9 +24,7 @@ namespace MonackFr.Mvc.Contexts
 		void IContext.Setup(DbModelBuilder modelBuilder)
 		{
             modelBuilder.Entity<Entities.Package>().ToTable("Packages");
-            modelBuilder.Entity<Entities.Module>().ToTable("Modules");
-            modelBuilder.Entity<Entities.Tile>().ToTable("Tiles");
-            modelBuilder.Entity<Entities.MenuItem>().ToTable("MenuItems");	
+            modelBuilder.Entity<Entities.Module>().ToTable("Modules");	
 		}
 	}
 }

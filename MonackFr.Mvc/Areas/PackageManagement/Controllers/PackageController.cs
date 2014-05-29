@@ -97,7 +97,22 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		}
 
 		#region implementation of IModule
-		
+
+        string IModule.Name
+        {
+            get { return "Package Controller"; }
+        }
+
+        string IModule.Author
+        {
+            get { return "Willem de Jong"; }
+        }
+
+        string IModule.Description
+        {
+            get { return "Description"; }
+        }
+
 		MenuItem IModule.GetMenu()
 		{
 			MenuItem menuItem = new MenuItem();

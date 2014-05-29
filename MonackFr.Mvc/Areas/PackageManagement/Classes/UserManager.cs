@@ -14,7 +14,12 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         }
         void IUserManager.AddUserToAllRoles(string username)
         {
-            Roles.AddUserToRoles("admin", Roles.GetAllRoles());
+            string[] roles = Roles.GetAllRoles();
+
+            if (roles.Length > 0)
+            {
+                Roles.AddUserToRoles("admin", roles);
+            }
         }
     }
 }

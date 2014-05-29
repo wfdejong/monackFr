@@ -14,7 +14,8 @@
 	foreach (Package package in Model.Packages)
 	{
 		<fieldset>
-			<legend>Package</legend>
+			<legend>@package.Name</legend>
+            <span>@package.Description</span>
 			<div>
 				<br />
 				@foreach (Module module in package.Modules)
@@ -22,6 +23,7 @@
 					<fieldset>
 						<legend>@module.Name</legend>
 						<span>@module.Author</span>
+                        <span>@module.Description</span>
 					</fieldset>
 				}
 			</div>

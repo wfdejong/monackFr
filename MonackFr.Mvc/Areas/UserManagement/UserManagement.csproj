@@ -148,6 +148,7 @@
     <Compile Include="Classes\UserManager.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Package.cs" />
     <Compile Include="Providers\MfrRoleProvider.cs" />
     <Compile Include="ViewModels\CheckBoxListUser.cs" />
     <Compile Include="ViewModels\DetailsGroup.cs" />

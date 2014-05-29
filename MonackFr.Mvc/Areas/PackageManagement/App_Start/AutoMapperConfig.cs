@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MonackFr.Module;
+using MonackFr.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,17 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         internal static void CreateMaps()
         {
             //To ViewModels
-            Mapper.CreateMap<IPackage, ViewModels.Package>();
-            Mapper.CreateMap<IModule, ViewModels.Module>()
-                .ForMember(module => module.Name, m => m.MapFrom(mi => mi.MetaData["Name"]))
-                .ForMember(module => module.Author, m => m.MapFrom(mi => mi.MetaData["Author"]));
-
+            Mapper.CreateMap<PackageManagement.Package, ViewModels.Package>();
+            Mapper.CreateMap<PackageManagement.Module, ViewModels.Module>();
+                
             //To Entities
-            Mapper.CreateMap<IPackage, Mvc.Entities.Package>();
-            Mapper.CreateMap<IModule, Mvc.Entities.Module>();
-            Mapper.CreateMap<MenuItem, Mvc.Entities.MenuItem>();
+            Mapper.CreateMap<Package, Mvc.Entities.Package>();
+            Mapper.CreateMap<Module, Mvc.Entities.Module>();
+            Mapper.CreateMap<IMfrRole, Mvc.Entities.Role>();
+            
+            //From packages
+            Mapper.CreateMap<IPackage, Package>();
+            Mapper.CreateMap<IModule, Module>();
         }
     }
 }
