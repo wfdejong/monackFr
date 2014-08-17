@@ -8,7 +8,7 @@ using System.Web;
 
 namespace MonackFr.Mvc.App_Start
 {
-    public class AutoMapperConfig
+    internal class AutoMapperConfig
     {
         internal static void CreateMaps()
         {

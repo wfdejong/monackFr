@@ -14,6 +14,7 @@ namespace MonackFr.Mvc.Areas.TaskList
 
 		public override void RegisterArea(AreaRegistrationContext context)
 		{
+            AutoMapperConfig.CreateMaps();
 			context.MapRoute(
 				"TaskList_default",
 				"TaskList/{controller}/{action}/{id}",

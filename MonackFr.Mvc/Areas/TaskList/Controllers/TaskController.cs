@@ -1,5 +1,5 @@
-﻿using MonackFr.Module;
-using MonackFr.Mvc.Areas.TaskList.Entities;
+﻿using AutoMapper;
+using MonackFr.Module;
 using MonackFr.Mvc.Areas.TaskList.Repositories;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -50,22 +50,22 @@ namespace MonackFr.Mvc.Areas.TaskList.Controllers
 		/// <returns></returns>
         public ActionResult Index()
         {			
-			var tasks = _repository.GetAll();
+			IEnumerable<ViewModels.Task> tasks = Mapper.Map<IEnumerable<ViewModels.Task>>(_repository.GetAll());
             return View(tasks);
         }
 
 		public ActionResult Edit(int id = 0)
 		{
-			Task task = _repository.FindBy(t => t.Id == id).First<Task>();
+			ViewModels.Task task = Mapper.Map<ViewModels.Task>(_repository.FindBy(t => t.Id == id).First<Entities.Task>());
 			return View(task);
 		}
 
 		[HttpPost]
-		public ActionResult Edit(Task task)
+		public ActionResult Edit(ViewModels.Task task)
 		{
 			if (ModelState.IsValid)
-			{
-				_repository.Edit(task);
+			{                
+				_repository.Edit(Mapper.Map<Entities.Task>(task));
 				_repository.Save();
 				return RedirectToAction("Index");
 			}
@@ -79,11 +79,11 @@ namespace MonackFr.Mvc.Areas.TaskList.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Create(Task task)
+		public ActionResult Create(ViewModels.Task task)
 		{
 			if (ModelState.IsValid)
 			{
-				_repository.Create(task);
+				_repository.Create(Mapper.Map<Entities.Task>(task));
 				_repository.Save();
 				return RedirectToAction("Index");
 			}
@@ -93,7 +93,7 @@ namespace MonackFr.Mvc.Areas.TaskList.Controllers
 
 		public ActionResult Delete(int Id)
 		{
-			Task task = _repository.FindBy(t => t.Id == Id).First<Task>();
+			Entities.Task task = _repository.FindBy(t => t.Id == Id).First<Entities.Task>();
 			_repository.Delete(task);
 			_repository.Save();
 			return RedirectToAction("Index");
