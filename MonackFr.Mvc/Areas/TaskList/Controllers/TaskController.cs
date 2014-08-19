@@ -8,9 +8,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace MonackFr.Mvc.Areas.TaskList.Controllers
-{
-	[Export(typeof(IModule))]
-    public class TaskController : BaseController, IModule
+{	
+    public class TaskController : BaseController
     {
 		#region private properties
 
@@ -99,54 +98,6 @@ namespace MonackFr.Mvc.Areas.TaskList.Controllers
 			return RedirectToAction("Index");
 		}
 
-		#endregion //view functions
-
-		#region implementation of IModule
-
-        string IModule.Name { get { return "TaskList"; } }
-
-        string IModule.Description { get { return "TaskList"; } }
-
-        string IModule.Author { get { return "Willem de Jong"; } }
-	    
-		MenuItem IModule.GetMenu()
-		{
-			MenuItem menuItem = new MenuItem();
-			menuItem.Text = "Tasks";
-
-			menuItem.MenuItems = new List<MenuItem>();
-			menuItem.MenuItems.Add(new MenuItem { Text = "Overview", ActionName = "Index", Controller = "Task", Area = "TaskList" });
-			
-			return menuItem;
-		}
-
-		Tile IModule.GetTile(UrlHelper url)
-		{
-			Tile tile = new Tile();
-			tile.Title = "TaskList";
-			tile.Url = url.Action("Index", "Task", new { area = "TaskList" });
-			
-			tile.PreviewItems = new string[] {
-					 "Pay bills today @ 21:23",
-					 "Watch T.V. @ 21-2-2014 13:45"
-				 };
-			tile.Copyright = "The Monack Framework";
-			
-			return tile;
-		}
-
-    public Dictionary<string, string> MetaData
-    {
-        get
-        {
-            Dictionary<string, string> MetaData = new Dictionary<string, string>();
-            MetaData.Add("Name", "TaskPlugin");
-            MetaData.Add("Author", "Willem de Jong");
-
-            return MetaData;
-        }
-    }	
-
-		#endregion //implementation of IMenu
+		#endregion //view functions		
 	}
 }

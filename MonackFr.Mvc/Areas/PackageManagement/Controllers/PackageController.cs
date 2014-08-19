@@ -134,19 +134,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 
 			return tile;
 		}
-
-		Dictionary<string, string> IModule.MetaData
-		{
-			get
-			{
-				Dictionary<string, string> metaData = new Dictionary<string, string>();
-				metaData.Add("Name", "PackageManager");
-                metaData.Add("Author", "Willem de Jong");
-
-				return metaData;
-			}
-		}
-		
+        		
 		#endregion //implementation of IModule
 
 		#region of IAuthorization
