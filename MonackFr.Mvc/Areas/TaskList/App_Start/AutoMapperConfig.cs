@@ -11,7 +11,9 @@ namespace MonackFr.Mvc.Areas.TaskList
         internal static void CreateMaps()
         {
             //ViewModels to Entities
-            Mapper.CreateMap<ViewModels.Task, Entities.Task>();
+            Mapper.CreateMap<ViewModels.Task, Entities.Task>()
+				.ForMember(t => t.Created, opt => opt.Ignore())
+				.ForMember(t=>t.LastUpdate, opt=>opt.Ignore());
 
             //Entities to ViewmModels
             Mapper.CreateMap<Entities.Task, ViewModels.Task>();

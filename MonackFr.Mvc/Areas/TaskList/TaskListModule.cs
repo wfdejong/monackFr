@@ -1,4 +1,6 @@
-﻿using MonackFr.Module;
+﻿using AutoMapper;
+using MonackFr.Module;
+using MonackFr.Mvc.Areas.TaskList.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -11,6 +13,36 @@ namespace MonackFr.Mvc.Areas.TaskList
     [Export(typeof(IModule))]
     public class TaskListModule : IModule
     {
+        #region private properties
+
+		/// <summary>
+		/// Repository
+		/// </summary>
+		private ITaskListRepository _repository;
+
+		#endregion //private properties
+
+		#region constructors
+
+		/// <summary>
+		/// Initialize with default repository
+		/// </summary>
+		public TaskListModule()
+		{
+			_repository = new TaskListRepository();
+		}
+
+		/// <summary>
+		/// Initialize with custom repository
+		/// </summary>
+		/// <param name="repository"></param>
+        public TaskListModule(ITaskListRepository repository)
+		{
+			_repository = repository;
+		}
+
+		#endregion
+
         #region implementation of IModule
 
         string IModule.Name { get { return "TaskList"; } }
@@ -36,10 +68,10 @@ namespace MonackFr.Mvc.Areas.TaskList
             tile.Title = "TaskList";
             tile.Url = url.Action("Index", "Task", new { area = "TaskList" });
 
-            tile.PreviewItems = new string[] {
-					 "Pay bills today @ 21:23",
-					 "Watch T.V. @ 21-2-2014 13:45"
-				 };
+            IEnumerable<ViewModels.Task> tasks = Mapper.Map<IEnumerable<ViewModels.Task>>(_repository.GetAll());
+            tile.PreviewItems = (from t in tasks
+                                 select t.LastUpdate.ToString()).ToArray();
+                        
             tile.Copyright = "The Monack Framework";
 
             return tile;

@@ -8,16 +8,27 @@ namespace MonackFr.Mvc.Areas.TaskList.Entities
 {
 	public class Task
 	{
-		public Int32 Id { get; set; }
+		public int Id { get; set; }
 
-        public DateTime InsertDate { get; set; }
+		[Required]
+        public DateTime Created { get; set; }
 
+		[Required]
 		public DateTime LastUpdate { get; set; }
+
+		[Required]
+		public DateTime Ends { get; set; }
+
+		[Required]
+		public int CreatedBy { get; set; }
+
+		[Required]
+		public int AssignedTo { get; set; }
 
         public Task()
         {
-            InsertDate = DateTime.Now;
-            LastUpdate = DateTime.Now;
+            Created = DateTime.Now;
+            LastUpdate = DateTime.Now;			
         }
 	}
 }

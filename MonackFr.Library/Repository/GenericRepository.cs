@@ -86,7 +86,7 @@ namespace MonackFr.Repository
 		/// <param name="entity"></param>
 		public virtual void Edit(T entity)
 		{
-			_entities.Entry(entity).State = System.Data.EntityState.Modified;
+			_entities.Entry(entity).State = EntityState.Modified;
 		}
 
 		/// <summary>
