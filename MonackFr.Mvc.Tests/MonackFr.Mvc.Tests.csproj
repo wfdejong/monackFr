@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Areas\PackageManagement\Classes\PackageManagerTests.cs" />
     <Compile Include="Areas\PackageManagement\Controllers\InstallControllerTests.cs" />
-    <Compile Include="Areas\PackageManagement\Controllers\PackageControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

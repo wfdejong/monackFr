@@ -48,12 +48,12 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		/// Constructor for testing purposes
 		/// </summary>
 		/// <param name="directory"></param>
-		public InstallController(IPackageManager packageManager, IPackageRepository packageRepository, IDatabaseManager databaseManager/*, IUserManager userManager*/)
+		public InstallController(IPackageManager packageManager, IPackageRepository packageRepository, IDatabaseManager databaseManager, IUserManager userManager)
 		{
 			_packageManager = packageManager;
             _packageRepository = packageRepository;
             _databaseManager = databaseManager;
-            //_userManager = userManager;
+			_userManager = userManager;
 		}
 
 		#endregion

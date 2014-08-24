@@ -159,7 +159,6 @@
     <Compile Include="Areas\PackageManagement\Controllers\InstallController.cs" />
     <Compile Include="Areas\PackageManagement\Classes\PackageNullReferenceException.cs" />
     <Compile Include="Areas\PackageManagement\ViewModels\PackageList.cs" />
-    <Compile Include="Areas\PackageManagement\Controllers\PackageController.cs" />
     <Compile Include="Areas\PackageManagement\ModuleAreaAreaRegistration.cs" />
     <Compile Include="Contexts\UserManagementContext.cs" />
     <Compile Include="Entities\Group.cs" />
@@ -265,15 +264,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\PackageManagement\Views\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\PackageManagement\Views\Package\Install.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\PackageManagement\Views\Package\Text.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\PackageManagement\Views\Package\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\PackageManagement\Views\Install\Install.cshtml" />

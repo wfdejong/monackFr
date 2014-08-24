@@ -44,10 +44,11 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         #region IPackageManager
 
         /// <summary>
-        /// Add package to packages if it has one or more modules
+        /// Returns a package if it inplements IPackage interface. 
+		/// Also loads Contexts, Modules and Authorizations to this package
         /// </summary>
         /// <param name="package"></param>
-        /// <returns>true if modules were found in the package</returns>
+        /// <returns>a new package</returns>
 		Package IPackageManager.GetPackage(string path)
         {
             string relativePath = path.Substring(_iPackageManager.BaseDirectory.Count());
@@ -128,7 +129,8 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         /// <summary>
         /// Install all roles defined in the packages
         /// </summary>
-        void IPackageManager.InstallRoles(IEnumerable<IAuthorization> authorizations)
+        [Obsolete("Could be removed, true")]
+		void IPackageManager.InstallRoles(IEnumerable<IAuthorization> authorizations)
         {
 			foreach (IAuthorization authorization in authorizations)
 			{

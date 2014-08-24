@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MonackFr.Mvc.Areas.PackageManagement;
 using MonackFr.Mvc.Areas.PackageManagement.Controllers;
-using MonackFr.Mvc.Areas.PackageManagement.Entities;
 using MonackFr.Mvc.Repositories;
 using Moq;
 using System;
@@ -25,8 +24,7 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
             _packageManager = new Mock<IPackageManager>();
             _packageRepository = new Mock<IPackageRepository>();
             _databaseManager = new Mock<IDatabaseManager>();
-            _userManager = new Mock<IUserManager>();
-
+            
             _installController = new InstallController(_packageManager.Object, _packageRepository.Object, _databaseManager.Object, _userManager.Object);
         }
 
@@ -34,14 +32,7 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
         public void Install_LoadsPackages()
         {    
             _installController.Install();
-            _packageManager.Verify(p => p.LoadPackages(), Times.Exactly(1));
-        }
-
-        [TestMethod]
-        public void Install_GetsPackages()
-        {
-            _installController.Install();
-            _packageManager.Verify(p => p.Packages, Times.Exactly(1));
+            _packageManager.Verify(p => p.GetPackages(), Times.Exactly(1));
         }
 
         [TestMethod]
@@ -55,14 +46,20 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
         public void Install_WithPackages_LoadsPackages()
         {
             _installController.Install(new FormCollection());
-            _packageManager.Verify(p => p.LoadPackages(), Times.Exactly(1));
+            _packageManager.Verify(p => p.GetPackages(), Times.Exactly(1));
         }
         
+		[TestMethod]
+		public void Install_WithPackages_InstallsDatabase()
+		{
+			throw new NotImplementedException();
+		}
+
         [TestMethod]
         public void Install_WithPackages_InstallsPackages()
         {
             _installController.Install(new FormCollection());
-            _packageRepository.Verify(p => p.InstallPackages(It.IsAny<IPackage[]>()), Times.Exactly(1));
+            _packageRepository.Verify(p => p.InstallPackages(It.IsAny<Entities.Package[]>()), Times.Exactly(1));
         }
 
         [TestMethod]

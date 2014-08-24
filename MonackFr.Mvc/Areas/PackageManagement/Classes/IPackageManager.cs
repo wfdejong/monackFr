@@ -14,6 +14,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 
         IEnumerable<Package> GetPackages();
 
+		[Obsolete("Could be removed, true")]
         void InstallRoles(IEnumerable<IAuthorization> authorizations);
         
         string PackageDirectory { get; set; }
