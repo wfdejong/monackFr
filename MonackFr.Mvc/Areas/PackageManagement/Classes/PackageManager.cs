@@ -125,24 +125,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         /// Base directory to create relative path
         /// </summary>
         string IPackageManager.BaseDirectory { get; set; }
-
-        /// <summary>
-        /// Install all roles defined in the packages
-        /// </summary>
-        [Obsolete("Could be removed, true")]
-		void IPackageManager.InstallRoles(IEnumerable<IAuthorization> authorizations)
-        {
-			foreach (IAuthorization authorization in authorizations)
-			{
-				IEnumerable<IMfrRole> roles = authorization.GetRoles();
-
-				foreach (IMfrRole role in roles)
-				{
-					_roles.CreateRole(role);
-				}
-			}            
-        }
-        
+		        
         #endregion //IPackageManager
     }
 }
