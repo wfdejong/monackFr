@@ -18,12 +18,18 @@ namespace MonackFr.Mvc.Controllers
 		{
 			List<Tile> tiles = new List<Tile>();
 
-			foreach (IModule module in PluginLoader.Instance.Plugins)
+			foreach (IModule module in ModuleKeeper.Instance.Modules)
 			{
 				tiles.Add(module.GetTile(Url));
 			}
 
 			return Json(tiles);
+		}
+
+		public JsonResult GetTile(string moduleName)
+		{
+			IModule module = ModuleKeeper.Instance.GetModule(moduleName);
+			return Json(module.GetTile(Url));
 		}
     }
 }

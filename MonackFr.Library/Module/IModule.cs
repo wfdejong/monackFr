@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace MonackFr.Module
 {
 	/// <summary>
-	/// Interface to implement a module
+	/// Definition of a module
 	/// </summary>
 	public interface IModule
 	{

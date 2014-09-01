@@ -54,10 +54,10 @@ namespace MonackFr.Mvc.Areas.TaskList
         MenuItem IModule.GetMenu()
         {
             MenuItem menuItem = new MenuItem();
-            menuItem.Text = "Tasks";
+            menuItem.Label = "Tasks";
 
             menuItem.MenuItems = new List<MenuItem>();
-            menuItem.MenuItems.Add(new MenuItem { Text = "Overview", ActionName = "Index", Controller = "Task", Area = "TaskList" });
+            menuItem.MenuItems.Add(new MenuItem { Label = "Overview", Action = "Index", Controller = "Task", Area = "TaskList" });
 
             return menuItem;
         }

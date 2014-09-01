@@ -15,7 +15,7 @@ namespace MonackFr.Mvc.Entities
 
         public DateTime Created { get; set; }
 
-        public IEnumerable<Module> Modules { get; set; }
+        public ICollection<Module> Modules { get; set; }
 
         public Package()
         {

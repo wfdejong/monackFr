@@ -8,6 +8,9 @@ using System.Web;
 
 namespace MonackFr.Module
 {
+	/// <summary>
+	/// Definition of a package
+	/// </summary>
     public interface IPackage
     {
         /// <summary>

@@ -287,19 +287,19 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		public Module.MenuItem GetMenu()
 		{
 			Module.MenuItem menuItem = new Module.MenuItem();
-			menuItem.Text = "User Management";
+			menuItem.Label = "User Management";
 			
 			menuItem.MenuItems = new List<Module.MenuItem>();
 			menuItem.MenuItems.Add(new Module.MenuItem
 			{
-				Text = "Users",
-				ActionName = "Index",
+				Label = "Users",
+				Action = "Index",
 				Controller = "User",
 				Area = "UserManagement",
 				UserRoles = new string[]{UserControllerRoles.ViewUser.ToString(), UserControllerRoles.CreateUser.ToString()}
 			});
-			menuItem.MenuItems.Add(new Module.MenuItem { Text = "Groups", ActionName = "Index", Controller = "Group", Area = "UserManagement" });
-			menuItem.MenuItems.Add(new Module.MenuItem { Text = "Logout", ActionName = "Logout", Controller = "User", Area = "UserManagement" });
+			menuItem.MenuItems.Add(new Module.MenuItem { Label = "Groups", Action = "Index", Controller = "Group", Area = "UserManagement" });
+			menuItem.MenuItems.Add(new Module.MenuItem { Label = "Logout", Action = "Logout", Controller = "User", Area = "UserManagement" });
 			
 			return menuItem;
 		}

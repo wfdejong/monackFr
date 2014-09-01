@@ -16,19 +16,15 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Classes
 	public class PackageManagerTests
 	{
 		private Mock<IDirectory> _directory;
-		private Mock<IList<Package>> _packages;
 		private IPackageManager _packageManager;
 		private Mock<IPackageManager> _mPackageManager;
-		private Mock<IRoles> _roles;
-
+		
 		[TestInitialize]
 		public void Initialize()
 		{
 			_directory = new Mock<IDirectory>();
-			_packages = new Mock<IList<Package>>();
 			_mPackageManager = new Mock<IPackageManager>();
-			_roles = new Mock<IRoles>();
-			_packageManager = new PackageManager(_directory.Object, _packages.Object, _mPackageManager.Object, _roles.Object);
+			_packageManager = new PackageManager(_directory.Object, _mPackageManager.Object);
 		}
 
 		[TestMethod]

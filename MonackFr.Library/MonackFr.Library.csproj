@@ -80,7 +80,7 @@
     <Compile Include="Wrappers\RNGCryptoServiceProvider.cs" />
     <Compile Include="ApplicationSettings.cs" />
     <Compile Include="Loader.cs" />
-    <Compile Include="PluginLoader.cs" />
+    <Compile Include="ModuleKeeper.cs" />
     <Compile Include="Security\Authentication.cs" />
     <Compile Include="Security\Hash.cs" />
     <Compile Include="Security\IAuthentication.cs" />

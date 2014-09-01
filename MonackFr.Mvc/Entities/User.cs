@@ -56,10 +56,8 @@ namespace MonackFr.Mvc.Entities
 		/// </summary>
 		public DateTime LastPaswordChange { get; set; }
 
-		[InverseProperty("Users")]
 		public virtual ICollection<Role> Roles { get; set; }
 
-		[InverseProperty("Users")]
 		public virtual ICollection<Group> Groups { get; set; }
         		
 		public User()

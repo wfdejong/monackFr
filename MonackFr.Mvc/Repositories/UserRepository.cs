@@ -42,12 +42,11 @@ namespace MonackFr.Mvc.Repositories
 		public String[] GetRoles(String userName)
 		{			
 			IQueryable<User> users = Entities.Users.Include(u => u.Roles);
-			User user = users.FirstOrDefault<User>(u => u.UserName == userName);
+			User user = users.Include(u=>u.Groups).FirstOrDefault<User>(u => u.UserName == userName);
 			
 			IEnumerable<String> roles = from r in user.Roles
 						select r.Name;
 
-			//TODO: eager loading
 			foreach (Group userGroup in user.Groups)
 			{
 				IEnumerable<string> groupRoles = from r in userGroup.Roles select r.Name;

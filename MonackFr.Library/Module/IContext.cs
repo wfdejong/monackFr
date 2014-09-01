@@ -7,7 +7,7 @@ using System.Data.Entity;
 namespace MonackFr.Module
 {
 	/// <summary>
-	/// Interface for dbcontext. Used for installing the database table for the context.
+	/// Interface for dbcontext. Contains DbSets for accessing data and structure for database.
 	/// </summary>
 	public interface IContext
 	{

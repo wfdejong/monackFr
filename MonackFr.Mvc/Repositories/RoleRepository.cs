@@ -23,16 +23,21 @@ namespace MonackFr.Mvc.Repositories
 			//add users to each role
 			foreach (String roleName in roleNames)
 			{
+				this.Entities.Roles.Include("Users");
+
 				Role role = this.GetSingle(r => r.Name == roleName);
 				this.Entities.Roles.Include("Users");
-				foreach (User user in users)
+				
+				if (role.Users == null)
 				{
-					if (role.Users == null)
-					{
-						role.Users = new List<User>();
-					}
+					role.Users = new List<User>();
+				}
+
+				foreach (User user in users)
+				{					
 					role.Users.Add(user);
 				}
+
 				this.Edit(role);
 			}
 		}

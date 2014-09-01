@@ -9,6 +9,9 @@ using System.Web.Routing;
 using System.Data.Entity;
 using MonackFr.Repository;
 using MonackFr.Mvc.App_Start;
+using MonackFr.Mvc.Repositories;
+using MonackFr.Module;
+using System.Web.Configuration;
 
 namespace MonackFr.Mvc
 {
@@ -19,6 +22,11 @@ namespace MonackFr.Mvc
 	{
 		protected void Application_Start()
 		{
+			if (ApplicationSettings.DbInstalled)
+			{
+				LoadInstalledModules();
+			}
+
             AutoMapperConfig.CreateMaps();
 			AreaRegistration.RegisterAllAreas();
 
@@ -27,6 +35,26 @@ namespace MonackFr.Mvc
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 
 
+		}
+
+		/// <summary>
+		/// Loads all installed modules
+		/// </summary>
+		private void LoadInstalledModules()
+		{
+			//Since pluginloader is singleton, the plugins are present if loaded once.
+			if (ModuleKeeper.Instance.Modules.Count() == 0)
+			{
+				PackageRepository packageRepository = new PackageRepository();
+				IEnumerable<Entities.Package> packages = packageRepository.GetAll().ToList();
+
+				foreach (Entities.Package package in packages)
+				{
+					string path = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, package.RelativePath);
+					IEnumerable<IModule> loadedModules = new Loader<IModule>(path).LoadedItems;
+					ModuleKeeper.Instance.AddRange(loadedModules);
+				}
+			}
 		}
 	}
 }

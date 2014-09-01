@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.Configuration;
 
 namespace MonackFr
 {
@@ -13,24 +14,29 @@ namespace MonackFr
 		/// <summary>
 		/// Application name
 		/// </summary>
-		private const string name = "MonackFr";
+		private const string _name = "MonackFr";
 
 		/// <summary>
 		/// Application descritption
 		/// </summary>
-		private const string description = "The Monack Framework";
+		private const string _description = "The Monack Framework";
 
 		/// <summary>
 		/// Package directory, relative to application root
 		/// </summary>
-		private static string packageDir = null;
+		private static string _packageDir = null;
+
+		/// <summary>
+		/// true if db is installed.
+		/// </summary>
+		private static bool? _dbInstalled = null;
 
 		/// <summary>
 		/// Application name
 		/// </summary>
 		public static string Name 
 		{
-			get { return name; }
+			get { return _name; }
 		}
 
 		/// <summary>
@@ -38,7 +44,7 @@ namespace MonackFr
 		/// </summary>
 		public static string Description
 		{
-			get { return description; }
+			get { return _description; }
 		}
 
 		/// <summary>
@@ -48,11 +54,34 @@ namespace MonackFr
 		{
 			get
 			{
-				if (string.IsNullOrEmpty(packageDir)) 
+				if (string.IsNullOrEmpty(_packageDir)) 
 				{
-					packageDir = System.Web.Configuration.WebConfigurationManager.AppSettings["packagedir"].ToString().Trim('/', '\\');
+					_packageDir = System.Web.Configuration.WebConfigurationManager.AppSettings["packagedir"].ToString().Trim('/', '\\');
 				}
-				return packageDir;
+				return _packageDir;
+			}
+		}
+
+		public static bool DbInstalled
+		{
+			get
+			{
+				if (_dbInstalled.HasValue)
+				{
+					return _dbInstalled.Value;
+				}
+				else
+				{
+					bool dbInstalled;
+					string installed = WebConfigurationManager.AppSettings["DbInstalled"];
+					if (Boolean.TryParse(installed, out dbInstalled))
+					{
+						_dbInstalled = dbInstalled;
+						return _dbInstalled.Value;
+					}
+				}
+
+				return false;
 			}
 		}
 	}

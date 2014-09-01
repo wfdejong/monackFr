@@ -23,9 +23,36 @@ namespace MonackFr.Mvc.Contexts
 
 		void IContext.Setup(DbModelBuilder modelBuilder)
 		{
-			modelBuilder.Entity<User>().ToTable("Users");
-			modelBuilder.Entity<Role>().ToTable("Roles");
-			modelBuilder.Entity<Group>().ToTable("Groups");
+			modelBuilder.Entity<User>()
+				.HasMany(u => u.Roles)
+				.WithMany(r => r.Users)
+				.Map(u =>
+				{
+					u.MapLeftKey("User_Id");
+					u.MapRightKey("Role_Id");
+					u.ToTable("UserRoles");
+				});
+
+			modelBuilder.Entity<User>()
+				.HasMany(u => u.Groups)
+				.WithMany(g => g.Users)
+				.Map(u =>
+				{
+					u.MapLeftKey("User_Id");
+					u.MapRightKey("Group_Id");
+					u.ToTable("UserGroups");
+				});
+			
+			modelBuilder.Entity<Role>()
+				.HasMany(r => r.Groups)
+				.WithMany(g =>g.Roles)
+				.Map(m => 
+				{
+					m.MapLeftKey("Role_Id");
+					m.MapRightKey("Group_Id");
+					m.ToTable("RoleGroups");
+				});			
 		}
+
 	}
 }

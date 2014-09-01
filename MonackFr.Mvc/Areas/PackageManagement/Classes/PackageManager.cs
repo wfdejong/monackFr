@@ -13,30 +13,37 @@ using System.Web;
 
 namespace MonackFr.Mvc.Areas.PackageManagement
 {
+	/// <summary>
+	/// Manages packages
+	/// </summary>
     public class PackageManager : IPackageManager
     {
-        private IList<Package> _packages = null;
-        private MonackFr.Wrappers.IDirectory _directory = null;
-        private IPackageManager _iPackageManager = null;
-		private IRoles _roles = null;
-        private readonly string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+		#region private fields
+
+		/// <summary>
+		/// interface to directory
+		/// </summary>
+		private MonackFr.Wrappers.IDirectory _directory = null;
+
+		/// <summary>
+		/// the packagemanager
+		/// </summary>
+		private IPackageManager _iPackageManager = null;
+
+		#endregion //private fields
         
         #region constructors
 
         public PackageManager()
         {
             _directory = new MonackFr.Wrappers.Directory();
-			_packages = new List<Package>();
-            _iPackageManager = this as IPackageManager;
-			_roles = new Roles();
+			_iPackageManager = this as IPackageManager;			
         }
 
-        public PackageManager(MonackFr.Wrappers.IDirectory directory, IList<Package> packages, IPackageManager packageManager, IRoles roles)
+        public PackageManager(MonackFr.Wrappers.IDirectory directory, IPackageManager packageManager)
         {
             _directory = directory;
-			_packages = packages;
 			_iPackageManager = packageManager;
-			_roles = roles;
         }
 
         #endregion //constructors

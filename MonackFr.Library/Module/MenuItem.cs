@@ -13,15 +13,14 @@ namespace MonackFr.Module
 	public class MenuItem
 	{
 		/// <summary>
-		/// TODO: refactor to label
 		/// Text of the menu item
 		/// </summary>
-		public String Text { get; set; }
+		public String Label { get; set; }
 		
 		/// <summary>
 		/// Name of action
 		/// </summary>
-		public String ActionName { get; set; }
+		public String Action { get; set; }
 
 		/// <summary>
 		/// Controller of action
@@ -41,13 +40,14 @@ namespace MonackFr.Module
 		/// <summary>
 		/// Roles that have access to action
 		/// </summary>
-		public string[] UserRoles { get; set; }
+		public IEnumerable<string> UserRoles { get; set; }
 
 		/// <summary>
 		/// Checks if user has user has role 
 		/// </summary>
 		/// <param name="user"></param>
 		/// <returns>true if user has role or if roles is null/empty</returns>
+		[Obsolete("Should be refactored and handled somewhere else", true)]
 		public bool Authorized(MfrUser user)
 		{
 			if (user != null)
@@ -57,10 +57,10 @@ namespace MonackFr.Module
 					return true;
 				}
 
-				for (int i = 0; i < UserRoles.Length; i++)
+				foreach(string userRole in UserRoles)
 				{
 					//TODO: check if check hits the db, should be once and check against array
-					if (Roles.IsUserInRole(user.UserName, UserRoles[i]))
+					if (Roles.IsUserInRole(user.UserName, userRole))
 					{
 						return true;
 					}
