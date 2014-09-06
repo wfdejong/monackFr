@@ -1,8 +1,5 @@
 ﻿using MonackFr.Module;
 using MonackFr.Mvc.Areas.UserManagement.Providers;
-using MonackFr.Mvc.Areas.UserManagement.ViewModels;
-using MonackFr.Mvc.Entities;
-using MonackFr.Mvc.Repositories;
 using MonackFr.Security;
 using System;
 using System.Collections.Generic;
@@ -37,7 +34,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		/// <summary>
 		/// The repository
 		/// </summary>
-		private IUserRepository _repository;
+		private MonackFr.Mvc.Repositories.IUserRepository _repository;
 
 		/// <summary>
 		/// Authentication object
@@ -53,7 +50,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		/// </summary>
 		public UserController()
 		{
-			_repository = new UserRepository();
+			_repository = new MonackFr.Mvc.Repositories.UserRepository();
 			_authentication = new Authentication();
 		}
 
@@ -62,7 +59,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		/// </summary>
 		/// <param name="repository"></param>
 		/// <param name="authentication"></param>
-		public UserController(IUserRepository repository, IAuthentication authentication)
+		public UserController(MonackFr.Mvc.Repositories.IUserRepository repository, IAuthentication authentication)
 		{
 			_repository = repository;
 			_authentication = authentication;
@@ -98,7 +95,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		//
 		// Post: /User/Login/
 		[HttpPost]
-		public ActionResult Login(LoginUser loginUser, String returnUrl)
+		public ActionResult Login(ViewModels.LoginUser loginUser, String returnUrl)
 		{
 			MembershipProvider membershipProvider = new MfrMembershipProvider(_repository);
 			if (membershipProvider.ValidateUser(loginUser.UserName, loginUser.Password))
@@ -124,19 +121,19 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		// GET: /User/Details/5
 		public ViewResult Details(int id)
 		{
-			User user = _repository.GetSingle(u => u.Id == id);			
-			IRoleRepository roleRepository = new RoleRepository();
-			List<Role> roles = roleRepository.GetAll().ToList<Role>();
-			
-			IGroupRepository groupRepository = new GroupRepository();
-			List<Group> groups = groupRepository.GetAll().ToList<Group>();
+			Entities.User user = _repository.GetSingle(u => u.Id == id);
+			MonackFr.Mvc.Repositories.IRoleRepository roleRepository = new MonackFr.Mvc.Repositories.RoleRepository();
+			List<Entities.Role> roles = roleRepository.GetAll().ToList<Entities.Role>();
 
-			DetailsUser detailsUser = new DetailsUser();
+			MonackFr.Mvc.Repositories.IGroupRepository groupRepository = new MonackFr.Mvc.Repositories.GroupRepository();
+			List<Entities.Group> groups = groupRepository.GetAll().ToList<Entities.Group>();
+
+			ViewModels.DetailsUser detailsUser = new ViewModels.DetailsUser();
 
 			detailsUser.Fill(user);
-			detailsUser.UserRoles = LoadRoles(roles, user.Roles.AsQueryable<Role>());
+			detailsUser.UserRoles = LoadRoles(roles, user.Roles.AsQueryable<Entities.Role>()); //automapper
 
-			detailsUser.UserGroups = LoadGroups(groups, user.Groups.AsQueryable<Group>());
+			detailsUser.UserGroups = LoadGroups(groups, user.Groups.AsQueryable<Entities.Group>()); //automapper
 			
 			return View(detailsUser);
 		}
@@ -151,7 +148,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		//
 		// POST: /User/Create
 		[HttpPost]
-		public ActionResult Create(CreateUser createUser)
+		public ActionResult Create(ViewModels.CreateUser createUser)
 		{
 			if (ModelState.IsValid)
 			{	
@@ -169,18 +166,18 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		// GET: /User/Edit/5
 		public ViewResult Edit(int id)
 		{
-			User user = _repository.GetSingle(u => u.Id == id);
+			Entities.User user = _repository.GetSingle(u => u.Id == id);
 
-			DetailsUser detailsUser = new DetailsUser();
+			ViewModels.DetailsUser detailsUser = new ViewModels.DetailsUser();
 			detailsUser.Fill(user);
 
-			IRoleRepository roleRepository = new RoleRepository();
-			List<Role> roles = roleRepository.GetAll().ToList<Role>();
-			detailsUser.UserRoles = LoadRoles(roles, user.Roles.AsQueryable<Role>());			
+			MonackFr.Mvc.Repositories.IRoleRepository roleRepository = new MonackFr.Mvc.Repositories.RoleRepository();
+			List<Entities.Role> roles = roleRepository.GetAll().ToList<Entities.Role>();
+			detailsUser.UserRoles = LoadRoles(roles, user.Roles.AsQueryable<Entities.Role>());	
 
-			IGroupRepository groupRepository = new GroupRepository();
-			List<Group> groups = groupRepository.GetAll().ToList<Group>();
-			detailsUser.UserGroups = LoadGroups(groups, user.Groups.AsQueryable<Group>());
+			MonackFr.Mvc.Repositories.IGroupRepository groupRepository = new MonackFr.Mvc.Repositories.GroupRepository();
+			List<Entities.Group> groups = groupRepository.GetAll().ToList<Entities.Group>();
+			detailsUser.UserGroups = LoadGroups(groups, user.Groups.AsQueryable<Entities.Group>());
 			
 			return View(detailsUser);
 		}
@@ -188,15 +185,15 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		//
 		// POST: /User/Edit/5
 		[HttpPost]
-		public ActionResult Edit(DetailsUser detailsUser)
+		public ActionResult Edit(ViewModels.DetailsUser detailsUser)
 		{
 			if (ModelState.IsValid)
 			{
-				User user = _repository.GetSingle(u => u.Id == detailsUser.Id);
+				Mvc.Entities.User user = _repository.GetSingle(u => u.Id == detailsUser.Id);
 				detailsUser.Map(user);
-								
-				IRoleRepository roleRepository = new RoleRepository();
-				IQueryable<Role> queryableRoles = roleRepository.GetAll();
+
+				MonackFr.Mvc.Repositories.IRoleRepository roleRepository = new MonackFr.Mvc.Repositories.RoleRepository();
+				IQueryable<Entities.Role> queryableRoles = roleRepository.GetAll();
 				IEnumerable<string> numerableRoles = from r in queryableRoles select r.Name;
 				String[] allRoles = numerableRoles.ToArray<String>();
 								
@@ -204,7 +201,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 				Roles.RemoveUserFromRoles(user.UserName, allRoles);
 				
 				//add roles to user
-				foreach (CheckBoxListRole userRole in detailsUser.UserRoles)
+				foreach (ViewModels.CheckBoxListRole userRole in detailsUser.UserRoles)
 				{
 
 					if (userRole.Checked)
@@ -215,14 +212,17 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 				//remove all groups from user
 				_repository.RemoveAllGroupsFromUser(user);
-				
+							
 				//add group to user
-				foreach (CheckBoxListGroup userGroup in detailsUser.UserGroups)
+				if (detailsUser.UserGroups != null)
 				{
-					if (userGroup.Checked)
+					foreach (ViewModels.CheckBoxListGroup userGroup in detailsUser.UserGroups)
 					{
-						Group group = new Group() { Id = userGroup.Id };
-						_repository.AddGroupsToUser(user, group);
+						if (userGroup.Checked)
+						{
+							Entities.Group group = new Entities.Group() { Id = userGroup.Id };
+							_repository.AddGroupsToUser(user, group);
+						}
 					}
 				}
 
@@ -243,7 +243,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		[HttpPost]
 		public ActionResult Delete(int id)
 		{
-			User user = _repository.GetSingle(u => u.Id == id);
+			Entities.User user = _repository.GetSingle(u => u.Id == id);
 			
 			if (user != null)
 			{
@@ -257,7 +257,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		[HttpPost]
 		public ActionResult AddRole(int userId, int allGroups)
 		{
-			User user = _repository.GetSingle(u => u.Id == userId);
+			Entities.User user = _repository.GetSingle(u => u.Id == userId);
 			return View(user);
 		}
 
@@ -349,18 +349,18 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 		#region private methods
 
-		private List<CheckBoxListRole> LoadRoles(List<Role> allRoles, IQueryable<Role> selectedRoles)
+		private List<ViewModels.CheckBoxListRole> LoadRoles(List<Entities.Role> allRoles, IQueryable<Entities.Role> selectedRoles)
 		{
-			List<CheckBoxListRole> userRoles = new List<CheckBoxListRole>();
+			List<ViewModels.CheckBoxListRole> userRoles = new List<ViewModels.CheckBoxListRole>();
 			
-			foreach (Role role in allRoles)
+			foreach (Entities.Role role in allRoles)
 			{
-				userRoles.Add(new CheckBoxListRole
+				userRoles.Add(new ViewModels.CheckBoxListRole
 				{
 					Id = role.Id,
 					Name = role.Name,
 					Description = role.Description,
-					Checked = (selectedRoles.FirstOrDefault<Role>(r => r.Id == role.Id) != null)
+					Checked = (selectedRoles.FirstOrDefault<Entities.Role>(r => r.Id == role.Id) != null)
 				});
 			}
 
@@ -368,18 +368,18 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 		}
 
-		private List<CheckBoxListGroup> LoadGroups(List<Group> allGroups, IQueryable<Group> selectedGroups)
+		private List<ViewModels.CheckBoxListGroup> LoadGroups(List<Entities.Group> allGroups, IQueryable<Entities.Group> selectedGroups)
 		{
-			List<CheckBoxListGroup> userGroups = new List<CheckBoxListGroup>();
+			List<ViewModels.CheckBoxListGroup> userGroups = new List<ViewModels.CheckBoxListGroup>();
 			
-			foreach (Group group in allGroups)
+			foreach (Entities.Group group in allGroups)
 			{
-				userGroups.Add(new CheckBoxListGroup
+				userGroups.Add(new ViewModels.CheckBoxListGroup
 				{
 					Id = group.Id,
 					Name = group.Name,
 					Description = group.Description,
-					Checked = (selectedGroups.FirstOrDefault<Group>(g => g.Id == group.Id) != null)
+					Checked = (selectedGroups.FirstOrDefault<Entities.Group>(g => g.Id == group.Id) != null)
 				});
 			}
 
