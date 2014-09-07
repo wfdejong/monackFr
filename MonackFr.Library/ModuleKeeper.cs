@@ -21,7 +21,7 @@ namespace MonackFr
 		/// <summary>
 		/// List with loaded objects
 		/// </summary>
-		private static Dictionary<string, IModule> _modules = new Dictionary<string, IModule>();
+		private static Dictionary<string, IModule> _modules = new Dictionary<string, IModule>(); //TODO: make hashtable
 
 		/// <summary>
 		/// List with loaded objects, converts internal Dictionary to IEnumerable.
@@ -65,7 +65,7 @@ namespace MonackFr
 		/// <param name="plugin"></param>
 		public void Add(IModule loadedModule)
 		{
-			_modules.Add(loadedModule.Name, loadedModule);
+			_modules.Add(loadedModule.SystemName, loadedModule);
 		}
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace MonackFr
 		{
 			foreach (IModule module in loadedModules)
 			{
-				_modules.Add(module.Name, module);
+				this.Add(module);
 			}
 		}
 

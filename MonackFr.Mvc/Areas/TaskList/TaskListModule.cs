@@ -12,8 +12,8 @@ namespace MonackFr.Mvc.Areas.TaskList
 {
     [Export(typeof(IModule))]
     public class TaskListModule : IModule
-    {
-        #region private properties
+	{
+		#region private properties
 
 		/// <summary>
 		/// Repository
@@ -51,6 +51,8 @@ namespace MonackFr.Mvc.Areas.TaskList
 
         string IModule.Author { get { return "Willem de Jong"; } }
 
+		string IModule.SystemName { get { return "MonackFr.TaskManager"; } }
+
         MenuItem IModule.GetMenu()
         {
             MenuItem menuItem = new MenuItem();
@@ -64,15 +66,17 @@ namespace MonackFr.Mvc.Areas.TaskList
 
         Tile IModule.GetTile(UrlHelper url)
         {
-            Tile tile = new Tile();
-            tile.Title = "TaskList";
+			IModule iModule = (IModule)this;
+			
+            Tile tile = new Tile(iModule.SystemName);
+			tile.Title = iModule.Name;
             tile.Url = url.Action("Index", "Task", new { area = "TaskList" });
-
+			
             IEnumerable<ViewModels.Task> tasks = Mapper.Map<IEnumerable<ViewModels.Task>>(_repository.GetAll());
             tile.PreviewItems = (from t in tasks
                                  select t.LastUpdate.ToString()).ToArray();
-                        
-            tile.Copyright = "The Monack Framework";
+
+			tile.Copyright = iModule.Author;
 
             return tile;
         }

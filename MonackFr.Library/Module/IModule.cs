@@ -25,6 +25,11 @@ namespace MonackFr.Module
         /// The author of the module
         /// </summary>
         string Author { get; }
+
+		/// <summary>
+		/// The system name used internally. Should be unique in the whole application
+		/// </summary>
+		string SystemName { get; }
         
 		/// <summary>
 		/// Returns menu items
@@ -37,5 +42,6 @@ namespace MonackFr.Module
 		/// </summary>
 		/// <returns></returns>
 		Tile GetTile(UrlHelper url);
+
 	}
 }

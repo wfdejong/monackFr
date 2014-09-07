@@ -3,67 +3,39 @@
 }
 
 <h2>MonackFr</h2>
+<a href="javascript:void(0)" class="home-button">Home</a>
 <div class="tiles">
-	<ul>
-		@*@foreach (Tile tile in ViewBag.Tiles)
-			{
-				<li class="big blue">
-					<a href="@tile.Url">
-						<h1>@tile.Title</h1>
-						@if (tile.PreviewItems != null)
-						{
-							foreach (string previewItem in tile.PreviewItems)
-							{
-								<h2>@previewItem</h2>
-							}
-						}
-						<span>@tile.Copyright</span>
-					</a>
-				</li>
-			}*@
-		@*<li class="fdd big">
-				<a href="~/tasklist/task">
-					<h1>Liztos Tasks</h1>
-					<h2>Pay bills - today @@ 24:47</h2>
-					<h2>Watch T.V. - 21-2-2014 @@ 24:47</h2>
-					<span>Liztos by Monack</span>
-				</a>
-			</li>
-			<li class="blue big">
-				<a><h1>1</h1></a>
-			</li>
-			<li class="blue big"><a><h1>1</h1></a></li>
-			<li class="blue big"><a><h1>2</h1></a></li>
-			<li class="blue big"><a><h1>3</h1></a></li>
-			<li class="blue big"><a><h1>4</h1></a></li>
-			<li class="blue big"><a><h1>5</h1></a></li>
-			<li class="blue big"><a><h1>6</h1></a></li>*@
+	<ul>	
 	</ul>
 
 </div>
 
-@*<ul class="folders" data-bind="foreach: menuItems">
-		<li data-bind="text: $data,
-					   css: { selected: $data == $root.chosenFolderId() },
-					   click: $root.goToFolder"></li>
-	</ul>*@
-
 @section Scripts {
 	<script type="text/javascript">
 
+		$(document).ready(function () {
+			$(".home-button").bind("click", function () {
+				$(".module").hide();
+				$(".tiles").show();
+			});
+		});
+
+		var showModule = function showModule(module) {
+			console.log(module);
+			$(".tiles").hide();
+			$("." + module).show();
+		};
+
 		function Tile(data) {
 			self.Title = ko.observable(data.Title);
-			//self.PreviewItems = ko.observableArray(data.PreviewItems);
 			self.Copyright = ko.observable();
 			self.Url = ko.observable();
 		}
 
-		//function MenuItem(menu)
-		//{
-		//    self.Label = menu.Label;
-		//    self.Function = menu.Function;
-		//    self.Menu = ko.observableArray($.map(menu.MenuItems, function (menuItem) { return new MenuItem(menuItem) }));
-		//}
+		function MenuItem(data) {
+			self.Label = k.observable(data.Title);
+
+		}
 
 		function TileViewModel() {
 			var self = this;
@@ -71,45 +43,24 @@
 			$.post('@Url.Action("GetTiles", "Tiles")', function (data) {
 				var mappedTiles = $.map(data, function (item) { return new Tile(item) });
 				self.tiles(mappedTiles);
-				$("div.tiles").tiles(data);
+				$("div.tiles").tiles(data, showModule);
 			});
 		}
 
-		@*function MenuItemViewModel() {
-            var self = this;
-            $.post('@Url.Action("Modules", "Main")', function (modules) {
-                self.menuItems = ko.observableArray();
-                modules.forEach(function (module) {
-                    $.post('@Url.Action("Menu", "Main")', { moduleName: module["Name"] }, function (menu) {
-                        //console.log(menu);
-                        var map = { menu: menu };
-                        var mappedMenuItems = $.map(map, function (menu) { return new MenuItem(menu) });
-                        self.menuItems(mappedMenuItems);
-                        console.log(self.mappedMenuItems);
-                    });
-                });
-            });
-        }*@
-
 		ko.applyBindings(new TileViewModel());
-		//ko.applyBindings(new MenuItemViewModel());
-
-
-		@*$(document).ready(function () {
-            $.ajax({
-                datatype: 'json',
-                type: 'post',
-                url: '@Url.Action("GetTiles", "Tiles")',
-                success: function(data) {
-                    $("div.tiles").tiles(data);
-                }
-            });*@
-
-
-		//$("div.tiles").tiles({ option1: "1" });
-		//});
-	</script>
+</script>
 }
+
+
+<div class="module monackfr-taskmanager" style="display:none;">
+
+	<h2>UserManagement</h2>
+	<ul class="module-menu"></ul>
+
+	<div class="pagecontent">
+
+	</div>
+</div>
 
 
 

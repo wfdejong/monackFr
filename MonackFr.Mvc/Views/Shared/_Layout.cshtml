@@ -13,23 +13,8 @@
 <body>
 	<h1>The Monack Framework</h1>
 	
-	@*<ul>				
-		@foreach (MenuItem menuItem in ViewBag.MenuItems)
-		{
-			<li>
-				@Html.ActionLink(menuItem.Text, menuItem.ActionName, menuItem.Controller, new { area = menuItem.Area }, new { @class = "tile" })
-			</li>
-		}
-	</ul>
-	
-	logged in as: @if (ViewBag.LoggedInUser != null) {
-		@ViewBag.LoggedInUser.UserName
-	}
-
-	<br />*@
 	@RenderBody()
-
-    
+	    
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
@@ -37,7 +22,6 @@
     @Scripts.Render("~/bundles/knockout")
 
     @RenderSection("scripts", required: false)
-
     
 </body>
 </html>

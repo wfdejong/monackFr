@@ -161,6 +161,7 @@
     <Compile Include="Areas\PackageManagement\ViewModels\PackageList.cs" />
     <Compile Include="Areas\PackageManagement\ModuleAreaAreaRegistration.cs" />
     <Compile Include="Contexts\UserManagementContext.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Entities\Group.cs" />
     <Compile Include="Entities\MenuItem.cs" />
     <Compile Include="Entities\Module.cs" />
@@ -178,7 +179,6 @@
     <Compile Include="Areas\PackageManagement\Classes\IPackageManager.cs" />
     <Compile Include="Areas\PackageManagement\Classes\PackageManager.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\TilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -188,6 +188,7 @@
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="ViewModels\MenuItem.cs" />
     <Compile Include="ViewModels\Module.cs" />
+    <Compile Include="ViewModels\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\arrow_down.png" />

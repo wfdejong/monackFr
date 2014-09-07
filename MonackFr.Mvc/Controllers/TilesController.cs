@@ -1,4 +1,4 @@
-﻿using MonackFr.Module;
+﻿using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,19 +16,21 @@ namespace MonackFr.Mvc.Controllers
 		/// <returns></returns>
 		public JsonResult GetTiles()
 		{
-			List<Tile> tiles = new List<Tile>();
+			List<Module.Tile> tiles = new List<Module.Tile>();
 
-			foreach (IModule module in ModuleKeeper.Instance.Modules)
+			foreach (Module.IModule module in ModuleKeeper.Instance.Modules)
 			{
 				tiles.Add(module.GetTile(Url));
 			}
 
-			return Json(tiles);
+			IEnumerable<ViewModels.Tile> viewModelTiles = Mapper.Map<IEnumerable<ViewModels.Tile>>(tiles);
+
+			return Json(viewModelTiles);
 		}
 
 		public JsonResult GetTile(string moduleName)
 		{
-			IModule module = ModuleKeeper.Instance.GetModule(moduleName);
+			Module.IModule module = ModuleKeeper.Instance.GetModule(moduleName);
 			return Json(module.GetTile(Url));
 		}
     }

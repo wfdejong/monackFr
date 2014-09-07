@@ -280,6 +280,11 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
             get { return "Description"; }
         }
 
+		string IModule.SystemName
+		{
+			get { return "MonackFr.UserManagement"; }
+		}
+
 		/// <summary>
 		/// Implementation of GetMenu
 		/// </summary>
@@ -306,10 +311,12 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 		public Module.Tile GetTile(UrlHelper url)
 		{
-            Module.Tile tile = new Module.Tile();
-			tile.Title = "User management";
+			IModule iModule = (IModule)this;
+
+            Module.Tile tile = new Module.Tile(iModule.SystemName);
+			tile.Title = iModule.Name;
 			tile.Url = url.Action("Index", "User", new { area = "UserManagement" });
-			tile.Copyright = "The Monack Framework";
+			tile.Copyright = iModule.Author;
 
 			return tile;
 		}
