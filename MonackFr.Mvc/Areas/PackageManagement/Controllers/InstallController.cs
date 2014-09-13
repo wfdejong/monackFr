@@ -81,7 +81,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 		public ActionResult Install(FormCollection packages_)
 		{
 
-            //TODO: install only selected moduless
+            //TODO: install only selected packages
 
 			using (Context context2 = new Context())
 			{		
@@ -107,9 +107,9 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 				//_packageManager.InstallRoles(authorizations);
 
                 //save packages
-                IEnumerable<Mvc.Entities.Package> ps = Mapper.Map<IEnumerable<Mvc.Entities.Package>>(packages);
+                IEnumerable<Mvc.Entities.Package> entityPackages = Mapper.Map<IEnumerable<Mvc.Entities.Package>>(packages);
                 
-                _packageRepository.InstallPackages(ps);
+                _packageRepository.InstallPackages(entityPackages);
                 _packageRepository.Dispose();
 				context2.SaveChanges();
 

@@ -42,18 +42,25 @@ namespace MonackFr.Mvc
 		/// </summary>
 		private void LoadInstalledModules()
 		{
-			//Since pluginloader is singleton, the plugins are present if loaded once.
-			if (ModuleKeeper.Instance.Modules.Count() == 0)
+			try
 			{
-				PackageRepository packageRepository = new PackageRepository();
-				IEnumerable<Entities.Package> packages = packageRepository.GetAll().ToList();
-
-				foreach (Entities.Package package in packages)
+				//Since pluginloader is singleton, the plugins are present if loaded once.
+				if (ModuleKeeper.Instance.Modules.Count() == 0)
 				{
-					string path = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, package.RelativePath);
-					IEnumerable<IModule> loadedModules = new Loader<IModule>(path).LoadedItems;
-					ModuleKeeper.Instance.AddRange(loadedModules);
+					PackageRepository packageRepository = new PackageRepository();
+					IEnumerable<Entities.Package> packages = packageRepository.GetAll().ToList();
+
+					foreach (Entities.Package package in packages)
+					{
+						string path = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, package.RelativePath);
+						IEnumerable<IModule> loadedModules = new Loader<IModule>(path).LoadedItems;
+						ModuleKeeper.Instance.AddRange(loadedModules);
+					}
 				}
+			}
+			catch(Exception ex)
+			{
+				//database is not installed or no access to database				
 			}
 		}
 	}

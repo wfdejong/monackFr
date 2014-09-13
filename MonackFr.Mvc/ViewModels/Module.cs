@@ -7,6 +7,6 @@ namespace MonackFr.Mvc.ViewModels
 {
 	public class Module
 	{
-		public string Name { get; set; }
+		public string SystemName { get; set; }
 	}
 }

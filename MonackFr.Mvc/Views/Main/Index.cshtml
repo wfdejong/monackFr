@@ -1,4 +1,5 @@
-﻿@{
+﻿@using MonackFr.Mvc.ViewModels
+@{
 	ViewBag.Title = "Default";
 }
 
@@ -15,9 +16,13 @@
 
 		$(document).ready(function () {
 			$(".home-button").bind("click", function () {
-				$(".module").hide();
+				$(".modules").hide();
 				$(".tiles").show();
 			});
+
+			$.post('@Url.Action("GetModules", "Module")', function (data) {
+				$(".modules").modules(data);
+			})
 		});
 
 		var showModule = function showModule(module) {
@@ -40,16 +45,27 @@
 		function TileViewModel() {
 			var self = this;
 			self.tiles = ko.observableArray();
-			$.post('@Url.Action("GetTiles", "Tiles")', function (data) {
+			$.post('@Url.Action("GetTiles", "Tile")', function (data) {
 				var mappedTiles = $.map(data, function (item) { return new Tile(item) });
 				self.tiles(mappedTiles);
-				$("div.tiles").tiles(data, showModule);
+				$("div.tiles").tiles(data, showModule);				
 			});
 		}
 
 		ko.applyBindings(new TileViewModel());
 </script>
 }
+
+<ul class="modules">
+	@foreach (Module module in ViewBag.Modules)
+ {
+	 <li class="module @module.SystemName">
+		 @module.SystemName
+	 </li>
+ }
+
+
+</ul>
 
 
 <div class="module monackfr-taskmanager" style="display:none;">

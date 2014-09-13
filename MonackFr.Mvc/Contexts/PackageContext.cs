@@ -1,5 +1,4 @@
 ﻿using MonackFr.Module;
-using MonackFr.Mvc.Entities;
 using MonackFr.Repository;
 using System;
 using System.Collections.Generic;

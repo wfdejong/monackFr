@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MonackFr.Mvc.Controllers
 {
-    public class TilesController : BaseController
+    public class TileController : BaseController
     {
 
 		/// <summary>
