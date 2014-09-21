@@ -30,6 +30,6 @@ namespace MonackFr.Mvc.ViewModels
 		/// <summary>
 		/// Name of the module the tile needs to open
 		/// </summary>
-		public string Module { get; set; }
+		public Module Module { get; set; }
 	}
 }

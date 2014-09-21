@@ -56,6 +56,8 @@ namespace MonackFr.Mvc.Entities
 		/// </summary>
 		public DateTime LastPaswordChange { get; set; }
 
+		public string Henkie { get; set; }
+
 		public virtual ICollection<Role> Roles { get; set; }
 
 		public virtual ICollection<Group> Groups { get; set; }

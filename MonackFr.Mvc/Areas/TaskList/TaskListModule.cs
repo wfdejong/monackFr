@@ -53,22 +53,24 @@ namespace MonackFr.Mvc.Areas.TaskList
 
 		string IModule.SystemName { get { return "MonackFr.TaskManager"; } }
 
-        MenuItem IModule.GetMenu()
+        IEnumerable<MenuItem> IModule.GetMenu(UrlHelper url)
         {
-            MenuItem menuItem = new MenuItem();
-            menuItem.Label = "Tasks";
+            List<MenuItem> menuItems = new List<MenuItem>();
+            
+            menuItems.Add(new MenuItem ("Overview", "MonackFr.TaskList.Index")
+			{ 
+				Label = "Overview", 
+				Url = url.Action("Index", "Task", new { area = "TaskList" })
+			});
 
-            menuItem.MenuItems = new List<MenuItem>();
-            menuItem.MenuItems.Add(new MenuItem { Label = "Overview", Action = "Index", Controller = "Task", Area = "TaskList" });
-
-            return menuItem;
+            return menuItems;
         }
 
         Tile IModule.GetTile(UrlHelper url)
         {
 			IModule iModule = (IModule)this;
 			
-            Tile tile = new Tile(iModule.SystemName);
+            Tile tile = new Tile(iModule);
 			tile.Title = iModule.Name;
             tile.Url = url.Action("Index", "Task", new { area = "TaskList" });
 			

@@ -70,7 +70,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		#region public methods
 		//
 		// GET: /User/
-		[Role(UserControllerRoles.ViewUser)]
+		//[Role(UserControllerRoles.ViewUser)]
 		public ActionResult Index()
 		{			
 			var users = _repository.GetAll();
@@ -88,8 +88,9 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		// Get: /Users/user/Logout/
 		public ViewResult Logout()
 		{
-			_authentication.SignOut();
-			return View("Login");
+			//_authentication.SignOut();
+			//return View("Login");
+			return View();
 		}
 		
 		//
@@ -289,49 +290,35 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		/// Implementation of GetMenu
 		/// </summary>
 		/// <returns></returns>
-		public Module.MenuItem GetMenu()
+		IEnumerable<MenuItem> IModule.GetMenu(UrlHelper url)
 		{
-			Module.MenuItem menuItem = new Module.MenuItem();
-			menuItem.Label = "User Management";
 			
-			menuItem.MenuItems = new List<Module.MenuItem>();
-			menuItem.MenuItems.Add(new Module.MenuItem
+			List<MenuItem> menuItems = new List<MenuItem>();
+			menuItems.Add(new MenuItem("Users", "MonackFr.UserManagement.Users.Index")
 			{
-				Label = "Users",
-				Action = "Index",
-				Controller = "User",
-				Area = "UserManagement",
-				UserRoles = new string[]{UserControllerRoles.ViewUser.ToString(), UserControllerRoles.CreateUser.ToString()}
+				Url = url.Action("Index", "User", new { Area = "UserManagement" }),
+				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString(), UserControllerRoles.CreateUser.ToString() }
 			});
-			menuItem.MenuItems.Add(new Module.MenuItem { Label = "Groups", Action = "Index", Controller = "Group", Area = "UserManagement" });
-			menuItem.MenuItems.Add(new Module.MenuItem { Label = "Logout", Action = "Logout", Controller = "User", Area = "UserManagement" });
+			menuItems.Add(new MenuItem("Group", "MonackFr.UserManagement.Group.Index")
+			{
+				Url = url.Action("Index", "Group", new { Area = "UserManagement" }),
+				Default = true
+			});
 			
-			return menuItem;
+			return menuItems;
 		}
 
-		public Module.Tile GetTile(UrlHelper url)
+		Module.Tile IModule.GetTile(UrlHelper url)
 		{
 			IModule iModule = (IModule)this;
 
-            Module.Tile tile = new Module.Tile(iModule.SystemName);
+            Module.Tile tile = new Module.Tile(iModule);
 			tile.Title = iModule.Name;
 			tile.Url = url.Action("Index", "User", new { area = "UserManagement" });
 			tile.Copyright = iModule.Author;
 
 			return tile;
 		}
-
-        public Dictionary<string, string> MetaData
-        {
-            get
-            {
-                Dictionary<string, string> MetaData = new Dictionary<string, string>();
-                MetaData.Add("Name", "UserManagement");
-                MetaData.Add("Author", "Willem de Jong");
-
-                return MetaData;
-            }
-        }
 
 		#endregion //implementation of IMenu
 

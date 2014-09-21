@@ -7,15 +7,15 @@ namespace MonackFr.Module
 {
 	public class Tile
 	{
-		private string _module;
+		private IModule _module;
 
 		/// <summary>
 		/// Constructor
 		/// </summary>
 		/// <param name="module">the system name of the module</param>
-		public Tile(string module)
+		public Tile(IModule module)
 		{
-			_module = module.ToLower().Replace('.', '-');
+			_module = module;
 		}
 
 		/// <summary>
@@ -38,6 +38,6 @@ namespace MonackFr.Module
 		/// </summary>
 		public string Url { get; set; }
 
-		public string Module { get { return _module; } }
+		public IModule Module { get { return _module; } }
 	}
 }

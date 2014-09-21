@@ -35,7 +35,7 @@ namespace MonackFr.Module
 		/// Returns menu items
 		/// </summary>
 		/// <returns></returns>
-		MenuItem GetMenu();
+		IEnumerable<MenuItem> GetMenu(UrlHelper url);
 
 		/// <summary>
 		/// Returns module's tile

@@ -26,7 +26,7 @@ namespace MonackFr.Mvc.Controllers
 		{
 			_moduleRepository = iModuleRepository;
 		}
-
+				
 		public ActionResult Index()
 		{
 			ViewBag.Modules = Mapper.Map<IEnumerable<ViewModels.Module>>(_moduleRepository.GetAll());

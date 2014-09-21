@@ -88,9 +88,9 @@ namespace MonackFr
 			_modules.Clear();
 		}
 
-		public IModule GetModule(string moduleName)
+		public IModule GetModule(string systemName)
 		{
-			return _modules[moduleName];
+			return _modules[systemName];
 		}
 	}
 }

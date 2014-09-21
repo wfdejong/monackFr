@@ -61,6 +61,7 @@
     <Compile Include="LoaderTests.cs" />
     <Compile Include="Security\HashTest.cs" />
     <Compile Include="Security\RoleAttributeTest.cs" />
+    <Compile Include="FormatTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MonackFr.Library\MonackFr.Library.csproj">

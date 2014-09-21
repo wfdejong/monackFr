@@ -8,27 +8,74 @@
 <div class="tiles">
 	<ul>	
 	</ul>
-
 </div>
+
+<ul class="modules">
+	@foreach (Module module in ViewBag.Modules)
+	{		
+		<li class="module @module.CssSystemName">
+			<h2>@module.Name</h2>
+			<ul class="menu"></ul>
+		</li>
+	}
+</ul>
 
 @section Scripts {
 	<script type="text/javascript">
 
 		$(document).ready(function () {
 			$(".home-button").bind("click", function () {
-				$(".modules").hide();
+				$(".module").hide();
 				$(".tiles").show();
 			});
 
-			$.post('@Url.Action("GetModules", "Module")', function (data) {
-				$(".modules").modules(data);
+			$(".module").hide();
+			$(".tiles").show();
+
+			$.post('@Url.Action("GetModules", "Module")', function (modules) {
+				$.each(modules, getMenuItems)
 			})
 		});
 
-		var showModule = function showModule(module) {
-			console.log(module);
+		var getMenuItems = function (index, module) {			
+			$.post('@Url.Action("GetMenu", "Module")', { systemName: module.SystemName }, function (menuItems) {
+				$.each(menuItems, function (index, menuItem) {
+					console.log(menuItem);
+					var menuItemLi = $("<li>")
+						.addClass("menu-item")
+						.attr("data-panel-systemname", menuItem.CssSystemName)
+						.attr("data-default", menuItem.Default)
+						.text(menuItem.Label);
+					$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
+					$.get(menuItem.Url, function (content) {
+						$("." + module.CssSystemName).append(
+							$("<div>")
+								.addClass("panel")
+								.addClass(menuItem.CssSystemName)
+								.html(content)
+						);
+					});
+				});
+			});
+		};
+
+		var showModule = function (module) {
 			$(".tiles").hide();
-			$("." + module).show();
+			$(".module").hide();
+			$(".panel").hide();
+			$("." + module.CssSystemName).show();
+
+			var defaultMenuItem = $("." + module.CssSystemName + " ul.menu li.menu-item[data-default='true']").first().attr("data-panel-systemname");
+			console.log(defaultMenuItem);
+			if ($.isEmptyObject(defaultMenuItem)) {
+				defaultMenuItem = $("." + module.CssSystemName + " ul.menu li.menu-item").first().attr("data-panel-systemname");
+			}
+			showPanel(defaultMenuItem);
+		};
+
+		var showPanel = function (panelName) {
+			console.log(panelName);
+			$("." + panelName).show();
 		};
 
 		function Tile(data) {
@@ -39,7 +86,6 @@
 
 		function MenuItem(data) {
 			self.Label = k.observable(data.Title);
-
 		}
 
 		function TileViewModel() {
@@ -56,27 +102,6 @@
 </script>
 }
 
-<ul class="modules">
-	@foreach (Module module in ViewBag.Modules)
- {
-	 <li class="module @module.SystemName">
-		 @module.SystemName
-	 </li>
- }
-
-
-</ul>
-
-
-<div class="module monackfr-taskmanager" style="display:none;">
-
-	<h2>UserManagement</h2>
-	<ul class="module-menu"></ul>
-
-	<div class="pagecontent">
-
-	</div>
-</div>
 
 
 

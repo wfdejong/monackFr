@@ -1,6 +1,5 @@
 ﻿(function ($) {
 	$.fn.tiles = function (options, onclick) {
-
 		var that = this;
         var totalHeight = that.height();
         var columnHeight = 200;

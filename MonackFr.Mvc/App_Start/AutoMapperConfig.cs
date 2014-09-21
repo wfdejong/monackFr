@@ -16,6 +16,7 @@ namespace MonackFr.Mvc.App_Start
 
 			//Module to ViewModels
 			Mapper.CreateMap<Module.Tile, ViewModels.Tile>();
+			Mapper.CreateMap<Module.IModule, ViewModels.Module>();
 
 			//From Entities to ViewModules
 			Mapper.CreateMap<Entities.Module, ViewModels.Module>();

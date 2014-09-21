@@ -31,45 +31,7 @@ namespace MonackFr.Mvc
 				return null;				
 			}
 		}
-		
-		/// <summary>
-		/// Loads all install modules
-		/// </summary>
-		[Obsolete("should run on application startup not here", true)]
-		private void LoadInstalledModules()
-		{
-			//only load plugins the first time. Since pluginloader is singleton, the plugins are present if loaded once.
-			if (ModuleKeeper.Instance.Modules.Count() == 0)
-			{
-                PackageRepository packageRepository = new PackageRepository();
-                IEnumerable<Entities.Package> packages = packageRepository.GetAll();
-                                
-                foreach(Entities.Package package in packages)
-                {
-                    string path = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, package.RelativePath);
-                    IEnumerable<IModule> loadedModules = new Loader<IModule>(path).LoadedItems;
-                    ModuleKeeper.Instance.AddRange(loadedModules);
-                }                
-			}
-		}
-
-		/// <summary>
-		/// returns menu items of all installed modules
-		/// </summary>
-		/// <returns></returns>
-		[Obsolete("Should go through json call", true)]
-		private IEnumerable<MonackFr.Module.MenuItem> GetMenuItems()
-		{
-			List<MonackFr.Module.MenuItem> menuItems = new List<MonackFr.Module.MenuItem>();
-
-				foreach (IModule module in ModuleKeeper.Instance.Modules)
-				{
-					menuItems.Add(module.GetMenu());
-				}			
-
-			return menuItems;
-		}
-		
+						
 		/// <summary>
 		/// overrides OnActionExecuting. 
 		/// Loads installed modules and sets MenuItems and LoggedInUser to view
@@ -78,8 +40,7 @@ namespace MonackFr.Mvc
 		protected override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
 			base.OnActionExecuting(filterContext);
-			
-			//ViewBag.menuItems = GetMenuItems();			
+					
 			ViewBag.LoggedInUser = LoggedInUser;
 		}
 	}

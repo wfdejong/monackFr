@@ -27,6 +27,11 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         public string Author { get; set; }
 
 		/// <summary>
+		/// System name of module. Should be unique within the whole application
+		/// </summary>
+		public string SystemName { get; set; }
+
+		/// <summary>
 		/// roles available in module
 		/// </summary>
         public IEnumerable<IMfrRole> Roles { get; set; }

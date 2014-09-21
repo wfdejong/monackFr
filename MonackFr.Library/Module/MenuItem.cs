@@ -15,59 +15,54 @@ namespace MonackFr.Module
 		/// <summary>
 		/// Text of the menu item
 		/// </summary>
-		public String Label { get; set; }
+		public string Label { get; set; }
+
+		/// <summary>
+		/// Url to view
+		/// </summary>
+		public string Url { get; set; }
 		
 		/// <summary>
-		/// Name of action
+		/// The system name used internally. Should be unique in the whole application
 		/// </summary>
-		public String Action { get; set; }
+		public string SystemName { get; set; }
 
 		/// <summary>
-		/// Controller of action
+		/// System name converted into css compatible text
 		/// </summary>
-		public String Controller { get; set; }
+		public string CssSystemName
+		{
+			get
+			{
+				return Format.ToCss(SystemName);
+			}
+		}
 
 		/// <summary>
-		/// Area of action
+		/// True if this menu item should be activated on default. 
+		/// This will show the corresponding panel.
 		/// </summary>
-		public String Area { get; set; }
+		public bool Default { get; set; }
 
 		/// <summary>
 		/// Nested menu items
 		/// </summary>
-		public List<MenuItem> MenuItems { get; set; }
+		public IEnumerable<MenuItem> MenuItems { get; set; }
 
 		/// <summary>
 		/// Roles that have access to action
 		/// </summary>
 		public IEnumerable<string> UserRoles { get; set; }
-
+		
 		/// <summary>
-		/// Checks if user has user has role 
+		/// Constructor to maken Label and System name required.
 		/// </summary>
-		/// <param name="user"></param>
-		/// <returns>true if user has role or if roles is null/empty</returns>
-		[Obsolete("Should be refactored and handled somewhere else", true)]
-		public bool Authorized(MfrUser user)
+		/// <param name="Label"></param>
+		/// <param name="SystemName"></param>
+		public MenuItem(string label, string systemName)
 		{
-			if (user != null)
-			{
-				if (UserRoles == null || UserRoles.Count() == 0)
-				{
-					return true;
-				}
-
-				foreach(string userRole in UserRoles)
-				{
-					//TODO: check if check hits the db, should be once and check against array
-					if (Roles.IsUserInRole(user.UserName, userRole))
-					{
-						return true;
-					}
-				}
-			}
-
-			return false;
+			SystemName = systemName;
+			Label = label;
 		}
 	}
 }

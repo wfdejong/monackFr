@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\EmptyStringException.cs" />
+    <Compile Include="Format.cs" />
     <Compile Include="Module\IModule.cs" />
     <Compile Include="Module\IPackage.cs" />
     <Compile Include="Module\MenuItem.cs" />
