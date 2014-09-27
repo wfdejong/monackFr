@@ -30,6 +30,8 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Classes
 		[TestMethod]
 		public void GetPackage_WithOutIPackage_ReturnsNull()
 		{
+			//To test this, the loadedPackage variable in GetPackage needs to be refoactored into
+			// a class with a parameter less constructor so it can be mocked. Consider chain class for easy use.
 			throw new NotImplementedException();
 		}
 

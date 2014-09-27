@@ -29,6 +29,8 @@
 				$(".tiles").show();
 			});
 
+			
+
 			$(".module").hide();
 			$(".tiles").show();
 
@@ -44,7 +46,7 @@
 					var menuItemLi = $("<li>")
 						.addClass("menu-item")
 						.attr("data-panel-systemname", menuItem.CssSystemName)
-						.attr("data-default", menuItem.Default)
+						.attr("data-default", menuItem.Default)						
 						.text(menuItem.Label);
 					$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
 					$.get(menuItem.Url, function (content) {
@@ -54,6 +56,10 @@
 								.addClass(menuItem.CssSystemName)
 								.html(content)
 						);
+					});
+					$(".menu-item").bind("click", function () {
+						var panelName = $(this).attr("data-panel-systemname");
+						showPanel(panelName);
 					});
 				});
 			});
@@ -66,7 +72,6 @@
 			$("." + module.CssSystemName).show();
 
 			var defaultMenuItem = $("." + module.CssSystemName + " ul.menu li.menu-item[data-default='true']").first().attr("data-panel-systemname");
-			console.log(defaultMenuItem);
 			if ($.isEmptyObject(defaultMenuItem)) {
 				defaultMenuItem = $("." + module.CssSystemName + " ul.menu li.menu-item").first().attr("data-panel-systemname");
 			}
@@ -74,7 +79,7 @@
 		};
 
 		var showPanel = function (panelName) {
-			console.log(panelName);
+			$(".panel").hide();
 			$("." + panelName).show();
 		};
 

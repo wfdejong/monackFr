@@ -50,6 +50,16 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 
         #region IPackageManager
 
+		/// <summary>
+		/// Package directory
+		/// </summary>
+		string IPackageManager.PackageDirectory { get; set; }
+
+		/// <summary>
+		/// Base directory to create relative path
+		/// </summary>
+		string IPackageManager.BaseDirectory { get; set; }
+
         /// <summary>
         /// Returns a package if it inplements IPackage interface. 
 		/// Also loads Contexts, Modules and Authorizations to this package
@@ -122,17 +132,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 
             return packages;
         }
-
-        /// <summary>
-        /// Package directory
-        /// </summary>
-        string IPackageManager.PackageDirectory { get; set; }
-
-        /// <summary>
-        /// Base directory to create relative path
-        /// </summary>
-        string IPackageManager.BaseDirectory { get; set; }
-		        
+				        
         #endregion //IPackageManager
     }
 }

@@ -90,6 +90,11 @@ namespace MonackFr
 
 		public IModule GetModule(string systemName)
 		{
+			if (!_modules.Keys.Contains(systemName))
+			{
+				throw new ModuleNotFoundException(String.Format("Module with name {0} could not be found", systemName));
+			}
+
 			return _modules[systemName];
 		}
 	}
