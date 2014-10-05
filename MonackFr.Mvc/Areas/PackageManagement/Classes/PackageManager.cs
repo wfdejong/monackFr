@@ -30,6 +30,26 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 		/// </summary>
 		private IPackageManager _iPackageManager = null;
 
+		/// <summary>
+		/// The module loader
+		/// </summary>
+		private ILoader<IModule> _moduleLoader = null;
+
+		/// <summary>
+		/// The context loader
+		/// </summary>
+		private ILoader<IContext> _contextLoader = null;
+
+		/// <summary>
+		/// The package loader
+		/// </summary>
+		private ILoader<IPackage> _packageLoader = null;
+
+		/// <summary>
+		/// The Automapper
+		/// </summary>
+		private IMappingEngine _mapper = null;
+
 		#endregion //private fields
         
         #region constructors
@@ -37,13 +57,21 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         public PackageManager()
         {
             _directory = new MonackFr.Wrappers.Directory();
-			_iPackageManager = this as IPackageManager;			
+			_iPackageManager = this as IPackageManager;
+			_moduleLoader = new Loader<IModule>();
+			_contextLoader = new Loader<IContext>();
+			_mapper = AutoMapper.Mapper.Engine;
         }
 
-        public PackageManager(MonackFr.Wrappers.IDirectory directory, IPackageManager packageManager)
+        public PackageManager(MonackFr.Wrappers.IDirectory directory, IPackageManager packageManager, ILoader<IModule> moduleLoader, ILoader<IContext> contextLoader, ILoader<IPackage> packageLoader, IMappingEngine mapper)
         {
+			//TODO: refactor to a injection class instead of so many parameters
             _directory = directory;
 			_iPackageManager = packageManager;
+			_moduleLoader = moduleLoader;
+			_contextLoader = contextLoader;
+			_packageLoader = packageLoader;
+			_mapper = mapper;
         }
 
         #endregion //constructors
@@ -71,23 +99,22 @@ namespace MonackFr.Mvc.Areas.PackageManagement
             string relativePath = path.Substring(_iPackageManager.BaseDirectory.Count());
 
             //Load IPackage interface of package
-            IPackage loadedPackage = new Loader<IPackage>(path).LoadedItems.FirstOrDefault();
+			IPackage loadedPackage = _packageLoader.Load(path).LoadedItems.FirstOrDefault();
 
-            //if it implements an IPackage interface, loads IModule interface and add to package
-            
+            //if it implements an IPackage interface, loads IModule interface and add to packages            
             if(loadedPackage != null)
             {
-                Package package = Mapper.Map<Package>(loadedPackage);
+                Package package = _mapper.Map<Package>(loadedPackage);
 
                 package.RelativePath = relativePath;
-                package.Contexts = new Loader<IContext>(path).LoadedItems;
+				package.Contexts = _contextLoader.Load(path).LoadedItems;
 
-                IEnumerable<IModule> imodules = new Loader<IModule>(path).LoadedItems;
+				IEnumerable<IModule> imodules = _moduleLoader.Load(path).LoadedItems;
                 List<Module> packageModules = new List<Module>();
 
                 foreach (IModule imodule in imodules)
                 {
-                    Module module = Mapper.Map<Module>(imodule);
+                    Module module = _mapper.Map<Module>(imodule);
 
                     if(imodule is IAuthorization)
                     {
@@ -100,8 +127,6 @@ namespace MonackFr.Mvc.Areas.PackageManagement
 
                 package.Modules = packageModules;
                 
-                //package.Authorizations = new Loader<IAuthorization>(path).LoadedItems;
-
                 return package;
             }
 

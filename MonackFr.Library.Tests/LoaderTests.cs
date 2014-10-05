@@ -14,34 +14,58 @@ namespace MonackFr.Library.Tests
 	{
 		[TestMethod]
 		[ExpectedException(typeof(System.IO.FileNotFoundException))]
-		public void Constructor_WithNonExistingFile_ThrowsFileNotFoundException()
+		public void Load_WithNonExistingFile_ThrowsFileNotFoundException()
 		{
 			Mock<IFile> fileMock = new Mock<IFile>();
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
 			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
+
+			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
+			loader.Load("");
+		}
+
+		[TestMethod]
+		public void Load_WithExistingFile_ComposesFile()
+		{
+			Mock<IFile> fileMock = new Mock<IFile>();
+			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
+			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
+			loader.Load("");
 			
-			Loader<object> loader = new Loader<object>("testfile", fileMock.Object, compositionMock.Object);
+			compositionMock.Verify(c => c.ComposeParts(It.IsAny<object>()), Times.Exactly(1));
 		}
 
 		[TestMethod]
-		public void Constructor_WithExistingFile_ComposesFile()
+		public void Load_WithAnyFile_TestsIfFileExists()
 		{
 			Mock<IFile> fileMock = new Mock<IFile>();
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
 			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
-			Loader<object> loader = new Loader<object>("testfile", fileMock.Object, compositionMock.Object);
-			compositionMock.Verify(c => c.ComposeParts(It.IsAny<Object>()), Times.Exactly(1));
+			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
+			loader.Load("");
+
+			fileMock.Verify(f => f.Exists(It.IsAny<string>()), Times.Exactly(1));
 		}
 
 		[TestMethod]
-		public void Constructor_WithAnyFile_TestsIfFileExists()
+		[ExpectedException(typeof(NullReferenceException))]
+		public void Load_WithoutFileSet_ThrowsNullReferenceException()
+		{
+			Mock<IFile> fileMock = new Mock<IFile>();
+			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();			
+			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
+			loader.Load("");			
+		}
+
+		[TestMethod]
+		public void Load_WithPath_SetsCompositionContainerPath()
 		{
 			Mock<IFile> fileMock = new Mock<IFile>();
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
-			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
-			Loader<object> loader = new Loader<object>("testfile", fileMock.Object, compositionMock.Object);
-			fileMock.Verify(f => f.Exists("testfile"), Times.Exactly(1));
+			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
+			loader.Load("");
+			compositionMock.VerifySet(c => c.Path = It.IsAny<string>()) ;
 		}
-
 	}
 }

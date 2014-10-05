@@ -51,7 +51,8 @@ namespace MonackFr.Mvc
 					foreach (Entities.Package package in packages)
 					{
 						string path = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, package.RelativePath);
-						IEnumerable<IModule> loadedModules = new Loader<IModule>(path).LoadedItems;
+						ILoader<IModule> loader = new Loader<IModule>();
+						IEnumerable<IModule> loadedModules = loader.Load(path).LoadedItems;
 						ModuleKeeper.Instance.AddRange(loadedModules);
 					}
 				}

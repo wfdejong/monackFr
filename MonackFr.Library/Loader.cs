@@ -8,16 +8,20 @@ using System.ComponentModel.Composition.Hosting;
 namespace MonackFr
 {
 	/// <summary>
-	/// Generic loader. Autmotically loads libraries of interface T of given file.
+	/// Generic loader. Loads libraries of interface T of given file.
 	/// </summary>
 	/// <typeparam name="T">Interface to load</typeparam>
-	public class Loader<T>
+	public class Loader<T> : ILoader<T>
 	{
+		#region private fields
+
 		/// <summary>
 		/// List with plugins
 		/// </summary>
 		[ImportMany]
-		private List<T> _available = null;
+		private List<T> _loadedItems = null;
+
+		#endregion //private fields
 
 		#region test stubs
 
@@ -26,56 +30,63 @@ namespace MonackFr
 
 		#endregion
 
-		/// <summary>
-		/// Loaded plugins
-		/// </summary>
-		public IEnumerable<T> LoadedItems
-		{
-			get
-			{
-				return _available;
-			}
-		}
+		#region constructors
 
 		/// <summary>
-		/// Loads all libraries of type T in file.
+		/// Constructor
 		/// </summary>
-		/// <param name="path">path to file that containes interface T</param>
-		public Loader(string path)
+		public Loader()
 		{
-			this.Load(path);
+			_file = new Wrappers.File();
 		}
 
         /// <summary>
-        /// Loads all libraries of type T in file.
+        /// Constructor for unit tests
         /// </summary>
         /// <param name="path">path to file that containes interface T</param>
-		public Loader(string path, Wrappers.IFile file, Wrappers.ICompositionContainer container)
+		public Loader(Wrappers.IFile file, Wrappers.ICompositionContainer container)
 		{
-			_file = file;
 			_compositionconatiner = container;
-			this.Load(path);
+			_file = file;
 		}
-		
-		/// <summary>
-		/// Load the plugings from the file
-		/// </summary>
-		/// <param name="path"></param>
-		private void Load(string path)
-		{
-			if (_file.Exists(path))
-			{
-				if (_compositionconatiner == null)
-				{
-					_compositionconatiner = new Wrappers.CompositionContainer(path);
-				}
 
-				_compositionconatiner.ComposeParts(this);
+		#endregion //constructors
+
+		#region ILoader
+
+		/// <summary>
+		/// Loaded plugins
+		/// </summary>
+		IEnumerable<T> ILoader<T>.LoadedItems
+		{
+			get
+			{
+				return _loadedItems;
 			}
-			else
+		}
+				
+		/// <summary>
+		/// Loads the plugins from the set file
+		/// </summary>		
+		ILoader<T> ILoader<T>.Load(string path)
+		{
+			if (String.IsNullOrEmpty(path))
+			{
+				throw new NullReferenceException("Path is not set");
+			}
+
+			if (!_file.Exists(path))
 			{
 				throw new System.IO.FileNotFoundException();
-			}			
+			}
+
+			_compositionconatiner = new Wrappers.CompositionContainer();
+			//_compositionconatiner.Path = path;
+			_compositionconatiner.ComposeParts(this);
+			
+			return this;
 		}
+
+		#endregion //ILoader
 	}
 }

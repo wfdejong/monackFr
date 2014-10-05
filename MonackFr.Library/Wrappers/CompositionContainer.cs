@@ -11,19 +11,22 @@ namespace MonackFr.Wrappers
 	/// </summary>
 	public class CompositionContainer: ICompositionContainer
 	{
-		private System.ComponentModel.Composition.Hosting.CompositionContainer compositionContainer;
+		/// <summary>
+		/// Path to the assembly
+		/// </summary>
+		private string _path;
 
 		/// <summary>
-		/// Constructor
+		/// Path to the assembly
 		/// </summary>
-		/// <param name="path"></param>
-		public CompositionContainer(string path)
-		{
-			compositionContainer = new System.ComponentModel.Composition.Hosting.CompositionContainer(
-				new System.ComponentModel.Composition.Hosting.AssemblyCatalog(path)
-			);
+		string ICompositionContainer.Path 
+		{	
+			set
+			{
+				_path = value;
+			}
 		}
-
+		
 		/// <summary>
 		/// Creates composable parts from an array of attributed objects and composes
 		/// them in the specified composition container.
@@ -31,6 +34,9 @@ namespace MonackFr.Wrappers
 		/// <param name="parts">An array of attributed objects to compose.</param>
 		void ICompositionContainer.ComposeParts(params object[] parts)
 		{
+			System.ComponentModel.Composition.Hosting.CompositionContainer compositionContainer = new System.ComponentModel.Composition.Hosting.CompositionContainer(
+				new System.ComponentModel.Composition.Hosting.AssemblyCatalog(_path)
+			);
 			compositionContainer.ComposeParts(parts);
 		}
 	}
