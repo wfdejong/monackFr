@@ -27,6 +27,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
         private IPackageRepository _packageRepository = null;
         private IDatabaseManager _databaseManager = null;
         private IUserManager _userManager = null;
+		private IMappingEngine _mapper = null;
 
 		#region constructors
 
@@ -41,19 +42,21 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
             
             _packageRepository = new PackageRepository();
             _databaseManager = new DatabaseManager();
-           _userManager = new UserManager();
+			_userManager = new UserManager();
+			_mapper = Mapper.Engine;
 		}
 
 		/// <summary>
 		/// Constructor for testing purposes
 		/// </summary>
 		/// <param name="directory"></param>
-		public InstallController(IPackageManager packageManager, IPackageRepository packageRepository, IDatabaseManager databaseManager, IUserManager userManager)
+		public InstallController(IPackageManager packageManager, IPackageRepository packageRepository, IDatabaseManager databaseManager, IUserManager userManager, IMappingEngine mapper)
 		{
 			_packageManager = packageManager;
             _packageRepository = packageRepository;
             _databaseManager = databaseManager;
 			_userManager = userManager;
+			_mapper = mapper;
 		}
 
 		#endregion
@@ -67,7 +70,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 			PackageList packageList = new PackageList();
             IEnumerable<Package> packages = _packageManager.GetPackages();
 
-            packageList.Packages = Mapper.Map<IEnumerable<ViewModels.Package>>(packages);
+            packageList.Packages = _mapper.Map<IEnumerable<ViewModels.Package>>(packages);
 
 			return View("install", packageList);
 		}
@@ -107,7 +110,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
 				//_packageManager.InstallRoles(authorizations);
 
                 //save packages
-                IEnumerable<Mvc.Entities.Package> entityPackages = Mapper.Map<IEnumerable<Mvc.Entities.Package>>(packages);
+                IEnumerable<Mvc.Entities.Package> entityPackages = _mapper.Map<IEnumerable<Mvc.Entities.Package>>(packages);
                 
                 _packageRepository.InstallPackages(entityPackages);
                 _packageRepository.Dispose();

@@ -49,6 +49,8 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Classes
 			
 			_packageManager = new TestedPackageManagement.PackageManager(_directory.Object, _packageManagerMock.Object, _moduleLoader.Object, _contextLoader.Object, _packageLoader.Object, _mapper.Object);
 
+			_directory.Setup(d => d.GetFiles(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<System.IO.SearchOption>())).Returns(new string[] { "", "" });
+			
 			_packageLoader.SetupGet(p => p.LoadedItems).Returns(new List<IPackage>() { _package.Object });
 			_contextLoader.SetupGet(c => c.LoadedItems).Returns(new List<IContext>() { _context.Object });
 			_moduleLoader.SetupGet(m => m.LoadedItems).Returns(new List<IModule>() { _module.Object });
@@ -65,6 +67,8 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Classes
 			_mappedModule = new TestedPackageManagement.Module();
 			_mapper.Setup(m => m.Map<TestedPackageManagement.Package>(It.IsAny<IPackage>())).Returns(_mappedPackage);
 			_mapper.Setup(m => m.Map<TestedPackageManagement.Module>(It.IsAny<IModule>())).Returns(_mappedModule);
+
+			_packageManagerMock.Setup(p => p.GetPackage(It.IsAny<string>())).Returns(_mappedPackage);
 		}
 
 		[TestMethod]
@@ -132,19 +136,30 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Classes
 		[TestMethod]
 		public void GetPackages_GetsFilesFromDirectory()
 		{
-			throw new NotImplementedException();
+			_packageManager.GetPackages();
+			_directory.Verify(d => d.GetFiles(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<System.IO.SearchOption>()), Times.Once());
+		}
+
+		[TestMethod]
+		public void GetPackages_ReadsPackageDirectory()
+		{
+			_packageManager.GetPackages();
+			_packageManagerMock.VerifyGet(p => p.PackageDirectory, Times.Once());
+			
 		}
 
 		[TestMethod]
 		public void GetPackages_GetsPackage()
 		{
-			throw new NotImplementedException();
+			_packageManager.GetPackages();
+			_packageManagerMock.Verify(p => p.GetPackage(It.IsAny<string>()), Times.Exactly(2));
 		}
 
 		[TestMethod]
-		public void GetPackages_AddsPackage()
+		public void GetPackages_ReturnsPackage()
 		{
-			throw new NotImplementedException();
+			IEnumerable<TestedPackageManagement.Package> packages = _packageManager.GetPackages();
+			Assert.AreSame(packages.First(), _mappedPackage);
 		}
 	}
 }

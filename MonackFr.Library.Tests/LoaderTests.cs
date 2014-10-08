@@ -21,7 +21,7 @@ namespace MonackFr.Library.Tests
 			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(false);
 
 			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
-			loader.Load("");
+			loader.Load("1");
 		}
 
 		[TestMethod]
@@ -31,7 +31,7 @@ namespace MonackFr.Library.Tests
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
 			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
 			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
-			loader.Load("");
+			loader.Load("1");
 			
 			compositionMock.Verify(c => c.ComposeParts(It.IsAny<object>()), Times.Exactly(1));
 		}
@@ -43,7 +43,7 @@ namespace MonackFr.Library.Tests
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
 			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
 			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
-			loader.Load("");
+			loader.Load("1");
 
 			fileMock.Verify(f => f.Exists(It.IsAny<string>()), Times.Exactly(1));
 		}
@@ -64,7 +64,8 @@ namespace MonackFr.Library.Tests
 			Mock<IFile> fileMock = new Mock<IFile>();
 			Mock<ICompositionContainer> compositionMock = new Mock<ICompositionContainer>();
 			ILoader<object> loader = new Loader<object>(fileMock.Object, compositionMock.Object);
-			loader.Load("");
+			fileMock.Setup(f => f.Exists(It.IsAny<string>())).Returns(true);
+			loader.Load("1");
 			compositionMock.VerifySet(c => c.Path = It.IsAny<string>()) ;
 		}
 	}

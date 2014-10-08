@@ -26,7 +26,7 @@ namespace MonackFr
 		#region test stubs
 
 		private Wrappers.IFile _file = new Wrappers.File();
-		private Wrappers.ICompositionContainer _compositionconatiner;
+		private Wrappers.ICompositionContainer _compositioncontainer;
 
 		#endregion
 
@@ -38,6 +38,7 @@ namespace MonackFr
 		public Loader()
 		{
 			_file = new Wrappers.File();
+			_compositioncontainer = new Wrappers.CompositionContainer();
 		}
 
         /// <summary>
@@ -46,7 +47,7 @@ namespace MonackFr
         /// <param name="path">path to file that containes interface T</param>
 		public Loader(Wrappers.IFile file, Wrappers.ICompositionContainer container)
 		{
-			_compositionconatiner = container;
+			_compositioncontainer = container;
 			_file = file;
 		}
 
@@ -79,10 +80,9 @@ namespace MonackFr
 			{
 				throw new System.IO.FileNotFoundException();
 			}
-
-			_compositionconatiner = new Wrappers.CompositionContainer();
-			//_compositionconatiner.Path = path;
-			_compositionconatiner.ComposeParts(this);
+						
+			_compositioncontainer.Path = path;
+			_compositioncontainer.ComposeParts(this);
 			
 			return this;
 		}
