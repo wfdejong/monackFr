@@ -58,9 +58,10 @@ namespace MonackFr.Mvc.Areas.PackageManagement
         {
             _directory = new MonackFr.Wrappers.Directory();
 			_iPackageManager = this as IPackageManager;
+			_packageLoader = new Loader<IPackage>();
 			_moduleLoader = new Loader<IModule>();
 			_contextLoader = new Loader<IContext>();
-			_mapper = AutoMapper.Mapper.Engine;
+			_mapper = AutoMapper.Mapper.Engine;			
         }
 
         public PackageManager(MonackFr.Wrappers.IDirectory directory, IPackageManager packageManager, ILoader<IModule> moduleLoader, ILoader<IContext> contextLoader, ILoader<IPackage> packageLoader, IMappingEngine mapper)
