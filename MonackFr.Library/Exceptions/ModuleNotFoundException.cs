@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace MonackFr
 {
+	/// <summary>
+	/// Thrown if module can't be found
+	/// </summary>
 	[Serializable]
 	public class ModuleNotFoundException : Exception
 	{

@@ -5,6 +5,9 @@ using System.Web;
 
 namespace MonackFr.Module
 {
+	/// <summary>
+	/// Tile definition for in a module
+	/// </summary>
 	public class Tile
 	{
 		private IModule _module;
@@ -38,6 +41,9 @@ namespace MonackFr.Module
 		/// </summary>
 		public string Url { get; set; }
 
+		/// <summary>
+		/// Module the tile belongs to
+		/// </summary>
 		public IModule Module { get { return _module; } }
 	}
 }

@@ -10,12 +10,17 @@ namespace MonackFr.Mvc.Controllers
 {
 	public class ModuleController : DisposeController
 	{
-		private ModuleRepository _moduleRepository = new ModuleRepository();
+		private IModuleRepository _moduleRepository = null;
 
+		/// <summary>
+		/// Constructor
+		/// </summary>
 		public ModuleController() : base()
 		{
-			//Add disposables here
-			AddDisposable(_moduleRepository);
+			_moduleRepository = new ModuleRepository();
+
+			//Add disposables			
+			AddDisposable(_moduleRepository as IDisposable);
 		}
 
 		/// <summary>

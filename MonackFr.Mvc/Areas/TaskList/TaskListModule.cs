@@ -73,8 +73,9 @@ namespace MonackFr.Mvc.Areas.TaskList
             Tile tile = new Tile(iModule);
 			tile.Title = iModule.Name;
             tile.Url = url.Action("Index", "Task", new { area = "TaskList" });
-			
-            IEnumerable<ViewModels.Task> tasks = Mapper.Map<IEnumerable<ViewModels.Task>>(_repository.GetAll());
+
+			IQueryable<Entities.Task> tasksEntities = _repository.GetAll();
+            IEnumerable<ViewModels.Task> tasks = Mapper.Map<IEnumerable<ViewModels.Task>>(tasksEntities);
             tile.PreviewItems = (from t in tasks
                                  select t.LastUpdate.ToString()).ToArray();
 

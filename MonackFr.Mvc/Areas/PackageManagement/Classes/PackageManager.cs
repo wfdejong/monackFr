@@ -108,6 +108,7 @@ namespace MonackFr.Mvc.Areas.PackageManagement
                 Package package = _mapper.Map<Package>(loadedPackage);
 
                 package.RelativePath = relativePath;
+
 				package.Contexts = _contextLoader.Load(path).LoadedItems;
 
 				IEnumerable<IModule> imodules = _moduleLoader.Load(path).LoadedItems;

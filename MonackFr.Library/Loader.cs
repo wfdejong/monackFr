@@ -80,6 +80,8 @@ namespace MonackFr
 			{
 				throw new System.IO.FileNotFoundException();
 			}
+			
+			_loadedItems = null;
 						
 			_compositioncontainer.Path = path;
 			_compositioncontainer.ComposeParts(this);

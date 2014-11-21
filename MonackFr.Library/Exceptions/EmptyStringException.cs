@@ -6,6 +6,9 @@ using System.Text;
 
 namespace MonackFr
 {
+	/// <summary>
+	/// Thrown if string is empty
+	/// </summary>
 	[Serializable]
 	public class EmptyStringException : Exception
 	{
