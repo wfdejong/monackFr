@@ -4,7 +4,9 @@
 }
 
 <h2>MonackFr</h2>
+
 <a href="javascript:void(0)" class="home-button">Home</a>
+
 <div class="tiles">
 	<ul>	
 	</ul>
@@ -44,8 +46,11 @@
 					var menuItemLi = $("<li>")
 						.addClass("menu-item")
 						.attr("data-panel-systemname", menuItem.CssSystemName)
-						.attr("data-default", menuItem.Default)						
-						.text(menuItem.Label);
+						.attr("data-default", menuItem.Default)
+						.append($("<a>")
+							.attr("href", "javascript:void(0)")
+							.text(menuItem.Label)
+						);
 					$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
 					$.get(menuItem.Url, function (content) {
 						$("." + module.CssSystemName).append(

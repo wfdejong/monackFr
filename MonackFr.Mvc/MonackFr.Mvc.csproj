@@ -221,6 +221,8 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Css\Modules.css" />
+    <Content Include="Css\Style.css" />
     <Content Include="Css\Tiles.css" />
     <Content Include="Fonts\LICENSE.txt" />
     <Content Include="Global.asax" />
