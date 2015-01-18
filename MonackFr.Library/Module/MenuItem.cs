@@ -5,27 +5,42 @@ using System.Web;
 using MonackFr.Security;
 using System.Web.Security;
 
-namespace MonackFr.Module
+namespace MonackFr.Repository
 {
 	/// <summary>
 	/// Menu item
 	/// </summary>
 	public class MenuItem
 	{
+		private string _label;
+		private string _systemName;
+
 		/// <summary>
 		/// Text of the menu item
 		/// </summary>
-		public string Label { get; set; }
-
-		/// <summary>
-		/// Url to view
-		/// </summary>
-		public string Url { get; set; }
-		
+		public string Label
+		{
+			get
+			{
+				return _label;
+			}
+		}
+				
 		/// <summary>
 		/// The system name used internally. Should be unique in the whole application
 		/// </summary>
-		public string SystemName { get; set; }
+		public string SystemName
+		{
+			get
+			{
+				return _systemName;
+			}
+		}
+
+		/// <summary>
+		/// System name of panel to show if selected
+		/// </summary>
+		public Panel Panel { get; set; }
 
 		/// <summary>
 		/// System name converted into css compatible text
@@ -45,6 +60,11 @@ namespace MonackFr.Module
 		public bool Default { get; set; }
 
 		/// <summary>
+		/// Show or hide the menu item in the menu
+		/// </summary>
+		public bool Visible { get; set; }
+
+		/// <summary>
 		/// Nested menu items
 		/// </summary>
 		public IEnumerable<MenuItem> MenuItems { get; set; }
@@ -61,8 +81,9 @@ namespace MonackFr.Module
 		/// <param name="SystemName"></param>
 		public MenuItem(string label, string systemName)
 		{
-			SystemName = systemName;
-			Label = label;
+			_systemName = systemName;
+			_label = label;
+			Visible = true;
 		}
 	}
 }

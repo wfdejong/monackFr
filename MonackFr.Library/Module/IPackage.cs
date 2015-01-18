@@ -1,4 +1,4 @@
-﻿using MonackFr.Module;
+﻿using MonackFr.Repository;
 using MonackFr.Repository;
 using MonackFr.Security;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MonackFr.Module
+namespace MonackFr.Repository
 {
 	/// <summary>
 	/// Definition of a package

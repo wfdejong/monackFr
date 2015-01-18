@@ -1,4 +1,4 @@
-﻿using MonackFr.Module;
+﻿using MonackFr.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,6 +65,7 @@ namespace MonackFr
 		/// <param name="plugin"></param>
 		public void Add(IModule loadedModule)
 		{
+
 			_modules.Add(loadedModule.SystemName, loadedModule);
 		}
 

@@ -10,7 +10,7 @@ namespace MonackFr.Mvc.Controllers
 {
 	public class ModuleController : DisposeController
 	{
-		private IModuleRepository _moduleRepository = null;
+		private ModuleRepository _moduleRepository = null;
 
 		/// <summary>
 		/// Constructor
@@ -24,7 +24,7 @@ namespace MonackFr.Mvc.Controllers
 		}
 
 		/// <summary>
-		/// Returns all modules
+		/// Returns all IModules
 		/// </summary>
 		/// <returns></returns>
 		public JsonResult GetModules()
@@ -34,9 +34,9 @@ namespace MonackFr.Mvc.Controllers
 		}
 
 		/// <summary>
-		/// Returns menu items of a module
+		/// Returns menu items of a IModule
 		/// </summary>
-		/// <param name="moduleName"></param>
+		/// <param name="IModuleName"></param>
 		/// <returns></returns>
 		[HttpPost]
 		public JsonResult GetMenu(string systemName)

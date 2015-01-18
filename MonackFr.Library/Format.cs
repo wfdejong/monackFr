@@ -14,6 +14,7 @@ namespace MonackFr
 		/// <returns></returns>
 		public static string ToCss(string stringToFormat)
 		{
+			//todo: replace everything not in [a-z][A-Z][0-9] with 
 			return String.IsNullOrEmpty(stringToFormat) ? stringToFormat : stringToFormat.Replace('.', '-');
 		}
 	}

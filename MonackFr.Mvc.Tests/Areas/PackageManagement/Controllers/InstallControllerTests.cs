@@ -58,7 +58,7 @@ namespace MonackFr.Mvc.Tests.Areas.PackageManagement.Controllers
 		public void Install_WithPackages_InstallsDatabase()
 		{
 			_installController.Install(new FormCollection());
-			_databaseManager.Verify(d => d.InstallDatabase(It.IsAny<IEnumerable<Module.IContext>>()), Times.Once());
+			_databaseManager.Verify(d => d.InstallDatabase(It.IsAny<IEnumerable<Repository.IContext>>()), Times.Once());
 		}
 
         [TestMethod]

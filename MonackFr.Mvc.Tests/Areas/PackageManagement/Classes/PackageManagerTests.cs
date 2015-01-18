@@ -8,7 +8,7 @@ using MonackFr.Mvc.Contexts;
 using MonackFr.Security;
 using System.Web.Security;
 using System.Linq;
-using MonackFr.Module;
+using MonackFr.Repository;
 using AutoMapper;
 using TestedPackageManagement = MonackFr.Mvc.Areas.PackageManagement;
 

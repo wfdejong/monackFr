@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using System.Collections.Generic;
-using MonackFr.Module;
+using MonackFr.Repository;
 using Moq;
 
 namespace MonackFr.Library.Tests

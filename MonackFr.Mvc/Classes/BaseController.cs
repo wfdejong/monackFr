@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MonackFr.Module;
+using MonackFr.Repository;
 using MonackFr.Mvc.Repositories;
 using MonackFr.Security;
 using System;

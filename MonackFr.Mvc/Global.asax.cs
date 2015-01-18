@@ -10,7 +10,7 @@ using System.Data.Entity;
 using MonackFr.Repository;
 using MonackFr.Mvc.App_Start;
 using MonackFr.Mvc.Repositories;
-using MonackFr.Module;
+using MonackFr.Repository;
 using System.Web.Configuration;
 
 namespace MonackFr.Mvc

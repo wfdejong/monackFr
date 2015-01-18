@@ -15,8 +15,8 @@ namespace MonackFr.Mvc.App_Start
             //Should not be necesary entities go to viewmodels or module goes to viewmodels Mapper.CreateMap<Entities.Module, Module.IModule>();
 
 			//Module to ViewModels
-			Mapper.CreateMap<Module.Tile, ViewModels.Tile>();
-			Mapper.CreateMap<Module.IModule, ViewModels.Module>();
+			Mapper.CreateMap<Repository.Tile, ViewModels.Tile>();
+			Mapper.CreateMap<Repository.IModule, ViewModels.Module>();
 
 			//From Entities to ViewModules
 			Mapper.CreateMap<Entities.Module, ViewModels.Module>();

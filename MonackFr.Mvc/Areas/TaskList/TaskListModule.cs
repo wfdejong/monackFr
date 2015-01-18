@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MonackFr.Module;
+using MonackFr.Repository;
 using MonackFr.Mvc.Areas.TaskList.Repositories;
 using System;
 using System.Collections.Generic;
@@ -53,14 +53,17 @@ namespace MonackFr.Mvc.Areas.TaskList
 
 		string IModule.SystemName { get { return "MonackFr.TaskManager"; } }
 
-        IEnumerable<MenuItem> IModule.GetMenu(UrlHelper url)
+        IEnumerable<MenuItem> IModule.GetMenu(UrlHelper urlHelper)
         {
             List<MenuItem> menuItems = new List<MenuItem>();
             
-            menuItems.Add(new MenuItem ("Overview", "MonackFr.TaskList.Index")
+            menuItems.Add(new MenuItem ("Overview", "MonackFr.TaskList.Menu.Index")
 			{ 
-				Label = "Overview", 
-				Url = url.Action("Index", "Task", new { area = "TaskList" })
+				Panel = new Panel("MonackFr.TaskList.Panel.Index")
+				{
+					 OnShow = "jsfunction",
+					 Url = urlHelper.Action("Index", "Task", new { area = "TaskList" })
+				}
 			});
 
             return menuItems;

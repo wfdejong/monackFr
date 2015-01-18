@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MonackFr.Module
+namespace MonackFr.Repository
 {
 	/// <summary>
 	/// Tile definition for in a module

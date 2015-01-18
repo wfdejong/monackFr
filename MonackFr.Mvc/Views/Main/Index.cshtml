@@ -42,27 +42,29 @@
 		var getMenuItems = function (index, module) {			
 			$.post('@Url.Action("GetMenu", "Module")', { systemName: module.SystemName }, function (menuItems) {
 				$.each(menuItems, function (index, menuItem) {
+					if (menuItem.Visible) {
+						var menuItemLi = $("<li>")
+							.addClass("menu-item")
+							.attr("data-menu-systemname", menuItem.CssSystemName)
+							.attr("data-default", menuItem.Default)
+							.append($("<a>")
+								.attr("href", "javascript:void(0)")
+								.text(menuItem.Label)
+							)
+							.bind("click", function () {
+								console.log(menuItem.Panel.CssSystemName);
+								showPanel(menuItem.Panel.CssSystemName);
+							});
+						$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
+					}
 					console.log(menuItem);
-					var menuItemLi = $("<li>")
-						.addClass("menu-item")
-						.attr("data-panel-systemname", menuItem.CssSystemName)
-						.attr("data-default", menuItem.Default)
-						.append($("<a>")
-							.attr("href", "javascript:void(0)")
-							.text(menuItem.Label)
-						);
-					$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
-					$.get(menuItem.Url, function (content) {
+					$.get(menuItem.Panel.Url, function (content) {
 						$("." + module.CssSystemName).append(
 							$("<div>")
 								.addClass("panel")
-								.addClass(menuItem.CssSystemName)
+								.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
 								.html(content)
 						);
-					});
-					$(".menu-item").bind("click", function () {
-						var panelName = $(this).attr("data-panel-systemname");
-						showPanel(panelName);
 					});
 				});
 			});
@@ -83,7 +85,7 @@
 
 		var showPanel = function (panelName) {
 			$(".panel").hide();
-			$("." + panelName).show();
+			$(".panel[data-panel-systemname='" + panelName + "']").show();
 		};
 
 		function Tile(data) {

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MonackFr.Module;
+using MonackFr.Repository;
 using MonackFr.Mvc.Areas.TaskList.Repositories;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;

@@ -1,4 +1,4 @@
-﻿using MonackFr.Module;
+﻿using MonackFr.Repository;
 using MonackFr.Mvc.Areas.UserManagement.Providers;
 using MonackFr.Security;
 using System;
@@ -290,29 +290,35 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		/// Implementation of GetMenu
 		/// </summary>
 		/// <returns></returns>
-		IEnumerable<MenuItem> IModule.GetMenu(UrlHelper url)
+		IEnumerable<MenuItem> IModule.GetMenu(UrlHelper urlHelper)
 		{
 			
 			List<MenuItem> menuItems = new List<MenuItem>();
 			menuItems.Add(new MenuItem("Users", "MonackFr.UserManagement.Users.Index")
 			{
-				Url = url.Action("Index", "User", new { Area = "UserManagement" }),
-				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString(), UserControllerRoles.CreateUser.ToString() }
+				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString(), UserControllerRoles.CreateUser.ToString() },
+				Panel = new Panel("MonackFr.UserManagerment.Users.Panel.Index")
+				{
+					Url=urlHelper.Action("Index", "User", new { Area = "UserManagement" })
+				}
 			});
 			menuItems.Add(new MenuItem("Group", "MonackFr.UserManagement.Group.Index")
 			{
-				Url = url.Action("Index", "Group", new { Area = "UserManagement" }),
-				Default = true
+				Default = true,
+				Panel = new Panel("MonackFr.UserManagerment.Group.Panel.Index")
+				{
+					Url = urlHelper.Action("Index", "Group", new { Area = "UserManagement" })
+				}
 			});
 			
 			return menuItems;
 		}
 
-		Module.Tile IModule.GetTile(UrlHelper url)
+		Repository.Tile IModule.GetTile(UrlHelper url)
 		{
 			IModule iModule = (IModule)this;
 
-            Module.Tile tile = new Module.Tile(iModule);
+            Repository.Tile tile = new Repository.Tile(iModule);
 			tile.Title = iModule.Name;
 			tile.Url = url.Action("Index", "User", new { area = "UserManagement" });
 			tile.Copyright = iModule.Author;

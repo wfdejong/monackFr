@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using System.ComponentModel.Composition;
-using MonackFr.Module;
+using MonackFr.Repository;
 using MonackFr.Mvc.Areas.TaskList.Entities;
 
 namespace MonackFr.Mvc.Areas.TaskList.Contexts

@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using MonackFr.Module;
+using MonackFr.Repository;
 using MonackFr.Mvc.Entities;
 
 namespace MonackFr.Mvc.Contexts

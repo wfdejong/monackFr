@@ -9,7 +9,7 @@ using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Security;
 using AutoMapper;
-using MonackFr.Module;
+using MonackFr.Repository;
 using MonackFr.Mvc.Contexts;
 
 namespace MonackFr.Mvc.Areas.PackageManagement.Controllers
