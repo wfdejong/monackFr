@@ -46,18 +46,17 @@
 						var menuItemLi = $("<li>")
 							.addClass("menu-item")
 							.attr("data-menu-systemname", menuItem.CssSystemName)
+							.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
 							.attr("data-default", menuItem.Default)
 							.append($("<a>")
 								.attr("href", "javascript:void(0)")
 								.text(menuItem.Label)
 							)
 							.bind("click", function () {
-								console.log(menuItem.Panel.CssSystemName);
 								showPanel(menuItem.Panel.CssSystemName);
 							});
 						$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
 					}
-					console.log(menuItem);
 					$.get(menuItem.Panel.Url, function (content) {
 						$("." + module.CssSystemName).append(
 							$("<div>")
