@@ -72,8 +72,8 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		// GET: /User/
 		//[Role(UserControllerRoles.ViewUser)]
 		public ActionResult Index()
-		{			
-			var users = _repository.GetAll();
+		{
+			var users = _repository.GetAll();			
 			return View(users);
 		}
 
@@ -120,7 +120,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 		//
 		// GET: /User/Details/5
-		public ViewResult Details(int id)
+		public ViewResult Details2(int id)
 		{
 			Entities.User user = _repository.GetSingle(u => u.Id == id);
 			MonackFr.Mvc.Repositories.IRoleRepository roleRepository = new MonackFr.Mvc.Repositories.RoleRepository();
@@ -137,6 +137,11 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			detailsUser.UserGroups = LoadGroups(groups, user.Groups.AsQueryable<Entities.Group>()); //automapper
 			
 			return View(detailsUser);
+		}
+
+		public ViewResult Details()
+		{
+			return View();
 		}
 				
 		//
@@ -296,10 +301,23 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			List<MenuItem> menuItems = new List<MenuItem>();
 			menuItems.Add(new MenuItem("Users", "MonackFr.UserManagement.Users.Index")
 			{
-				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString(), UserControllerRoles.CreateUser.ToString() },
+				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
 				Panel = new Panel("MonackFr.UserManagerment.Users.Panel.Index")
 				{
-					Url=urlHelper.Action("Index", "User", new { Area = "UserManagement" })
+					Url = urlHelper.Action("Index", "User", new { Area = "UserManagement" }),
+					OnShow = "TestMethod"
+				},
+				MenuItems = new List<MenuItem>() 
+				{
+					new MenuItem("User Details", "MonackFr.UserManagement.Users.UserDetails")
+					{
+						Visible = false,
+						UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
+						Panel = new Panel("MonackFr.UserManagement.Users.Panel.UserDetails")
+						{
+							Url= urlHelper.Action("Details", "User", new {Area = "UserManagement" })							
+						}
+					}
 				}
 			});
 			menuItems.Add(new MenuItem("Group", "MonackFr.UserManagement.Group.Index")

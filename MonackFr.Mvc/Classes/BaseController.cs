@@ -43,5 +43,16 @@ namespace MonackFr.Mvc
 					
 			ViewBag.LoggedInUser = LoggedInUser;
 		}
+
+		/// <summary>
+		/// Adds default viewbag data and returns view with model. 
+		/// </summary>
+		/// <param name="model">the model</param>
+		/// <returns></returns>
+		protected virtual ViewResult MfrView(object model, string panelName)
+		{
+			ViewBag.PanelJsName = Format.ToJs(panelName);			
+			return View(model);
+		}
 	}
 }

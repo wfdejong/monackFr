@@ -25,7 +25,12 @@
 @section Scripts {
 	<script type="text/javascript">
 
+		function monackfr() { }
+		var monackfrInstance = new monackfr();
+
+
 		$(document).ready(function () {
+			LoadTiles();
 			$(".home-button").bind("click", function () {
 				$(".module").hide();
 				$(".tiles").show();
@@ -39,35 +44,61 @@
 			})
 		});
 
-		var getMenuItems = function (index, module) {			
-			$.post('@Url.Action("GetMenu", "Module")', { systemName: module.SystemName }, function (menuItems) {
-				$.each(menuItems, function (index, menuItem) {
-					if (menuItem.Visible) {
-						var menuItemLi = $("<li>")
-							.addClass("menu-item")
-							.attr("data-menu-systemname", menuItem.CssSystemName)
-							.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
-							.attr("data-default", menuItem.Default)
-							.append($("<a>")
-								.attr("href", "javascript:void(0)")
-								.text(menuItem.Label)
-							)
-							.bind("click", function () {
-								showPanel(menuItem.Panel.CssSystemName);
-							});
-						$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
-					}
-					$.get(menuItem.Panel.Url, function (content) {
-						$("." + module.CssSystemName).append(
-							$("<div>")
-								.addClass("panel")
-								.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
-								.html(content)
-						);
+		var createMenu = function (menuItem, module) {
+
+			var menuItemLi = $("<li>")
+					.addClass("menu-item")
+					.attr("data-menu-systemname", menuItem.CssSystemName)
+					.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
+					.attr("data-default", menuItem.Default)
+					.append($("<a>")
+						.attr("href", "javascript:void(0)")
+						.text(menuItem.Label)
+					)
+					.bind("click", function () {
+						showPanel(menuItem.Panel.CssSystemName, menuItem.Panel.OnShow);
 					});
+
+			if (menuItem.MenuItems !== null && menuItem.MenuItems.length > 0) {
+				var subMenuItemUl = $("<ul>");
+
+				$.each(menuItem.MenuItems, function (index, subMenuItem) {
+					var subMenuItemLi = createMenu(subMenuItem, module);
+					if (subMenuItem.Visible) {
+						subMenuItemUl.append(subMenuItemLi);
+					}
+				});
+				
+				menuItemLi.append(subMenuItemUl);				
+			}		
+
+			createPanel(module, menuItem.Panel);
+
+			return menuItemLi;
+		}
+
+		var createPanel = function (module, panel) {			
+			$.get(panel.Url, function (content) {				
+				$("." + module.CssSystemName).append(					
+					$("<div>")
+						.addClass("panel")
+						.attr("data-panel-systemname", panel.CssSystemName)
+						.attr("data-panel-onshow", panel.OnShow)
+						.html(content)
+				);
+			});
+		}
+
+		var getMenuItems = function (index, module) {			
+			$.post('@Url.Action("GetMenu", "Module")', { systemName: module.SystemName }, function (menuItems) {	
+				$.each(menuItems, function (index, menuItem) {					
+					var menuItemLi = createMenu(menuItem, module);					
+					if (menuItem.Visible) {
+						$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
+					}					
 				});
 			});
-		};
+		};		
 
 		var showModule = function (module) {
 			$(".tiles").hide();
@@ -76,38 +107,30 @@
 			$("." + module.CssSystemName).show();
 
 			var defaultMenuItem = $("." + module.CssSystemName + " ul.menu li.menu-item[data-default='true']").first().attr("data-panel-systemname");
+			var onshow = $("." + module.CssSystemName + " ul.menu li.menu-item[data-default='true']").first().attr("data-panel-onshow");
 			if ($.isEmptyObject(defaultMenuItem)) {
 				defaultMenuItem = $("." + module.CssSystemName + " ul.menu li.menu-item").first().attr("data-panel-systemname");
+				onshow = $("." + module.CssSystemName + " ul.menu li.menu-item").first().attr("data-panel-onshow");
 			}
-			showPanel(defaultMenuItem);
+			showPanel(defaultMenuItem, onshow);
 		};
 
-		var showPanel = function (panelName) {
+		var showPanel = function (panelName, onshow) {
+			console.log(panelName);
 			$(".panel").hide();
-			$(".panel[data-panel-systemname='" + panelName + "']").show();
+			$(".panel[data-panel-systemname='" + panelName + "']").show();			
+			console.log('aftershow:', onshow);
+			if (onshow != undefined) {
+				var callmethod = "monackfrInstance." + onshow + "()";
+				eval(callmethod);
+			}
 		};
 
-		function Tile(data) {
-			self.Title = ko.observable(data.Title);
-			self.Copyright = ko.observable();
-			self.Url = ko.observable();
-		}
-
-		function MenuItem(data) {
-			self.Label = k.observable(data.Title);
-		}
-
-		function TileViewModel() {
-			var self = this;
-			self.tiles = ko.observableArray();
-			$.post('@Url.Action("GetTiles", "Tile")', function (data) {
-				var mappedTiles = $.map(data, function (item) { return new Tile(item) });
-				self.tiles(mappedTiles);
+		function LoadTiles() {
+			$.post('@Url.Action("GetTiles", "Tile")', function (data) {				
 				$("div.tiles").tiles(data, showModule);				
 			});
 		}
-
-		ko.applyBindings(new TileViewModel());
 </script>
 }
 
