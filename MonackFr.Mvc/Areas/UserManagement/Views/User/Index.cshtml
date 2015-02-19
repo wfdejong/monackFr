@@ -13,6 +13,7 @@
 		@item.Id
 		@item.Creation.ToShortDateString()
 		@item.LastUpdate.ToShortDateString()
+		<a href="javascript: showPanel('MonackFr.UserManagement.Users.Panel.UserDetails');">Details JS</a>
 		@Html.ActionLink(@item.UserName, "Details", new {id = item.Id}) 
 		@Html.ActionLink("Edit", "Edit", new { id = item.Id })		
 		@using (Html.BeginForm("Delete", "User", new { id = item.Id })) {

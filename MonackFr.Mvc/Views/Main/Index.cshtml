@@ -39,32 +39,52 @@
 			})
 		});
 
+		var createMenu = function (menuItem, module) {
+			var menuItemLi = $("<li>")
+					.addClass("menu-item")
+					.attr("data-menu-systemname", menuItem.CssSystemName)
+					.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
+					.attr("data-default", menuItem.Default)
+					.append($("<a>")
+						.attr("href", "javascript:void(0)")
+						.text(menuItem.Label)
+					)
+					.bind("click", function () {
+						showPanel(menuItem.Panel.CssSystemName);
+					});
+
+			if (menuItem.MenuItems !== null && menuItem.MenuItems.length > 0) {
+				subMenuItemUl = $("ul");
+
+				$.each(menuItem.MenuItems, function (index, subMenuItem) {
+					subMenuItemLi = createMenu(subMenuItem, module);
+					if (subMenuItem.Visible) {
+						subMenuItemUl.append(subMenuItemLi);
+					}
+				});
+
+				menuItemLi.append(subMenuItemUl);
+			}
+
+			$.get(menuItem.Panel.Url, function (content) {
+				$("." + module.CssSystemName).append(
+					$("<div>")
+						.addClass("panel")
+						.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
+						.html(content)
+				);
+			});
+
+			return menuItemLi;
+		}
+
 		var getMenuItems = function (index, module) {			
 			$.post('@Url.Action("GetMenu", "Module")', { systemName: module.SystemName }, function (menuItems) {
-				$.each(menuItems, function (index, menuItem) {
+				$.each(menuItems, function (index, menuItem) {					
+					menuItemLi = createMenu(menuItem, module);
 					if (menuItem.Visible) {
-						var menuItemLi = $("<li>")
-							.addClass("menu-item")
-							.attr("data-menu-systemname", menuItem.CssSystemName)
-							.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
-							.attr("data-default", menuItem.Default)
-							.append($("<a>")
-								.attr("href", "javascript:void(0)")
-								.text(menuItem.Label)
-							)
-							.bind("click", function () {
-								showPanel(menuItem.Panel.CssSystemName);
-							});
 						$("." + module.CssSystemName + " ul.menu").append(menuItemLi);
-					}
-					$.get(menuItem.Panel.Url, function (content) {
-						$("." + module.CssSystemName).append(
-							$("<div>")
-								.addClass("panel")
-								.attr("data-panel-systemname", menuItem.Panel.CssSystemName)
-								.html(content)
-						);
-					});
+					}					
 				});
 			});
 		};
@@ -82,7 +102,8 @@
 			showPanel(defaultMenuItem);
 		};
 
-		var showPanel = function (panelName) {
+		var showPanel = function (panelName, afterShow) {
+			console.log(panelName);
 			$(".panel").hide();
 			$(".panel[data-panel-systemname='" + panelName + "']").show();
 		};

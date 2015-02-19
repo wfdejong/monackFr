@@ -296,10 +296,22 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			List<MenuItem> menuItems = new List<MenuItem>();
 			menuItems.Add(new MenuItem("Users", "MonackFr.UserManagement.Users.Index")
 			{
-				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString(), UserControllerRoles.CreateUser.ToString() },
+				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
 				Panel = new Panel("MonackFr.UserManagerment.Users.Panel.Index")
 				{
-					Url=urlHelper.Action("Index", "User", new { Area = "UserManagement" })
+					Url = urlHelper.Action("Index", "User", new { Area = "UserManagement" })
+				},
+				MenuItems = new List<MenuItem>() 
+				{
+					new MenuItem("User Details", "MonackFr.UserManagement.Users.UserDetails")
+					{
+						Visible = false,
+						UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
+						Panel = new Panel("MonackFr.UserManagement.Users.Panel.UserDetails")
+						{
+							Url= urlHelper.Action("Details", "User", new {Area = "UserManagement" })
+						}
+					}
 				}
 			});
 			menuItems.Add(new MenuItem("Group", "MonackFr.UserManagement.Group.Index")
