@@ -118,10 +118,10 @@
 		var showPanel = function (panelName, onshow) {
 			console.log(panelName);
 			$(".panel").hide();
-			$(".panel[data-panel-systemname='" + panelName + "']").show();			
-			console.log('aftershow:', onshow);
+			$(".panel[data-panel-systemname='" + panelName + "']").show();						
 			if (onshow != undefined) {
 				var callmethod = "monackfrInstance." + onshow + "()";
+				console.log(monackfrInstance);
 				eval(callmethod);
 			}
 		};
