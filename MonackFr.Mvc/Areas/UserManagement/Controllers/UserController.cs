@@ -304,7 +304,6 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
 				Panel = new Panel("MonackFr.UserManagerment.Users.Panel.Index")
 				{
-					Url = urlHelper.Action("Index", "User", new { Area = "UserManagement" }),
 					OnShow = "TestMethod"
 				},
 				MenuItems = new List<MenuItem>() 
