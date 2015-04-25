@@ -56,7 +56,7 @@
 						.text(menuItem.Label)
 					)
 					.bind("click", function () {
-						showPanel(menuItem.Panel.CssSystemName, menuItem.Panel.OnShow);
+						showPanel(menuItem.Panel.CssSystemName, menuItem.Panel.OnShow, menuItem.Panel.OnShowParam);
 					});
 
 			if (menuItem.MenuItems !== null && menuItem.MenuItems.length > 0) {
@@ -108,6 +108,7 @@
 
 			var defaultMenuItem = $("." + module.CssSystemName + " ul.menu li.menu-item[data-default='true']").first().attr("data-panel-systemname");
 			var onshow = $("." + module.CssSystemName + " ul.menu li.menu-item[data-default='true']").first().attr("data-panel-onshow");
+
 			if ($.isEmptyObject(defaultMenuItem)) {
 				defaultMenuItem = $("." + module.CssSystemName + " ul.menu li.menu-item").first().attr("data-panel-systemname");
 				onshow = $("." + module.CssSystemName + " ul.menu li.menu-item").first().attr("data-panel-onshow");
@@ -115,13 +116,13 @@
 			showPanel(defaultMenuItem, onshow);
 		};
 
-		var showPanel = function (panelName, onshow) {
+		var showPanel = function (panelName, onshow, param) {
 			console.log(panelName);
 			$(".panel").hide();
 			$(".panel[data-panel-systemname='" + panelName + "']").show();						
 			if (onshow != undefined) {
-				var callmethod = "monackfrInstance." + onshow + "()";
-				console.log(monackfrInstance);
+				var callmethod = "monackfrInstance." + onshow + "(" + param + ")";
+				console.log(callmethod);
 				eval(callmethod);
 			}
 		};

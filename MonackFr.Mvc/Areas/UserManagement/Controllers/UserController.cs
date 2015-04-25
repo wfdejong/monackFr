@@ -7,28 +7,12 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
+using MonackFr.Mvc.Areas.UserManagement.Package;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Controllers
-{
-	[Export(typeof(IModule))]
-	[Export(typeof(IAuthorization))]
-	public class UserController : BaseController, IModule, IAuthorization
+{	
+	public class UserController : BaseController
 	{
-		private enum UserControllerRoles
-		{
-			[Description("View Users")]
-			ViewUser,
-
-			[Description("Edit users")]
-			EditUser,
-
-			[Description("Create users")]
-			CreateUser,
-
-			[Description("Delete users")]
-			DeleteUser
-		};
-		
 		#region private properties
 
 		/// <summary>
@@ -268,102 +252,6 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		}
 
 		#endregion //public methods
-
-		#region implementation of IModule
-        
-        string IModule.Name
-        {
-            get { return "User Controller"; }
-        }
-
-        string IModule.Author
-        {
-            get { return "Willem de Jong"; }
-        }
-
-        string IModule.Description
-        {
-            get { return "Description"; }
-        }
-
-		string IModule.SystemName
-		{
-			get { return "MonackFr.UserManagement"; }
-		}
-
-		/// <summary>
-		/// Implementation of GetMenu
-		/// </summary>
-		/// <returns></returns>
-		IEnumerable<MenuItem> IModule.GetMenu(UrlHelper urlHelper)
-		{
-			
-			List<MenuItem> menuItems = new List<MenuItem>();
-			menuItems.Add(new MenuItem("Users", "MonackFr.UserManagement.Users.Index")
-			{
-				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
-				Panel = new Panel("MonackFr.UserManagerment.Users.Panel.Index")
-				{
-					OnShow = "TestMethod",
-					Url = urlHelper.Action("Index", "User", new { Area = "UserManagement" })
-				},
-				MenuItems = new List<MenuItem>() 
-				{
-					new MenuItem("User Details", "MonackFr.UserManagement.Users.UserDetails")
-					{
-						Visible = false,
-						UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
-						Panel = new Panel("MonackFr.UserManagement.Users.Panel.UserDetails")
-						{
-							Url= urlHelper.Action("Details", "User", new {Area = "UserManagement" })							
-						}
-					}
-				}
-			});
-			menuItems.Add(new MenuItem("Group", "MonackFr.UserManagement.Group.Index")
-			{
-				Default = true,
-				Panel = new Panel("MonackFr.UserManagerment.Group.Panel.Index")
-				{
-					Url = urlHelper.Action("Index", "Group", new { Area = "UserManagement" })
-				}
-			});
-			
-			return menuItems;
-		}
-
-		Repository.Tile IModule.GetTile(UrlHelper url)
-		{
-			IModule iModule = (IModule)this;
-
-            Repository.Tile tile = new Repository.Tile(iModule);
-			tile.Title = iModule.Name;
-			tile.Url = url.Action("Index", "User", new { area = "UserManagement" });
-			tile.Copyright = iModule.Author;
-
-			return tile;
-		}
-
-		#endregion //implementation of IMenu
-
-		#region of IAuthorization
-
-		public List<IMfrRole> GetRoles()
-		{
-			List<IMfrRole> roles = new List<IMfrRole>();
-
-			foreach (UserControllerRoles role in Enum.GetValues(typeof(UserControllerRoles)))
-			{
-				roles.Add(new MfrRole() {
-					Name = role.ToString(),
-					Description = role.ToDescription()
-				});
-			}
-
-			return roles;
-		}
-
-		#endregion //implementation of IAuthorization
 
 		#region private methods
 
