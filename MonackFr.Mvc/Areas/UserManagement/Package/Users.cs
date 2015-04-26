@@ -43,31 +43,31 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 		{
 
 			List<MenuItem> menuItems = new List<MenuItem>();
-			menuItems.Add(new MenuItem("Users", Names.Menu.Users.Index)
+			menuItems.Add(new MenuItem("Users", Names.Menus.Users.Index)
 			{
 				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
-				Panel = new Panel(Names.Panel.Users.Index)
+				Panel = new Panel(Names.Panels.Users.Index)
 				{
 					OnShow = "TestMethod",
 					Url = urlHelper.Action("Index", "User", new { Area = "UserManagement" })
 				},
 				MenuItems = new List<MenuItem>() 
 				{
-					new MenuItem("User Details", Names.Menu.Users.Details)
+					new MenuItem("User Details", Names.Menus.Users.Details)
 					{
 						Visible = false,
 						UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
-						Panel = new Panel(Names.Panel.Users.Details)
+						Panel = new Panel(Names.Panels.Users.Details)
 						{
 							Url= urlHelper.Action("Details", "User", new {Area = "UserManagement" })							
 						}
 					}
 				}
 			});
-			menuItems.Add(new MenuItem("Group", Names.Panel.Groups.Index)
+			menuItems.Add(new MenuItem("Group", Names.Panels.Groups.Index)
 			{
 				Default = true,
-				Panel = new Panel(Names.Panel.Groups.Index)
+				Panel = new Panel(Names.Panels.Groups.Index)
 				{
 					Url = urlHelper.Action("Index", "Group", new { Area = "UserManagement" })
 				}

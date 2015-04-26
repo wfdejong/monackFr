@@ -1,4 +1,5 @@
 ﻿@using MonackFr.Mvc.Entities @* should be removed (viewmodels)*@
+@using MonackFr.Mvc.Areas.UserManagement.Package
 @model IEnumerable<User>
 @{
     ViewBag.Title = "Index";
@@ -9,15 +10,14 @@
 		monackfr.prototype.TestMethod = function panelLoaded() {
 			console.log("panelLoaded Hit")
 		};
-
-		monackfr.prototype.LoadDetailsJS = function testmethod(param1, param2) {
-			console.log("param1:", param1);
-			console.log("param2:", param2);
-		};
+		
 	</script>
 
 <h3>Users</h3>
 @Html.ActionLink("New", "Create")
+
+@Html.StateDropDownList();
+
 <ol class="userlist">
 @foreach (User item in Model)
 {
@@ -25,7 +25,7 @@
 		@item.Id
 		@item.Creation.ToShortDateString()
 		@item.LastUpdate.ToShortDateString()
-		<a href="javascript: showPanel('MonackFr-UserManagement-Users-Panel-UserDetails', 'LoadDetailsJS', [param1 = 1, param2 = 2])">Details JS</a>
+		<a href="javascript: showPanel('@Names.Panels.Users.Details', 'LoadDetailsJS', [param1 = 1, param2 = 2])">Details JS</a>
 		@Html.ActionLink(@item.UserName, "Details", new {id = item.Id}) 
 		@Html.ActionLink("Edit", "Edit", new { id = item.Id })		
 		@using (Html.BeginForm("Delete", "User", new { id = item.Id })) {

@@ -5,33 +5,33 @@ using System.Web;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Package
 {
-	internal static class Names
+	public static class Names
 	{
-		internal static class Menu
+		public static class Menus
 		{
-			internal static class Users
+			public static class Users
 			{
-				internal const string Index = "MonackFr.UserManagement.Users.Index";
-				internal const string Details = "MonackFr.UserManagement.Users.UserDetails";
+				public const string Index = "MonackFr.UserManagement.Users.Index";
+				public const string Details = "MonackFr.UserManagement.Users.UserDetails";
 			}
 
-			internal static class Groups
+			public static class Groups
 			{
-				internal const string Index = "MonackFr.UserManagement.Group.Index";
+				public const string Index = "MonackFr.UserManagement.Group.Index";
 			}
 		}
 
-		internal static class Panel
+		public static class Panels
 		{
-			internal class Users
+			public class Users
 			{
-				internal const string Index = "MonackFr.UserManagerment.Users.Panel.Index";
-				internal const string Details = "MonackFr.UserManagement.Users.Panel.UserDetails";
+				public const string Index = "MonackFr.UserManagerment.Users.Panel.Index";
+				public const string Details = "MonackFr.UserManagement.Users.Panel.UserDetails";
 			}
 
-			internal class Groups
+			public class Groups
 			{
-				internal const string Index = "MonackFr.UserManagerment.Group.Panel.Index";
+				public const string Index = "MonackFr.UserManagerment.Group.Panel.Index";
 			}
 		}
 	}

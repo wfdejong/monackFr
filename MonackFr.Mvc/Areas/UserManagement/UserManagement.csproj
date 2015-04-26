@@ -142,9 +142,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="Classes\IUserManager.cs" />
     <Compile Include="Classes\UserManager.cs" />
@@ -170,6 +167,10 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\MonackFr.JqueryUiHelpers\MonackFr.JqueryUiHelpers.csproj">
+      <Project>{d116a4be-f4bb-43cf-ab5a-1fbfd51febfd}</Project>
+      <Name>MonackFr.JqueryUiHelpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\MonackFr.Library\MonackFr.Library.csproj">
       <Project>{DE92726D-E872-4E26-8E20-2C125EC3E6F8}</Project>
       <Name>MonackFr.Library</Name>

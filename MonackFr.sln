@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Mvc", "MonackFr.Mvc\MonackFr.Mvc.csproj", "{8E17405E-C9FD-4027-AF6B-9E912BEA546F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Library", "MonackFr.Library\MonackFr.Library.csproj", "{DE92726D-E872-4E26-8E20-2C125EC3E6F8}"
@@ -12,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Library.Tests", "MonackFr.Library.Tests\MonackFr.Library.Tests.csproj", "{72794D5C-6887-4F18-9ABC-204124D481A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Mvc.Tests", "MonackFr.Mvc.Tests\MonackFr.Mvc.Tests.csproj", "{119AA5D4-80E7-404B-8537-D469FAFEF41C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.JqueryUiHelpers", "MonackFr.JqueryUiHelpers\MonackFr.JqueryUiHelpers.csproj", "{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +47,10 @@ Global
 		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
