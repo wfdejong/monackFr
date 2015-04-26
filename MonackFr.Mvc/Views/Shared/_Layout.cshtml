@@ -8,6 +8,7 @@
 	@Styles.Render("~/Css/Style.css")
     @Styles.Render("~/Css/Tiles.css")
 	@Styles.Render("~/Css/Modules.css")
+	@Styles.Render("~/content/themes/base/datatablescss")
 </head>
 <body>
 	<h1>The Monack Framework</h1>
@@ -18,6 +19,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/tiles")
+	@Scripts.Render("~/bundles/datatablesjs")
+	@Scripts.Render("~/bundles/datatablesjsui")	
 
     @RenderSection("scripts", required: false)
     

@@ -8,7 +8,7 @@ namespace MonackFr.Mvc
 		public static void RegisterBundles(BundleCollection bundles)
 		{
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-						"~/Scripts/jquery-1.*"));
+						"~/Scripts/jquery-2.*"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
 						"~/Scripts/jquery-ui*"));
@@ -34,11 +34,23 @@ namespace MonackFr.Mvc
 						"~/Content/themes/base/jquery.ui.tabs.css",
 						"~/Content/themes/base/jquery.ui.datepicker.css",
 						"~/Content/themes/base/jquery.ui.progressbar.css",
-						"~/Content/themes/base/jquery.ui.theme.css",
-						"~/Content/themes/base/jMenu.jquery.css"));
+						"~/Content/themes/base/jquery.ui.theme.css"));
 			
 			bundles.Add(new ScriptBundle("~/bundles/tiles").Include(
-						"~/Scripts/tiles.jquery.js"));			
+						"~/Scripts/tiles.jquery.js"));
+
+			bundles.Add(new ScriptBundle("~/bundles/datatablesjs").Include(
+						"~/Scripts/jquery.dataTables.js"));
+			
+			bundles.Add(new ScriptBundle("~/bundles/datatablesjsui").Include(
+						"~/Script/dataTables.jqueryui.js"));
+
+			
+
+			bundles.Add(new ScriptBundle("~/content/themes/base/datatablescss").Include(
+						"~/Content/themes/base/jquery.dataTables.css",
+						"~/Content/themes/base/jquery.dataTables_themeroller.css",
+						"~/Content/themes/base/dataTables.jqueryui.css"));	
 		}
 	}
 }

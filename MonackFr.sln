@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Library.Tests", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Mvc.Tests", "MonackFr.Mvc.Tests\MonackFr.Mvc.Tests.csproj", "{119AA5D4-80E7-404B-8537-D469FAFEF41C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.JqueryUiHelpers", "MonackFr.JqueryUiHelpers\MonackFr.JqueryUiHelpers.csproj", "{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonackFr.Mvc.JqueryUiHelpers", "MonackFr.Mvc.JqueryUiHelpers\MonackFr.Mvc.JqueryUiHelpers.csproj", "{872B4822-A514-4285-AEE1-2B5753F6A2EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +47,10 @@ Global
 		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119AA5D4-80E7-404B-8537-D469FAFEF41C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D116A4BE-F4BB-43CF-AB5A-1FBFD51FEBFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872B4822-A514-4285-AEE1-2B5753F6A2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872B4822-A514-4285-AEE1-2B5753F6A2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872B4822-A514-4285-AEE1-2B5753F6A2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872B4822-A514-4285-AEE1-2B5753F6A2EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
