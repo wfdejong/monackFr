@@ -7,11 +7,12 @@ using System.Web.Mvc;
 
 namespace MonackFr.Mvc.JqueryUiHelpers
 {
-	public static class JqueryUi
+
+	public static class JqueryUiHelper
 	{
-		public static string StateDropDownList(this HtmlHelper html)
-		{
-			return "statedropdown";
+		public static DataTable DataTable(this HtmlHelper helper)
+		{			
+			return new DataTable(helper);
 		}
 	}
 }

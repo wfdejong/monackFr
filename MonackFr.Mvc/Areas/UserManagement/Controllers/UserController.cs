@@ -127,6 +127,20 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		{
 			return View();
 		}
+
+		[HttpPost]
+		public JsonResult Lijstje()
+		{
+			var test = new 
+			{
+				Names = "Willem",
+				SystemName = "WillemSys",
+				Description = "BEschrijving"
+			};
+
+
+			return Json(test);
+		}
 				
 		//
 		// GET: /User/Create

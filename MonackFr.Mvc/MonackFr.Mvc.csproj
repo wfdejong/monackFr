@@ -281,6 +281,10 @@
       <Project>{de92726d-e872-4e26-8e20-2c125ec3e6f8}</Project>
       <Name>MonackFr.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MonackFr.Mvc.JqueryUiHelpers\MonackFr.Mvc.JqueryUiHelpers.csproj">
+      <Project>{872b4822-a514-4285-aee1-2b5753f6a2eb}</Project>
+      <Name>MonackFr.Mvc.JqueryUiHelpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Main\Index.cshtml" />

@@ -171,8 +171,12 @@
       <Project>{DE92726D-E872-4E26-8E20-2C125EC3E6F8}</Project>
       <Name>MonackFr.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\MonackFr.Mvc.JqueryUiHelpers\MonackFr.Mvc.JqueryUiHelpers.csproj">
+      <Project>{872b4822-a514-4285-aee1-2b5753f6a2eb}</Project>
+      <Name>MonackFr.Mvc.JqueryUiHelpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\MonackFr.Mvc.csproj">
-      <Project>{8E17405E-C9FD-4027-AF6B-9E912BEA546F}</Project>
+      <Project>{8e17405e-c9fd-4027-af6b-9e912bea546f}</Project>
       <Name>MonackFr.Mvc</Name>
     </ProjectReference>
   </ItemGroup>
