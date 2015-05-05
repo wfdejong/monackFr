@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace MonackFr.Mvc.JqueryUiHelpers
 {
-
 	public static class JqueryUiHelper
 	{
 		public static DataTable DataTable(this HtmlHelper helper)

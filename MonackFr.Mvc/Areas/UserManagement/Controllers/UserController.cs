@@ -8,10 +8,11 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using MonackFr.Mvc.Areas.UserManagement.Package;
+using AutoMapper;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 {	
-	public class UserController : BaseController
+	public class UserController : DisposeController
 	{
 		#region private properties
 
@@ -33,9 +34,8 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		/// Default constructor
 		/// </summary>
 		public UserController()
-		{
-			_repository = new MonackFr.Mvc.Repositories.UserRepository();
-			_authentication = new Authentication();
+			: this(new MonackFr.Mvc.Repositories.UserRepository(), new Authentication())
+		{			
 		}
 
 		/// <summary>
@@ -43,7 +43,8 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		/// </summary>
 		/// <param name="repository"></param>
 		/// <param name="authentication"></param>
-		public UserController(MonackFr.Mvc.Repositories.IUserRepository repository, IAuthentication authentication)
+		public UserController(MonackFr.Mvc.Repositories.IUserRepository repository, IAuthentication authentication)			
+			:base((IDisposable)repository)
 		{
 			_repository = repository;
 			_authentication = authentication;
@@ -57,8 +58,13 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		//[Role(UserControllerRoles.ViewUser)]
 		public ActionResult Index()
 		{
-			var users = _repository.GetAll();			
-			return View(users);
+			return View();
+		}
+
+		public JsonResult GetUsers()
+		{
+			IEnumerable<MfrUser> users = Mapper.Map<IEnumerable<MfrUser>>(_repository.GetAll().ToArray());
+			return Json(users);
 		}
 
 		//
@@ -127,21 +133,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		{
 			return View();
 		}
-
-		[HttpPost]
-		public JsonResult Lijstje()
-		{
-			var test = new 
-			{
-				Names = "Willem",
-				SystemName = "WillemSys",
-				Description = "BEschrijving"
-			};
-
-
-			return Json(test);
-		}
-				
+						
 		//
 		// GET: /User/Create
 		public ActionResult Create()
