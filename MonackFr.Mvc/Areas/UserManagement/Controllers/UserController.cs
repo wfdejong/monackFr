@@ -64,7 +64,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		public JsonResult GetUsers()
 		{
 			IEnumerable<MfrUser> users = Mapper.Map<IEnumerable<MfrUser>>(_repository.GetAll().ToArray());
-			return Json(users);
+			return Json(new { data = users });
 		}
 
 		//

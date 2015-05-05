@@ -7,9 +7,11 @@
 
 	<script type="text/javascript">
 		
+		var testtabel;
+
 		monackfr.prototype.TestMethod = function panelLoaded() {
-			console.log("panelLoaded Hit")
-			tabel2();
+			console.log(this.this);			
+			users();
 		};
 
 		var tabel2 = function () {
@@ -20,12 +22,18 @@
 				users(data);
 			});
 		};
-		
+
+		$(document).ready(function () {
+			$("#reload").on("click", function () {
+				$("#users").DataTable().ajax.reload();
+			});
+		});
 	</script>
 
 <h3>Users</h3>
 @Html.ActionLink("New", "Create")
 
+				  	<a href="#" id="reload">reload</a>
 @*<ol class="userlist">
 	@foreach (User item in Model)
 	{
@@ -50,5 +58,6 @@
 				.AddColumn("Username", "UserName")
 				.AddColumn("Email", "Email")
 				.AddColumn("LastLogin", "LastLogin")
+				.AjaxUrl(Url.Action("GetUsers", "User"))
 				.Show()
 	)
