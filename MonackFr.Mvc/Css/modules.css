@@ -8,6 +8,10 @@
 ul.modules ul.menu {
 	display: inline-block;
 }
+ul.modules ul.menu ul {
+	display: block;
+	padding-left: 2px;
+}
 
 ul.modules div.panel {
 	display:inline-block;

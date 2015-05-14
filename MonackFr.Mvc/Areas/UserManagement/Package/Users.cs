@@ -61,6 +61,14 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 						{
 							Url= urlHelper.Action("Details", "User", new {Area = "UserManagement" })							
 						}
+					},
+					new MenuItem("Add User", Names.Menus.Users.Add)
+					{
+						UserRoles = new string[]{UserControllerRoles.CreateUser.ToString()},
+						Panel = new Panel(Names.Panels.Users.Add)
+						{
+							Url = urlHelper.Action("Create", "User", new {Area = "UserManagement"})
+						}
 					}
 				}
 			});

@@ -9,9 +9,19 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 {
 	public static class JqueryUiHelper
 	{
-		public static DataTable DataTable(this HtmlHelper helper)
+		public static JqUiButton UiButton(this HtmlHelper helper, string name)
+		{
+			return new JqUiButton(helper, name);
+		}
+
+		/// <summary>
+		/// Returns a new datatable class
+		/// </summary>
+		/// <param name="helper"></param>
+		/// <returns></returns>
+		public static DataTable DataTable(this HtmlHelper helper, string name)
 		{			
-			return new DataTable(helper);
+			return new DataTable(helper, name);
 		}
 	}
 }

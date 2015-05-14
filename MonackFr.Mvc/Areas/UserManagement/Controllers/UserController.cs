@@ -69,6 +69,13 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		}
 
 		//
+		// GET: /User/Create
+		public ActionResult Create()
+		{
+			return View();
+		}
+
+		//
 		// Get: /User/Login/
 		public ViewResult Login()
 		{
@@ -134,13 +141,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		{
 			return View();
 		}
-						
-		//
-		// GET: /User/Create
-		public ActionResult Create()
-		{
-			return View();
-		}
+		
 
 		//
 		// POST: /User/Create

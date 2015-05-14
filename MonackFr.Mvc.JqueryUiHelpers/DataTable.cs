@@ -8,6 +8,10 @@ using System.Web.Mvc;
 
 namespace MonackFr.Mvc.JqueryUiHelpers
 {
+	/// <summary>
+	/// a Jquery ui datatable
+	/// As described at http://datatables.net
+	/// </summary>
 	public class DataTable
 	{
 		private HtmlHelper _helper;
@@ -16,13 +20,21 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 		private string _ajaxUrl;
 		private string _onRowClick;
 
-
-		internal DataTable(HtmlHelper helper)
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="helper"></param>
+		internal DataTable(HtmlHelper helper, string name)
 		{
 			_helper = helper;
+			_name = name;
 			_columns = new List<Column>();
 		}
 
+		/// <summary>
+		/// Renders the output
+		/// </summary>
+		/// <returns>The client side code that renders in the browser</returns>
 		public MvcHtmlString Show()
 		{
 			StringBuilder dataTable = new StringBuilder();
@@ -73,37 +85,61 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 
 			return new MvcHtmlString(dataTable.ToString());
 		}
-
-		public DataTable Name(string name)
-		{
-			_name = name;
-			return this;
-		}
-
+		
+		/// <summary>
+		/// Adds a column definition to the table
+		/// </summary>
+		/// <param name="title">Column title that is shown in the browser</param>
+		/// <param name="dataField">Field that binds to the data</param>
+		/// <returns>The current datatable</returns>
 		public DataTable AddColumn(string title, string dataField)
 		{
 			return AddColumn(title, dataField, true);
 		}
-
+		
+		/// <summary>
+		/// Adds a column definition to the table
+		/// </summary>
+		/// <param name="title">Column title that is shown in the browser</param>
+		/// <param name="dataField">Field that binds to the data</param>
+		/// <param name="visible">indicates if the column is shown or not</param>
+		/// <returns>The current datatable</returns>
 		public DataTable AddColumn(string title, string dataField, bool visible)
 		{
 			_columns.Add(new Column(title, dataField, visible));
 			return this;
 		}
 
+		/// <summary>
+		/// Sets the url for getting the json data
+		/// </summary>
+		/// <param name="url">path from root</param>
+		/// <returns>The current datatable</returns>
 		public DataTable AjaxUrl(string url)
 		{
 			_ajaxUrl = url;
 			return this;
 		}
 
+		/// <summary>
+		/// Javascript method name that is called when a row is clicked
+		/// </summary>
+		/// <param name="callback">method name</param>
+		/// <returns>The current datatable</returns>
 		public DataTable OnRowClick(string callback)
 		{
 			_onRowClick = callback;
 			return this;
 		}
 
-		public static JsonResult DataToJson<T>(object data, Expression<Func<T, object>> key)
+		/// <summary>
+		/// Converts data to json that is fit for datatables
+		/// </summary>
+		/// <typeparam name="T">Type of the data</typeparam>
+		/// <param name="data">the data that need to be converted</param>
+		/// <param name="key">the key field</param>
+		/// <returns>Json</returns>
+		public static JsonResult DataToJson<T>(IEnumerable<T> data, Expression<Func<T, object>> key)
 		{
 			string id = null;
 			if(key!=null)
@@ -121,9 +157,9 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 			};
 		}
 
-		public static JsonResult DataToJson(object data)
+		public static JsonResult DataToJson(IEnumerable<object> data)
 		{
-			return DataToJson<object>(data, null);
+			return DataToJson(data, null);
 		}
 
 		public static PropertyInfo GetPropertyInfo<TSource, TProperty>(Expression<Func<TSource, TProperty>> propertyLambda)

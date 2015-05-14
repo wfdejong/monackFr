@@ -54,10 +54,10 @@
 					.append($("<a>")
 						.attr("href", "javascript:void(0)")
 						.text(menuItem.Label)
-					)
-					.bind("click", function () {
-						showPanel(menuItem.Panel.CssSystemName, menuItem.Panel.OnShow, menuItem.Panel.OnShowParam);
-					});
+						.bind("click", function () {
+							showPanel(menuItem.Panel.CssSystemName, menuItem.Panel.OnShow, menuItem.Panel.OnShowParam);
+						})
+					);
 
 			if (menuItem.MenuItems !== null && menuItem.MenuItems.length > 0) {
 				var subMenuItemUl = $("<ul>");
