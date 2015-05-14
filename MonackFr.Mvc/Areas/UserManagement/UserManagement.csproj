@@ -162,6 +162,7 @@
     <Compile Include="ViewModels\DetailsUser.cs" />
     <Compile Include="ViewModels\CheckBoxListGroup.cs" />
     <Compile Include="ViewModels\CheckBoxListRole.cs" />
+    <Compile Include="ViewModels\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

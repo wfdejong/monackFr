@@ -51,7 +51,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			
 			List<Role> roles = roleRepository.GetAll().ToList<Role>();
 			detailsGroup.GroupRoles = LoadRoles(roles, group.Roles.ToList<Role>());
-			detailsGroup.Users = group.Users.ToList();
+			//detailsGroup.Users = group.Users.ToList();
 			
 			return View(detailsGroup);
 		}
@@ -95,7 +95,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			IRoleRepository roleRepository = new RoleRepository();
 			List<Role> roles = roleRepository.GetAll().ToList<Role>();
 			detailsGroup.GroupRoles = LoadRoles(roles, group.Roles.ToList<Role>());
-			detailsGroup.Users = group.Users.ToList<User>();
+			//detailsGroup.Users = group.Users.ToList<User>();
 
 			IUserRepository userRepository = new UserRepository();
 			ViewBag.AllUsers = new SelectList(userRepository.GetAll(), "Id", "UserName");

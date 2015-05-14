@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using MonackFr.Mvc.Areas.UserManagement.Package;
 using AutoMapper;
+using MonackFr.Mvc.JqueryUiHelpers;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 {	
@@ -63,8 +64,8 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 		public JsonResult GetUsers()
 		{
-			IEnumerable<MfrUser> users = Mapper.Map<IEnumerable<MfrUser>>(_repository.GetAll().ToArray());
-			return Json(new { data = users });
+			IEnumerable<ViewModels.User> users = Mapper.Map<IEnumerable<ViewModels.User>>(_repository.GetAll().ToArray());
+			return DataTable.DataToJson<ViewModels.User>(users, u => u.Id);
 		}
 
 		//
@@ -121,7 +122,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 
 			ViewModels.DetailsUser detailsUser = new ViewModels.DetailsUser();
 
-			detailsUser.Fill(user);
+			//detailsUser.Fill(user);
 			detailsUser.UserRoles = LoadRoles(roles, user.Roles.AsQueryable<Entities.Role>()); //automapper
 
 			detailsUser.UserGroups = LoadGroups(groups, user.Groups.AsQueryable<Entities.Group>()); //automapper
@@ -165,7 +166,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			Entities.User user = _repository.GetSingle(u => u.Id == id);
 
 			ViewModels.DetailsUser detailsUser = new ViewModels.DetailsUser();
-			detailsUser.Fill(user);
+			//detailsUser.Fill(user);
 
 			MonackFr.Mvc.Repositories.IRoleRepository roleRepository = new MonackFr.Mvc.Repositories.RoleRepository();
 			List<Entities.Role> roles = roleRepository.GetAll().ToList<Entities.Role>();
@@ -186,7 +187,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			if (ModelState.IsValid)
 			{
 				Mvc.Entities.User user = _repository.GetSingle(u => u.Id == detailsUser.Id);
-				detailsUser.Map(user);
+				//detailsUser.Map(user);
 
 				MonackFr.Mvc.Repositories.IRoleRepository roleRepository = new MonackFr.Mvc.Repositories.RoleRepository();
 				IQueryable<Entities.Role> queryableRoles = roleRepository.GetAll();

@@ -1,15 +1,9 @@
 ﻿using AutoMapper;
 using MonackFr.Repository;
-using MonackFr.Mvc.Areas.PackageManagement.Entities;
-using MonackFr.Mvc.Repositories;
-using MonackFr.Repository;
 using MonackFr.Security;
-using MonackFr.Wrappers;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 
 namespace MonackFr.Mvc.Areas.PackageManagement
 {

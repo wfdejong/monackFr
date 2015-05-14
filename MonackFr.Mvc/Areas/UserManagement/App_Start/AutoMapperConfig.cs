@@ -12,6 +12,7 @@ namespace MonackFr.Mvc.Areas.UserManagement
         {
             //from entities
             Mapper.CreateMap<Entities.User, Security.MfrUser>();
+			Mapper.CreateMap<Entities.User, ViewModels.User>();
 
             //to entities
             Mapper.CreateMap<Security.IMfrRole, Entities.Role>();

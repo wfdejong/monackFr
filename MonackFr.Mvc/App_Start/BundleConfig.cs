@@ -40,7 +40,8 @@ namespace MonackFr.Mvc
 						"~/Scripts/tiles.jquery.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/datatablesjs").Include(
-						"~/Scripts/jquery.dataTables.js"));
+						"~/Scripts/jquery.dataTables.js",
+						"~/Scripts/dataTables.tableTools.min.js"));
 			
 			bundles.Add(new ScriptBundle("~/bundles/datatablesjsui").Include(
 						"~/Script/dataTables.jqueryui.js"));
@@ -50,7 +51,8 @@ namespace MonackFr.Mvc
 			bundles.Add(new ScriptBundle("~/content/themes/base/datatablescss").Include(
 						"~/Content/themes/base/jquery.dataTables.css",
 						"~/Content/themes/base/jquery.dataTables_themeroller.css",
-						"~/Content/themes/base/dataTables.jqueryui.css"));	
+						"~/Content/themes/base/dataTables.jqueryui.css,",
+						"~/Content/themes/base/dataTables.tableTools.css"));	
 		}
 	}
 }

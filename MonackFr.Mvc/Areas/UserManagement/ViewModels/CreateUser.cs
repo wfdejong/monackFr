@@ -28,16 +28,5 @@ namespace MonackFr.Mvc.Areas.UserManagement.ViewModels
 		[Compare("Password")]
 		[DataType(DataType.Password)]
 		public String RetypePassword { get; set; }
-
-		public User Map()
-		{
-			User user = new User();
-			
-			user.UserName = UserName;
-			user.Password = Password;
-			user.Email = Email;
-			
-			return user;
-		}
 	}
 }

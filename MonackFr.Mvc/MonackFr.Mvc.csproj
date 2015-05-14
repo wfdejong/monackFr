@@ -192,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\dataTables.jqueryui.css" />
+    <Content Include="Content\themes\base\dataTables.tableTools.css" />
     <Content Include="Content\themes\base\images\sort_asc.png" />
     <Content Include="Content\themes\base\images\sort_asc_disabled.png" />
     <Content Include="Content\themes\base\images\sort_both.png" />
@@ -234,6 +235,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\dataTables.jqueryui.js" />
     <None Include="Scripts\jquery-2.1.3-vsdoc.js" />
+    <Content Include="Scripts\dataTables.tableTools.min.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.12.js" />

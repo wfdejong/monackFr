@@ -23,26 +23,6 @@ namespace MonackFr.Mvc.Areas.UserManagement.ViewModels
 				
 		public List<CheckBoxListRole> UserRoles { get; set; }
 
-		public List<CheckBoxListGroup> UserGroups { get; set; }
-
-		public DetailsUser()
-		{
-		}
-				
-		public void Map(User user)
-		{
-			user.UserName = this.UserName;
-			user.Email = this.Email;						
-		}
-
-		public void Fill(User user)
-		{
-			Id = user.Id;
-			UserName = user.UserName;
-			Email = user.Email;
-			CreationDate = user.Creation;
-			LastUpdate = user.LastUpdate;
-			LastLogin = user.LastLogin;	
-		}
+		public List<CheckBoxListGroup> UserGroups { get; set; }	
 	}
 }

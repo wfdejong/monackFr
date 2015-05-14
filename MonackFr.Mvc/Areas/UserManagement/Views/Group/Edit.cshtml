@@ -1,5 +1,5 @@
 ﻿@model MonackFr.Mvc.Areas.UserManagement.ViewModels.DetailsGroup
-@using MonackFr.Mvc.Entities
+@using MonackFr.Mvc.Areas.UserManagement.ViewModels
 @{
 	ViewBag.Title = "Edit group";
 }
@@ -52,11 +52,11 @@
 	@foreach (User user in Model.Users)
 	{
 	<div>
-		@user.UserName
+		@*@user.UserName
 		@using (Html.BeginForm("RemoveUserFromGroup", "Group", new { userId = user.Id, groupId = Model.Id }))
 		{
 			<input type="submit" value="delete" />
-		}
+		}*@
 	</div> 
 	}
 	</div>				

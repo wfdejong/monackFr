@@ -1,17 +1,12 @@
-﻿using System;
+﻿using MonackFr.Mvc.App_Start;
+using MonackFr.Mvc.Repositories;
+using MonackFr.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Data.Entity;
-using MonackFr.Repository;
-using MonackFr.Mvc.App_Start;
-using MonackFr.Mvc.Repositories;
-using MonackFr.Repository;
-using System.Web.Configuration;
 
 namespace MonackFr.Mvc
 {

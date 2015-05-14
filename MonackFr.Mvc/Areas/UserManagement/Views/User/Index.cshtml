@@ -1,9 +1,4 @@
-﻿@using MonackFr.Mvc.Entities @* should be removed (viewmodels)*@
-@using MonackFr.Mvc.Areas.UserManagement.Package
-@model IEnumerable<User>
-@{
-    ViewBag.Title = "Index";
-}
+﻿@using MonackFr.Mvc.Areas.UserManagement.Package
 
 	<script type="text/javascript">
 		
@@ -28,9 +23,18 @@
 				$("#users").DataTable().ajax.reload();
 			});
 		});
+
+		var UsersRowClick = function (row) {
+			console.log(row);
+
+			var name = $('td', row).eq(0).text();
+
+			alert('You clicked on ' + name + '\'s row');
+		}
 	</script>
 
 <h3>Users</h3>
+
 @Html.ActionLink("New", "Create")
 
 				  	<a href="#" id="reload">reload</a>
@@ -57,7 +61,8 @@
 				.Name("users")
 				.AddColumn("Username", "UserName")
 				.AddColumn("Email", "Email")
-				.AddColumn("LastLogin", "LastLogin")
+				.AddColumn("LastLogin", "LastLoginFormatted")
 				.AjaxUrl(Url.Action("GetUsers", "User"))
+				.OnRowClick("UsersRowClick")
 				.Show()
 	)
