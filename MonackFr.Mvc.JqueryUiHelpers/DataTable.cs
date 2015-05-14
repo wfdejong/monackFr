@@ -12,10 +12,8 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 	/// a Jquery ui datatable
 	/// As described at http://datatables.net
 	/// </summary>
-	public class DataTable
+	public class DataTable : JqUi
 	{
-		private HtmlHelper _helper;
-		private string _name;
 		private List<Column> _columns;
 		private string _ajaxUrl;
 		private string _onRowClick;
@@ -25,9 +23,8 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 		/// </summary>
 		/// <param name="helper"></param>
 		internal DataTable(HtmlHelper helper, string name)
+			: base(helper, name)
 		{
-			_helper = helper;
-			_name = name;
 			_columns = new List<Column>();
 		}
 
@@ -35,7 +32,7 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 		/// Renders the output
 		/// </summary>
 		/// <returns>The client side code that renders in the browser</returns>
-		public MvcHtmlString Show()
+		public override MvcHtmlString Show()
 		{
 			StringBuilder dataTable = new StringBuilder();
 

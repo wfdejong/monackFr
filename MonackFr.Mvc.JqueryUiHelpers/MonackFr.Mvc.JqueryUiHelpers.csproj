@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Column.cs" />
+    <Compile Include="Classes\JqUi.cs" />
     <Compile Include="DataTable.cs" />
     <Compile Include="JqueryUi.cs" />
     <Compile Include="JqUiButton.cs" />

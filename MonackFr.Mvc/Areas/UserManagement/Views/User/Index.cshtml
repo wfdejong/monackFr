@@ -1,23 +1,11 @@
 ﻿@using MonackFr.Mvc.Areas.UserManagement.Package
-
 	<script type="text/javascript">
 		
-		var testtabel;
-
 		monackfr.prototype.TestMethod = function panelLoaded() {
 			console.log(this.this);			
 			users();
 		};
-
-		var tabel2 = function () {
-			$.ajax({
-				url: "/Users/User/GetUsers",
-				type: 'Post'
-			}).done(function (data) {
-				users(data);
-			});
-		};
-
+		
 		$(document).ready(function () {
 			$("#reload").on("click", function () {
 				$("#users").DataTable().ajax.reload();

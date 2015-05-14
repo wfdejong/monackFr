@@ -3,14 +3,22 @@
 @{
 	ViewBag.Title = "Create new user";
 }
+
+<script type="text/javascript">
+	var CreateUser_Click = function () {
+		alert('1');
+	};
+
+</script>
+
 <h2>Create new user</h2>
 
-<form class="cmxform" id="adduserform" method="get" action="">
+<form class="cmxform" id="adduserform">
 	<fieldset>
 		<legend>Create a new user</legend>
 		<p>
 			<label for="username">Name (required, at least 2 characters)</label>
-			<input id="username" name="username" minlength="4" type="text" required>
+			<input id="username" name="username" minlength="4" type="text">
 		</p>
 		<p>
 			<label for="emailaddress">E-Mail (required)</label>
@@ -25,9 +33,17 @@
 			<textarea id="retypepassword" name="retypepassword" required></textarea>
 		</p>
 		<p>
-			<input class="submit" type="submit" value="Submit">    
+			
 		</p>			
 	</fieldset>
 
 </form>
-<script>$("#adduserform").validate();</script>
+<script type="text/javascript">
+	$("#adduserform").validate();
+</script>
+<hr/>
+@(Html.UiButton("CreateUser")
+				.Label("Create User")
+				.OnClick("CreateUser_Click")
+				.Show()
+)
