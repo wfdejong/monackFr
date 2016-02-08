@@ -143,21 +143,35 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 		}
 		
 
-		//
-		// POST: /User/Create
+		/// <summary>
+		/// Creates a user
+		/// </summary>
+		/// <param name="createUser"></param>
+		/// <returns></returns>
 		[HttpPost]
-		public ActionResult Create(ViewModels.CreateUser createUser)
+		public JsonResult Create(ViewModels.CreateUser createUser)
 		{
 			if (ModelState.IsValid)
 			{	
 				Membership.CreateUser(createUser.UserName, createUser.Password, createUser.Email);
-				return RedirectToAction("Index");
+				return Json(new { success = true });
 			}
 			else
 			{
-				return View(createUser);
+				return Json(new { success = false });
 			}
+		}
 
+		/// <summary>
+		/// Deletes a user
+		/// </summary>
+		/// <param name="username"></param>
+		/// <returns></returns>
+		[HttpPost]
+		public JsonResult Delete(string username)
+		{
+			Membership.DeleteUser(username);
+			return Json(new { success = true });
 		}
 
 		//
@@ -234,22 +248,6 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
 			{
 				return View(detailsUser);
 			}
-		}
-
-		//
-		// POST: /User/Delete/5
-		[HttpPost]
-		public ActionResult Delete(int id)
-		{
-			Entities.User user = _repository.GetSingle(u => u.Id == id);
-			
-			if (user != null)
-			{
-				_repository.Delete(user);
-				_repository.Save();
-			}
-			
-			return RedirectToAction("Index");
 		}
 
 		[HttpPost]

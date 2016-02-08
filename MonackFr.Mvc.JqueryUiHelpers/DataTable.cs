@@ -16,8 +16,7 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 	{
 		private List<Column> _columns;
 		private string _ajaxUrl;
-		private string _onRowClick;
-
+		
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -60,6 +59,11 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 					dataTable.AppendFormat(",\nvisible: false\n", _columns[i].DataField);
 				}
 
+				if(!string.IsNullOrEmpty(_columns[i].Render))
+				{
+					dataTable.AppendFormat(", \nrender: {0}", _columns[i].Render);
+				}
+
 				dataTable.Append("}");
 
 				if(i < _columns.Count-1)
@@ -70,13 +74,7 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 
 			dataTable.AppendLine("]");
 			dataTable.AppendLine("});\n");
-
-			dataTable.Append("$(\"#");
-			dataTable.AppendFormat("{0} tbody\").on(\"click\", \"tr\", function(){{", _name);
-			dataTable.AppendFormat("{0}(this);", _onRowClick);
-			dataTable.AppendLine("});\n");
-			
-
+						
 			dataTable.AppendLine("};");
 			dataTable.AppendLine("</script>");
 
@@ -93,6 +91,19 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 		{
 			return AddColumn(title, dataField, true);
 		}
+
+		/// <summary>
+		/// Adds a column definition to the table
+		/// </summary>
+		/// <param name="title">Column title that is shown in the browser</param>
+		/// <param name="dataField">Field that binds to the data</param>
+		/// <param name="visible">indicates if the column is shown or not</param>
+		/// <param name="render">the method that is called on rendering</param>
+		/// <returns>The current datatable</returns>
+		public DataTable AddColumn(string title, string dataField, string render)
+		{
+			return AddColumn(title, dataField, true, render);
+		}
 		
 		/// <summary>
 		/// Adds a column definition to the table
@@ -103,7 +114,20 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 		/// <returns>The current datatable</returns>
 		public DataTable AddColumn(string title, string dataField, bool visible)
 		{
-			_columns.Add(new Column(title, dataField, visible));
+			return AddColumn(title, dataField, visible, null);
+		}
+		
+		/// <summary>
+		/// Adds a column definition to the table
+		/// </summary>
+		/// <param name="title">Column title that is shown in the browser</param>
+		/// <param name="dataField">Field that binds to the data</param>
+		/// <param name="visible">indicates if the column is shown or not</param>
+		/// <param name="render">the method that is called on rendering</param>
+		/// <returns>The current datatable</returns>
+		public DataTable AddColumn(string title, string dataField, bool visible, string render)
+		{
+			_columns.Add(new Column(title, dataField, visible, render));
 			return this;
 		}
 
@@ -115,17 +139,6 @@ namespace MonackFr.Mvc.JqueryUiHelpers
 		public DataTable AjaxUrl(string url)
 		{
 			_ajaxUrl = url;
-			return this;
-		}
-
-		/// <summary>
-		/// Javascript method name that is called when a row is clicked
-		/// </summary>
-		/// <param name="callback">method name</param>
-		/// <returns>The current datatable</returns>
-		public DataTable OnRowClick(string callback)
-		{
-			_onRowClick = callback;
 			return this;
 		}
 

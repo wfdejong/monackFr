@@ -1,9 +1,9 @@
 ﻿@using MonackFr.Mvc.Areas.UserManagement.Package
 	<script type="text/javascript">
 		
-		monackfr.prototype.TestMethod = function panelLoaded() {
-			console.log(this.this);			
+		monackfr.prototype.TestMethod = function panelLoaded() {			
 			users();
+			alert('1');
 		};
 		
 		$(document).ready(function () {
@@ -12,12 +12,29 @@
 			});
 		});
 
-		var UsersRowClick = function (row) {
-			console.log(row);
+		var UsersDeleteRender = function (data, type, full) {
+			return '<a href="javascript:void(0)" onclick="UserDelete(\'' + data + '\');	">delete</a>';
+		}
 
-			var name = $('td', row).eq(0).text();
+		var UsersEditRender = function (data, type, full) {
+			var parameters = {
+				username: 'admin'
+			};
 
-			alert('You clicked on ' + name + '\'s row');
+			return '<a href="javascript:void(0)" onclick="showPanel(\'@Names.Panels.Users.Add\', \'EditUser\', \'' + JSON.stringify(parameters) + '\')">edit</a>'
+		}
+
+		var UserDelete = function (userName) {
+			$.ajax({
+				url: '@Url.Action("Delete", "User")',
+				type: 'post',
+				data: {
+					userName: userName
+				},
+				success: function () {
+					$("#users").DataTable().ajax.reload();
+				}
+			});
 		}
 	</script>
 
@@ -31,7 +48,8 @@
 				.AddColumn("Username", "UserName")
 				.AddColumn("Email", "Email")
 				.AddColumn("LastLogin", "LastLoginFormatted")
+				.AddColumn("Edit", "UserName", "UsersEditRender")
+				.AddColumn("Delete", "UserName", "UsersDeleteRender")
 				.AjaxUrl(Url.Action("GetUsers", "User"))
-				.OnRowClick("UsersRowClick")
 				.Show()
 	)

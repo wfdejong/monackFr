@@ -121,7 +121,7 @@
 			$(".panel").hide();
 			$(".panel[data-panel-systemname='" + panelName + "']").show();						
 			if (onshow != undefined) {
-				var callmethod = "monackfrInstance." + onshow + "(" + param + ")";
+				var callmethod = "monackfrInstance." + onshow + "('" + param + "')";
 				console.log(callmethod);
 				eval(callmethod);
 			}

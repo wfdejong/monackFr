@@ -33,27 +33,32 @@ namespace MonackFr.Mvc.Entities
 
 		/// <summary>
 		/// Creation date
-		/// </summary>
+		/// </summary>		
+		[Column(TypeName = "DateTime2")]
 		public DateTime Creation { get; set; }
 
 		/// <summary>
 		/// Last update date
 		/// </summary>
+		[Column(TypeName = "DateTime2")]
 		public DateTime LastUpdate { get; set; }
 
 		/// <summary>
 		/// Last login date
 		/// </summary>
+		[Column(TypeName = "DateTime2")]
 		public DateTime? LastLogin { get; set; }
 
 		/// <summary>
 		/// Last activity date
 		/// </summary>
+		[Column(TypeName = "DateTime2")]
 		public DateTime? LastActivity { get; set; }
 
 		/// <summary>
 		/// last password change date
 		/// </summary>
+		[Column(TypeName = "DateTime2")]
 		public DateTime LastPaswordChange { get; set; }
 		
 		public virtual ICollection<Role> Roles { get; set; }

@@ -6,9 +6,28 @@
 
 <script type="text/javascript">
 	var CreateUser_Click = function () {
-		alert('1');
+		$.ajax({
+			url: '@Url.Action("Create", "User")',
+			method: 'post',
+			dataType: 'json',
+			data: {
+				UserName: $("#username").val(),
+				Email: $("#emailaddress").val(),
+				Password: $("#password").val(),
+				RetypePassword: $("#retypepassword").val()
+			},
+			success: function (data) {
+				console.log(data);
+				alert('succes');
+			}
+		});
 	};
 
+	monackfr.prototype.EditUser = function (data) {
+		
+		console.log(data);
+	}
+	
 </script>
 
 <h2>Create new user</h2>

@@ -81,7 +81,16 @@ namespace MonackFr.Mvc.Areas.UserManagement.Providers
 
 		public override bool DeleteUser(string username, bool deleteAllRelatedData)
 		{
-			throw new NotImplementedException();
+			Entities.User user = _repository.GetSingle(u => u.UserName == username);
+
+			if (user != null)
+			{
+				_repository.Delete(user);
+				_repository.Save();
+				return true;
+			}
+
+			return false;
 		}
 
 		public override bool EnablePasswordReset
