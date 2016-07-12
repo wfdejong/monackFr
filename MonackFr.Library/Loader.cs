@@ -19,7 +19,7 @@ namespace MonackFr
 		/// List with plugins
 		/// </summary>
 		[ImportMany]
-		private List<T> _loadedItems = null;
+		public IEnumerable<T> _loadedItems = null;
 
 		#endregion //private fields
 

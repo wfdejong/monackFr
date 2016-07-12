@@ -35,12 +35,12 @@ namespace MonackFr.Repository
 		/// Returns menu items
 		/// </summary>
 		/// <returns></returns>
-		IEnumerable<MenuItem> GetMenu(UrlHelper urlHelper);
+		IEnumerable<MenuItem> GetMenu();
 
 		/// <summary>
 		/// Returns module's tile
 		/// </summary>
 		/// <returns></returns>
-		Tile GetTile(UrlHelper urlHelper);
+		Tile GetTile();
 	}
 }

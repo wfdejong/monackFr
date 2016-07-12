@@ -1,5 +1,4 @@
 ﻿using MonackFr.Repository;
-using MonackFr.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;

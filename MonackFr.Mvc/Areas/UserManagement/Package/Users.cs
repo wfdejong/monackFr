@@ -10,11 +10,11 @@ using System.Web.Mvc;
 namespace MonackFr.Mvc.Areas.UserManagement.Package
 {
 	[Export(typeof(IModule))]
-	[Export(typeof(IAuthorization))]
+	//[Export(typeof(IAuthorization))]
 	public class Users : IModule, IAuthorization
 	{
 		#region implementation of IModule
-
+        
 		string IModule.Name
 		{
 			get { return "User Controller"; }
@@ -39,7 +39,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 		/// Implementation of GetMenu
 		/// </summary>
 		/// <returns></returns>
-		IEnumerable<MenuItem> IModule.GetMenu(UrlHelper urlHelper)
+		IEnumerable<MenuItem> IModule.GetMenu()
 		{
 
 			List<MenuItem> menuItems = new List<MenuItem>();
@@ -49,7 +49,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 				Panel = new Panel(Names.Panels.Users.Index)
 				{
 					OnShow = "TestMethod",
-					Url = urlHelper.Action("Index", "User", new { Area = "UserManagement" })
+					//Url = urlHelper.Action("Index", "User", new { Area = "UserManagement" })
 				},
 				MenuItems = new List<MenuItem>() 
 				{
@@ -59,7 +59,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 						UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
 						Panel = new Panel(Names.Panels.Users.Details)
 						{
-							Url= urlHelper.Action("Details", "User", new {Area = "UserManagement" })							
+							//Url= urlHelper.Action("Details", "User", new {Area = "UserManagement" })							
 						}
 					},
 					new MenuItem("Add User", Names.Menus.Users.Add)
@@ -67,7 +67,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 						UserRoles = new string[]{UserControllerRoles.CreateUser.ToString()},
 						Panel = new Panel(Names.Panels.Users.Add)
 						{
-							Url = urlHelper.Action("Create", "User", new {Area = "UserManagement"})
+							//Url = urlHelper.Action("Create", "User", new {Area = "UserManagement"})
 						}
 					}
 				}
@@ -77,20 +77,19 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 				Default = true,
 				Panel = new Panel(Names.Panels.Groups.Index)
 				{
-					Url = urlHelper.Action("Index", "Group", new { Area = "UserManagement" })
+					//Url = urlHelper.Action("Index", "Group", new { Area = "UserManagement" })
 				}
 			});
 
 			return menuItems;
 		}
 
-		Repository.Tile IModule.GetTile(UrlHelper url)
+		Tile IModule.GetTile()
 		{
 			IModule iModule = (IModule)this;
 
 			Repository.Tile tile = new Repository.Tile(iModule);
 			tile.Title = iModule.Name;
-			tile.Url = url.Action("Index", "User", new { area = "UserManagement" });
 			tile.Copyright = iModule.Author;
 
 			return tile;

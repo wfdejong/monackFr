@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Security;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using MonackFr.Security;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace MonackFr.Mvc.Entities
 {

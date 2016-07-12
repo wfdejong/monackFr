@@ -21,12 +21,7 @@ namespace MonackFr.Mvc.ViewModels
 		/// Copyright text
 		/// </summary>
 		public string Copyright { get; set; }
-
-		/// <summary>
-		/// Action url
-		/// </summary>
-		public string Url { get; set; }
-
+        
 		/// <summary>
 		/// Name of the module the tile needs to open
 		/// </summary>

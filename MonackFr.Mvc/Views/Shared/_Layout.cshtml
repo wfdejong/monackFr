@@ -4,26 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/themes/base/css")
-	@Styles.Render("~/Css/Style.css")
-    @Styles.Render("~/Css/Tiles.css")
-	@Styles.Render("~/Css/Modules.css")
-	@Styles.Render("~/content/themes/base/datatablescss")
+    @*Styles.Render("~/Content/themes/base/css")*@
+    @Scripts.Render("~/scripts/angular")
 </head>
-<body>
+<body ng-app="monackfr">
 	<h1>The Monack Framework</h1>
 	
 	@RenderBody()
 	    
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/tiles")
-	@Scripts.Render("~/bundles/datatablesjs")
-	@Scripts.Render("~/bundles/datatablesjsui")	
-	@Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("Scripts", required: false)
+    @RenderSection("ModuleScripts", required: false)
 
-    @RenderSection("scripts", required: false)
-    
 </body>
 </html>

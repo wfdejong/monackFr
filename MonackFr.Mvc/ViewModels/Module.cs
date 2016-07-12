@@ -7,6 +7,8 @@ namespace MonackFr.Mvc.ViewModels
 {
 	public class Module
 	{
+        public int Id { get; set; }
+
 		/// <summary>
 		/// The module name
 		/// </summary>
@@ -30,11 +32,11 @@ namespace MonackFr.Mvc.ViewModels
 		/// <summary>
 		/// The system name used in Css
 		/// </summary>
-		public string CssSystemName
+		public string JsSystemName
 		{
 			get
 			{
-				return Format.ToCss(SystemName);
+				return Format.ToJs(SystemName);
 			}
 		}
 	}

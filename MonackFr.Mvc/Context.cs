@@ -4,8 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using MonackFr.Repository;
-using MonackFr.Mvc.Areas.PackageManagement.Entities;
-using MonackFr.Repository;
 
 namespace MonackFr
 {

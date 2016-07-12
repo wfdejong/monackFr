@@ -37,11 +37,6 @@ namespace MonackFr.Repository
 		public string Copyright { get; set; }
 		
 		/// <summary>
-		/// Action url
-		/// </summary>
-		public string Url { get; set; }
-
-		/// <summary>
 		/// Module the tile belongs to
 		/// </summary>
 		public IModule Module { get { return _module; } }

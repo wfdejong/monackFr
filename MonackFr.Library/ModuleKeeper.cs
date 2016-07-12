@@ -9,7 +9,6 @@ namespace MonackFr
 	/// <summary>
 	/// Singleton with loaded Modules. Keeps module in memory for future use.
 	/// TODO: change this into a module collection class, since only modules are put into memory for this.
-	/// TODO: use hashtable for faster search of modules.
 	/// </summary>
 	public sealed class ModuleKeeper
 	{
@@ -21,7 +20,7 @@ namespace MonackFr
 		/// <summary>
 		/// List with loaded objects
 		/// </summary>
-		private static Dictionary<string, IModule> _modules = new Dictionary<string, IModule>(); //TODO: make hashtable
+		private static Dictionary<string, IModule> _modules = new Dictionary<string, IModule>();
 
 		/// <summary>
 		/// List with loaded objects, converts internal Dictionary to IEnumerable.

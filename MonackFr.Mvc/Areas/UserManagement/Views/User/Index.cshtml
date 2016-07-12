@@ -1,55 +1,38 @@
-﻿@using MonackFr.Mvc.Areas.UserManagement.Package
-	<script type="text/javascript">
-		
-		monackfr.prototype.TestMethod = function panelLoaded() {			
-			users();
-			alert('1');
-		};
-		
-		$(document).ready(function () {
-			$("#reload").on("click", function () {
-				$("#users").DataTable().ajax.reload();
-			});
-		});
+﻿
+<ul>
+    <li>Menu
+        <ul>
+            <li>
+                Users
+            </li>
+            <li>
+                Groups
+            </li>
+            <li>
+                Roles
+            </li>
+        </ul>
+    </li>
+</ul>
+<ul ng-controller="usersController">
+    <li>
+        Users
+        <table>
+            <thead>
+            <tr>
+                <td>Username</td>
+                <td></td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{user.UserName}}</td>
+                <td><a href="#">Edit</a></td>
+                <td><a href="#">Delete</a></td>
+            </tr>
+        </table>
+    </li>
+</ul>
 
-		var UsersDeleteRender = function (data, type, full) {
-			return '<a href="javascript:void(0)" onclick="UserDelete(\'' + data + '\');	">delete</a>';
-		}
 
-		var UsersEditRender = function (data, type, full) {
-			var parameters = {
-				username: 'admin'
-			};
-
-			return '<a href="javascript:void(0)" onclick="showPanel(\'@Names.Panels.Users.Add\', \'EditUser\', \'' + JSON.stringify(parameters) + '\')">edit</a>'
-		}
-
-		var UserDelete = function (userName) {
-			$.ajax({
-				url: '@Url.Action("Delete", "User")',
-				type: 'post',
-				data: {
-					userName: userName
-				},
-				success: function () {
-					$("#users").DataTable().ajax.reload();
-				}
-			});
-		}
-	</script>
-
-<h3>Users</h3>
-
-@Html.ActionLink("New", "Create")
-
-				  	<a href="#" id="reload">reload</a>
-	@(
-	 Html.DataTable("users")
-				.AddColumn("Username", "UserName")
-				.AddColumn("Email", "Email")
-				.AddColumn("LastLogin", "LastLoginFormatted")
-				.AddColumn("Edit", "UserName", "UsersEditRender")
-				.AddColumn("Delete", "UserName", "UsersDeleteRender")
-				.AjaxUrl(Url.Action("GetUsers", "User"))
-				.Show()
-	)
