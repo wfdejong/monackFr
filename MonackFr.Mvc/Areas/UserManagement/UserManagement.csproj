@@ -114,7 +114,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\User.js" />
+    <Content Include="Scripts\users-api.js" />
+    <Content Include="Scripts\users-controller.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

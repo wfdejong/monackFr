@@ -1,0 +1,15 @@
+﻿<div ng-controller="tile-controller as tile" class="container-fluid">
+    <ul class="row">
+        <li ng-repeat="tile in tile.tiles" class="col-xs-4" style="width: 320px">
+            <a ui-sref="monackfr-usermanagement({ id: tile.Module.JsSystemName })">
+                {{tile.Title}}
+                <ul>
+                    <li ng-repeat="previewItem in tile.PreviewItems">
+                        {{previewItem}}
+                    </li>
+                </ul>
+                <span>{{tile.Copyright}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

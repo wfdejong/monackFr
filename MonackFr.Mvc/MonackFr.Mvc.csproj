@@ -122,11 +122,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\bootstrap-theme.css" />
+    <Content Include="Css\bootstrap-theme.min.css" />
+    <Content Include="Css\bootstrap.css" />
+    <Content Include="Css\bootstrap.min.css" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\angular-resource.js" />
-    <Content Include="Scripts\angular-ui-router.js" />
-    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\Libraries\angular-resource.js" />
+    <Content Include="Scripts\Libraries\angular-ui-router.js" />
+    <Content Include="Scripts\Libraries\angular.js" />
+    <Content Include="Scripts\Libraries\bootstrap.js" />
+    <Content Include="Scripts\Libraries\bootstrap.min.js" />
+    <Content Include="Scripts\Libraries\jquery-2.2.4.js" />
+    <Content Include="Scripts\Libraries\jquery-2.2.4.min.js" />
     <Content Include="Scripts\monackfr.js" />
+    <Content Include="Scripts\Tiles\tile-api.js" />
+    <Content Include="Scripts\Tiles\tile-controller.js" />
+    <Content Include="Scripts\Tiles\tile.tmpl.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -169,6 +181,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Module\Index.cshtml" />
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -178,6 +194,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Scripts\Common\" />
+    <Folder Include="Scripts\Main\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MonackFr.Library\MonackFr.Library.csproj">

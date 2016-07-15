@@ -86,9 +86,9 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 
 		Tile IModule.GetTile()
 		{
-			IModule iModule = (IModule)this;
+			IModule iModule = this;
 
-			Repository.Tile tile = new Repository.Tile(iModule);
+			Tile tile = new Tile(iModule);
 			tile.Title = iModule.Name;
 			tile.Copyright = iModule.Author;
 

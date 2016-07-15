@@ -2,178 +2,18 @@
 	ViewBag.Title = "Default";
 }
 
-<h2>MonackFr</h2>
-
-<div ng-controller="tileController">
-    <a href="javascript:void(0)" class="home-button">Home</a>
-    
-    <ul>
-        <li ng-repeat="tile in tiles">
-            <a ui-sref="monackfr-usermanagement({ id: tile.Module.JsSystemName })">
-                {{tile.Title}}
-                <ul>
-                    <li ng-repeat="previewItem in tile.PreviewItems">
-                        {{previewItem}}
-                    </li>
-                </ul>
-                <span>{{tile.Copyright}}</span>
-            </a>
-        </li>
-    </ul>
-
+    <a ui-sref="tiles()" class="home-button">Home</a>
     <section ui-view></section>
 
-</div>
-
-
 @section Scripts {
+        <script src="~/Scripts/monackfr.js"></script>
+        <script src="~/Scripts/Tiles/tile-controller.js"></script>
+        <script src="~/Scripts/Tiles/tile-api.js"></script>
+    }
 
-    <script type="text/javascript">
-
-
-        var monackfr = angular.module('monackfr', ['ui.router', 'ngResource']);
-
-        ///
-        /// config for router 
-        ///
-        monackfr.config([
-            '$stateProvider', function($stateProvider) {
-                $stateProvider
-                    .state('monackfr-usermanagement',
-                    {
-                        url: '/module/monackfr-usermanagement',
-                        templateUrl: 'usermanagement/user/index',
-                        controller: 'monackfr-usermanagement'
-                    });
-            }
-        ]);
-
-
-        ///
-        /// Main controller defined above in <body>
-        ///
-        angular.module('monackfr')
-            .controller('tileController',
-                function($scope, $state, tileApi) {
-                    console.log("tileController");
-                    ///
-                    /// Loads a list of tiles
-                    ///
-                    $scope.loadTiles = function() {
-                        var entries = tileApi.query(function() {
-                            $scope.tiles = entries;
-                        });
-                    };
-
-
-                    //loadScript('/areas/scripts/user', function() {});
-
-                    $scope.loadTiles();
-
-
-                });
-
-        ///
-        /// Loads the module
-        ///
-        angular.module('monackfr')
-            .controller('monackfr-usermanagement',
-                function($scope, $state, $stateParams, moduleApi) {
-                    console.log('usermanagement');
-                });
-
-        ///
-        /// Factory for tile api
-        ///
-        angular.module('monackfr')
-            .factory('tileApi',
-                function($resource) {
-
-                    return $resource(
-                        "api/tile/:id",
-                        { id: '@@id' },
-                        { "update": { method: "PUT" } }
-                    );
-                });
-
-
-        ///
-        /// Factory for module api
-        ///
-        angular.module('monackfr')
-            .factory('moduleApi',
-                function($resource) {
-
-                    return $resource(
-                        "api/module/:id",
-                        { id: '@@id' },
-                        { "update": { method: "PUT" } }
-                    );
-                });
-
-
-        /////
-        ///// Users controller
-        /////
-        //angular.module('monackfr').controller('usersController', function ($scope, $state, usersApi) {
-
-        //    ///
-        //    /// Loads a list of tiles
-        //    ///
-        //    $scope.loadUsers = function () {
-        //        var entries = usersApi.query(function () {
-        //            $scope.users = entries;
-        //        });
-        //    };
-
-        //    $scope.loadUsers();
-
-        //});
-
-        /////
-        ///// Factory for users api
-        /////
-        //angular.module('monackfr').factory('usersApi', function ($resource) {
-
-        //    return $resource(
-        //        "api/users/:id", { id: '@@id' },
-        //        { "update": { method: "PUT" } }
-        //    );
-        //});
-
-        function loadScript(url, callback) {
-
-            console.log('loadscript', url);
-
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-
-            if (script.readyState) { //IE
-                script.onreadystatechange = function() {
-                    if (script.readyState == "loaded" ||
-                        script.readyState == "complete") {
-                        script.onreadystatechange = null;
-                        callback();
-                    }
-                };
-            } else { //Others
-                script.onload = function() {
-                    callback();
-                };
-            }
-
-            script.src = url;
-            document.getElementsByTagName("head")[0].appendChild(script);
-        }
-
-
-    </script>
-
-
-}
-
-@section ModuleScripts {
-<script src="~/areas/usermanagement/Scripts/User.js"></script>
+    @section ModuleScripts {
+        <script src="~/areas/UserManagement/Scripts/users-controller.js"></script>
+        <script src="~/areas/UserManagement/Scripts/users-api.js"></script>
 
     }
 
