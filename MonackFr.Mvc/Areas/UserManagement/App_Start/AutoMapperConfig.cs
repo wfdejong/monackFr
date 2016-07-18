@@ -7,11 +7,11 @@ namespace MonackFr.Mvc.Areas.UserManagement
         internal static void CreateMaps()
         {
             //from entities
-            Mapper.CreateMap<Entities.User, Security.MfrUser>();
-			Mapper.CreateMap<Entities.User, ViewModels.User>();
+            Mapper.Initialize(cfg => cfg.CreateMap<Entities.User, Security.MfrUser>());
+            Mapper.Initialize(cfg => cfg.CreateMap<Entities.User, ViewModels.User>());
 
             //to entities
-            Mapper.CreateMap<Security.IMfrRole, Entities.Role>();
+            Mapper.Initialize(cfg => cfg.CreateMap<Security.IMfrRole, Entities.Role>());
         }
     }
 }

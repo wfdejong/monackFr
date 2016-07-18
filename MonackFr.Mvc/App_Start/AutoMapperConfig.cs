@@ -8,8 +8,8 @@ namespace MonackFr.Mvc
         public static void CreateMaps()
         {
             //Module to ViewModels
-            Mapper.CreateMap<Repository.Tile, ViewModels.Tile>();
-            Mapper.CreateMap<Repository.IModule, ViewModels.Module>();
+            //Mapper.Initialize(cfg => cfg.CreateMap<Repository.Tile, ViewModels.Tile>());
+            //Mapper.Initialize(cfg => cfg.CreateMap<Repository.IModule, ViewModels.Module>());
         }
     }
 }

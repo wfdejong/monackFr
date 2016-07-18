@@ -13,6 +13,13 @@ namespace MonackFr.Mvc.Api
         /// <returns></returns>
         public IHttpActionResult Get()
         {
+            var config = new MapperConfiguration(cfg =>
+            {
+                // Configure AutoMapper
+                cfg.CreateMap<Repository.Tile, ViewModels.Tile>();
+            });
+
+
             List<Repository.Tile> tiles = new List<Repository.Tile>();
 
             foreach (Repository.IModule module in ModuleKeeper.Instance.Modules)
@@ -20,7 +27,7 @@ namespace MonackFr.Mvc.Api
                 tiles.Add(module.GetTile());
             }
 
-            IEnumerable<ViewModels.Tile> viewModelTiles = Mapper.Map<IEnumerable<ViewModels.Tile>>(tiles);
+            IEnumerable<ViewModels.Tile> viewModelTiles = config.CreateMapper().Map<IEnumerable<ViewModels.Tile>>(tiles);
 
             return Ok(viewModelTiles);
         }
