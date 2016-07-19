@@ -144,8 +144,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\MenuController.cs" />
-    <Compile Include="Api\ModuleController.cs" />
     <Compile Include="Api\TileController.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -154,7 +152,6 @@
     <Compile Include="Context.cs" />
     <Compile Include="Contexts\PackageContext.cs" />
     <Compile Include="Controllers\MainController.cs" />
-    <Compile Include="Controllers\ModuleController.cs" />
     <Compile Include="Entities\Group.cs" />
     <Compile Include="Entities\MenuItem.cs" />
     <Compile Include="Entities\Module.cs" />
@@ -180,7 +177,6 @@
     <Content Include="Views\Main\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Module\Index.cshtml" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff" />

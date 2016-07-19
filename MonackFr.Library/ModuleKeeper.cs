@@ -52,16 +52,9 @@ namespace MonackFr
 		}
 
 		/// <summary>
-		/// Constructor
-		/// </summary>
-		public ModuleKeeper()
-		{
-		}
-
-		/// <summary>
 		/// Adds an object to objects list
 		/// </summary>
-		/// <param name="plugin"></param>
+		/// <param name="loadedModule"></param>
 		public void Add(IModule loadedModule)
 		{
 
@@ -71,12 +64,12 @@ namespace MonackFr
 		/// <summary>
 		/// Adds objects to objects list
 		/// </summary>
-		/// <param name="plugins"></param>
+		/// <param name="loadedModules"></param>
 		public void AddRange(IEnumerable<IModule> loadedModules)
 		{
 			foreach (IModule module in loadedModules)
 			{
-				this.Add(module);
+				Add(module);
 			}
 		}
 
@@ -92,7 +85,7 @@ namespace MonackFr
 		{
 			if (!_modules.Keys.Contains(systemName))
 			{
-				throw new ModuleNotFoundException(String.Format("Module with name {0} could not be found", systemName));
+				throw new ModuleNotFoundException(string.Format("Module with name {0} could not be found", systemName));
 			}
 
 			return _modules[systemName];

@@ -35,55 +35,6 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 			get { return "MonackFr.UserManagement"; }
 		}
 
-		/// <summary>
-		/// Implementation of GetMenu
-		/// </summary>
-		/// <returns></returns>
-		IEnumerable<MenuItem> IModule.GetMenu()
-		{
-
-			List<MenuItem> menuItems = new List<MenuItem>();
-			menuItems.Add(new MenuItem("Users", Names.Menus.Users.Index)
-			{
-				UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
-				Panel = new Panel(Names.Panels.Users.Index)
-				{
-					OnShow = "TestMethod",
-					//Url = urlHelper.Action("Index", "User", new { Area = "UserManagement" })
-				},
-				MenuItems = new List<MenuItem>() 
-				{
-					new MenuItem("User Details", Names.Menus.Users.Details)
-					{
-						Visible = false,
-						UserRoles = new string[] { UserControllerRoles.ViewUser.ToString() },
-						Panel = new Panel(Names.Panels.Users.Details)
-						{
-							//Url= urlHelper.Action("Details", "User", new {Area = "UserManagement" })							
-						}
-					},
-					new MenuItem("Add User", Names.Menus.Users.Add)
-					{
-						UserRoles = new string[]{UserControllerRoles.CreateUser.ToString()},
-						Panel = new Panel(Names.Panels.Users.Add)
-						{
-							//Url = urlHelper.Action("Create", "User", new {Area = "UserManagement"})
-						}
-					}
-				}
-			});
-			menuItems.Add(new MenuItem("Group", Names.Panels.Groups.Index)
-			{
-				Default = true,
-				Panel = new Panel(Names.Panels.Groups.Index)
-				{
-					//Url = urlHelper.Action("Index", "Group", new { Area = "UserManagement" })
-				}
-			});
-
-			return menuItems;
-		}
-
 		Tile IModule.GetTile()
 		{
 			IModule iModule = this;
@@ -99,7 +50,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 
 		#region of IAuthorization
 
-		public List<IMfrRole> GetRoles()
+		List<IMfrRole> IAuthorization.GetRoles()
 		{
 			List<IMfrRole> roles = new List<IMfrRole>();
 

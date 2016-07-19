@@ -32,12 +32,6 @@ namespace MonackFr.Repository
 		string Author { get; }
 
 		/// <summary>
-		/// Returns menu items
-		/// </summary>
-		/// <returns></returns>
-		IEnumerable<MenuItem> GetMenu();
-
-		/// <summary>
 		/// Returns module's tile
 		/// </summary>
 		/// <returns></returns>
