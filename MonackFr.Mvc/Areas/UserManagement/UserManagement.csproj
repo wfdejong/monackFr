@@ -126,7 +126,7 @@
     <Content Include="Scripts\users-controller.js" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\UsersController.cs" />
+    <Compile Include="Api\UsersApiController.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -143,9 +143,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\MonackFr.Library\MonackFr.Library.csproj">
       <Project>{de92726d-e872-4e26-8e20-2c125ec3e6f8}</Project>

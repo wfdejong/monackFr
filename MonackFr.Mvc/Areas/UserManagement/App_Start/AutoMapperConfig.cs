@@ -2,16 +2,24 @@
 
 namespace MonackFr.Mvc.Areas.UserManagement
 {
-    public class AutoMapperConfig
+    public static class AutoMapperConfig
     {
-        internal static void CreateMaps()
-        {
-            //from entities
-            Mapper.Initialize(cfg => cfg.CreateMap<Entities.User, Security.MfrUser>());
-            Mapper.Initialize(cfg => cfg.CreateMap<Entities.User, ViewModels.User>());
+        private static IMapper _mapper;
 
-            //to entities
-            Mapper.Initialize(cfg => cfg.CreateMap<Security.IMfrRole, Entities.Role>());
+        public static void CreateMaps()
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Entities.User, ViewModels.User>()
+                    .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName));
+            });
+
+            _mapper = config.CreateMapper();
+        }
+
+        public static IMapper Mapper
+        {
+            get { return _mapper; }
         }
     }
 }

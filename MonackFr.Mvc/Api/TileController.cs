@@ -20,7 +20,9 @@ namespace MonackFr.Mvc.Api
                 tiles.Add(module.GetTile());
             }
 
-            IEnumerable<ViewModels.Tile> viewModelTiles = Mapper.Map<IEnumerable<ViewModels.Tile>>(tiles);
+            var mapper = AutoMapperConfig.Mapper;
+
+            IEnumerable<ViewModels.Tile> viewModelTiles = mapper.Map<IEnumerable<ViewModels.Tile>>(tiles);
 
             return Ok(viewModelTiles);
         }
