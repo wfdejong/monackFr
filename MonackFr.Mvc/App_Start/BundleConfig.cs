@@ -23,6 +23,9 @@ namespace MonackFr.Mvc
                 "~/Css/bootstrap.css",
                 "~/Css/bootstrap-theme.css"));
 
+            bundles.Add(new ScriptBundle("~/css/monackfr").Include(
+                "~/Css/monackfr.css"));
+
 #else
     //TODO:use minified version here
             bundles.Add(new ScriptBundle("~/scripts/angular").Include(
@@ -40,6 +43,9 @@ namespace MonackFr.Mvc
             bundles.Add(new StyleBundle("~/css/bootstrap").Include(
                 "~/Css/bootstrap.min.css",
                 "~/Css/bootstrap-theme.min.css"));
+
+            bundles.Add(new ScriptBundle("~/css/monackfr").Include(
+                "~/Css/monackfr.css"));
 #endif
         }
     }

@@ -8,22 +8,37 @@ var monackfr = angular.module('monackfr', [
 /// config for router 
 ///
 monackfr.config([
-    '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    '$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/tiles');
 
         $stateProvider
             .state('tiles',
             {
                 url: '/tiles',
-                templateUrl: 'Scripts/Tiles/tile.tmpl.html',
+                templateUrl: 'main/tile',
                 controller: 'tile-controller',
                 controllerAs: 'tile'
             })
-            .state('monackfr-usermanagement',
+            .state('monackfr-usermanagement-users',
             {
-                url: '/module/monackfr-usermanagement',
+                url: '/module/usermanagement',
                 templateUrl: 'usermanagement/user/index',
-                controller: 'usersController'
+                controller: 'usersController',
+                controllerAs: 'usersController'
+            })
+            .state('monackfr-usermanagement-groups',
+            {
+                url: '/module/usermanagement/groups',
+                templateUrl: 'usermanagement/group/index',
+                controller: 'groupsController',
+                controllerAs: 'groupsController'
+            })
+            .state('monackfr-usermanagement-roles',
+            {
+                url: '/module/usermanagement/roles',
+                templateUrl: 'usermanagement/role/index',
+                controller: 'usersController',
+                controllerAs: 'usersController'
             });
     }
 ]);

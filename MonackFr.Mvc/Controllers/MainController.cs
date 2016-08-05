@@ -8,5 +8,10 @@ namespace MonackFr.Mvc.Controllers
 		{
 			return View();
 		}
+
+        public ActionResult Tile()
+        {
+            return View();
+        }
     }
 }

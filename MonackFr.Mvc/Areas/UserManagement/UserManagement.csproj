@@ -122,13 +122,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\groups-controller.js" />
+    <Content Include="Scripts\groups-api.js" />
     <Content Include="Scripts\users-api.js" />
     <Content Include="Scripts\users-controller.js" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\GroupsApiController.cs" />
     <Compile Include="Api\UsersApiController.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Package\Names.cs" />
     <Compile Include="Package\Package.cs" />
@@ -136,6 +140,7 @@
     <Compile Include="Package\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManagementAreaRegistration.cs" />
+    <Compile Include="ViewModels\Group.cs" />
     <Compile Include="ViewModels\User.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,7 +148,9 @@
     <Content Include="packages.config" />
     <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Group\Index.cshtml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\MonackFr.Library\MonackFr.Library.csproj">
       <Project>{de92726d-e872-4e26-8e20-2c125ec3e6f8}</Project>
@@ -153,6 +160,9 @@
       <Project>{9c79e148-c18b-46c2-995c-c1281100c38e}</Project>
       <Name>MonackFr.Mvc</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Role\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

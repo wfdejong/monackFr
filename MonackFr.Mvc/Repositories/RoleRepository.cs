@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using MonackFr.Repository;
 using MonackFr.Mvc.Entities;
 using MonackFr.Mvc.Contexts;
@@ -10,18 +8,18 @@ namespace MonackFr.Mvc.Repositories
 {
 	public class RoleRepository : GenericRepository<UserManagementContext, Role>, IRoleRepository
 	{
-		public void AddUsersToRoles(String[] userNames, String[] roleNames)
+		public void AddUsersToRoles(string[] userNames, string[] roleNames)
 		{
 			//make a list of users first so it can be reused
 			List<User> users = new List<User>();
 			
-			foreach (String userName in userNames)
+			foreach (string userName in userNames)
 			{
 				users.Add(this.Entities.Users.FirstOrDefault<User>(u => u.UserName == userName));
 			}			
 
 			//add users to each role
-			foreach (String roleName in roleNames)
+			foreach (string roleName in roleNames)
 			{
 				this.Entities.Roles.Include("Users");
 
@@ -42,19 +40,19 @@ namespace MonackFr.Mvc.Repositories
 			}
 		}
 
-		public void RemoveUsersFromRoles(String[] userNames, String[] roleNames)
+		public void RemoveUsersFromRoles(string[] userNames, string[] roleNames)
 		{
 			//TODO: make function without loops: 1 query should be sufficient.
 			//make a list of users first so it can be reused
 			List<User> users = new List<User>();
 
-			foreach (String userName in userNames)
+			foreach (string userName in userNames)
 			{
 				users.Add(this.Entities.Users.FirstOrDefault<User>(u => u.UserName == userName));
 			}
 
 			//add users to each role
-			foreach (String roleName in roleNames)
+			foreach (string roleName in roleNames)
 			{
 				Role role = this.GetSingle(r => r.Name == roleName);
 				foreach (User user in users)

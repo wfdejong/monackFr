@@ -10,19 +10,19 @@
         <a ui-sref="monackfr-usermanagement-roles()">Roles</a>
 </li>
 </ul>
-<ul ng-controller="usersController" class="module-content">
+<ul ng-controller="groupsController" class="module-content">
     <li>
         <table border="1">
             <thead>
             <tr>
-                <td>Username</td>
+                <td>Groupname</td>
                 <td></td>
                 <td></td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="user in usersController.users">
-                <td>{{user.UserName}}</td>
+            <tr ng-repeat="group in groupsController.groups">
+                <td>{{group.Name}}</td>
                 <td><a href="#">Edit</a></td>
                 <td><a href="#">Delete</a></td>
             </tr>

@@ -1,0 +1,41 @@
+﻿body {
+    margin: 10px;
+}
+
+a.home-button {
+    display: inline-block;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+.tiles {
+    padding-left: 5px;
+}
+
+.tiles ul {
+    padding-left: 0;
+}
+
+.tiles ul li {
+    display: inline-block;
+    width: 180px;
+    height: 180px;
+    border: 1px solid grey;
+    margin: 10px;
+    padding: 10px;
+}
+
+.module-menu,
+.module-content {
+    padding-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid grey;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.module-menu li,
+.module-content li {
+    display: block;
+}

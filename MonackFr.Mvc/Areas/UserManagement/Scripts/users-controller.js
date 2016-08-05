@@ -3,15 +3,19 @@
 ///
 angular.module('monackfr').controller('usersController', function ($scope, $state, usersApi) {
 
+    var ctrl = this;
+
     ///
-    /// Loads a list of tiles
+    /// Loads a list of users
     ///
-    $scope.loadUsers = function () {
+    
+
+    ctrl.loadUsers = function () {
         var entries = usersApi.query(function () {
-            $scope.users = entries;
+            ctrl.users = entries;
         });
     };
 
-    $scope.loadUsers();
+    ctrl.loadUsers();
 
 })
