@@ -10,13 +10,14 @@ namespace MonackFr.Mvc.Areas.UserManagement
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-#if DEBUG
-            bundles.Add(new ScriptBundle("~/areas/scripts/user").Include(
-                "~/Areas/UserManagement/Scripts/User.js"));
+            bundles.Add(new ScriptBundle("~/scripts/usermanagement").Include(
+                "~/Areas/UserManagement/Scripts/users-controller.js",
+                "~/Areas/UserManagement/Scripts/users-api.js",
+                "~/Areas/UserManagement/Scripts/groups-controller.js",
+                "~/Areas/UserManagement/Scripts/groups-api.js"
+                ));
 
-#else
-#endif
-
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

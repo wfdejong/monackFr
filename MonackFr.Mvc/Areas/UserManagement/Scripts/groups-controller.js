@@ -1,20 +1,23 @@
 ﻿///
 /// Groups controller
 ///
-angular.module('monackfr').controller('groupsController', function ($scope, $state, groupsApi) {
+console.log('groupcontroller loaded');
+angular.module('monackfr')
+    .controller('groupsController', ["$scope", "$state", "groupsApi",
+        function($scope, $state, groupsApi) {
 
-    var ctrl = this;
+            var ctrl = this;
 
-    ///
-    /// Loads a list of users
-    ///
+            ///
+            /// Loads a list of users
+            ///
 
 
-    ctrl.loadGroups = function () {
-        var entries = groupsApi.query(function () {
-            ctrl.groups = entries;
-        });
-    };
+            ctrl.loadGroups = function() {
+                var entries = groupsApi.query(function() {
+                    ctrl.groups = entries;
+                });
+            };
 
-    ctrl.loadGroups();
-})
+            ctrl.loadGroups();
+        }]);

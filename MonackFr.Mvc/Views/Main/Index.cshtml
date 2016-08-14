@@ -2,20 +2,26 @@
 	ViewBag.Title = "Default";
 }
 
-    <a ui-sref="tiles()" class="home-button">Home</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/css/bootstrap")
+    @Styles.Render("~/css/monackfr")
+    @Scripts.Render("~/scripts/jquery")
+    @Scripts.Render("~/scripts/bootstrap")
+    @Scripts.Render("~/scripts/angular")
+</head>
+<body ng-app="monackfr">
+    <h1>The Monack Framework</h1>
+
+<a ui-sref="tiles()" class="home-button">Home</a>
     <section ui-view></section>
 
-@section Scripts {
-        <script src="~/Scripts/monackfr.js"></script>
-        <script src="~/Scripts/Tiles/tile-controller.js"></script>
-        <script src="~/Scripts/Tiles/tile-api.js"></script>
-    }
+    <script src="~/scripts/monackfr"></script>
+    <script src="~/scripts/usermanagement"></script>
 
-    @section ModuleScripts {
-        <script src="~/areas/UserManagement/Scripts/users-controller.js"></script>
-        <script src="~/areas/UserManagement/Scripts/users-api.js"></script>
-        <script src="~/areas/UserManagement/Scripts/groups-controller.js"></script>
-        <script src="~/areas/UserManagement/Scripts/groups-api.js"></script>
-    }
-
-
+</body>
+</html>
