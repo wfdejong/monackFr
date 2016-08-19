@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using MonackFr.Mvc.Contexts;
+using MonackFr.Mvc.Repositories;
 
 namespace MonackFr.Mvc.Controllers
 {
@@ -10,16 +11,16 @@ namespace MonackFr.Mvc.Controllers
     public class MainController : Controller
     {
         /// <summary>
-        /// Context to get packages from database
+        /// repository for packages
         /// </summary>
-        private PackageContext _packageContext;
+        private PackageRepository _packageRepository;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public MainController()
         {
-            _packageContext = new PackageContext();
+            _packageRepository = new PackageRepository();
         }
         
         /// <summary>
@@ -28,7 +29,7 @@ namespace MonackFr.Mvc.Controllers
         /// <returns></returns>
 		public ActionResult Index()
 		{
-		    ViewBag.ScriptSources = (from p in _packageContext.Packages
+		    ViewBag.ScriptSources = (from p in _packageRepository.GetAll()
 		        where p.ScriptSource != null
 		        select p.ScriptSource).ToList();
             
