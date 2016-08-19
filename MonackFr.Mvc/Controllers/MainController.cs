@@ -5,7 +5,7 @@ using MonackFr.Mvc.Contexts;
 namespace MonackFr.Mvc.Controllers
 {
     /// <summary>
-    /// This controller is the start (and only) page of the application.
+    /// This controller is the start controller of the application.
     /// </summary>
     public class MainController : Controller
     {
@@ -35,6 +35,10 @@ namespace MonackFr.Mvc.Controllers
 			return View();
 		}
 
+        /// <summary>
+        /// Returns the template of a tile
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Tile()
         {
             return View();
