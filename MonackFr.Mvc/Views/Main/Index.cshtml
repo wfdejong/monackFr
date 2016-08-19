@@ -20,8 +20,12 @@
 <a ui-sref="tiles()" class="home-button">Home</a>
     <section ui-view></section>
 
-    <script src="~/scripts/monackfr"></script>
-    <script src="~/scripts/usermanagement"></script>
+<script src="~/scripts/monackfr"></script>
+
+    @foreach (var scriptSource in ViewBag.ScriptSources)
+    {
+        <script src="@scriptSource"></script>
+    }
 
 </body>
 </html>

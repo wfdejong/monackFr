@@ -20,6 +20,11 @@ namespace MonackFr.Repository
         /// <summary>
         /// Package description
         /// </summary>
-        string Description { get; }        
+        string Description { get; }
+        
+        /// <summary>
+        /// location of scripts
+        /// </summary>
+        string ScriptSource { get; }
     }
 }
