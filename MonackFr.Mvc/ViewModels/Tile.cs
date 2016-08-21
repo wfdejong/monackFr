@@ -16,5 +16,10 @@
         /// Copyright text
         /// </summary>
         public string Copyright { get; set; }
+
+        /// <summary>
+        /// Angular controller
+        /// </summary>
+        public string Controller { get; set; }
     }
 }

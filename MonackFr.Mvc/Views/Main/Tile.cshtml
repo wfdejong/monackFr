@@ -1,7 +1,7 @@
 ﻿<div ng-controller="tile-controller as tile" class="container-fluid tiles">
     <ul class="row">
         <li ng-repeat="tile in tile.tiles" class="col-xs-4 tile">
-            <a ui-sref="monackfr-usermanagement-users({ id: tile.Module.JsSystemName })">
+            <a ui-sref="{{tile.Controller}}()">
                 {{tile.Title}}
                 <ul>
                     <li ng-repeat="previewItem in tile.PreviewItems">

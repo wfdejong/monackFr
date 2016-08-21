@@ -65,11 +65,12 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 		{
 			IModule iModule = this;
 
-			Tile tile = new Tile(iModule);
+			Tile tile = new Tile();
 			tile.Title = iModule.Name;
 			tile.Copyright = iModule.Author;
-
-			return tile;
+		    tile.Controller = "monackfr-usermanagement-users";
+            
+            return tile;
 		}
 
 		#endregion //implementation of IMenu

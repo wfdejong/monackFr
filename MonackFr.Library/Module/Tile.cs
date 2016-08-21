@@ -5,17 +5,6 @@
 	/// </summary>
 	public class Tile
 	{
-        private IModule _module;
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="module">the system name of the module</param>
-        public Tile(IModule module)
-        {
-            _module = module;
-        }
-
         /// <summary>
         /// Title
         /// </summary>
@@ -30,5 +19,10 @@
         /// Copyright text
         /// </summary>
         public string Copyright { get; set; }
+
+        /// <summary>
+        /// Name of angular controll called after clicking tile
+        /// </summary>
+        public string Controller { get; set; }
     }
 }
