@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MonackFr.Security;
-using System.Web.Security;
+﻿using System.Collections.Generic;
 
-namespace MonackFr.Repository
+namespace MonackFr.Library.Module
 {
 	/// <summary>
 	/// Menu item

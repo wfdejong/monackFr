@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using AutoMapper;
+using MonackFr.Library.Module;
 
 namespace MonackFr.Mvc.Api
 {
@@ -13,9 +13,9 @@ namespace MonackFr.Mvc.Api
         /// <returns></returns>
         public IHttpActionResult Get()
         {
-            List<Repository.Tile> tiles = new List<Repository.Tile>();
+            List<Tile> tiles = new List<Tile>();
 
-            foreach (Repository.IModule module in ModuleKeeper.Instance.Modules)
+            foreach (IModule module in ModuleKeeper.Instance.Modules)
             {
                 tiles.Add(module.GetTile());
             }
@@ -29,7 +29,7 @@ namespace MonackFr.Mvc.Api
 
         public IHttpActionResult Get(string moduleName)
         {
-            Repository.IModule module = ModuleKeeper.Instance.GetModule(moduleName);
+            IModule module = ModuleKeeper.Instance.GetModule(moduleName);
             return Ok(module.GetTile());
         }
     }

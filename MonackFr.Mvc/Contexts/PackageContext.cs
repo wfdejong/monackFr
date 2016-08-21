@@ -1,10 +1,6 @@
-﻿using MonackFr.Repository;
-using System;
-using System.Collections.Generic;
+﻿using MonackFr.Library.Repository;
 using System.ComponentModel.Composition;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace MonackFr.Mvc.Contexts
 {

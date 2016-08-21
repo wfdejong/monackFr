@@ -1,5 +1,5 @@
-﻿using System;
-using AutoMapper;
+﻿using AutoMapper;
+using MonackFr.Library.Module;
 
 namespace MonackFr.Mvc
 {
@@ -9,8 +9,17 @@ namespace MonackFr.Mvc
 
         public static void CreateMaps()
         {
-            var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<Repository.Tile, ViewModels.Tile>();
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Tile, ViewModels.Tile>();
+                cfg.CreateMap<IPackage, PackageManagement.Package>();
+
+                //Packagemanagement to entities
+                cfg.CreateMap<PackageManagement.Package, Entities.Package>();
+                cfg.CreateMap<PackageManagement.Module, Entities.Module>();
+                cfg.CreateMap<Security.IMfrRole, Entities.Role>();
+
+                cfg.CreateMap<IModule, PackageManagement.Module>();
             });
 
             _mapper = config.CreateMapper();

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Linq.Expressions;
 
-namespace MonackFr.Repository
+namespace MonackFr.Library.Repository
 {
 	/// <summary>
 	/// Interface for generic repository. Necessary for unit test

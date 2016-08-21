@@ -1,9 +1,5 @@
-﻿using MonackFr.Repository;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.Composition;
+using MonackFr.Library.Module;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Package
 {
@@ -23,6 +19,6 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
         /// <summary>
         /// Script bundle of the package
         /// </summary>
-        string IPackage.ScriptSource { get { return @"~/scripts/usermanagement"; } }
+        string IPackage.ScriptSource { get { return @"scripts/usermanagement"; } }
     }
 }

@@ -1,4 +1,4 @@
-﻿using MonackFr.Repository;
+﻿using MonackFr.Library.Repository;
 using MonackFr.Mvc.Entities;
 
 namespace MonackFr.Mvc.Repositories

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using MonackFr.Security;
-
-namespace MonackFr.Security
+﻿namespace MonackFr.Security
 {
 	public interface IMfrRoleProvider
 	{

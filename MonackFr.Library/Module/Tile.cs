@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MonackFr.Repository
+﻿namespace MonackFr.Library.Module
 {
 	/// <summary>
 	/// Tile definition for in a module

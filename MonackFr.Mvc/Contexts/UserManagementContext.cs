@@ -1,5 +1,5 @@
 ﻿using MonackFr.Mvc.Entities;
-using MonackFr.Repository;
+using MonackFr.Library.Repository;
 using System.ComponentModel.Composition;
 using System.Data.Entity;
 

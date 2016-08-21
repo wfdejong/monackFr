@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace MonackFr.Repository
+﻿namespace MonackFr.Library.Module
 {
 	/// <summary>
 	/// Definition of a module

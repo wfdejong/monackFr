@@ -1,8 +1,4 @@
-﻿using MonackFr.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using MonackFr.Library.Repository;
 
 namespace MonackFr.Mvc.Repositories
 {

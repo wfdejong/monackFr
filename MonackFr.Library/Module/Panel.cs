@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MonackFr.Repository
+﻿namespace MonackFr.Library.Module
 {
 	public class Panel
 	{

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web.Security;
-using MonackFr.Security;
 
 namespace MonackFr.Security
 {

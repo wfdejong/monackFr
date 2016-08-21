@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MonackFr.Mvc.Areas.UserManagement.Package
+﻿namespace MonackFr.Mvc.Areas.UserManagement.Package
 {
 	public static class Names
 	{

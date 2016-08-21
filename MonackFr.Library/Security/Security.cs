@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MonackFr.Security
+﻿namespace MonackFr.Security
 {
 	/// <summary>
 	/// Wrapper to return static Security classes

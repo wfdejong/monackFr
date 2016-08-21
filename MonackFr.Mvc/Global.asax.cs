@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Http;
 using System.Web.Optimization;
+using MonackFr.Library.Module;
 using MonackFr.Mvc.Repositories;
-using MonackFr.Repository;
 
 namespace MonackFr.Mvc
 {
@@ -33,19 +35,28 @@ namespace MonackFr.Mvc
 		/// </summary>
 		private void LoadInstalledModules()
         {
-            //Since pluginloader is singleton, the plugins are present if loaded once.
-            if (ModuleKeeper.Instance.Modules.Count() == 0)
+            try
             {
-                PackageRepository packageRepository = new PackageRepository();
-                IEnumerable<Entities.Package> packages = packageRepository.GetAll().ToList();
 
-                foreach (Entities.Package package in packages)
+                //Since pluginloader is singleton, the plugins are present if loaded once.
+                if (ModuleKeeper.Instance.Modules.Count() == 0)
                 {
-                    string path = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory, package.RelativePath);
-                    ILoader<IModule> loader = new Loader<IModule>();
-                    IEnumerable<IModule> loadedModules = loader.Load(path).LoadedItems;
-                    ModuleKeeper.Instance.AddRange(loadedModules);
+                    PackageRepository packageRepository = new PackageRepository();
+                    IEnumerable<Entities.Package> packages = packageRepository.GetAll().ToList();
+
+                    foreach (Entities.Package package in packages)
+                    {
+                        string path = string.Format("{0}\\{1}", AppDomain.CurrentDomain.BaseDirectory,
+                            package.Path);
+                        ILoader<IModule> loader = new Loader<IModule>();
+                        IEnumerable<IModule> loadedModules = loader.Load(path).LoadedItems;
+                        ModuleKeeper.Instance.AddRange(loadedModules);
+                    }
                 }
+            }
+            catch (EntityException ex)
+            {
+                
             }
         }
     }

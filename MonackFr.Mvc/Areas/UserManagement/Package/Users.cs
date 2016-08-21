@@ -1,11 +1,8 @@
-﻿using MonackFr.Repository;
-using MonackFr.Security;
+﻿using MonackFr.Security;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using MonackFr.Library.Module;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Package
 {

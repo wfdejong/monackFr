@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MonackFr.Repository;
+using MonackFr.Library.Repository;
 using MonackFr.Mvc.Entities;
 using MonackFr.Mvc.Contexts;
 

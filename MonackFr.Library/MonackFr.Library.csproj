@@ -8,8 +8,8 @@
     <ProjectGuid>{DE92726D-E872-4E26-8E20-2C125EC3E6F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MonackFr</RootNamespace>
-    <AssemblyName>MonackFr</AssemblyName>
+    <RootNamespace>MonackFr.Library</RootNamespace>
+    <AssemblyName>MonackFr.Library</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>

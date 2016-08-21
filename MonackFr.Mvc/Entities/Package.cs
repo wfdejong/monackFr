@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace MonackFr.Mvc.Entities
 {
@@ -23,7 +21,7 @@ namespace MonackFr.Mvc.Entities
         /// <summary>
         /// Relative path (seen from app root) to the file of the package
         /// </summary>
-        public string RelativePath { get; set; }
+        public string Path { get; set; }
 
         /// <summary>
         /// Relative url to (java) scripts

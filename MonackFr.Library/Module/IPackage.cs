@@ -1,11 +1,4 @@
-﻿using MonackFr.Repository;
-using MonackFr.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MonackFr.Repository
+﻿namespace MonackFr.Library.Module
 {
 	/// <summary>
 	/// Definition of a package
