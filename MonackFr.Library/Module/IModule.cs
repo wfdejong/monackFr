@@ -1,4 +1,6 @@
-﻿namespace MonackFr.Library.Module
+﻿using System.Collections.Generic;
+
+namespace MonackFr.Library.Module
 {
 	/// <summary>
 	/// Definition of a module
@@ -25,10 +27,17 @@
 		/// </summary>
 		string Author { get; }
 
+        /// <summary>
+        /// The angular states of the module
+        /// </summary>
+        IEnumerable<State> States { get; }
+
 		/// <summary>
 		/// Returns module's tile
 		/// </summary>
 		/// <returns></returns>
 		Tile GetTile();
+
+
 	}
 }

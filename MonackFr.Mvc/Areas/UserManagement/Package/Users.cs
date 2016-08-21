@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Text.RegularExpressions;
 using MonackFr.Library.Module;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Package
@@ -31,6 +32,34 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 		{
 			get { return "MonackFr.UserManagement"; }
 		}
+
+	    IEnumerable<State> IModule.States
+	    {
+	        get
+	        {
+	            return new List<State>
+	            {
+	                new State
+	                {
+	                    Name = "monackfr-usermanagement-users",
+	                    Config =
+	                        @"url: '/module/usermanagement', templateUrl: 'usermanagement/user/index', controller: 'usersController', controllerAs: 'usersController'"
+	                },
+	                new State
+	                {
+	                    Name = "monackfr-usermanagement-groups",
+	                    Config =
+	                        @"url: '/module/usermanagement/groups', templateUrl: 'usermanagement/group/index', controller: 'groupsController', controllerAs: 'groupsController'"
+	                },
+	                new State
+	                {
+	                    Name = "monackfr-usermanagement-roles",
+	                    Config =
+	                        @"url: '/module/usermanagement/roles', templateUrl: 'usermanagement/role/index', controller: 'usersController', controllerAs: 'usersController'"
+	                }
+	            };
+	        }
+	    }
 
 		Tile IModule.GetTile()
 		{

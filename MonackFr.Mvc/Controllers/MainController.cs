@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using MonackFr.Library.Module;
 using MonackFr.Mvc.Contexts;
 using MonackFr.Mvc.Repositories;
 using MonackFr.Library.Repository;
 using MonackFr.Mvc.DatabaseManagement;
 using MonackFr.Mvc.PackageManagement;
+using WebGrease.Css.Extensions;
 
 namespace MonackFr.Mvc.Controllers
 {
@@ -49,6 +51,14 @@ namespace MonackFr.Mvc.Controllers
 		    ViewBag.ScriptSources = (from p in _packageRepository.GetAll()
 		        where p.ScriptSource != null
 		        select p.ScriptSource).ToList();
+
+            var states = new List<State>();
+
+            (from m in ModuleKeeper.Instance.Modules
+                where m.States != null
+                select m.States).ForEach(x=> states.AddRange(x));
+
+            ViewBag.States = states;
             
 			return View();
 		}

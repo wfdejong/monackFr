@@ -76,6 +76,7 @@
     <Compile Include="Module\IPackage.cs" />
     <Compile Include="Module\MenuItem.cs" />
     <Compile Include="Module\Panel.cs" />
+    <Compile Include="Module\State.cs" />
     <Compile Include="Repository\IContext.cs" />
     <Compile Include="Module\Tile.cs" />
     <Compile Include="Security\IHash.cs" />
