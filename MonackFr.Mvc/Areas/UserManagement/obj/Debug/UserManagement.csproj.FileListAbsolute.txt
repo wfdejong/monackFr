@@ -84,3 +84,8 @@ D:\Code\MonackFr\MonackFr.Mvc\bin\UserManagement.pdb
 D:\Code\MonackFr\MonackFr.Mvc\Areas\UserManagement\obj\Debug\UserManagement.csprojResolveAssemblyReference.cache
 D:\Code\MonackFr\MonackFr.Mvc\Areas\UserManagement\obj\Debug\UserManagement.dll
 D:\Code\MonackFr\MonackFr.Mvc\Areas\UserManagement\obj\Debug\UserManagement.pdb
+E:\Code\MonackFr\MonackFr.Mvc\Areas\UserManagement\obj\Debug\UserManagement.csprojResolveAssemblyReference.cache
+E:\Code\MonackFr\MonackFr.Mvc\bin\UserManagement.dll
+E:\Code\MonackFr\MonackFr.Mvc\bin\UserManagement.pdb
+E:\Code\MonackFr\MonackFr.Mvc\Areas\UserManagement\obj\Debug\UserManagement.dll
+E:\Code\MonackFr\MonackFr.Mvc\Areas\UserManagement\obj\Debug\UserManagement.pdb

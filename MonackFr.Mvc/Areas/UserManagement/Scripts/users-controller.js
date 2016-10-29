@@ -1,11 +1,12 @@
 ﻿///
 /// Users controller
 ///
-console.log('usercontroller 5 loaded');
 angular.module('monackfr')
-    .controller('usersController', ["$scope", "$state", "usersApi",
+    .controller('usersController',
+    [
+        "$scope", "$state", "usersApi",
         function($scope, $state, usersApi) {
-
+            console.log('usercontroller loaded');
             var ctrl = this;
 
             ///
@@ -21,4 +22,18 @@ angular.module('monackfr')
 
             ctrl.loadUsers();
 
-        }]);
+        }
+    ]);
+angular.module('monackfr')
+    .controller('newUserController',
+    [
+        "$scope", "$state", "usersApi",
+        function($scope, $state, usersApi) {
+            console.log('newuserscontroller loaded');
+            $scope.addUser = function() {
+                console.log("newuser: ", usersApi);
+            }
+
+        }
+    ]);
+       

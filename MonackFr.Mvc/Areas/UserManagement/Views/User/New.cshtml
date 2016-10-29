@@ -1,0 +1,24 @@
+﻿    <ul class="module-menu">
+    <li>
+        <a ui-sref="monackfr-usermanagement-users()">Users</a>
+    </li>
+    <li>
+        <a ui-sref="monackfr-usermanagement-groups()">Groups</a>
+    </li>
+    <li>
+        <a ui-sref="monackfr-usermanagement-roles()">Roles</a>
+    </li>
+</ul>
+<div  class="module-content" ng-controller="newUserController">
+    <form ng-submit="addUser()">
+        <ul>
+            <li>
+                <label>Username</label>
+                <input type="text" name="userName" />
+            </li>
+            <li>
+                <input type="submit" name="submit" value="Add user" />
+            </li>
+        </ul>
+    </form>
+</div>

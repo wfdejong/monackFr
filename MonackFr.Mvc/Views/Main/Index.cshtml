@@ -43,6 +43,7 @@
             @foreach (State state in ViewBag.States)
             {
                 @Html.Raw(".state('" + state.Name + "', { " + state.Config + "})")
+
             };
         }
     ]);

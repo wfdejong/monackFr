@@ -45,7 +45,13 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 	                    Config =
 	                        @"url: '/module/usermanagement', templateUrl: 'usermanagement/user/index', controller: 'usersController', controllerAs: 'usersController'"
 	                },
-	                new State
+                    new State
+                    {
+                        Name = "monackfr-usermanagement-newuser",
+                        Config =
+                            @"url: '/module/usermanagement/newuser', templateUrl: 'usermanagement/user/new', controller: 'newUserController', controllerAs: 'newUserController'"
+                    },
+                    new State
 	                {
 	                    Name = "monackfr-usermanagement-groups",
 	                    Config =
@@ -57,7 +63,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 	                    Config =
 	                        @"url: '/module/usermanagement/roles', templateUrl: 'usermanagement/role/index', controller: 'usersController', controllerAs: 'usersController'"
 	                }
-	            };
+                };
 	        }
 	    }
 
