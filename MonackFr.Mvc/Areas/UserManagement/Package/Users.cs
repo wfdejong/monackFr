@@ -43,25 +43,25 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
 	                {
 	                    Name = "monackfr-usermanagement-users",
 	                    Config =
-	                        @"url: '/module/usermanagement', templateUrl: 'usermanagement/user/index', controller: 'usersController', controllerAs: 'usersController'"
+	                        @"url: '/module/usermanagement', templateUrl: 'usermanagement/user/index', controller: 'usersController', controllerAs: 'usersCtrl'"
 	                },
                     new State
                     {
                         Name = "monackfr-usermanagement-newuser",
                         Config =
-                            @"url: '/module/usermanagement/newuser', templateUrl: 'usermanagement/user/new', controller: 'newUserController', controllerAs: 'newUserController'"
+                            @"url: '/module/usermanagement/newuser', templateUrl: 'usermanagement/user/new', controller: 'newUserController', controllerAs: 'newUserCtrl'"
                     },
                     new State
 	                {
 	                    Name = "monackfr-usermanagement-groups",
 	                    Config =
-	                        @"url: '/module/usermanagement/groups', templateUrl: 'usermanagement/group/index', controller: 'groupsController', controllerAs: 'groupsController'"
+	                        @"url: '/module/usermanagement/groups', templateUrl: 'usermanagement/group/index', controller: 'groupsController', controllerAs: 'groupsCtrl'"
 	                },
 	                new State
 	                {
 	                    Name = "monackfr-usermanagement-roles",
 	                    Config =
-	                        @"url: '/module/usermanagement/roles', templateUrl: 'usermanagement/role/index', controller: 'usersController', controllerAs: 'usersController'"
+	                        @"url: '/module/usermanagement/roles', templateUrl: 'usermanagement/role/index', controller: 'rolesController', controllerAs: 'rolesCtrl'"
 	                }
                 };
 	        }

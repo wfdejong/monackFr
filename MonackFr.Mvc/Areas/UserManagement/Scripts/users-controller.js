@@ -2,38 +2,45 @@
 /// Users controller
 ///
 angular.module('monackfr')
-    .controller('usersController',
-    [
-        "$scope", "$state", "usersApi",
-        function($scope, $state, usersApi) {
+    .controller('usersController', ["$scope", "$state", "usersApi",
+        function ($scope, $state, usersApi) {
             console.log('usercontroller loaded');
-            var ctrl = this;
+            var usersCtrl = this;
 
             ///
             /// Loads a list of users
             ///
-
-
-            ctrl.loadUsers = function() {
-                var entries = usersApi.query(function() {
-                    ctrl.users = entries;
+            usersCtrl.load = function () {
+                var entries = usersApi.query(function () {
+                    usersCtrl.users = entries;
                 });
             };
 
-            ctrl.loadUsers();
+            ///
+            /// Deletes user
+            usersCtrl.delete = function (user) {
+                var params = { id: user.Id };
+                user.$delete(params, function () {
+                    usersCtrl.load();
+                });
+            };
 
+            usersCtrl.load();
         }
     ]);
-angular.module('monackfr')
-    .controller('newUserController',
-    [
-        "$scope", "$state", "usersApi",
-        function($scope, $state, usersApi) {
-            console.log('newuserscontroller loaded');
-            $scope.addUser = function() {
-                console.log("newuser: ", usersApi);
-            }
 
+///
+/// New user controller
+///
+angular.module('monackfr')
+    .controller('newUserController', ["$scope", "$state", "usersApi",
+        function ($scope, $state, usersApi) {
+            var newUserCtrl = this;
+            newUserCtrl.add = function () {
+                usersApi.save($scope.User, function () {
+                    $state.go('monackfr-usermanagement-users');
+                });
+            }
         }
     ]);
        

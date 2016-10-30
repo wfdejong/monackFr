@@ -11,21 +11,27 @@
     </li>
 </ul>
 <a ui-sref="monackfr-usermanagement-newuser()">new</a>
-<ul ng-controller="usersController" class="module-content">
+<ul class="module-content">
     <li>
         <table border="1">
             <thead>
             <tr>
+                <td>Id</td>
                 <td>Username</td>
+                <td>Email</td>
+                <td>Last login</td>
                 <td></td>
                 <td></td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="user in usersController.users">
+            <tr ng-repeat="user in usersCtrl.users">
+                <td>{{user.Id}}</td>
                 <td>{{user.UserName}}</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+                <td>{{user.Email}}</td>
+                <td>{{user.LastLoginFormatted}}</td> 
+                <td><a ui-sref="users.edit({id:user.Id})">edit</a></td>
+                <td><a href="" ng-click="usersCtrl.delete(user)">delete</a></td>
             </tr>
         </table>
     </li>
