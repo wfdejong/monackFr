@@ -14,13 +14,8 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         /// <summary>
         /// The repository
         /// </summary>
-        private MonackFr.Mvc.Repositories.IUserRepository _repository;
-
-        /// <summary>
-        /// Authentication object
-        /// </summary>
-        private IAuthentication _authentication;
-
+        private Repositories.IUserRepository _repository;
+        
         #endregion //private properties
 
         #region constructors
@@ -29,19 +24,17 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         /// Default constructor
         /// </summary>
         public UsersApiController()
-            : this(new MonackFr.Mvc.Repositories.UserRepository(), new Authentication())
+            : this(new Repositories.UserRepository())
         {
         }
 
         /// <summary>
-        /// Constructor with custom repository and authentication object
+        /// Constructor with custom repository
         /// </summary>
         /// <param name="repository"></param>
-        /// <param name="authentication"></param>
-        public UsersApiController(MonackFr.Mvc.Repositories.IUserRepository repository, IAuthentication authentication)
+        public UsersApiController(Repositories.IUserRepository repository)
         {
             _repository = repository;
-            _authentication = authentication;
         }
 
         #endregion //constructors

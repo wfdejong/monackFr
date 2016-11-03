@@ -10,21 +10,19 @@
         <a ui-sref="monackfr-usermanagement-roles()">Roles</a>
 </li>
 </ul>
-<ul ng-controller="rolesController" class="module-content">
+<ul class="module-content">
     <li>
         <table border="1">
             <thead>
             <tr>
                 <td>Rolename</td>
-                <td></td>
-                <td></td>
+                <td>Description</td>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="role in roles">
-                <td>{{role.name}}</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+            <tr ng-repeat="role in rolesCtrl.roles">
+                <td>{{role.Name}}</td>
+                <td>{{role.Description}}</td>
             </tr>
         </table>
     </li>

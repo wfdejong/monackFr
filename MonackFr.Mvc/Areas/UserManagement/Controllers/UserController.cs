@@ -15,11 +15,19 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
             return View();
         }
 
+        /// <summary>
+        /// returns view for new user
+        /// </summary>
+        /// <returns></returns>
         public ActionResult New()
         {
             return View();
         }
 
+        /// <summary>
+        /// returns view for edit user
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Edit()
         {
             return View();

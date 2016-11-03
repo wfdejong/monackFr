@@ -1,4 +1,6 @@
-﻿using MonackFr.Security;
+﻿using System.Collections.Generic;
+using MonackFr.Library.Module;
+using MonackFr.Security;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Package
 {

@@ -4,7 +4,6 @@
 angular.module('monackfr')
     .controller('usersController', ["$scope", "$state", "usersApi",
         function ($scope, $state, usersApi) {
-            console.log('usercontroller loaded');
             var usersCtrl = this;
 
             ///

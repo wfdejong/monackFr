@@ -12,6 +12,7 @@ namespace MonackFr.Mvc.Areas.UserManagement
             {
                 cfg.CreateMap<Entities.User, ViewModels.User>();
                 cfg.CreateMap<Entities.Group, ViewModels.Group>();
+                cfg.CreateMap<Entities.Role, ViewModels.Role>();
                 cfg.CreateMap<ViewModels.User, Entities.User>();
             });
 
