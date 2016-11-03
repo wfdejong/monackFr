@@ -1,4 +1,4 @@
-﻿    <ul class="module-menu">
+﻿<ul class="module-menu">
     <li>
         <a ui-sref="monackfr-usermanagement-users()">Users</a>
     </li>
@@ -10,22 +10,22 @@
     </li>
 </ul>
 <div class="module-content">
-    <form ng-submit="newUserCtrl.add()">
+    <form ng-submit="editUserCtrl.edit()">
         <ul>
             <li>
                 <label>Username</label>
-                <input type="text" ng-model="user.UserName" />
+                <input type="text" ng-model="editUserCtrl.user.UserName" />
             </li>
             <li>
                 <label>Password</label>
-                <input type="password" ng-model="user.Password" />
+                <input type="password" ng-model="editUserCtrl.user.Password" />
             </li>
             <li>
                 <label>Email</label>
-                <input type="email" ng-model="user.Email" />
+                <input type="email" ng-model="editUserCtrl.user.Email" />
             </li>
             <li>
-                <input type="submit" name="submit" value="Add user" />
+                <input type="submit" name="submit" value="Save user" />
             </li>
         </ul>
     </form>
