@@ -10,7 +10,8 @@
         <a ui-sref="monackfr-usermanagement-roles()">Roles</a>
 </li>
 </ul>
-<ul ng-controller="groupsController" class="module-content">
+<a ui-sref="monackfr-usermanagement-newgroup()">new</a>
+<ul class="module-content">
     <li>
         <table border="1">
             <thead>
@@ -21,7 +22,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="group in groupsController.groups">
+            <tr ng-repeat="group in groupsCtrl.groups">
                 <td>{{group.Name}}</td>
                 <td><a href="#">Edit</a></td>
                 <td><a href="#">Delete</a></td>

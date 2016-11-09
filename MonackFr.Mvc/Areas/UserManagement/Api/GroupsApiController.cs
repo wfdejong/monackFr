@@ -56,5 +56,16 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
 
             return Ok(lijst);
         }
+
+        /// <summary>
+        /// Creates group
+        /// </summary>
+        /// <param name="group"></param>
+        public void Post(Group group)
+        {
+            var mapper = AutoMapperConfig.Mapper;
+            _repository.Create(mapper.Map<Entities.Group>(group));
+            _repository.Save();
+        }
     }
 }

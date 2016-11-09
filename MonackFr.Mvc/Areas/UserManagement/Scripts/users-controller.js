@@ -2,8 +2,8 @@
 /// Users controller
 ///
 angular.module('monackfr')
-    .controller('usersController', ["$scope", "$state", "usersApi",
-        function ($scope, $state, usersApi) {
+    .controller('usersController', ["usersApi",
+        function (usersApi) { 
             var usersCtrl = this;
 
             ///
@@ -32,11 +32,11 @@ angular.module('monackfr')
 /// New user controller
 ///
 angular.module('monackfr')
-    .controller('newUserController', ["$scope", "$state", "usersApi",
-        function ($scope, $state, usersApi) {
+    .controller('newUserController', ["$state", "usersApi",
+        function ($state, usersApi) {
             var newUserCtrl = this;
             newUserCtrl.add = function () {
-                usersApi.save($scope.User, function () {
+                usersApi.save(newUserCtrl.user, function () {
                     $state.go('monackfr-usermanagement-users');
                 });
             }
@@ -47,10 +47,9 @@ angular.module('monackfr')
 /// Edit user controller
 ///
 angular.module('monackfr')
-.controller('editUserController', ["$scope", "$state", "$stateParams", "usersApi",
-   function ($scope, $state, $stateParams, usersApi) {
+.controller('editUserController', ["$state", "$stateParams", "usersApi",
+   function ($state, $stateParams, usersApi) {
        var editUserCtrl = this;
-       console.log($stateParams.id);
        editUserCtrl.loadUser = function () {
            editUserCtrl.user = usersApi.get({ id: $stateParams.id });
        }

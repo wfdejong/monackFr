@@ -2,8 +2,8 @@
 /// Roles controller
 ///
 angular.module('monackfr')
-    .controller('rolesController', ["$scope", "$state", "rolesApi",
-        function ($scope, $state, rolesApi) {
+    .controller('rolesController', ["rolesApi",
+        function (rolesApi) {
             var rolesCtrl = this;
 
             ///

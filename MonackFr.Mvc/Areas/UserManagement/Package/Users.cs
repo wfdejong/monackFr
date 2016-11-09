@@ -62,6 +62,24 @@ namespace MonackFr.Mvc.Areas.UserManagement.Package
                         Name = "monackfr-usermanagement-roles",
                         Config =
                             @"url: '/module/usermanagement/roles', templateUrl: 'usermanagement/role/index', controller: 'rolesController', controllerAs: 'rolesCtrl'"
+                    },
+                    new State
+                    {
+                        Name = "monackfr-usermanagement-groups",
+                        Config =
+                            @"url: '/module/usermanagement/groups', templateUrl: 'usermanagement/group/index', controller: 'groupsController', controllerAs: 'groupsCtrl'"
+                    },
+                    new State
+                    {
+                        Name = "monackfr-usermanagement-newgroup",
+                        Config =
+                            @"url: '/module/usermanagement/newgroup', templateUrl: 'usermanagement/group/new', controller: 'newGroupController', controllerAs: 'newGroupCtrl'"
+                    },
+                    new State
+                    {
+                        Name = "monackfr-usermanagement-editgroup",
+                        Config =
+                            @"url: '/module/usermanagement/groupuser/:id', templateUrl: 'usermanagement/group/edit', controller: 'editGroupController', controllerAs: 'editGroupCtrl'"
                     }
                 };
 	        }

@@ -1,23 +1,38 @@
 ﻿///
 /// Groups controller
 ///
-console.log('groupcontroller loaded');
 angular.module('monackfr')
-    .controller('groupsController', ["$scope", "$state", "groupsApi",
-        function($scope, $state, groupsApi) {
+    .controller('groupsController', ["groupsApi",
+        function(groupsApi) {
 
-            var ctrl = this;
+            var groupsCtrl = this;
 
             ///
             /// Loads a list of users
             ///
-
-
-            ctrl.loadGroups = function() {
+            groupsCtrl.loadGroups = function () {
                 var entries = groupsApi.query(function() {
-                    ctrl.groups = entries;
+                    groupsCtrl.groups = entries;
                 });
             };
 
-            ctrl.loadGroups();
+            groupsCtrl.loadGroups();
         }]);
+
+///
+/// New group controller
+///
+angular.module('monackfr')
+    .controller('newGroupController',
+    [
+        "$state", "groupsApi",
+        function($state, groupsApi) {
+            var newGroupCtrl = this;
+            newGroupCtrl.add = function() {
+                groupsApi.save(newGroupCtrl.Group,
+                    function() {
+                        $state.go('monackfr-usermanagement-groups');
+                    });
+            }
+        }
+    ]);
