@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using MonackFr.Mvc.Areas.UserManagement.ViewModels;
 using MonackFr.Mvc.Repositories;
-using MonackFr.Security;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Api
 {
@@ -14,12 +15,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         /// The repository
         /// </summary>
         private IGroupRepository _repository;
-
-        /// <summary>
-        /// Authentication object
-        /// </summary>
-        private IAuthentication _authentication;
-
+        
         #endregion //private properties
 
         #region constructors
@@ -28,7 +24,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         /// Default constructor
         /// </summary>
         public GroupsApiController()
-            : this(new GroupRepository(), new Authentication())
+            : this(new GroupRepository())
         {
         }
 
@@ -36,11 +32,9 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         /// Constructor with custom repository and authentication object
         /// </summary>
         /// <param name="repository"></param>
-        /// <param name="authentication"></param>
-        public GroupsApiController(IGroupRepository repository, IAuthentication authentication)
+        public GroupsApiController(IGroupRepository repository)
         {
             _repository = repository;
-            _authentication = authentication;
         }
 
         #endregion //constructors
@@ -52,9 +46,22 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         public IHttpActionResult Get()
         {
             var mapper = AutoMapperConfig.Mapper;
-            var lijst = mapper.Map<List<Group>>(_repository.GetAll());
+            var list = mapper.Map<List<Group>>(_repository.GetAll());
 
-            return Ok(lijst);
+            return Ok(list);
+        }
+
+        /// <summary>
+        /// Returns a group
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IHttpActionResult Get(int id)
+        {
+            var mapper = AutoMapperConfig.Mapper;
+            var group = mapper.Map<Group>(_repository.GetSingle(g => g.Id == id));
+
+            return Ok(group);
         }
 
         /// <summary>
@@ -66,6 +73,33 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
             var mapper = AutoMapperConfig.Mapper;
             _repository.Create(mapper.Map<Entities.Group>(group));
             _repository.Save();
+        }
+
+        /// <summary>
+        /// Edits user
+        /// </summary>
+        /// <param name="group"></param>
+        public void Put(Group group)
+        {
+            var mapper = AutoMapperConfig.Mapper;
+            var groupToUpdate = _repository.GetSingle(g => g.Id == group.Id);
+            mapper.Map(group, groupToUpdate);
+            _repository.Edit(groupToUpdate);
+            _repository.Save();
+        }
+
+        /// <summary>
+        /// Deletes user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        public HttpResponseMessage Delete(int id)
+        {
+            var groupToDelete = _repository.GetSingle(g => g.Id == id);
+            _repository.Delete(groupToDelete);
+            _repository.Save();
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

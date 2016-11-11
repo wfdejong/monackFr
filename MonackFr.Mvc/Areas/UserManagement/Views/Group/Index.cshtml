@@ -24,8 +24,8 @@
             <tbody>
             <tr ng-repeat="group in groupsCtrl.groups">
                 <td>{{group.Name}}</td>
-                <td><a href="#">Edit</a></td>
-                <td><a href="#">Delete</a></td>
+                <td><a ui-sref="monackfr-usermanagement-editgroup({id:group.Id})">edit</a></td>
+                <td><a href="" ng-click="groupsCtrl.delete(group)">delete</a></td>
             </tr>
         </table>
     </li>

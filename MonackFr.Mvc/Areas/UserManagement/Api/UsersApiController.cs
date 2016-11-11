@@ -2,7 +2,6 @@
 using System.Web.Http;
 using System.Net.Http;
 using MonackFr.Mvc.Areas.UserManagement.ViewModels;
-using MonackFr.Security;
 using System.Net;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Api

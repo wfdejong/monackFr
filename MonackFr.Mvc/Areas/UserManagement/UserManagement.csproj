@@ -147,6 +147,7 @@
     <Compile Include="ViewModels\Group.cs" />
     <Compile Include="ViewModels\Role.cs" />
     <Compile Include="ViewModels\User.cs" />
+    <Content Include="Views\Group\Edit.cshtml" />
     <None Include="Views\Group\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
