@@ -33,6 +33,11 @@ namespace MonackFr.Mvc.Areas.UserManagement.Controllers
             return View();
         }
 
+        public ActionResult Menu()
+        {
+            return View();
+        }
+
         #endregion //views
     }
 }

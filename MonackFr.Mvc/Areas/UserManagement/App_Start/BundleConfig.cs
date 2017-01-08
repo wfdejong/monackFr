@@ -7,6 +7,7 @@ namespace MonackFr.Mvc.Areas.UserManagement
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/scripts/usermanagement").Include(
+                "~/Areas/UserManagement/Scripts/menu-controller.js",
                 "~/Areas/UserManagement/Scripts/users-controller.js",
                 "~/Areas/UserManagement/Scripts/users-api.js",
                 "~/Areas/UserManagement/Scripts/roles-controller.js",

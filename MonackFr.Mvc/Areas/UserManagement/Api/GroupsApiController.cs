@@ -40,7 +40,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         #endregion //constructors
 
         /// <summary>
-        /// 
+        /// Returns groups
         /// </summary>
         /// <returns></returns>
         public IHttpActionResult Get()
@@ -76,7 +76,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         }
 
         /// <summary>
-        /// Edits user
+        /// Edits group
         /// </summary>
         /// <param name="group"></param>
         public void Put(Group group)
@@ -89,7 +89,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         }
 
         /// <summary>
-        /// Deletes user
+        /// Deletes group
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

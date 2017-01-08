@@ -16,7 +16,8 @@
     <h1>The Monack Framework</h1>
 
 <a ui-sref="tiles()" class="home-button">Home</a>
-    <section ui-view></section>
+<section ui-view="menu"></section>
+<section ui-view="content"></section>
 
     @Scripts.Render("~/scripts/angular")
     @Scripts.Render("~/scripts/jquery")
@@ -36,9 +37,15 @@
                 .state('tiles',
                 {
                     url: '/tiles',
-                    templateUrl: 'main/tile',
-                    controller: 'tile-controller',
-                    controllerAs: 'tile'
+                    views: 
+                    {
+                        'content':
+                        {
+                            templateUrl: 'main/tile',
+                            controller: 'tile-controller',
+                            controllerAs: 'tile'
+                        }
+                    }
                 })
             @foreach (State state in ViewBag.States)
             {
