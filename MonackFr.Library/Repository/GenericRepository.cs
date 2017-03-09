@@ -28,6 +28,11 @@ namespace MonackFr.Library.Repository
 			set { _entities = value; }
 		}
 
+	    public GenericRepository()
+	    {
+	        _entities.Configuration.LazyLoadingEnabled = false;
+	    }
+
 		/// <summary>
 		/// Get all entities
 		/// </summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MonackFr.Mvc.Areas.UserManagement.ViewModels
 {
@@ -36,5 +37,10 @@ namespace MonackFr.Mvc.Areas.UserManagement.ViewModels
         /// Last login of user, formatted to short date
         /// </summary>
         public string LastLoginFormatted { get { return LastLogin?.ToShortDateString(); } }
-    }
+
+        /// <summary>
+        /// All groups with selected=true if user is member of that group
+        /// </summary>
+	    public IEnumerable<Group> Groups { get; set; }
+	}
 }

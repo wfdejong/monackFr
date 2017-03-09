@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MonackFr.Library.Repository;
 using System.Data.Entity;
+using System.Linq.Expressions;
 using MonackFr.Mvc.Entities;
 using MonackFr.Mvc.Contexts;
 
@@ -20,7 +21,14 @@ namespace MonackFr.Mvc.Repositories
 			base.Edit(user);
 		}
 
-		/// <summary>
+	    public override User GetSingle(Expression<Func<User, bool>> predicate)
+	    {
+	        var user = base.GetSingle(predicate);
+	        Entities.Entry(user).Collection(u => u.Groups).Load();
+	        return user;
+	    }
+
+	    /// <summary>
 		/// Authenticates username and password.
 		/// </summary>
 		/// <param name="userName">username</param>
@@ -61,7 +69,6 @@ namespace MonackFr.Mvc.Repositories
 				int groupId = groups[i].Id; //Linq to entities can't handle array references
 				Group group = Entities.Groups.FirstOrDefault<Group>(g => g.Id == groupId);
 				user.Groups.Add(group);
-				this.Save();
 			}
 		}
 
@@ -74,8 +81,6 @@ namespace MonackFr.Mvc.Repositories
 				Group group = groups[i];
 				user.Groups.Remove(group);
 			}
-
-			this.Save();
 		}
 	}
 }

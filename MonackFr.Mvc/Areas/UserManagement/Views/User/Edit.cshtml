@@ -14,6 +14,17 @@
                 <input type="email" ng-model="editUserCtrl.user.Email" />
             </li>
             <li>
+                <label>Groups</label>
+                <ul>
+                    <li ng-repeat="group in editUserCtrl.user.Groups">
+                        <input type="checkbox"
+                               name="selectedGroups[]"
+                               value="{{group.Name}}"
+                               ng-model="group.Selected"> {{group.Name}}
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <input type="submit" name="submit" value="Save user" />
             </li>
         </ul>

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using System.Net.Http;
 using MonackFr.Mvc.Areas.UserManagement.ViewModels;
 using System.Net;
+using MonackFr.Mvc.Repositories;
 
 namespace MonackFr.Mvc.Areas.UserManagement.Api
 {
@@ -11,10 +13,15 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         #region private properties
 
         /// <summary>
-        /// The repository
+        /// The user repository
         /// </summary>
-        private Repositories.IUserRepository _repository;
-        
+        private IUserRepository _userRepository;
+
+        /// <summary>
+        /// The group repository
+        /// </summary>
+        private IGroupRepository _groupRepository;
+
         #endregion //private properties
 
         #region constructors
@@ -23,17 +30,19 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         /// Default constructor
         /// </summary>
         public UsersApiController()
-            : this(new Repositories.UserRepository())
+            : this(new UserRepository(), new GroupRepository())
         {
         }
 
         /// <summary>
-        /// Constructor with custom repository
+        /// Constructor with custom userRepository
         /// </summary>
-        /// <param name="repository"></param>
-        public UsersApiController(Repositories.IUserRepository repository)
+        /// <param name="userRepository"></param>
+        /// <param name="groupRepository"></param>
+        public UsersApiController(IUserRepository userRepository, IGroupRepository groupRepository)
         {
-            _repository = repository;
+            _userRepository = userRepository;
+            _groupRepository = groupRepository;
         }
 
         #endregion //constructors
@@ -45,8 +54,7 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         public IHttpActionResult Get()
         {
             var mapper = AutoMapperConfig.Mapper;
-            var users = mapper.Map<List<User>>(_repository.GetAll());
-
+            var users = mapper.Map<List<User>>(_userRepository.GetAll().ToList());
             return Ok(users);
         }
 
@@ -58,7 +66,13 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         public IHttpActionResult Get(int id)
         {
             var mapper = AutoMapperConfig.Mapper;
-            var user = mapper.Map<User>(_repository.GetSingle(u =>u.Id == id));
+            var entityUser = _userRepository.GetSingle(u => u.Id == id);
+            
+            var user = mapper.Map<User>(entityUser);
+            user.Groups = mapper.Map<IEnumerable<Group>>(_groupRepository.GetAll().ToList());
+
+            foreach (Group group in user.Groups)
+                group.Selected = entityUser.Groups.Select(g => g.Name).Contains(group.Name);
 
             return Ok(user);
         }
@@ -70,8 +84,8 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         public void Post(User user)
         {
             var mapper = AutoMapperConfig.Mapper;
-            _repository.Create(mapper.Map<Entities.User>(user));
-            _repository.Save();
+            _userRepository.Create(mapper.Map<Entities.User>(user));
+            _userRepository.Save();
         }
 
         /// <summary>
@@ -81,10 +95,19 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         public void Put(User user)
         {
             var mapper = AutoMapperConfig.Mapper;
-            var userToUpdate = _repository.GetSingle(u => u.Id == user.Id);
+            var userToUpdate = _userRepository.GetSingle(u => u.Id == user.Id);
             mapper.Map(user, userToUpdate);
-            _repository.Edit(userToUpdate);
-            _repository.Save();
+            _userRepository.Edit(userToUpdate);
+
+            _userRepository.RemoveAllGroupsFromUser(userToUpdate);
+
+            var selectedGroups = from g2 in user.Groups where g2.Selected select g2.Name;
+            var groups = from g in _groupRepository.GetAll()
+                         where selectedGroups.Contains(g.Name)
+                         select g;
+            _userRepository.AddGroupsToUser(userToUpdate, groups.ToArray());
+            
+            _userRepository.Save();
         }
 
         /// <summary>
@@ -95,9 +118,9 @@ namespace MonackFr.Mvc.Areas.UserManagement.Api
         [HttpDelete]
         public HttpResponseMessage Delete(int id)
         {
-            var userToDelete = _repository.GetSingle(u => u.Id == id);
-            _repository.Delete(userToDelete);
-            _repository.Save();
+            var userToDelete = _userRepository.GetSingle(u => u.Id == id);
+            _userRepository.Delete(userToDelete);
+            _userRepository.Save();
             return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
